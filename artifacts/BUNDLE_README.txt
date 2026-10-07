@@ -1,4 +1,4 @@
-Code and data replication bundle v1 - 7 October 2026
+Code and data replication bundle 1.0.0 - 7 October 2026
 
 Scope
 This local bundle contains study code, recorded model requests/responses, generated tests,
@@ -53,7 +53,8 @@ remain for interpreting the experiments.
 
 Licensing and attribution
 Third-party source notices remain with vendor sources; installed probe package
-licenses are also copied to THIRD_PARTY. Original research code/data have not yet
-been assigned a distribution license by the authors. This archive does not change
+licenses are also copied to THIRD_PARTY. Original research software is MIT-licensed and original research data
+is CC BY 4.0, within the authors' rights. See LICENSE_NOTICE.txt and LICENSES/
+for exact scope; embedded and copied third-party material keeps its own terms. This archive does not change
 third-party license terms or imply that the authors own the included projects.
 See notes/related_work_verification_v2.json for literature sources.

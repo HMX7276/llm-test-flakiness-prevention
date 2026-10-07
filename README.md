@@ -9,7 +9,7 @@ of demonstrated superiority or a published journal article.
 - `methods/`: preprocessing implementation.
 - `runner/`, `configs/`, `prompts/`: experimental orchestration and settings.
 - `analysis/`: result aggregation and comparison audits.
-- `artifacts/replication_code_data_v1.zip`: complete prepared evidence bundle with original
+- `artifacts/replication_code_data_v1.0.0.zip`: complete prepared evidence bundle with original
   requests, generated tests, execution results, human labels, adjudications,
   source snapshots, third-party notices and a hash manifest.
 
@@ -61,9 +61,11 @@ This research received no specific grant from any funding agency in the public,
 commercial, or not-for-profit sectors. We acknowledge the large language model
 API platform of China Science and Technology Cloud for free API access.
 
-Original-material licensing has not yet been selected by the authors. Public
-availability does not grant an MIT or CC BY license. Third-party terms remain
-unchanged; see `LICENSE_NOTICE.txt` and the bundle's third-party notices.
+Original research software is licensed under **MIT**; original research data
+is licensed under **CC BY 4.0**, within the authors' rights. These are separate
+component licenses, not blanket relicensing of the archive. See
+`LICENSE_NOTICE.txt`, `LICENSES/`, and the bundle's third-party notices.
+Third-party source and embedded excerpts retain their original terms.
 Earlier lithoxyl full-source reproduction requires pinned upstream retrieval,
 as explained in the bundle. The archive is not a fully offline reproduction of
 every historical development environment.

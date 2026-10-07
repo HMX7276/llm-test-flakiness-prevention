@@ -1,11 +1,17 @@
 {
-  "source_archive_sha256": "e5ed80ed18123e566f0ab16fee54e42883bd66c2c86f212a03db7b45692c0298",
-  "archive_sha256": "e8db2545244fde5eef9a2ab497c70ef4589ffa145a96178e56038f992897d748",
-  "archive_bytes": 42008948,
-  "files_in_manifest": 53491,
-  "excluded_count": 55,
-  "manuscripts_included": false,
-  "author_metadata_included": false,
+  "version": "1.0.0",
+  "archive_name": "replication_code_data_v1.0.0.zip",
+  "archive_sha256": "69c4549c1a5b8469ca1cf8fbdf733969f8ac73e3e615a62d54a3c46b4b1ffd21",
+  "archive_md5": "a46ead422619b2117cd7abefa449a202",
+  "archive_bytes": 42017095,
+  "manifest_files": 53494,
+  "unchanged_original_files": 53490,
+  "frozen_dependencies_verified": true,
   "known_credential_hits": 0,
-  "public_license": "Not assigned; third-party terms preserved"
+  "licenses": {
+    "original_software": "MIT",
+    "original_research_data": "CC-BY-4.0",
+    "third_party": "Original terms unchanged"
+  },
+  "doi": null
 }

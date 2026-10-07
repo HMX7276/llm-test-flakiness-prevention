@@ -1,4 +1,33 @@
-Original code and research data: no distribution/reuse license has yet been selected by the authors.
-No MIT, CC BY, or other blanket license is granted by this repository.
-Third-party source and notices in the replication bundle retain their own licenses.
-Publication does not transfer ownership of upstream projects to the study authors.
+License scope for code-and-data release 1.0.0
+
+The authors approved these licenses on 7 October 2026. These are separate
+licenses for different components, not a choice of either license for every file.
+
+1. Original research software and its associated documentation: MIT.
+   See LICENSES/MIT.txt. This includes original orchestration, preprocessing,
+   analysis and verification software in methods/, runner/, analysis/, tests/,
+   tools/, plus original configuration and prompt templates. Copied or adapted
+   third-party source within those materials remains subject to its own terms.
+
+2. Original research data: Creative Commons Attribution 4.0 International.
+   See LICENSES/CC-BY-4.0.txt and https://creativecommons.org/licenses/by/4.0/.
+   This applies to the authors' original measurements, labels, adjudications,
+   result tables, selection metadata and original dataset compilation, to the
+   extent the authors hold rights in those materials. Cite the research team's
+   code/data record, retain attribution and license notices, and identify changes.
+
+3. Third-party material: original terms apply, not the licenses above.
+   This includes vendor/, THIRD_PARTY/, upstream project snapshots in runs/,
+   copied target modules, adapted upstream tests and embedded source excerpts in
+   JSON or other records. Retain their project/version provenance and notices.
+   LICENSES/MIT.txt does not relicense upstream code. CC BY 4.0 does not grant
+   rights to embedded third-party content or rights the authors do not possess.
+   Generated model outputs are released as recorded experimental artifacts;
+   no blanket ownership claim over third-party content in outputs is made.
+
+Data facts may not themselves be copyrightable. These licenses do not restrict
+uses that do not require permission. No license here applies to a manuscript,
+API credential, model weights, or a provider's service. None is included.
+
+Historical READMEs or logs may describe license selection as pending at the time;
+this release's LICENSE_NOTICE.txt and LICENSES/ files state the current grant.
