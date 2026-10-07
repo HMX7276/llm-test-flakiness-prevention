@@ -1,0 +1,36 @@
+cff-version: 1.2.0
+message: "Please cite this software and data archive when reusing these research artifacts."
+type: software
+title: "Code and data: An exploratory study of flakiness transfer in LLM test generation"
+version: "1.0.0"
+doi: "10.5281/zenodo.23209519"
+date-released: 2026-10-07
+repository-code: "https://github.com/HMX7276/llm-test-flakiness-prevention"
+authors:
+  - family-names: "He"
+    given-names: "Lingui"
+  - family-names: "Zhao"
+    given-names: "Hongjiang"
+  - family-names: "Yang"
+    given-names: "Wenbo"
+  - family-names: "Yang"
+    given-names: "Jiajie"
+  - family-names: "Ma"
+    given-names: "Hanxiang"
+  - family-names: "Ma"
+    given-names: "Xin"
+  - family-names: "Guo"
+    given-names: "Xinhui"
+  - family-names: "FU"
+    given-names: "Lijun"
+license:
+  - MIT
+  - CC-BY-4.0
+abstract: "Exploratory research code and experimental data. MIT covers original software and CC BY 4.0 covers original research data, within the authors' rights; third-party terms remain unchanged. See LICENSE_NOTICE.txt for scope."
+keywords:
+  - "LLM test generation"
+  - "flaky tests"
+  - "test effectiveness"
+  - "example preprocessing"
+  - "replication package"
+  - "execution gates"

@@ -25,8 +25,12 @@ python analysis/audit_gate_comparison_v1.py
 Neither command calls a model or requires an API key. See `README.txt` inside the
 ZIP for pinned dependencies and a clean-directory six-execution smoke check.
 This repository distributes code and experimental data only. Manuscript drafts,
-author metadata and paper source files are excluded. The original experimental
-records are unchanged. No archive DOI exists yet.
+paper-specific author metadata and paper source files are excluded. `CITATION.cff`
+identifies the artifact creators for attribution. The original experimental
+records are unchanged. Version 1.0.0 is archived at
+[Zenodo, DOI 10.5281/zenodo.23209519](https://doi.org/10.5281/zenodo.23209519).
+Zenodo uses TAR.XZ compression and GitHub uses ZIP; all 53,495 archive members
+are byte-identical, including the hash manifest. See `CITATION.cff` for citation.
 
 ## What the data represent
 
