@@ -1,0 +1,2656 @@
+{
+  "schema": "human-semantic-reconciliation-v1",
+  "source_sha256": "e3aa643e2dfcc300f7923721ec9fdd062609ad3ccd9bf2f6b31bebb00528ae26",
+  "source_archive": "review\\semantic_v1\\returned\\e3aa643e2dfcc300f7923721ec9fdd062609ad3ccd9bf2f6b31bebb00528ae26.json",
+  "reviewer": "何林贵",
+  "exported_at": "2026-10-05T02:50:33.323Z",
+  "imported_utc": "2026-10-05T02:56:23.403699+00:00",
+  "complete_received": 60,
+  "partial": 0,
+  "not_returned": [],
+  "verified_code_hashes": 60,
+  "raw_label_counts": {
+    "correctness": {
+      "correct": 47,
+      "incorrect": 13
+    },
+    "robustness": {
+      "robust": 45,
+      "fragile": 15
+    },
+    "adequacy": {
+      "meaningful": 50,
+      "weak_or_masked": 10
+    }
+  },
+  "by_run": {
+    "development_v1": {
+      "received": 48,
+      "correctness": {
+        "correct": 39,
+        "incorrect": 9
+      },
+      "robustness": {
+        "robust": 36,
+        "fragile": 12
+      },
+      "adequacy": {
+        "meaningful": 40,
+        "weak_or_masked": 8
+      },
+      "effective_label_counts": {
+        "correctness": {
+          "correct": 35,
+          "incorrect": 13
+        },
+        "robustness": {
+          "robust": 35,
+          "fragile": 13
+        },
+        "adequacy": {
+          "meaningful": 40,
+          "weak_or_masked": 8
+        }
+      }
+    },
+    "development_v1_import_sensitivity": {
+      "received": 12,
+      "correctness": {
+        "incorrect": 4,
+        "correct": 8
+      },
+      "robustness": {
+        "fragile": 3,
+        "robust": 9
+      },
+      "adequacy": {
+        "meaningful": 10,
+        "weak_or_masked": 2
+      },
+      "effective_label_counts": {
+        "correctness": {
+          "incorrect": 4,
+          "correct": 8
+        },
+        "robustness": {
+          "fragile": 3,
+          "robust": 9
+        },
+        "adequacy": {
+          "meaningful": 10,
+          "weak_or_masked": 2
+        }
+      }
+    }
+  },
+  "effective_label_counts": {
+    "correctness": {
+      "correct": 43,
+      "incorrect": 17
+    },
+    "robustness": {
+      "robust": 44,
+      "fragile": 16
+    },
+    "adequacy": {
+      "meaningful": 50,
+      "weak_or_masked": 10
+    }
+  },
+  "pending_label_confirmation": [],
+  "proposed_changes_applied": true,
+  "confirmed_changes": [
+    "R003",
+    "R025",
+    "R039",
+    "R052",
+    "R060"
+  ],
+  "raw_labels_unchanged": true,
+  "adjudication_status": "resolved",
+  "adjudication_evidence": "review\\semantic_v1\\adjudications\\2026-10-05_confirmed_five.json",
+  "scope_review_ids": [
+    "R013",
+    "R016",
+    "R024",
+    "R034",
+    "R042",
+    "R050",
+    "R054"
+  ],
+  "reason_notes": [
+    {
+      "review_id": "R021",
+      "status": "assistant_correction_to_reason_only",
+      "note": "incorrect 标签有依据。理由中关于 statistics.skew 的解释不准确：当前 Python 标准库 statistics 没有 skew 或 kurtosis；补上 import statistics 后仍会 AttributeError，不是该标准库函数返回了校正偏度。原始理由保留。"
+    },
+    {
+      "review_id": "R011",
+      "status": "additional_evidence",
+      "note": "incorrect 标签有依据，人工发现了错误高阶矩期望；原代码还存在 lithoxyl 根模块导入错误，原执行在收集阶段失败。不能把数学分析写成已执行到高阶矩断言。"
+    },
+    {
+      "review_id": "R042",
+      "status": "text_appears_truncated",
+      "note": "理由结束于“首个断言”，可能未写完；已有明确的注册表依赖解释及三个标签，仍按完整提交计数，不推断缺失句子。"
+    },
+    {
+      "review_id": "R047",
+      "status": "human_interpretation_retained",
+      "note": "人工认为直接设置 last_event 后的真实 send 断言仍有意义。保留 meaningful，记录未覆盖构造与 sync，不能据此宣称覆盖完整。"
+    }
+  ],
+  "rules_v2_human_review_status": {
+    "completed": {
+      "fishbase_gen_random_str_001": {
+        "verdict": "preserved",
+        "evidence": "review\\rules_v2\\accepted\\fishbase_gen_random_str_001_2026-10-05.json"
+      },
+      "randomfiletree_random_string_001": {
+        "verdict": "preserved",
+        "evidence": "review\\rules_v2\\accepted\\randomfiletree_random_string_001_2026-10-05.json"
+      },
+      "tale_topic_idle_time_001": {
+        "verdict": "preserved",
+        "evidence": "review\\rules_v2\\accepted\\tale_topic_idle_time_001_2026-10-05.json"
+      }
+    },
+    "pending": [],
+    "status": "complete"
+  },
+  "development_v2_generated_tests_human_review_status": {
+    "scope": "separate_packet",
+    "completed_received": 36,
+    "adjudication_status": "facts_clarified_adjudication_held_by_user"
+  },
+  "agreement_coefficient": null,
+  "limitations": [
+    "One human reviewer; assistant is not a second human.",
+    "These are development labels, not a formal held-out evaluation.",
+    "Submitted labels and confirmed adjudications are distinct.",
+    "No recalculation or pooling of frozen experimental outcomes."
+  ],
+  "rows": [
+    {
+      "review_id": "R001",
+      "run": "development_v1",
+      "output": "d010",
+      "target": "penman.graph.Graph.variables",
+      "code_path": "runs\\development_v1\\outputs\\d010\\test_generated.py",
+      "code_sha256": "af18899a490cc73a6c4e0008d0a1742188e015a7b51cbf6e65c8d843d02fbe1b",
+      "human_raw": {
+        "review_id": "R001",
+        "code_sha256": "af18899a490cc73a6c4e0008d0a1742188e015a7b51cbf6e65c8d843d02fbe1b",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T01:44:35.558Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试实际调用了 Graph.variables()，符合题目中“返回所有源标识符，并包含显式指定的 top”的契约，预期结果为 {'x', 'z'}。通过成员断言和长度断言，验证了源标识符与显式 top 均被包含，同时排除了额外元素；测试不依赖集合顺序、随机状态或时间，也没有替换目标方法。"
+      },
+      "assistant_frozen": {
+        "review_id": "R001",
+        "ai_verdict": "provisionally_sound",
+        "ai_reason": "Assistant source/contract inspection found no specific semantic defect; coverage and adequacy remain separate. Human confirmation required.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d010\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "R002",
+      "run": "development_v1_import_sensitivity",
+      "output": "d033",
+      "target": "tale.pubsub.Topic.idle_time",
+      "code_path": "runs\\development_v1_import_sensitivity\\outputs\\d033\\test_generated.py",
+      "code_sha256": "46c2553820a809a4f0f76b90e84bc6b179d3cd90bb399a2c9d10bb0848f89bbf",
+      "human_raw": {
+        "review_id": "R002",
+        "code_sha256": "46c2553820a809a4f0f76b90e84bc6b179d3cd90bb399a2c9d10bb0848f89bbf",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T01:46:52.978Z",
+        "robustness": "fragile",
+        "adequacy": "meaningful",
+        "reason": "测试使用了 types.SimpleNamespace，但未导入 types，会触发 NameError。固定 topic 名称且未清理进程共享注册表，可能复用其他测试留下的 Topic，受已有事件和订阅者影响。补齐导入并隔离注册表状态后，模拟时钟和预期值符合契约；测试实际调用 send、sync 和 idle_time，仅替换外部时钟，断言有意义。"
+      },
+      "assistant_frozen": {
+        "review_id": "R002",
+        "ai_verdict": "invalid",
+        "ai_reason": "Unimported types used for SimpleNamespace.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "persistent_failure",
+        "counts": {
+          "fail": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1_import_sensitivity\\outputs\\d033\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "incorrect",
+        "robustness": "fragile",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "R003",
+      "run": "development_v1",
+      "output": "d011",
+      "target": "tale.pubsub.Topic.idle_time",
+      "code_path": "runs\\development_v1\\outputs\\d011\\test_generated.py",
+      "code_sha256": "d6616ededb740b80a467630b448cbada3453af8372af2ea6d92bd8c0ea4c3994",
+      "human_raw": {
+        "review_id": "R003",
+        "code_sha256": "d6616ededb740b80a467630b448cbada3453af8372af2ea6d92bd8c0ea4c3994",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T01:54:54.694Z",
+        "robustness": "fragile",
+        "adequacy": "meaningful",
+        "reason": "先 monkeypatch 时间，再创建 topic；并确保 topic 是新建且最终清理。\n当前待核验测试若单独运行，第一个 assert t.idle_time == 0.0 很可能直接失败。"
+      },
+      "assistant_frozen": {
+        "review_id": "R003",
+        "ai_verdict": "invalid",
+        "ai_reason": "Clock substitution occurs after creation; last_event retains real time.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "persistent_failure",
+        "counts": {
+          "fail": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d011\\evaluation\\summary.json",
+      "adjudication_status": "confirmed_by_human_after_discussion",
+      "assistant_proposal": {
+        "field": "correctness",
+        "proposed": "incorrect",
+        "reason": "原代码先创建 topic 再替换时钟，首个 idle_time == 0.0 不成立；原执行 30/30 fail。人工理由也指出会失败，但标签为 correct。评价应针对未修改原代码。"
+      },
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "incorrect",
+        "robustness": "fragile",
+        "adequacy": "meaningful"
+      },
+      "adjudication_evidence": "review\\semantic_v1\\adjudications\\2026-10-05_confirmed_five.json"
+    },
+    {
+      "review_id": "R004",
+      "run": "development_v1",
+      "output": "d023",
+      "target": "lithoxyl.moment.MomentAccumulator.add",
+      "code_path": "runs\\development_v1\\outputs\\d023\\test_generated.py",
+      "code_sha256": "bb808e84a3c79b1483db01a0ba8cf87c342febe24b4cce7c9d25d4c7b03e2325",
+      "human_raw": {
+        "review_id": "R004",
+        "code_sha256": "bb808e84a3c79b1483db01a0ba8cf87c342febe24b4cce7c9d25d4c7b03e2325",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T01:57:38.015Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试用真实 MomentAccumulator.add 添加 5.0、7.0，验证 count=2、mean=6.0、样本方差 2.0、std_dev=sqrt(2)，符合契约中 n-1 方差定义；使用 pytest.approx 合理处理浮点误差，无全局状态、时间或顺序依赖，且未替换实现。仅未覆盖 skewness/kurtosis 和空/单值状态，但对该 add 核心效果的验证是有效且有意义的。"
+      },
+      "assistant_frozen": {
+        "review_id": "R004",
+        "ai_verdict": "provisionally_sound",
+        "ai_reason": "Assistant source/contract inspection found no specific semantic defect; coverage and adequacy remain separate. Human confirmation required.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d023\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "R005",
+      "run": "development_v1_import_sensitivity",
+      "output": "d017",
+      "target": "lithoxyl.moment.MomentAccumulator.add",
+      "code_path": "runs\\development_v1_import_sensitivity\\outputs\\d017\\test_generated.py",
+      "code_sha256": "d0183588614ce3d2614eaa96e207a9e7f0bd98e19c64b148caa29914c2254578",
+      "human_raw": {
+        "review_id": "R005",
+        "code_sha256": "d0183588614ce3d2614eaa96e207a9e7f0bd98e19c64b148caa29914c2254578",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T02:01:16.851Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试真实调用 add(5.0)，验证单值下 count=1、mean=5.0，以及 variance/std_dev/skewness/kurtosis 按源码契约返回 -0.0 或 0.0；无外部状态、时间或顺序依赖，未替换实现，断言覆盖了单值场景的关键公共属性，因此有效且可靠。\n\n"
+      },
+      "assistant_frozen": {
+        "review_id": "R005",
+        "ai_verdict": "provisionally_sound",
+        "ai_reason": "Assistant source/contract inspection found no specific semantic defect; coverage and adequacy remain separate. Human confirmation required.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1_import_sensitivity\\outputs\\d017\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "R006",
+      "run": "development_v1",
+      "output": "d038",
+      "target": "penman.graph.Graph.variables",
+      "code_path": "runs\\development_v1\\outputs\\d038\\test_generated.py",
+      "code_sha256": "36581da21a8d12151dd5c26bfa3401f1836df5f187cea3cb829e1873faf96a18",
+      "human_raw": {
+        "review_id": "R006",
+        "code_sha256": "36581da21a8d12151dd5c26bfa3401f1836df5f187cea3cb829e1873faf96a18",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T02:06:59.798Z",
+        "robustness": "robust",
+        "adequacy": "weak_or_masked",
+        "reason": "按目标源码，variables() 只收集三元组中的 source 和显式 top，不包含 target。给定 triples=[('x', ':ARG0', 'y')]、top='z'，结果应为 {'x', 'z'}，而测试却断言 'y' in result，因此期望错误；测试本身无外部状态依赖，会确定性地失败，但断言掩盖了真实契约。"
+      },
+      "assistant_frozen": {
+        "review_id": "R006",
+        "ai_verdict": "invalid",
+        "ai_reason": "Treats target-only identifier y as a graph source variable.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "persistent_failure",
+        "counts": {
+          "fail": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d038\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "incorrect",
+        "robustness": "robust",
+        "adequacy": "weak_or_masked"
+      }
+    },
+    {
+      "review_id": "R007",
+      "run": "development_v1",
+      "output": "d027",
+      "target": "penman.graph.Graph.variables",
+      "code_path": "runs\\development_v1\\outputs\\d027\\test_generated.py",
+      "code_sha256": "21ba1437e835133a0aed3e947ce5400d1c639b7be3dfde5e08543aa8d8655853",
+      "human_raw": {
+        "review_id": "R007",
+        "code_sha256": "21ba1437e835133a0aed3e947ce5400d1c639b7be3dfde5e08543aa8d8655853",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T02:07:20.525Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "按契约，variables() 只收集三元组的 source 和显式 top。测试中 source 为 'a'、'b'，top='c'，结果应为 {'a', 'b', 'c'}，断言正确；集合比较与顺序无关，无外部状态依赖，且真实调用 Graph.variables()，未替换实现，断言完整且有效。"
+      },
+      "assistant_frozen": {
+        "review_id": "R007",
+        "ai_verdict": "provisionally_sound",
+        "ai_reason": "Assistant source/contract inspection found no specific semantic defect; coverage and adequacy remain separate. Human confirmation required.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d027\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "R008",
+      "run": "development_v1",
+      "output": "d025",
+      "target": "lithoxyl.moment.MomentAccumulator.add",
+      "code_path": "runs\\development_v1\\outputs\\d025\\test_generated.py",
+      "code_sha256": "becc23c34a58f2863dd45a1616a4071e1e5e4b10660fb1210ea57f8a73399feb",
+      "human_raw": {
+        "review_id": "R008",
+        "code_sha256": "becc23c34a58f2863dd45a1616a4071e1e5e4b10660fb1210ea57f8a73399feb",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T02:07:48.859Z",
+        "robustness": "robust",
+        "adequacy": "weak_or_masked",
+        "reason": "测试真实调用 add，count、mean、样本 variance、std_dev 的期望正确；但按源码公式，该数据的 m2=32、m3=42、m4=356，skewness = sqrt(8)*42 / 32**1.5 ≈ 0.65625，不是 0.408248；kurtosis = 8*356 / 32**2 = 2.78125，不是 2.0。因此断言与目标契约不符，会失败；测试无外部状态依赖，但错误期望掩盖了真实统计量行为。"
+      },
+      "assistant_frozen": {
+        "review_id": "R008",
+        "ai_verdict": "invalid",
+        "ai_reason": "Expected skewness and kurtosis constants do not match finite sample formulas.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "persistent_failure",
+        "counts": {
+          "fail": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d025\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "incorrect",
+        "robustness": "robust",
+        "adequacy": "weak_or_masked"
+      }
+    },
+    {
+      "review_id": "R009",
+      "run": "development_v1",
+      "output": "d012",
+      "target": "penman.graph.Graph.variables",
+      "code_path": "runs\\development_v1\\outputs\\d012\\test_generated.py",
+      "code_sha256": "60025a6e2cc48b63dee5125479e510d583693d24fd92d317ec84d7e4de542a4d",
+      "human_raw": {
+        "review_id": "R009",
+        "code_sha256": "60025a6e2cc48b63dee5125479e510d583693d24fd92d317ec84d7e4de542a4d",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T02:08:06.308Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试构造的 triples 中 source 为 'x'、'y'，显式 top='x'，按契约 variables() 应返回 {'x', 'y'}，断言正确；集合比较与顺序无关，无外部状态或时间依赖，且真实调用目标方法，未替换实现，断言完整有效。\n\n"
+      },
+      "assistant_frozen": {
+        "review_id": "R009",
+        "ai_verdict": "provisionally_sound",
+        "ai_reason": "Assistant source/contract inspection found no specific semantic defect; coverage and adequacy remain separate. Human confirmation required.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d012\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "R010",
+      "run": "development_v1",
+      "output": "d039",
+      "target": "penman.graph.Graph.variables",
+      "code_path": "runs\\development_v1\\outputs\\d039\\test_generated.py",
+      "code_sha256": "c95562b914627b50c7aac3e26d943bb9a2b5e3fdd6e3ce332221b585b4b6bea2",
+      "human_raw": {
+        "review_id": "R010",
+        "code_sha256": "c95562b914627b50c7aac3e26d943bb9a2b5e3fdd6e3ce332221b585b4b6bea2",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T02:08:33.686Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "triples 的 source 为 'x'、'x'、'y'，显式 top='x'，按契约 variables() 应返回去重后的 {'x', 'y'}；测试断言了返回类型为 set 且集合相等，真实调用目标方法，无外部状态或顺序依赖，覆盖了重复 source 与 top 已存在的情况，因此有效可靠。"
+      },
+      "assistant_frozen": {
+        "review_id": "R010",
+        "ai_verdict": "provisionally_sound",
+        "ai_reason": "Assistant source/contract inspection found no specific semantic defect; coverage and adequacy remain separate. Human confirmation required.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d039\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "R011",
+      "run": "development_v1",
+      "output": "d018",
+      "target": "lithoxyl.moment.MomentAccumulator.add",
+      "code_path": "runs\\development_v1\\outputs\\d018\\test_generated.py",
+      "code_sha256": "07744d9614b621d0f1790d09f91ed573721d91a801e8b0a48a6d741d009fc123",
+      "human_raw": {
+        "review_id": "R011",
+        "code_sha256": "07744d9614b621d0f1790d09f91ed573721d91a801e8b0a48a6d741d009fc123",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T02:09:17.594Z",
+        "robustness": "robust",
+        "adequacy": "weak_or_masked",
+        "reason": "按源码公式和给定数据计算，mean=-3.6、variance=5.8、std_dev≈2.408 正确；但 m2=23.2、m3=-20.16、m4=189.856，所以 skewness = sqrt(5)*(-20.16)/(23.2**1.5) ≈ -0.4034，不是 -0.5222329678670935；kurtosis = 5*189.856/(23.2**2) ≈ 1.7637，不是 1.8。测试无状态或顺序依赖，但错误期望掩盖了真实统计量行为。"
+      },
+      "assistant_frozen": {
+        "review_id": "R011",
+        "ai_verdict": "invalid",
+        "ai_reason": "Wrong import path; further numeric assertions need independent review.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "collection_failure",
+        "counts": {},
+        "executions": 0
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d018\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "incorrect",
+        "robustness": "robust",
+        "adequacy": "weak_or_masked"
+      }
+    },
+    {
+      "review_id": "R012",
+      "run": "development_v1",
+      "output": "d020",
+      "target": "tale.pubsub.Topic.idle_time",
+      "code_path": "runs\\development_v1\\outputs\\d020\\test_generated.py",
+      "code_sha256": "4cf05b39f970f6bbbc38fcf9e15a0589466bdbe2c8afcf394330c9ba412f6086",
+      "human_raw": {
+        "review_id": "R012",
+        "code_sha256": "4cf05b39f970f6bbbc38fcf9e15a0589466bdbe2c8afcf394330c9ba412f6086",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T02:09:49.897Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试在 monkeypatch 外部时钟后调用 send，send 会使用被替换的 time.time() 更新 last_event，因此 idle_time 依次为 0.0、5.0、0.0，符合契约；未替换 Topic 方法或 idle_time，仅替换允许的时钟依赖。测试自身可重复，但未清理全局 topic，可能对其他测试有轻微污染；不过对本测试的断言无影响。\n\n"
+      },
+      "assistant_frozen": {
+        "review_id": "R012",
+        "ai_verdict": "provisionally_sound",
+        "ai_reason": "Assistant source/contract inspection found no specific semantic defect; coverage and adequacy remain separate. Human confirmation required.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d020\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "R013",
+      "run": "development_v1_import_sensitivity",
+      "output": "d001",
+      "target": "tale.pubsub.Topic.idle_time",
+      "code_path": "runs\\development_v1_import_sensitivity\\outputs\\d001\\test_generated.py",
+      "code_sha256": "becc6c5ac9e3816044a0af920cdc82ac8ab4c8b8ad292892e44e1ce8fa97d0b0",
+      "human_raw": {
+        "review_id": "R013",
+        "code_sha256": "becc6c5ac9e3816044a0af920cdc82ac8ab4c8b8ad292892e44e1ce8fa97d0b0",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T02:10:21.557Z",
+        "robustness": "fragile",
+        "adequacy": "meaningful",
+        "reason": "若该 topic 是新建的，monkeypatch 时钟后 last_event 会设为 base_time，推进到 +5.0 时 idle_time=5.0，send 后重置，再推进 0.1 得 0.1，断言与契约一致；测试真实调用 send 和 idle_time，未替换实现。但它没有确保 topic(test_name) 一定是新建实例，全局注册表里若已有同名 topic，last_event 不会按预期重置，且失败时不会执行 destroy() 清理，因此对测试顺序/残留状态存在依赖。\n\n"
+      },
+      "assistant_frozen": {
+        "review_id": "R013",
+        "ai_verdict": "provisionally_sound",
+        "ai_reason": "Assistant source/contract inspection found no specific semantic defect; coverage and adequacy remain separate. Human confirmation required.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1_import_sensitivity\\outputs\\d001\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": "人工指出共享 topic 注册表的套件组合/重跑风险；保留 fragile。原主协议为独立进程，30/30 pass 不反驳此风险。",
+      "human_effective_labels": {
+        "correctness": "correct",
+        "robustness": "fragile",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "R014",
+      "run": "development_v1_import_sensitivity",
+      "output": "d008",
+      "target": "penman.graph.Graph.variables",
+      "code_path": "runs\\development_v1_import_sensitivity\\outputs\\d008\\test_generated.py",
+      "code_sha256": "2eb30953b0ee01f55e3816e720d62513ebe869c0efdd07185640d1c33d690251",
+      "human_raw": {
+        "review_id": "R014",
+        "code_sha256": "2eb30953b0ee01f55e3816e720d62513ebe869c0efdd07185640d1c33d690251",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T02:10:40.923Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "空 triples 且显式 top=\"x\" 时，按源码 variables() 只加入 top，返回 {\"x\"}，断言正确；无外部状态、顺序或时间依赖，真实调用目标方法且未替换实现，验证了空三元组加显式 top 的边界行为。"
+      },
+      "assistant_frozen": {
+        "review_id": "R014",
+        "ai_verdict": "provisionally_sound",
+        "ai_reason": "Assistant source/contract inspection found no specific semantic defect; coverage and adequacy remain separate. Human confirmation required.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1_import_sensitivity\\outputs\\d008\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "R015",
+      "run": "development_v1",
+      "output": "d022",
+      "target": "penman.graph.Graph.variables",
+      "code_path": "runs\\development_v1\\outputs\\d022\\test_generated.py",
+      "code_sha256": "99627a777dec034daafc5f39bd669e9ed27f97618ec3ff39192e0022ec113d84",
+      "human_raw": {
+        "review_id": "R015",
+        "code_sha256": "99627a777dec034daafc5f39bd669e9ed27f97618ec3ff39192e0022ec113d84",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T02:11:00.523Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "triples 的 source 为 'x'、'x'、'y'，显式 top='x'，按契约 variables() 返回去重后的 {'x', 'y'}，断言正确；同时验证返回类型为 set，集合比较不受顺序影响，无外部状态或时间依赖，真实调用目标方法且未替换实现，覆盖了重复 source 与 top 已存在的情况。\n\n"
+      },
+      "assistant_frozen": {
+        "review_id": "R015",
+        "ai_verdict": "provisionally_sound",
+        "ai_reason": "Assistant source/contract inspection found no specific semantic defect; coverage and adequacy remain separate. Human confirmation required.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d022\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "R016",
+      "run": "development_v1",
+      "output": "d009",
+      "target": "tale.pubsub.Topic.idle_time",
+      "code_path": "runs\\development_v1\\outputs\\d009\\test_generated.py",
+      "code_sha256": "43339ec308b8feb01a31a20a2802edd9b1411a018f7364a3fb581ebe9e566522",
+      "human_raw": {
+        "review_id": "R016",
+        "code_sha256": "43339ec308b8feb01a31a20a2802edd9b1411a018f7364a3fb581ebe9e566522",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T02:16:29.746Z",
+        "robustness": "fragile",
+        "adequacy": "meaningful",
+        "reason": "monkeypatch 的是允许的外部时钟依赖，且 topic 为新建时，构造后 idle_time=0.0，send(synchronous=True) 重置 last_event 后仍为 0.0，随后 sync() 不重置，推进 0.25 后得到 0.25，符合契约；测试真实调用 send/sync/idle_time，断言覆盖了关键边界。但未清理全局 registry 中的 'sync_idle_boundary'，若同名 topic 已存在或测试重复运行，last_event 不会按预期初始化，首个断言可能失败，因此对测试顺序和残留状态存在依赖。"
+      },
+      "assistant_frozen": {
+        "review_id": "R016",
+        "ai_verdict": "provisionally_sound",
+        "ai_reason": "Assistant source/contract inspection found no specific semantic defect; coverage and adequacy remain separate. Human confirmation required.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d009\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": "人工指出共享 topic 注册表的套件组合/重跑风险；保留 fragile。原主协议为独立进程，30/30 pass 不反驳此风险。",
+      "human_effective_labels": {
+        "correctness": "correct",
+        "robustness": "fragile",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "R017",
+      "run": "development_v1",
+      "output": "d026",
+      "target": "penman.graph.Graph.variables",
+      "code_path": "runs\\development_v1\\outputs\\d026\\test_generated.py",
+      "code_sha256": "5dadfdcefbcff7de0976b529a2d5c7019119ce8f56d756fb1190f0554290c097",
+      "human_raw": {
+        "review_id": "R017",
+        "code_sha256": "5dadfdcefbcff7de0976b529a2d5c7019119ce8f56d756fb1190f0554290c097",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T02:16:45.435Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "triples 的 source 为 'a'，显式 top='z'，按契约 variables() 应返回 {'a', 'z'}，不包含 target 'alpha'；断言正确。集合比较与顺序无关，无外部状态或时间依赖，真实调用目标方法且未替换实现，验证了显式 top 与普通 source 的组合。\n\n"
+      },
+      "assistant_frozen": {
+        "review_id": "R017",
+        "ai_verdict": "provisionally_sound",
+        "ai_reason": "Assistant source/contract inspection found no specific semantic defect; coverage and adequacy remain separate. Human confirmation required.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d026\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "R018",
+      "run": "development_v1",
+      "output": "d045",
+      "target": "tale.pubsub.Topic.idle_time",
+      "code_path": "runs\\development_v1\\outputs\\d045\\test_generated.py",
+      "code_sha256": "37d08b4fdc609357e5a29600e80e1d75e7bc6f3dcc00b3695d28fd33fa5accb5",
+      "human_raw": {
+        "review_id": "R018",
+        "code_sha256": "37d08b4fdc609357e5a29600e80e1d75e7bc6f3dcc00b3695d28fd33fa5accb5",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T02:17:04.330Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试在 send 前替换了允许的时钟依赖，send('first') 会把 last_event 重置为 100.0，随后 sync() 不重置，因此 idle_time=200.0-100.0=100.0；再次 send 后重置为 250.0，idle_time=0.0，断言符合契约。测试真实调用 send/sync/idle_time，未替换目标方法，只 monkeypatch 外部时钟，断言有效。唯一小问题是未 destroy() 清理全局 registry，可能污染其他测试，但不影响本测试自身断言。"
+      },
+      "assistant_frozen": {
+        "review_id": "R018",
+        "ai_verdict": "provisionally_sound",
+        "ai_reason": "Assistant source/contract inspection found no specific semantic defect; coverage and adequacy remain separate. Human confirmation required.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d045\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "R019",
+      "run": "development_v1",
+      "output": "d048",
+      "target": "tale.pubsub.Topic.idle_time",
+      "code_path": "runs\\development_v1\\outputs\\d048\\test_generated.py",
+      "code_sha256": "01ce4557e7b9cf75052c4182276108de2a4a8697f1692531ea8e5780b18b2d8b",
+      "human_raw": {
+        "review_id": "R019",
+        "code_sha256": "01ce4557e7b9cf75052c4182276108de2a4a8697f1692531ea8e5780b18b2d8b",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T02:17:24.361Z",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked",
+        "reason": "monkeypatch.setattr(\"tale.pubsub.time\", mock_time) 把 tale.pubsub.time 整个模块替换成了函数 mock_time，但源码中调用的是 time.time()。因此 topic('test_reset_boundary') 构造时执行 self.last_event = time.time() 会报 AttributeError，测试无法按预期运行。应改为 monkeypatch.setattr(\"tale.pubsub.time.time\", mock_time) 或替换为带 time 属性的对象。此外测试未清理全局 registry，可能影响其他测试。\n\n"
+      },
+      "assistant_frozen": {
+        "review_id": "R019",
+        "ai_verdict": "invalid",
+        "ai_reason": "Substitutes a function where implementation needs a time module with time().",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "persistent_failure",
+        "counts": {
+          "fail": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d048\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "incorrect",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked"
+      }
+    },
+    {
+      "review_id": "R020",
+      "run": "development_v1",
+      "output": "d004",
+      "target": "lithoxyl.moment.MomentAccumulator.add",
+      "code_path": "runs\\development_v1\\outputs\\d004\\test_generated.py",
+      "code_sha256": "c7781994f64c22c0558a5a36b5fe206b811d8f306f4df54f30df51c7ee3f2e1c",
+      "human_raw": {
+        "review_id": "R020",
+        "code_sha256": "c7781994f64c22c0558a5a36b5fe206b811d8f306f4df54f30df51c7ee3f2e1c",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T02:17:45.620Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "重复添加常量 5.0 后，源码中 _m2/_m3/_m4 均为 0.0，因此 variance=0.0、std_dev=0.0，而 skewness 和 kurtosis 因除零被 ArithmeticError 捕获返回 -0.0，与断言一致；测试无外部状态或顺序依赖，真实调用 add 和属性，未替换实现，覆盖了常量序列导致高阶矩不可计算的边界情况。\n\n"
+      },
+      "assistant_frozen": {
+        "review_id": "R020",
+        "ai_verdict": "provisionally_sound",
+        "ai_reason": "Assistant source/contract inspection found no specific semantic defect; coverage and adequacy remain separate. Human confirmation required.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d004\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "R021",
+      "run": "development_v1_import_sensitivity",
+      "output": "d018",
+      "target": "lithoxyl.moment.MomentAccumulator.add",
+      "code_path": "runs\\development_v1_import_sensitivity\\outputs\\d018\\test_generated.py",
+      "code_sha256": "a9238c447122ae73fdac704f06dedbc1666e9590ffdbbd7750b575cee1a7498a",
+      "human_raw": {
+        "review_id": "R021",
+        "code_sha256": "a9238c447122ae73fdac704f06dedbc1666e9590ffdbbd7750b575cee1a7498a",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T02:18:10.142Z",
+        "robustness": "robust",
+        "adequacy": "weak_or_masked",
+        "reason": "测试未导入 statistics 模块，运行时会直接 NameError；即使补上导入，statistics.skew(values) 返回的是带校正的样本偏度，而源码 skewness 返回未校正的 g1，期望值不匹配，断言会失败。此外直接访问私有 _min/_max 不如通过公共属性验证。因此该测试不能正确核验目标行为。"
+      },
+      "assistant_frozen": {
+        "review_id": "R021",
+        "ai_verdict": "invalid",
+        "ai_reason": "Unimported statistics; statistics.skew/kurtosis are also not standard APIs.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "persistent_failure",
+        "counts": {
+          "fail": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1_import_sensitivity\\outputs\\d018\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "incorrect",
+        "robustness": "robust",
+        "adequacy": "weak_or_masked"
+      }
+    },
+    {
+      "review_id": "R022",
+      "run": "development_v1",
+      "output": "d002",
+      "target": "penman.graph.Graph.variables",
+      "code_path": "runs\\development_v1\\outputs\\d002\\test_generated.py",
+      "code_sha256": "802b05efc240b615c05b5e0b9e3baefbdc6d570a570912213200866a845d3f93",
+      "human_raw": {
+        "review_id": "R022",
+        "code_sha256": "802b05efc240b615c05b5e0b9e3baefbdc6d570a570912213200866a845d3f93",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T02:18:27.108Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "triples 的 source 为 'a'、'b'，显式 top='c'，按契约 variables() 应返回 {'a', 'b', 'c'}，不包含 target；集合比较与顺序无关，无外部状态或时间依赖，真实调用 Graph.variables() 且未替换实现，断言有效。\n\n"
+      },
+      "assistant_frozen": {
+        "review_id": "R022",
+        "ai_verdict": "provisionally_sound",
+        "ai_reason": "Assistant source/contract inspection found no specific semantic defect; coverage and adequacy remain separate. Human confirmation required.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d002\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "R023",
+      "run": "development_v1_import_sensitivity",
+      "output": "d011",
+      "target": "tale.pubsub.Topic.idle_time",
+      "code_path": "runs\\development_v1_import_sensitivity\\outputs\\d011\\test_generated.py",
+      "code_sha256": "687a767eede88cfabf4c46675147b5b1c44c197646c1d89114c2879f8359eae9",
+      "human_raw": {
+        "review_id": "R023",
+        "code_sha256": "687a767eede88cfabf4c46675147b5b1c44c197646c1d89114c2879f8359eae9",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T02:21:12.445Z",
+        "robustness": "fragile",
+        "adequacy": "meaningful",
+        "reason": "测试先调用 topic(\"test_idle_sync\")，之后才 monkeypatch tale.pubsub.time.time，因此构造时 last_event 仍由真实时钟设置，第一个断言 topic.idle_time == 0.0 不成立；后续 send 重置、sync 不重置、再 send 重置的期望本身符合契约。测试真实调用目标方法且未替换实现，但依赖全局 registry 且未 destroy() 清理，同名残留会影响结果。"
+      },
+      "assistant_frozen": {
+        "review_id": "R023",
+        "ai_verdict": "invalid",
+        "ai_reason": "Clock substituted after creation.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "persistent_failure",
+        "counts": {
+          "fail": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1_import_sensitivity\\outputs\\d011\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "incorrect",
+        "robustness": "fragile",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "R024",
+      "run": "development_v1",
+      "output": "d021",
+      "target": "tale.pubsub.Topic.idle_time",
+      "code_path": "runs\\development_v1\\outputs\\d021\\test_generated.py",
+      "code_sha256": "546febfa8df81114c96c71059ec3e17b35c9c43ab6a10a32c9f0b30d1cb61901",
+      "human_raw": {
+        "review_id": "R024",
+        "code_sha256": "546febfa8df81114c96c71059ec3e17b35c9c43ab6a10a32c9f0b30d1cb61901",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T02:34:03.090Z",
+        "robustness": "fragile",
+        "adequacy": "meaningful",
+        "reason": "测试先替换 tale.pubsub.time，再调用 topic('test_sync_idle')，因此构造时 last_event=50.0；之后 send 重置为当前时钟值，sync 不重置，所有 idle_time 断言均符合契约。但未清理全局 registry 中的同名 topic，若已有残留或重复运行，首个断言可能失败，因此对测试顺序/全局状态存在依赖。"
+      },
+      "assistant_frozen": {
+        "review_id": "R024",
+        "ai_verdict": "provisionally_sound",
+        "ai_reason": "Assistant source/contract inspection found no specific semantic defect; coverage and adequacy remain separate. Human confirmation required.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d021\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": "人工指出共享 topic 注册表的套件组合/重跑风险；保留 fragile。原主协议为独立进程，30/30 pass 不反驳此风险。",
+      "human_effective_labels": {
+        "correctness": "correct",
+        "robustness": "fragile",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "R025",
+      "run": "development_v1",
+      "output": "d047",
+      "target": "lithoxyl.moment.MomentAccumulator.add",
+      "code_path": "runs\\development_v1\\outputs\\d047\\test_generated.py",
+      "code_sha256": "8d654dc5fbf093c782da87d3fd8db368fcca8436ca05a253de9895fa4f7482c1",
+      "human_raw": {
+        "review_id": "R025",
+        "code_sha256": "8d654dc5fbf093c782da87d3fd8db368fcca8436ca05a253de9895fa4f7482c1",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T02:34:25.595Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试真实调用 add(1e10)，单值下 count=1、mean=1e10；variance 因 m2/(count-1) 除零被 ArithmeticError 捕获返回 -0.0，skewness/kurtosis 同理；std_dev = (-0.0) ** 0.5 得到 0.0，但 0.0 == -0.0 为真，断言仍通过。无外部状态、顺序或时间依赖，未替换实现，覆盖了单值大数的边界行为。"
+      },
+      "assistant_frozen": {
+        "review_id": "R025",
+        "ai_verdict": "invalid",
+        "ai_reason": "Wrong import path; class is in lithoxyl.moment.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "collection_failure",
+        "counts": {},
+        "executions": 0
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d047\\evaluation\\summary.json",
+      "adjudication_status": "confirmed_by_human_after_discussion",
+      "assistant_proposal": {
+        "field": "correctness",
+        "proposed": "incorrect",
+        "reason": "from lithoxyl import MomentAccumulator 在固定版本发生 ImportError，收集失败。应从 lithoxyl.moment 导入；正文断言合理不代表原测试可正确执行。"
+      },
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "incorrect",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      },
+      "adjudication_evidence": "review\\semantic_v1\\adjudications\\2026-10-05_confirmed_five.json"
+    },
+    {
+      "review_id": "R026",
+      "run": "development_v1",
+      "output": "d031",
+      "target": "lithoxyl.moment.MomentAccumulator.add",
+      "code_path": "runs\\development_v1\\outputs\\d031\\test_generated.py",
+      "code_sha256": "a2e8db59a942bf9b7650ac39bc00820206760b9e65871b2499df921765ade038",
+      "human_raw": {
+        "review_id": "R026",
+        "code_sha256": "a2e8db59a942bf9b7650ac39bc00820206760b9e65871b2499df921765ade038",
+        "robustness": "robust",
+        "updated_at": "2026-10-05T02:34:45.924Z",
+        "adequacy": "meaningful",
+        "correctness": "correct",
+        "reason": "测试真实调用 add 添加 [-2.0, -2.0, 2.0, 2.0, 10.0]，count=5、mean=2.0、样本 variance=24.0、std_dev=sqrt(24) 均符合源码契约；该数据实际偏度为正、峰度约 2.5，因此 skewness > 0.0、kurtosis >= 0.0 也能通过。测试无外部状态、顺序或时间依赖，未替换实现。不足是 skewness 和 kurtosis 只做了符号/非负检查，未用 pytest.approx 验证具体数值，核验力度偏弱，但整体仍覆盖了核心统计量行为。"
+      },
+      "assistant_frozen": {
+        "review_id": "R026",
+        "ai_verdict": "provisionally_sound",
+        "ai_reason": "Assistant source/contract inspection found no specific semantic defect; coverage and adequacy remain separate. Human confirmation required.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d031\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "R027",
+      "run": "development_v1",
+      "output": "d029",
+      "target": "penman.graph.Graph.variables",
+      "code_path": "runs\\development_v1\\outputs\\d029\\test_generated.py",
+      "code_sha256": "4f6875ee8012cd34544e8f75dd76bc886c322082ff4f55ef7c5cddc8640f4994",
+      "human_raw": {
+        "review_id": "R027",
+        "code_sha256": "4f6875ee8012cd34544e8f75dd76bc886c322082ff4f55ef7c5cddc8640f4994",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T02:35:00.111Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "空 triples 且显式 top='z' 时，按源码 variables() 只加入 top，返回 {'z'}；测试还验证了返回类型为 set。无外部状态、顺序或时间依赖，真实调用目标方法且未替换实现，覆盖了空三元组加显式 top 的边界情况。\n\n"
+      },
+      "assistant_frozen": {
+        "review_id": "R027",
+        "ai_verdict": "provisionally_sound",
+        "ai_reason": "Assistant source/contract inspection found no specific semantic defect; coverage and adequacy remain separate. Human confirmation required.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d029\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "R028",
+      "run": "development_v1_import_sensitivity",
+      "output": "d043",
+      "target": "penman.graph.Graph.variables",
+      "code_path": "runs\\development_v1_import_sensitivity\\outputs\\d043\\test_generated.py",
+      "code_sha256": "6801b21cbd57e668727aba3749ab9b216aba4494103ef12ad84b2b2e6d5bad5c",
+      "human_raw": {
+        "review_id": "R028",
+        "code_sha256": "6801b21cbd57e668727aba3749ab9b216aba4494103ef12ad84b2b2e6d5bad5c",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T02:35:13.795Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "空 triples 且显式 top=\"x1\" 时，按源码 variables() 只加入 top，返回 {\"x1\"}；测试还验证返回类型为 set。无外部状态、顺序或时间依赖，真实调用目标方法且未替换实现，覆盖了空三元组加显式 top 的边界情况。\n\n"
+      },
+      "assistant_frozen": {
+        "review_id": "R028",
+        "ai_verdict": "provisionally_sound",
+        "ai_reason": "Assistant source/contract inspection found no specific semantic defect; coverage and adequacy remain separate. Human confirmation required.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1_import_sensitivity\\outputs\\d043\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "R029",
+      "run": "development_v1",
+      "output": "d005",
+      "target": "lithoxyl.moment.MomentAccumulator.add",
+      "code_path": "runs\\development_v1\\outputs\\d005\\test_generated.py",
+      "code_sha256": "14facf7ec260fb03f97025fbc77ac00e4954afbf09e844ca23bacc76b206f14d",
+      "human_raw": {
+        "review_id": "R029",
+        "code_sha256": "14facf7ec260fb03f97025fbc77ac00e4954afbf09e844ca23bacc76b206f14d",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T02:35:33.179Z",
+        "robustness": "robust",
+        "adequacy": "weak_or_masked",
+        "reason": "数据 [-5, -10, -15] 时，count=3、mean=-10、样本 variance=25、std_dev=5、m3=0 所以 skewness=0 都正确；但源码 kurtosis = n*m4/(m2**2)，其中 m2=50、m4=1250，所以 kurtosis = 3*1250/2500 = 1.5，不是 1.6666667，该断言会失败。测试无外部状态或顺序依赖，但错误期望掩盖了真实峰度行为。"
+      },
+      "assistant_frozen": {
+        "review_id": "R029",
+        "ai_verdict": "invalid",
+        "ai_reason": "Three equally spaced observations have Pearson kurtosis 1.5, not 1.6666667.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "persistent_failure",
+        "counts": {
+          "fail": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d005\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "incorrect",
+        "robustness": "robust",
+        "adequacy": "weak_or_masked"
+      }
+    },
+    {
+      "review_id": "R030",
+      "run": "development_v1",
+      "output": "d042",
+      "target": "lithoxyl.moment.MomentAccumulator.add",
+      "code_path": "runs\\development_v1\\outputs\\d042\\test_generated.py",
+      "code_sha256": "16a3d7b58cfa0e63760fa4f34fece7150e2e7d6b07c26e04f1a8d73759a3f5ce",
+      "human_raw": {
+        "review_id": "R030",
+        "code_sha256": "16a3d7b58cfa0e63760fa4f34fece7150e2e7d6b07c26e04f1a8d73759a3f5ce",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T02:35:51.460Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "数据 [2.0, 4.0, 6.0] 时，count=3、mean=4.0、样本 variance=4.0、std_dev=2.0；中心化三阶矩为 0，所以 skewness=0.0；m2=8、m4=32，按源码 kurtosis=3*32/(8**2)=1.5，断言正确。测试真实调用 add 并通过公共属性验证，无外部状态或顺序依赖，未替换实现，核验有效。\n\n"
+      },
+      "assistant_frozen": {
+        "review_id": "R030",
+        "ai_verdict": "provisionally_sound",
+        "ai_reason": "Assistant source/contract inspection found no specific semantic defect; coverage and adequacy remain separate. Human confirmation required.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d042\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "R031",
+      "run": "development_v1_import_sensitivity",
+      "output": "d047",
+      "target": "lithoxyl.moment.MomentAccumulator.add",
+      "code_path": "runs\\development_v1_import_sensitivity\\outputs\\d047\\test_generated.py",
+      "code_sha256": "bc201fa1094c1a5b76c1666fa59a3b67fc8f3a1e4aab27d9e468607500f630a0",
+      "human_raw": {
+        "review_id": "R031",
+        "code_sha256": "bc201fa1094c1a5b76c1666fa59a3b67fc8f3a1e4aab27d9e468607500f630a0",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T02:36:14.412Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试真实调用 add(0.0)，单值零时 count=1、mean=0.0，variance/skewness/kurtosis 因除零被捕获返回 -0.0，std_dev=0.0，均符合源码契约；同时检查 _min、_max 为 0.0，验证了内部极值更新。无外部状态、顺序或时间依赖，未替换实现，断言有效。唯一小瑕疵是直接访问私有 _min/_max，但未削弱对 add 可观察效果的核验。\n\n"
+      },
+      "assistant_frozen": {
+        "review_id": "R031",
+        "ai_verdict": "provisionally_sound",
+        "ai_reason": "Assistant source/contract inspection found no specific semantic defect; coverage and adequacy remain separate. Human confirmation required.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1_import_sensitivity\\outputs\\d047\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "R032",
+      "run": "development_v1",
+      "output": "d040",
+      "target": "penman.graph.Graph.variables",
+      "code_path": "runs\\development_v1\\outputs\\d040\\test_generated.py",
+      "code_sha256": "f49756fda362cce3addec2413fab3efeb41da8822c1f5ee51ce6477e10c90423",
+      "human_raw": {
+        "review_id": "R032",
+        "code_sha256": "f49756fda362cce3addec2413fab3efeb41da8822c1f5ee51ce6477e10c90423",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T02:36:27.651Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "triples 的 source 为 'x'，显式 top='y'，按契约 variables() 返回 {'x', 'y'}；测试检查 'x'、'y' 均在结果中且 len(result)==2，也间接排除了错误包含 target 'cat' 的情况。无外部状态、顺序或时间依赖，真实调用目标方法且未替换实现，断言有效。\n\n"
+      },
+      "assistant_frozen": {
+        "review_id": "R032",
+        "ai_verdict": "provisionally_sound",
+        "ai_reason": "Assistant source/contract inspection found no specific semantic defect; coverage and adequacy remain separate. Human confirmation required.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d040\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "R033",
+      "run": "development_v1",
+      "output": "d043",
+      "target": "penman.graph.Graph.variables",
+      "code_path": "runs\\development_v1\\outputs\\d043\\test_generated.py",
+      "code_sha256": "12100b2935a6bce50e1d83fbd3994c2e66d5f8a2f0c48b8391b13096d2ce2532",
+      "human_raw": {
+        "review_id": "R033",
+        "code_sha256": "12100b2935a6bce50e1d83fbd3994c2e66d5f8a2f0c48b8391b13096d2ce2532",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T02:36:39.972Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "空 triples 且显式 top=\"x\" 时，按源码 variables() 只加入 top，返回 {\"x\"}；测试还验证返回类型为 set。无外部状态、顺序或时间依赖，真实调用目标方法且未替换实现，覆盖了空三元组加显式 top 的边界情况。未使用 pytest 不影响核验。\n\n"
+      },
+      "assistant_frozen": {
+        "review_id": "R033",
+        "ai_verdict": "provisionally_sound",
+        "ai_reason": "Assistant source/contract inspection found no specific semantic defect; coverage and adequacy remain separate. Human confirmation required.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d043\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "R034",
+      "run": "development_v1",
+      "output": "d014",
+      "target": "tale.pubsub.Topic.idle_time",
+      "code_path": "runs\\development_v1\\outputs\\d014\\test_generated.py",
+      "code_sha256": "a760441aab9fe049cfcd1865aa23ae06ed4a5ea244a8346d93100e88aa1ac92d",
+      "human_raw": {
+        "review_id": "R034",
+        "code_sha256": "a760441aab9fe049cfcd1865aa23ae06ed4a5ea244a8346d93100e88aa1ac92d",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T02:36:57.490Z",
+        "robustness": "fragile",
+        "adequacy": "meaningful",
+        "reason": "若 topic('test_sync_idle') 是新建实例，构造时 last_event=50.0，send 重置为发送时时钟值，sync 不重置，因此 idle_time 依次为 0.0、0.0、0.5、1.5，符合契约；测试只替换允许的外部时钟依赖，未替换 Topic 方法。但它未 destroy() 清理全局 registry，且该名称可能与其他测试重复，若同名 topic 已存在，构造不会重新设置 last_event，首个断言可能失败，因此对测试顺序/残留状态存在依赖。\n\n"
+      },
+      "assistant_frozen": {
+        "review_id": "R034",
+        "ai_verdict": "provisionally_sound",
+        "ai_reason": "Assistant source/contract inspection found no specific semantic defect; coverage and adequacy remain separate. Human confirmation required.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d014\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": "人工指出共享 topic 注册表的套件组合/重跑风险；保留 fragile。原主协议为独立进程，30/30 pass 不反驳此风险。",
+      "human_effective_labels": {
+        "correctness": "correct",
+        "robustness": "fragile",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "R035",
+      "run": "development_v1",
+      "output": "d024",
+      "target": "lithoxyl.moment.MomentAccumulator.add",
+      "code_path": "runs\\development_v1\\outputs\\d024\\test_generated.py",
+      "code_sha256": "0a1a603bd8ee99c498617b418338ebf4e603f53af1bd750eb13ac5a54a7b9cd3",
+      "human_raw": {
+        "review_id": "R035",
+        "code_sha256": "0a1a603bd8ee99c498617b418338ebf4e603f53af1bd750eb13ac5a54a7b9cd3",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T02:37:20.239Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试真实调用 add(42.0)，单值下 count=1、mean=42.0，variance/skewness/kurtosis 因不可计算返回 -0.0，std_dev 实际为 0.0 但与 -0.0 相等，断言均能通过；无外部状态、顺序或时间依赖，未替换实现，覆盖了单值边界行为。\n\n"
+      },
+      "assistant_frozen": {
+        "review_id": "R035",
+        "ai_verdict": "provisionally_sound",
+        "ai_reason": "Assistant source/contract inspection found no specific semantic defect; coverage and adequacy remain separate. Human confirmation required.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d024\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "R036",
+      "run": "development_v1",
+      "output": "d028",
+      "target": "penman.graph.Graph.variables",
+      "code_path": "runs\\development_v1\\outputs\\d028\\test_generated.py",
+      "code_sha256": "57809c491001b2f7c5689d7896f9d69946afb5d14dd579283f85a1c55014fd3f",
+      "human_raw": {
+        "review_id": "R036",
+        "code_sha256": "57809c491001b2f7c5689d7896f9d69946afb5d14dd579283f85a1c55014fd3f",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T02:37:35.851Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "triples 的 source 为 'x'，显式 top='x'，按契约 variables() 去重后返回 {'x'}，断言正确；测试真实调用目标方法，无外部状态、顺序或时间依赖，未替换实现。仅未显式检查返回类型是否为 set，但核心行为已有效核验。\n\n"
+      },
+      "assistant_frozen": {
+        "review_id": "R036",
+        "ai_verdict": "provisionally_sound",
+        "ai_reason": "Assistant source/contract inspection found no specific semantic defect; coverage and adequacy remain separate. Human confirmation required.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d028\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "R037",
+      "run": "development_v1",
+      "output": "d037",
+      "target": "lithoxyl.moment.MomentAccumulator.add",
+      "code_path": "runs\\development_v1\\outputs\\d037\\test_generated.py",
+      "code_sha256": "767e94d53ac5b0656b29f1fe6198eed13522dd6a87fe71fd9f18a9da228240b2",
+      "human_raw": {
+        "review_id": "R037",
+        "code_sha256": "767e94d53ac5b0656b29f1fe6198eed13522dd6a87fe71fd9f18a9da228240b2",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T02:37:51.686Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试真实调用 add(42.0)，单值下 count=1、mean=42.0；variance/skewness/kurtosis 因不可计算按契约返回 -0.0，std_dev 实际为 0.0，但 0.0 == -0.0 成立。无外部状态、顺序或时间依赖，未替换实现，覆盖了单值边界行为。\n\n"
+      },
+      "assistant_frozen": {
+        "review_id": "R037",
+        "ai_verdict": "provisionally_sound",
+        "ai_reason": "Assistant source/contract inspection found no specific semantic defect; coverage and adequacy remain separate. Human confirmation required.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d037\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "R038",
+      "run": "development_v1",
+      "output": "d030",
+      "target": "lithoxyl.moment.MomentAccumulator.add",
+      "code_path": "runs\\development_v1\\outputs\\d030\\test_generated.py",
+      "code_sha256": "ceff344df8b473d98639d7620f7402963978c77e5226c504b422571cd8661b5c",
+      "human_raw": {
+        "review_id": "R038",
+        "code_sha256": "ceff344df8b473d98639d7620f7402963978c77e5226c504b422571cd8661b5c",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T02:38:06.423Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试真实调用 add(5.0)，单值下 count=1、mean=5.0，variance/skewness/kurtosis 因不可计算按契约返回 -0.0，std_dev 实际为 0.0，断言均成立；无外部状态、顺序或时间依赖，未替换实现，覆盖了单值边界行为。\n\n"
+      },
+      "assistant_frozen": {
+        "review_id": "R038",
+        "ai_verdict": "provisionally_sound",
+        "ai_reason": "Assistant source/contract inspection found no specific semantic defect; coverage and adequacy remain separate. Human confirmation required.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d030\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "R039",
+      "run": "development_v1",
+      "output": "d017",
+      "target": "lithoxyl.moment.MomentAccumulator.add",
+      "code_path": "runs\\development_v1\\outputs\\d017\\test_generated.py",
+      "code_sha256": "608dcc098d9252d63a8de9d1b3c3a4fbc8a1b89fad81f4c5425a44ff3f84fb69",
+      "human_raw": {
+        "review_id": "R039",
+        "code_sha256": "608dcc098d9252d63a8de9d1b3c3a4fbc8a1b89fad81f4c5425a44ff3f84fb69",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T02:38:20.312Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试真实调用 add(42.0)，单值下 count=1、mean=42.0，variance/skewness/kurtosis 因不可计算按契约返回 -0.0，std_dev 实际为 0.0 但与 -0.0 相等，断言均成立；同时验证了 _min/_max 被正确设为 42.0。无外部状态、顺序或时间依赖，未替换实现，覆盖了单值边界行为。\n\n"
+      },
+      "assistant_frozen": {
+        "review_id": "R039",
+        "ai_verdict": "invalid",
+        "ai_reason": "Wrong import path; class is in lithoxyl.moment.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "collection_failure",
+        "counts": {},
+        "executions": 0
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d017\\evaluation\\summary.json",
+      "adjudication_status": "confirmed_by_human_after_discussion",
+      "assistant_proposal": {
+        "field": "correctness",
+        "proposed": "incorrect",
+        "reason": "from lithoxyl import MomentAccumulator 在固定版本发生 ImportError，收集失败；同 R025。"
+      },
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "incorrect",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      },
+      "adjudication_evidence": "review\\semantic_v1\\adjudications\\2026-10-05_confirmed_five.json"
+    },
+    {
+      "review_id": "R040",
+      "run": "development_v1_import_sensitivity",
+      "output": "d046",
+      "target": "tale.pubsub.Topic.idle_time",
+      "code_path": "runs\\development_v1_import_sensitivity\\outputs\\d046\\test_generated.py",
+      "code_sha256": "42f4bf37769760a607569f79ef6e1d3743d4e0d6814ee06faf834a9d6cb6126a",
+      "human_raw": {
+        "review_id": "R040",
+        "code_sha256": "42f4bf37769760a607569f79ef6e1d3743d4e0d6814ee06faf834a9d6cb6126a",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T02:38:38.005Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试先 monkeypatch 外部时钟，再通过 t.send(\"initial_event\") 强制重置 last_event，因此即使全局 registry 中已有同名 topic 也能得到确定初始状态；随后 idle_time 依次为 0.0、5.0、0.0、2.5，符合 send 重置、时间推进的契约。测试真实调用 topic/send/idle_time，未替换目标方法，仅未覆盖 sync 不重置这一点，但核心行为验证有效。\n\n"
+      },
+      "assistant_frozen": {
+        "review_id": "R040",
+        "ai_verdict": "provisionally_sound",
+        "ai_reason": "Assistant source/contract inspection found no specific semantic defect; coverage and adequacy remain separate. Human confirmation required.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1_import_sensitivity\\outputs\\d046\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "R041",
+      "run": "development_v1",
+      "output": "d008",
+      "target": "penman.graph.Graph.variables",
+      "code_path": "runs\\development_v1\\outputs\\d008\\test_generated.py",
+      "code_sha256": "42bc89712799046218a46b9b0ef558c0d1f11e4ab8af365565f538a8784b1848",
+      "human_raw": {
+        "review_id": "R041",
+        "code_sha256": "42bc89712799046218a46b9b0ef558c0d1f11e4ab8af365565f538a8784b1848",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T02:38:50.142Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "空 triples 且显式 top=\"x\" 时，按源码 variables() 只加入 top，返回 {\"x\"}，断言正确；无外部状态、顺序或时间依赖，真实调用目标方法且未替换实现，覆盖了空三元组加显式 top 的边界情况。未使用的 pytest 导入不影响核验。\n\n"
+      },
+      "assistant_frozen": {
+        "review_id": "R041",
+        "ai_verdict": "provisionally_sound",
+        "ai_reason": "Assistant source/contract inspection found no specific semantic defect; coverage and adequacy remain separate. Human confirmation required.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d008\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "R042",
+      "run": "development_v1",
+      "output": "d016",
+      "target": "tale.pubsub.Topic.idle_time",
+      "code_path": "runs\\development_v1\\outputs\\d016\\test_generated.py",
+      "code_sha256": "d7cedda70e8ce89329c4f66d5e5a624e2f8aa70388c83bf258bec13a007feaea",
+      "human_raw": {
+        "review_id": "R042",
+        "code_sha256": "d7cedda70e8ce89329c4f66d5e5a624e2f8aa70388c83bf258bec13a007feaea",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T02:39:02.397Z",
+        "robustness": "fragile",
+        "adequacy": "meaningful",
+        "reason": "若 topic('test_reset_boundary') 是新建实例，monkeypatch 在构造前生效，last_event=500.0，后续 idle_time 依次为 0.0、0.5、0.0、0.25，符合 send 重置、时间推进的契约；测试真实调用 topic/send/idle_time，未替换目标方法。但它未 destroy() 清理全局 registry，若同名 topic 已存在或测试重复运行，构造不会重新设置 last_event，首个断言"
+      },
+      "assistant_frozen": {
+        "review_id": "R042",
+        "ai_verdict": "provisionally_sound",
+        "ai_reason": "Assistant source/contract inspection found no specific semantic defect; coverage and adequacy remain separate. Human confirmation required.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d016\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": "人工指出共享 topic 注册表的套件组合/重跑风险；保留 fragile。原主协议为独立进程，30/30 pass 不反驳此风险。",
+      "human_effective_labels": {
+        "correctness": "correct",
+        "robustness": "fragile",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "R043",
+      "run": "development_v1",
+      "output": "d001",
+      "target": "tale.pubsub.Topic.idle_time",
+      "code_path": "runs\\development_v1\\outputs\\d001\\test_generated.py",
+      "code_sha256": "7b90c4e49c86c73a32c498fd8b8245acaeb83d85e50f5ec8d12053a320423ec7",
+      "human_raw": {
+        "review_id": "R043",
+        "code_sha256": "7b90c4e49c86c73a32c498fd8b8245acaeb83d85e50f5ec8d12053a320423ec7",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T02:39:22.907Z",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked",
+        "reason": "monkeypatch.attr(...) 不存在，会直接 AttributeError，测试无法运行；即使忽略该行，timestamps = iter([100.0, 100.0, 110.0, 110.0]) 与调用次数不匹配：Topic.__init__ 消耗第一个 100.0，send 消耗第二个 100.0，idle_time 再取第三个 110.0，得到 10.0 而不是断言的 0.0。测试还依赖手动删除全局 registry，且大量注释/无效逻辑掩盖了真实行为，因此不可靠且核验价值弱。\n\n"
+      },
+      "assistant_frozen": {
+        "review_id": "R043",
+        "ai_verdict": "invalid",
+        "ai_reason": "monkeypatch.attr does not exist; clock sequence inconsistent; gate also rejects Try and weakref.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "execution_review_required",
+        "counts": {},
+        "executions": 0
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d001\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "incorrect",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked"
+      }
+    },
+    {
+      "review_id": "R044",
+      "run": "development_v1",
+      "output": "d007",
+      "target": "penman.graph.Graph.variables",
+      "code_path": "runs\\development_v1\\outputs\\d007\\test_generated.py",
+      "code_sha256": "4e26777e7626daaba5905c9d2f664848c8d89de8ba02a114f144726f6854b1f0",
+      "human_raw": {
+        "review_id": "R044",
+        "code_sha256": "4e26777e7626daaba5905c9d2f664848c8d89de8ba02a114f144726f6854b1f0",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T02:39:39.457Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "triples 的 source 为 'a'、'b'、'a'、'c'、'b'，去重后为 {'a', 'b', 'c'}；显式 top='a' 已在集合中，按契约 variables() 返回 {'a', 'b', 'c'}，断言正确。测试还验证返回类型为 set，集合比较与顺序无关，无外部状态或时间依赖，真实调用目标方法且未替换实现。部分导入和重复断言冗余但不影响核验。"
+      },
+      "assistant_frozen": {
+        "review_id": "R044",
+        "ai_verdict": "provisionally_sound",
+        "ai_reason": "Assistant source/contract inspection found no specific semantic defect; coverage and adequacy remain separate. Human confirmation required.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d007\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "R045",
+      "run": "development_v1",
+      "output": "d003",
+      "target": "tale.pubsub.Topic.idle_time",
+      "code_path": "runs\\development_v1\\outputs\\d003\\test_generated.py",
+      "code_sha256": "801326d35c812e63d57b01d7060332762bd8f3bc9fd8ce7af313f5e44649f157",
+      "human_raw": {
+        "review_id": "R045",
+        "code_sha256": "801326d35c812e63d57b01d7060332762bd8f3bc9fd8ce7af313f5e44649f157",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T02:40:03.816Z",
+        "robustness": "fragile",
+        "adequacy": "meaningful",
+        "reason": "测试真实调用 topic/send/idle_time，send 后 idle_time < 0.05 能验证发送重置 last_event，与契约一致；但它使用真实 time.sleep 和宽松阈值，依赖系统调度与计时精度，且未 monkeypatch 时钟、未清理全局 registry，对测试顺序和运行环境存在依赖。此外它未验证 sync 不重置，也未严格验证构造重置，因此核验覆盖偏弱。"
+      },
+      "assistant_frozen": {
+        "review_id": "R045",
+        "ai_verdict": "fragile",
+        "ai_reason": "Live-clock post-send bound; 15/15 under controlled delay, 30/30 unperturbed.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "observed_unstable",
+        "counts": {
+          "pass": 15,
+          "fail": 15
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d003\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "correct",
+        "robustness": "fragile",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "R046",
+      "run": "development_v1",
+      "output": "d035",
+      "target": "lithoxyl.moment.MomentAccumulator.add",
+      "code_path": "runs\\development_v1\\outputs\\d035\\test_generated.py",
+      "code_sha256": "6c59714553b8947cc868b34899a27571161fb2d187e159eec983d0d13bcdf5bd",
+      "human_raw": {
+        "review_id": "R046",
+        "code_sha256": "6c59714553b8947cc868b34899a27571161fb2d187e159eec983d0d13bcdf5bd",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T02:40:17.278Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "数据 [2,4,6,8,10] 对称，均值 6.0，样本方差 40/(5-1)=10.0，std_dev=sqrt(10)，m3=0 所以 skewness=0.0，均符合源码公式；测试真实调用 add 并通过公共属性验证，无外部状态、顺序或时间依赖，未替换实现。未检查 kurtosis 不影响本测试核心核验。"
+      },
+      "assistant_frozen": {
+        "review_id": "R046",
+        "ai_verdict": "provisionally_sound",
+        "ai_reason": "Assistant source/contract inspection found no specific semantic defect; coverage and adequacy remain separate. Human confirmation required.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d035\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "R047",
+      "run": "development_v1",
+      "output": "d046",
+      "target": "tale.pubsub.Topic.idle_time",
+      "code_path": "runs\\development_v1\\outputs\\d046\\test_generated.py",
+      "code_sha256": "f112cd1d8964534721394f0b725ea52ec6dfd43c5d4181cad625423200547045",
+      "human_raw": {
+        "review_id": "R047",
+        "code_sha256": "f112cd1d8964534721394f0b725ea52ec6dfd43c5d4181cad625423200547045",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T02:40:37.317Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试通过 monkeypatch 控制时钟，并显式将 last_event 设为 base_time，随后推进到 base_time+5.0，idle_time==5.0；再调用真实 send，last_event 被更新为当前时钟，idle_time<0.001 符合“send 重置 last_event”的契约。它未替换 Topic 方法或 idle_time，对全局 registry 残留也不受首个断言影响；但直接改内部 last_event、未清理 topic、未验证 sync 不重置，且 MockListener 实际未使用，覆盖范围有限但断言仍有效。"
+      },
+      "assistant_frozen": {
+        "review_id": "R047",
+        "ai_verdict": "review_internal_state",
+        "ai_reason": "Writes last_event directly; reset assertion still exercises send, construction check is masked.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d046\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "R048",
+      "run": "development_v1_import_sensitivity",
+      "output": "d002",
+      "target": "penman.graph.Graph.variables",
+      "code_path": "runs\\development_v1_import_sensitivity\\outputs\\d002\\test_generated.py",
+      "code_sha256": "ab9c31d81a6918c922d840dcc1695f087acb89a6453321699727c9196b4f9925",
+      "human_raw": {
+        "review_id": "R048",
+        "code_sha256": "ab9c31d81a6918c922d840dcc1695f087acb89a6453321699727c9196b4f9925",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T02:40:51.678Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "triples 的 source 为 'a'、'a'、'b'、'a'、'c'，去重后为 {'a', 'b', 'c'}；显式 top='a' 已在集合中，按契约 variables() 返回 {'a', 'b', 'c'}，断言正确。集合比较与顺序无关，无外部状态或时间依赖，真实调用目标方法且未替换实现，覆盖了重复 source 与 top 已存在的情况。\n\n"
+      },
+      "assistant_frozen": {
+        "review_id": "R048",
+        "ai_verdict": "provisionally_sound",
+        "ai_reason": "Assistant source/contract inspection found no specific semantic defect; coverage and adequacy remain separate. Human confirmation required.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1_import_sensitivity\\outputs\\d002\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "R049",
+      "run": "development_v1",
+      "output": "d041",
+      "target": "lithoxyl.moment.MomentAccumulator.add",
+      "code_path": "runs\\development_v1\\outputs\\d041\\test_generated.py",
+      "code_sha256": "65f54d6d37e135f1629989c34ec0501931eea48ebe01646097052266a8437467",
+      "human_raw": {
+        "review_id": "R049",
+        "code_sha256": "65f54d6d37e135f1629989c34ec0501931eea48ebe01646097052266a8437467",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T02:41:41.365Z",
+        "robustness": "robust",
+        "adequacy": "weak_or_masked",
+        "reason": "数据 [2,4,4,4,5,5,7,9] 的样本方差按 n-1 应为 32/7≈4.5714，std_dev≈2.1381，不是断言的 4.0 和 2.0；偏度应为 0.65625，峰度应为 2.78125，不是 0.0 和 2.0。测试无外部状态依赖，但多个期望值违反契约，会确定性失败并掩盖真实统计行为。"
+      },
+      "assistant_frozen": {
+        "review_id": "R049",
+        "ai_verdict": "invalid",
+        "ai_reason": "Asserts population variance rather than documented sample variance and wrong higher moments.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "persistent_failure",
+        "counts": {
+          "fail": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d041\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "incorrect",
+        "robustness": "robust",
+        "adequacy": "weak_or_masked"
+      }
+    },
+    {
+      "review_id": "R050",
+      "run": "development_v1",
+      "output": "d034",
+      "target": "tale.pubsub.Topic.idle_time",
+      "code_path": "runs\\development_v1\\outputs\\d034\\test_generated.py",
+      "code_sha256": "e53fb87825423ad8f23bce45a0c752385532b3dcf3219b0f06c0d746df1f5dc7",
+      "human_raw": {
+        "review_id": "R050",
+        "code_sha256": "e53fb87825423ad8f23bce45a0c752385532b3dcf3219b0f06c0d746df1f5dc7",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T02:41:57.661Z",
+        "robustness": "fragile",
+        "adequacy": "meaningful",
+        "reason": "monkeypatch 在 topic('send_reset_test') 之前生效，若该 topic 是新建实例，则构造时 last_event=50.0，随后 idle_time 依次为 0.0、1.5、0.0、0.75，符合“构造和 send 重置 last_event”的契约；测试只替换允许的外部时钟，未替换 Topic 方法或 idle_time。但它未 destroy() 清理全局 registry，若同名 topic 已存在或测试重复运行，构造不会重新设置 last_event，首个断言可能失败，因此对测试顺序/残留状态存在依赖。"
+      },
+      "assistant_frozen": {
+        "review_id": "R050",
+        "ai_verdict": "provisionally_sound",
+        "ai_reason": "Assistant source/contract inspection found no specific semantic defect; coverage and adequacy remain separate. Human confirmation required.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d034\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": "人工指出共享 topic 注册表的套件组合/重跑风险；保留 fragile。原主协议为独立进程，30/30 pass 不反驳此风险。",
+      "human_effective_labels": {
+        "correctness": "correct",
+        "robustness": "fragile",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "R051",
+      "run": "development_v1",
+      "output": "d015",
+      "target": "tale.pubsub.Topic.idle_time",
+      "code_path": "runs\\development_v1\\outputs\\d015\\test_generated.py",
+      "code_sha256": "4048c649ec7731d777c1a6b03151b4db0ef723866fdd92390bbb9a91053b3c08",
+      "human_raw": {
+        "review_id": "R051",
+        "code_sha256": "4048c649ec7731d777c1a6b03151b4db0ef723866fdd92390bbb9a91053b3c08",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T02:42:26.539Z",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked",
+        "reason": "第二次 send(\"sync_event\", synchronous=True) 会同步此前未同步的 \"boundary_event\" 和 \"sync_event\" 两个事件，因此 results 应为 [\"handled\", \"handled\"]，而不是 [\"handled\"]，断言错误；同时测试未清理全局 registry 和事件队列，且未验证 sync 不重置 idle_time，核验不充分。"
+      },
+      "assistant_frozen": {
+        "review_id": "R051",
+        "ai_verdict": "invalid",
+        "ai_reason": "Queued event and synchronous event both delivered; expected one response but there are two.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "persistent_failure",
+        "counts": {
+          "fail": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d015\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "incorrect",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked"
+      }
+    },
+    {
+      "review_id": "R052",
+      "run": "development_v1",
+      "output": "d036",
+      "target": "lithoxyl.moment.MomentAccumulator.add",
+      "code_path": "runs\\development_v1\\outputs\\d036\\test_generated.py",
+      "code_sha256": "a3347b23b6b7b1de56788dc9a8daa51196e20c4d3e85c152d552e0161cbe343e",
+      "human_raw": {
+        "review_id": "R052",
+        "code_sha256": "a3347b23b6b7b1de56788dc9a8daa51196e20c4d3e85c152d552e0161cbe343e",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T02:42:50.427Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试真实调用 add(5.0)，单值下 count=1、mean=5.0，variance/skewness/kurtosis 因不可计算按契约返回 -0.0，std_dev 实际为 0.0 但与 -0.0 数值相等，pytest.approx 能通过；无外部状态、顺序或时间依赖，未替换实现，覆盖了单值边界行为。\n\n"
+      },
+      "assistant_frozen": {
+        "review_id": "R052",
+        "ai_verdict": "invalid",
+        "ai_reason": "Wrong import path; class is in lithoxyl.moment.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "collection_failure",
+        "counts": {},
+        "executions": 0
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d036\\evaluation\\summary.json",
+      "adjudication_status": "confirmed_by_human_after_discussion",
+      "assistant_proposal": {
+        "field": "correctness",
+        "proposed": "incorrect",
+        "reason": "from lithoxyl import MomentAccumulator 在固定版本发生 ImportError，收集失败；同 R025。"
+      },
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "incorrect",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      },
+      "adjudication_evidence": "review\\semantic_v1\\adjudications\\2026-10-05_confirmed_five.json"
+    },
+    {
+      "review_id": "R053",
+      "run": "development_v1_import_sensitivity",
+      "output": "d007",
+      "target": "penman.graph.Graph.variables",
+      "code_path": "runs\\development_v1_import_sensitivity\\outputs\\d007\\test_generated.py",
+      "code_sha256": "5d3757b5216969cf0d2ac3ec7d799e25ca542bc3b6192db00dd4b64b20a7f012",
+      "human_raw": {
+        "review_id": "R053",
+        "code_sha256": "5d3757b5216969cf0d2ac3ec7d799e25ca542bc3b6192db00dd4b64b20a7f012",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T02:43:04.470Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "triples 的 source 为 'a'、'b'、'a'，去重后为 {'a', 'b'}；显式 top='c' 不在 triples 中，按契约应加入结果，最终返回 {'a', 'b', 'c'}，断言正确；同时验证返回类型为 set。测试无外部状态、顺序或时间依赖，真实调用目标方法且未替换实现，覆盖了 top 不在 source 中的情况。\n\n"
+      },
+      "assistant_frozen": {
+        "review_id": "R053",
+        "ai_verdict": "provisionally_sound",
+        "ai_reason": "Assistant source/contract inspection found no specific semantic defect; coverage and adequacy remain separate. Human confirmation required.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1_import_sensitivity\\outputs\\d007\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "R054",
+      "run": "development_v1",
+      "output": "d013",
+      "target": "tale.pubsub.Topic.idle_time",
+      "code_path": "runs\\development_v1\\outputs\\d013\\test_generated.py",
+      "code_sha256": "5f02e9c8adfcd6edf2e6ab8781cffd8b17fd3bee213713ae5008b46c8987fd0a",
+      "human_raw": {
+        "review_id": "R054",
+        "code_sha256": "5f02e9c8adfcd6edf2e6ab8781cffd8b17fd3bee213713ae5008b46c8987fd0a",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T02:43:21.915Z",
+        "robustness": "fragile",
+        "adequacy": "meaningful",
+        "reason": "monkeypatch 在取 topic 前生效，若该 topic 为新建实例，构造后 idle_time=0.0，sync 后时钟推进 0.5 得 0.5，send 后重置为 0.0，符合契约且未替换目标方法；但未清理全局 registry 和未同步事件，存在测试顺序依赖。\n\n"
+      },
+      "assistant_frozen": {
+        "review_id": "R054",
+        "ai_verdict": "provisionally_sound",
+        "ai_reason": "Assistant source/contract inspection found no specific semantic defect; coverage and adequacy remain separate. Human confirmation required.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d013\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": "人工指出共享 topic 注册表的套件组合/重跑风险；保留 fragile。原主协议为独立进程，30/30 pass 不反驳此风险。",
+      "human_effective_labels": {
+        "correctness": "correct",
+        "robustness": "fragile",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "R055",
+      "run": "development_v1",
+      "output": "d033",
+      "target": "tale.pubsub.Topic.idle_time",
+      "code_path": "runs\\development_v1\\outputs\\d033\\test_generated.py",
+      "code_sha256": "0135c6b254248a36683cb9ad312cd9d99b233274967d1796851831ece219ccd2",
+      "human_raw": {
+        "review_id": "R055",
+        "code_sha256": "0135c6b254248a36683cb9ad312cd9d99b233274967d1796851831ece219ccd2",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T02:43:41.623Z",
+        "robustness": "fragile",
+        "adequacy": "meaningful",
+        "reason": "测试开头用 destroy() 清理了同名 topic，再去重取新 topic，解决了全局 registry 残留问题，并且对 send 累积、sync 按顺序处理、处理后 events 清空等断言基本符合源码行为。但最后一段有问题：此前 send(\"first\"/\"second\"/\"third\") 使用的是真实时钟，last_event 被设为真实时间戳（远大于 100.0）；之后才 monkeypatch tale.pubsub.time.time 返回 100.0，而 sync() 按契约不重置 last_event，因此 t.last_event < 100.0 会失败。另外 assert t.idle_time < 1.0 依赖真实时钟和调度，稳健性不足。\n\n"
+      },
+      "assistant_frozen": {
+        "review_id": "R055",
+        "ai_verdict": "invalid",
+        "ai_reason": "Asserts historical real last_event<100 after clock substitution.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "persistent_failure",
+        "counts": {
+          "fail": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d033\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "incorrect",
+        "robustness": "fragile",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "R056",
+      "run": "development_v1_import_sensitivity",
+      "output": "d036",
+      "target": "lithoxyl.moment.MomentAccumulator.add",
+      "code_path": "runs\\development_v1_import_sensitivity\\outputs\\d036\\test_generated.py",
+      "code_sha256": "b92c52dc21088f8e1dc83ec4cd902ed19bd2fcca559bb783e301a90a4e5718e3",
+      "human_raw": {
+        "review_id": "R056",
+        "code_sha256": "b92c52dc21088f8e1dc83ec4cd902ed19bd2fcca559bb783e301a90a4e5718e3",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T02:44:02.397Z",
+        "robustness": "robust",
+        "adequacy": "weak_or_masked",
+        "reason": "均值、样本方差、std_dev、skewness 的期望都正确；但按源码 kurtosis = n*m4/(m2**2)，该数据 n=4、m2=4e12、m4=4e24，所以 kurtosis = 4*4e24/(4e12)**2 = 1.0，不是断言的 1.6666666666666667。测试无外部状态依赖，但错误期望会失败并掩盖真实峰度行为。"
+      },
+      "assistant_frozen": {
+        "review_id": "R056",
+        "ai_verdict": "invalid",
+        "ai_reason": "Symmetric two-valued sample has Pearson kurtosis 1, not 1.6666667.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "persistent_failure",
+        "counts": {
+          "fail": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1_import_sensitivity\\outputs\\d036\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "incorrect",
+        "robustness": "robust",
+        "adequacy": "weak_or_masked"
+      }
+    },
+    {
+      "review_id": "R057",
+      "run": "development_v1",
+      "output": "d019",
+      "target": "lithoxyl.moment.MomentAccumulator.add",
+      "code_path": "runs\\development_v1\\outputs\\d019\\test_generated.py",
+      "code_sha256": "5600e249db2773a6919d3509390b785bc9dc628871d3df6307b21dd2e8525f60",
+      "human_raw": {
+        "review_id": "R057",
+        "code_sha256": "5600e249db2773a6919d3509390b785bc9dc628871d3df6307b21dd2e8525f60",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T02:44:19.357Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试真实调用 add 添加 [-2.0, 0.0, 2.0]，得到 count=3、mean=0.0、样本 variance=4.0、std_dev=2.0，且数据对称使 skewness=0.0，均符合源码契约；无外部状态、顺序或时间依赖，未替换实现，断言有效。\n\n"
+      },
+      "assistant_frozen": {
+        "review_id": "R057",
+        "ai_verdict": "provisionally_sound",
+        "ai_reason": "Assistant source/contract inspection found no specific semantic defect; coverage and adequacy remain separate. Human confirmation required.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d019\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "R058",
+      "run": "development_v1",
+      "output": "d044",
+      "target": "penman.graph.Graph.variables",
+      "code_path": "runs\\development_v1\\outputs\\d044\\test_generated.py",
+      "code_sha256": "33d258e3d74d2180208407972767cca47003204e03f97032fc64483b8b68a2f2",
+      "human_raw": {
+        "review_id": "R058",
+        "code_sha256": "33d258e3d74d2180208407972767cca47003204e03f97032fc64483b8b68a2f2",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T02:44:36.779Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "triples 的 source 为 'x'、'x'、'y'，去重后为 {'x', 'y'}；显式 top='x' 已在集合中，按契约 variables() 返回 {'x', 'y'}，断言正确；同时验证返回类型为 set、成员和长度。集合比较与顺序无关，无外部状态或时间依赖，真实调用目标方法且未替换实现，覆盖了重复 source 与 top 已存在的情况。"
+      },
+      "assistant_frozen": {
+        "review_id": "R058",
+        "ai_verdict": "provisionally_sound",
+        "ai_reason": "Assistant source/contract inspection found no specific semantic defect; coverage and adequacy remain separate. Human confirmation required.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d044\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "R059",
+      "run": "development_v1",
+      "output": "d006",
+      "target": "penman.graph.Graph.variables",
+      "code_path": "runs\\development_v1\\outputs\\d006\\test_generated.py",
+      "code_sha256": "0568f58ea9efc80e6245dbeee761e391a6f7b7aa611489053641462f7d616203",
+      "human_raw": {
+        "review_id": "R059",
+        "code_sha256": "0568f58ea9efc80e6245dbeee761e391a6f7b7aa611489053641462f7d616203",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T02:44:48.067Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "triples 的 source 为 'x'、'y'，显式 top='z'，按契约 variables() 应返回 {'x', 'y', 'z'}，不包含 target；集合比较与顺序无关，无外部状态或时间依赖，真实调用目标方法且未替换实现，断言有效。\n\n"
+      },
+      "assistant_frozen": {
+        "review_id": "R059",
+        "ai_verdict": "provisionally_sound",
+        "ai_reason": "Assistant source/contract inspection found no specific semantic defect; coverage and adequacy remain separate. Human confirmation required.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d006\\evaluation\\summary.json",
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_proposal": null,
+      "scope_note": null,
+      "human_effective_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "R060",
+      "run": "development_v1",
+      "output": "d032",
+      "target": "tale.pubsub.Topic.idle_time",
+      "code_path": "runs\\development_v1\\outputs\\d032\\test_generated.py",
+      "code_sha256": "3a0197987509232ca18fb46b2ede673dff172a9e34b57234af25bb34f3cd3415",
+      "human_raw": {
+        "review_id": "R060",
+        "code_sha256": "3a0197987509232ca18fb46b2ede673dff172a9e34b57234af25bb34f3cd3415",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T02:45:08.066Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "s.send('initial') 用真实时钟设置 last_event，随后 current_time = time.time() 再取一次真实时间，二者通常有微小差异；monkeypatch 后 idle_time = (current_time + 5.0) - last_event，并不精确等于 5.0，断言 == 5.0 很可能失败。应使用 pytest.approx，并避免依赖 send 与取 current_time 之间的真实时间差。"
+      },
+      "assistant_frozen": {
+        "review_id": "R060",
+        "ai_verdict": "fragile",
+        "ai_reason": "Assumes separate wall-clock reads are identical. Primary all-pass does not cover read-to-read gap.",
+        "reviewer_type": "assistant",
+        "human_verdict": null,
+        "human_review_status": "pending"
+      },
+      "execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "execution_evidence": "runs\\development_v1\\outputs\\d032\\evaluation\\summary.json",
+      "adjudication_status": "confirmed_by_human_after_discussion",
+      "assistant_proposal": {
+        "field": "robustness",
+        "proposed": "fragile",
+        "reason": "人工理由指出两次真实时钟读取差异，但标签为 robust。原主协议 30/30 pass；独立读取间隙扰动为 14 pass/16 fail，确认时钟依赖。仅改 pytest.approx 不能保证抵抗更长合法延迟。"
+      },
+      "scope_note": null,
+      "posthoc_evidence": "runs\\semantic_followup_v2\\d032_clock_read_gap\\summary.json",
+      "posthoc_counts": {
+        "pass": 14,
+        "fail": 16
+      },
+      "human_effective_labels": {
+        "correctness": "correct",
+        "robustness": "fragile",
+        "adequacy": "meaningful"
+      },
+      "adjudication_evidence": "review\\semantic_v1\\adjudications\\2026-10-05_confirmed_five.json"
+    }
+  ]
+}

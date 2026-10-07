@@ -1,0 +1,11 @@
+{
+  "source_archive_sha256": "e5ed80ed18123e566f0ab16fee54e42883bd66c2c86f212a03db7b45692c0298",
+  "archive_sha256": "e8db2545244fde5eef9a2ab497c70ef4589ffa145a96178e56038f992897d748",
+  "archive_bytes": 42008948,
+  "files_in_manifest": 53491,
+  "excluded_count": 55,
+  "manuscripts_included": false,
+  "author_metadata_included": false,
+  "known_credential_hits": 0,
+  "public_license": "Not assigned; third-party terms preserved"
+}

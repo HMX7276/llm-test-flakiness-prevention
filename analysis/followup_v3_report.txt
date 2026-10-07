@@ -1,0 +1,33 @@
+人工核验后的下一阶段：质量基线与第三轮候选核验
+
+开发诊断目标 6/24，来自 6 个项目。新增 compare-mt 的手工成对缓存参考，不代表现有自动规则已支持，也未开始该目标的模型生成。
+本轮无新增 API 调用；优先补实验对照和真实源码证据。
+
+原测试检错基线（3 个独立进程；仅在原节点持续通过且缺陷版同节点持续失败时计稳定检出）：
+penman | full_tests_directory | 原测试 [{'pass': 91}, {'pass': 91}, {'pass': 91}] | 稳定检出 4/4 | 全套收集 collection_ok
+Tale | target_test_subset | 原测试 [{'pass': 10}, {'pass': 10}, {'pass': 10}] | 稳定检出 3/3 | 全套收集 collection_blocked
+lithoxyl | target_test_subset | 原测试 [{'pass': 2}, {'pass': 2}, {'pass': 2}] | 稳定检出 3/3 | 全套收集 collection_ok
+RandomFileTree | target_test_subset | 原测试 [{'pass': 1}, {'pass': 1}, {'pass': 1}] | 稳定检出 1/2 | 全套收集 collection_ok
+fishbase | target_test_subset | 原测试 [{'pass': 2}, {'pass': 2}, {'pass': 2}] | 稳定检出 1/2 | 全套收集 collection_ok
+
+Tale 全套收集缺 smartypants/appdirs/serpent；RandomFileTree、fishbase、lithoxyl 全套收集成功不等于已执行全套。
+fishbase 长度缺陷补充 30 次：原实现 30 pass；缺陷版 25 pass/5 fail。首批 3 次为 2 pass/1 fail，原记录保留。
+对已有 47 份主协议通过输出的手工缺陷结果做交叉核对，没有发现原测试子集从未检出而生成测试新检出的缺陷。
+fishbase 的 v012/v019 各在 3 次缺陷检查中全部检出长度错误，原测试检出不稳定；可作为检错可靠性线索，不能当作正式方法优势或新的缺陷数量。
+RandomFileTree 的 constant_chars 缺陷，原目标测试和本批两个主协议通过生成输出均未检出。
+
+新候选：
+rambutan3：历史原节点 3 pass/27 fail。失败违反等价对象应有相同哈希的产品契约；super(object,self).__hash__ 实际绑定临时 super 代理。不能通过删除断言将产品错误洗成稳定测试。
+哈希契约来源：https://docs.python.org/3.11/reference/datamodel.html#object.__hash__ 。根因诊断见 runs/curation_v3_initial/kevinarpe-rambutan3/root_cause.json。
+grabbit：include/exclude 两个本地节点各 30/30 pass；未复现，不算新增自然风险目标。
+compare-mt：原历史节点 30/30 pass；最初缺 numpy、随后 NLTK 缓存目录缺失两次环境问题均保留。独立环境及本地缓存配置后执行，不改旧实验环境。
+
+新增 compare-mt 改编目标：
+固定四条小语料、单词 BLEU、每次 5 次 bootstrap；显式缓存路径和内部计算缓存路径独立抽样时，风险参考 2 pass/28 fail。
+手工参考用局部 NumPy RandomState 从入口状态克隆，并在第二路径前重放同一状态：30/30 pass。两条断言 AST 均保留，不挑种子（固定入口 0..29）。
+全局 NumPy 状态与模块依赖恢复检查 3/3 pass；反转缓存、重复首缓存两个手工缺陷各 2 fail/1 pass，保留未检出结果。
+源码另有 wins 统计分支问题，缓存等价性断言不验证统计量本身正确性；这不能写成整个 bootstrap 算法已被核验正确。
+
+人工进度：v1 的 60 项及 5 项调整已记录；固定规则意图收到 3/3 项（逐项判断见 rule_human_review）；第二批已收到 36/36 项，待回复 0 项，执行证据冲突 0 项。
+待裁定 0 项；明确正确性不确定 ['S018']。历史冲突记录保留，最新标签另存。
+下一步按 notes/two_week_delivery_plan.txt 收敛；四组重复生成及其补充检错已完成，当前结果见 lean_followup_v1_report.txt；暂缓 NumPy 泛化。

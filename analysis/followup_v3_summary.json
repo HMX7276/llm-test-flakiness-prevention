@@ -1,0 +1,933 @@
+{
+  "baselines": [
+    {
+      "project_id": "penman",
+      "scope": "full_tests_directory",
+      "original_counts": [
+        {
+          "pass": 91
+        },
+        {
+          "pass": 91
+        },
+        {
+          "pass": 91
+        }
+      ],
+      "full_collection": "collection_ok",
+      "mutants": {
+        "empty_result": {
+          "stable_detection": true,
+          "valid_comparison": true,
+          "any_detection": true
+        },
+        "omit_explicit_top": {
+          "stable_detection": true,
+          "valid_comparison": true,
+          "any_detection": true
+        },
+        "omit_sources": {
+          "stable_detection": true,
+          "valid_comparison": true,
+          "any_detection": true
+        },
+        "use_targets": {
+          "stable_detection": true,
+          "valid_comparison": true,
+          "any_detection": true
+        }
+      }
+    },
+    {
+      "project_id": "Tale",
+      "scope": "target_test_subset",
+      "original_counts": [
+        {
+          "pass": 10
+        },
+        {
+          "pass": 10
+        },
+        {
+          "pass": 10
+        }
+      ],
+      "full_collection": "collection_blocked",
+      "mutants": {
+        "idle_always_zero": {
+          "stable_detection": true,
+          "valid_comparison": true,
+          "any_detection": true
+        },
+        "idle_reversed": {
+          "stable_detection": true,
+          "valid_comparison": true,
+          "any_detection": true
+        },
+        "send_does_not_reset": {
+          "stable_detection": true,
+          "valid_comparison": true,
+          "any_detection": true
+        }
+      }
+    },
+    {
+      "project_id": "lithoxyl",
+      "scope": "target_test_subset",
+      "original_counts": [
+        {
+          "pass": 2
+        },
+        {
+          "pass": 2
+        },
+        {
+          "pass": 2
+        }
+      ],
+      "full_collection": "collection_ok",
+      "mutants": {
+        "mean_unchanged": {
+          "stable_detection": true,
+          "valid_comparison": true,
+          "any_detection": true
+        },
+        "second_moment_unchanged": {
+          "stable_detection": true,
+          "valid_comparison": true,
+          "any_detection": true
+        },
+        "count_plus_two": {
+          "stable_detection": true,
+          "valid_comparison": true,
+          "any_detection": true
+        }
+      }
+    },
+    {
+      "project_id": "RandomFileTree",
+      "scope": "target_test_subset",
+      "original_counts": [
+        {
+          "pass": 1
+        },
+        {
+          "pass": 1
+        },
+        {
+          "pass": 1
+        }
+      ],
+      "full_collection": "collection_ok",
+      "mutants": {
+        "wrong_length": {
+          "stable_detection": true,
+          "valid_comparison": true,
+          "any_detection": true
+        },
+        "constant_chars": {
+          "stable_detection": false,
+          "valid_comparison": true,
+          "any_detection": false
+        }
+      }
+    },
+    {
+      "project_id": "fishbase",
+      "scope": "target_test_subset",
+      "original_counts": [
+        {
+          "pass": 2
+        },
+        {
+          "pass": 2
+        },
+        {
+          "pass": 2
+        }
+      ],
+      "full_collection": "collection_ok",
+      "mutants": {
+        "omit_prefix": {
+          "stable_detection": true,
+          "valid_comparison": true,
+          "any_detection": true
+        },
+        "wrong_length": {
+          "stable_detection": false,
+          "valid_comparison": true,
+          "any_detection": true
+        }
+      }
+    }
+  ],
+  "fishbase_length_followup_30": {
+    "original": {
+      "pass": 30
+    },
+    "wrong_length": {
+      "pass": 25,
+      "fail": 5
+    }
+  },
+  "generated_quality_comparison": [
+    {
+      "run": "development_v1",
+      "output_id": "d002",
+      "project_id": "penman",
+      "original_scope": "full_tests_directory",
+      "generated_killed": [
+        "empty_result",
+        "omit_explicit_top",
+        "omit_sources",
+        "use_targets"
+      ],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": []
+    },
+    {
+      "run": "development_v1",
+      "output_id": "d004",
+      "project_id": "lithoxyl",
+      "original_scope": "target_test_subset",
+      "generated_killed": [
+        "count_plus_two",
+        "mean_unchanged"
+      ],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": []
+    },
+    {
+      "run": "development_v1",
+      "output_id": "d006",
+      "project_id": "penman",
+      "original_scope": "full_tests_directory",
+      "generated_killed": [
+        "empty_result",
+        "omit_explicit_top",
+        "omit_sources",
+        "use_targets"
+      ],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": []
+    },
+    {
+      "run": "development_v1",
+      "output_id": "d007",
+      "project_id": "penman",
+      "original_scope": "full_tests_directory",
+      "generated_killed": [
+        "empty_result",
+        "omit_sources",
+        "use_targets"
+      ],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": []
+    },
+    {
+      "run": "development_v1",
+      "output_id": "d008",
+      "project_id": "penman",
+      "original_scope": "full_tests_directory",
+      "generated_killed": [
+        "empty_result",
+        "omit_explicit_top"
+      ],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": []
+    },
+    {
+      "run": "development_v1",
+      "output_id": "d009",
+      "project_id": "Tale",
+      "original_scope": "target_test_subset",
+      "generated_killed": [
+        "idle_always_zero",
+        "idle_reversed",
+        "send_does_not_reset"
+      ],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": []
+    },
+    {
+      "run": "development_v1",
+      "output_id": "d010",
+      "project_id": "penman",
+      "original_scope": "full_tests_directory",
+      "generated_killed": [
+        "empty_result",
+        "omit_explicit_top",
+        "omit_sources",
+        "use_targets"
+      ],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": []
+    },
+    {
+      "run": "development_v1",
+      "output_id": "d012",
+      "project_id": "penman",
+      "original_scope": "full_tests_directory",
+      "generated_killed": [
+        "empty_result",
+        "omit_sources",
+        "use_targets"
+      ],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": []
+    },
+    {
+      "run": "development_v1",
+      "output_id": "d013",
+      "project_id": "Tale",
+      "original_scope": "target_test_subset",
+      "generated_killed": [
+        "idle_always_zero",
+        "idle_reversed",
+        "send_does_not_reset"
+      ],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": []
+    },
+    {
+      "run": "development_v1",
+      "output_id": "d014",
+      "project_id": "Tale",
+      "original_scope": "target_test_subset",
+      "generated_killed": [
+        "idle_always_zero",
+        "idle_reversed",
+        "send_does_not_reset"
+      ],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": []
+    },
+    {
+      "run": "development_v1",
+      "output_id": "d016",
+      "project_id": "Tale",
+      "original_scope": "target_test_subset",
+      "generated_killed": [
+        "idle_always_zero",
+        "idle_reversed",
+        "send_does_not_reset"
+      ],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": []
+    },
+    {
+      "run": "development_v1",
+      "output_id": "d019",
+      "project_id": "lithoxyl",
+      "original_scope": "target_test_subset",
+      "generated_killed": [
+        "count_plus_two",
+        "mean_unchanged",
+        "second_moment_unchanged"
+      ],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": []
+    },
+    {
+      "run": "development_v1",
+      "output_id": "d020",
+      "project_id": "Tale",
+      "original_scope": "target_test_subset",
+      "generated_killed": [
+        "idle_always_zero",
+        "idle_reversed",
+        "send_does_not_reset"
+      ],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": []
+    },
+    {
+      "run": "development_v1",
+      "output_id": "d021",
+      "project_id": "Tale",
+      "original_scope": "target_test_subset",
+      "generated_killed": [
+        "idle_always_zero",
+        "idle_reversed",
+        "send_does_not_reset"
+      ],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": []
+    },
+    {
+      "run": "development_v1",
+      "output_id": "d022",
+      "project_id": "penman",
+      "original_scope": "full_tests_directory",
+      "generated_killed": [
+        "empty_result",
+        "omit_sources",
+        "use_targets"
+      ],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": []
+    },
+    {
+      "run": "development_v1",
+      "output_id": "d023",
+      "project_id": "lithoxyl",
+      "original_scope": "target_test_subset",
+      "generated_killed": [
+        "count_plus_two",
+        "mean_unchanged",
+        "second_moment_unchanged"
+      ],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": []
+    },
+    {
+      "run": "development_v1",
+      "output_id": "d024",
+      "project_id": "lithoxyl",
+      "original_scope": "target_test_subset",
+      "generated_killed": [
+        "count_plus_two",
+        "mean_unchanged"
+      ],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": []
+    },
+    {
+      "run": "development_v1",
+      "output_id": "d026",
+      "project_id": "penman",
+      "original_scope": "full_tests_directory",
+      "generated_killed": [
+        "empty_result",
+        "omit_explicit_top",
+        "omit_sources",
+        "use_targets"
+      ],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": []
+    },
+    {
+      "run": "development_v1",
+      "output_id": "d027",
+      "project_id": "penman",
+      "original_scope": "full_tests_directory",
+      "generated_killed": [
+        "empty_result",
+        "omit_explicit_top",
+        "omit_sources",
+        "use_targets"
+      ],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": []
+    },
+    {
+      "run": "development_v1",
+      "output_id": "d028",
+      "project_id": "penman",
+      "original_scope": "full_tests_directory",
+      "generated_killed": [
+        "empty_result",
+        "use_targets"
+      ],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": []
+    },
+    {
+      "run": "development_v1",
+      "output_id": "d029",
+      "project_id": "penman",
+      "original_scope": "full_tests_directory",
+      "generated_killed": [
+        "empty_result",
+        "omit_explicit_top"
+      ],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": []
+    },
+    {
+      "run": "development_v1",
+      "output_id": "d030",
+      "project_id": "lithoxyl",
+      "original_scope": "target_test_subset",
+      "generated_killed": [
+        "count_plus_two",
+        "mean_unchanged"
+      ],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": []
+    },
+    {
+      "run": "development_v1",
+      "output_id": "d031",
+      "project_id": "lithoxyl",
+      "original_scope": "target_test_subset",
+      "generated_killed": [
+        "count_plus_two",
+        "mean_unchanged",
+        "second_moment_unchanged"
+      ],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": []
+    },
+    {
+      "run": "development_v1",
+      "output_id": "d032",
+      "project_id": "Tale",
+      "original_scope": "target_test_subset",
+      "generated_killed": [
+        "idle_always_zero",
+        "idle_reversed"
+      ],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": []
+    },
+    {
+      "run": "development_v1",
+      "output_id": "d034",
+      "project_id": "Tale",
+      "original_scope": "target_test_subset",
+      "generated_killed": [
+        "idle_always_zero",
+        "idle_reversed",
+        "send_does_not_reset"
+      ],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": []
+    },
+    {
+      "run": "development_v1",
+      "output_id": "d035",
+      "project_id": "lithoxyl",
+      "original_scope": "target_test_subset",
+      "generated_killed": [
+        "count_plus_two",
+        "mean_unchanged",
+        "second_moment_unchanged"
+      ],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": []
+    },
+    {
+      "run": "development_v1",
+      "output_id": "d037",
+      "project_id": "lithoxyl",
+      "original_scope": "target_test_subset",
+      "generated_killed": [
+        "count_plus_two",
+        "mean_unchanged"
+      ],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": []
+    },
+    {
+      "run": "development_v1",
+      "output_id": "d039",
+      "project_id": "penman",
+      "original_scope": "full_tests_directory",
+      "generated_killed": [
+        "empty_result",
+        "omit_sources",
+        "use_targets"
+      ],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": []
+    },
+    {
+      "run": "development_v1",
+      "output_id": "d040",
+      "project_id": "penman",
+      "original_scope": "full_tests_directory",
+      "generated_killed": [
+        "empty_result",
+        "omit_explicit_top",
+        "omit_sources",
+        "use_targets"
+      ],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": []
+    },
+    {
+      "run": "development_v1",
+      "output_id": "d042",
+      "project_id": "lithoxyl",
+      "original_scope": "target_test_subset",
+      "generated_killed": [
+        "count_plus_two",
+        "mean_unchanged",
+        "second_moment_unchanged"
+      ],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": []
+    },
+    {
+      "run": "development_v1",
+      "output_id": "d043",
+      "project_id": "penman",
+      "original_scope": "full_tests_directory",
+      "generated_killed": [
+        "empty_result",
+        "omit_explicit_top"
+      ],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": []
+    },
+    {
+      "run": "development_v1",
+      "output_id": "d044",
+      "project_id": "penman",
+      "original_scope": "full_tests_directory",
+      "generated_killed": [
+        "empty_result",
+        "omit_sources",
+        "use_targets"
+      ],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": []
+    },
+    {
+      "run": "development_v1",
+      "output_id": "d045",
+      "project_id": "Tale",
+      "original_scope": "target_test_subset",
+      "generated_killed": [
+        "idle_always_zero",
+        "idle_reversed",
+        "send_does_not_reset"
+      ],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": []
+    },
+    {
+      "run": "development_v1",
+      "output_id": "d046",
+      "project_id": "Tale",
+      "original_scope": "target_test_subset",
+      "generated_killed": [
+        "idle_always_zero",
+        "idle_reversed",
+        "send_does_not_reset"
+      ],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": []
+    },
+    {
+      "run": "development_v2",
+      "output_id": "v004",
+      "project_id": "Tale",
+      "original_scope": "target_test_subset",
+      "generated_killed": [
+        "idle_always_zero",
+        "idle_reversed",
+        "send_does_not_reset"
+      ],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": []
+    },
+    {
+      "run": "development_v2",
+      "output_id": "v007",
+      "project_id": "RandomFileTree",
+      "original_scope": "target_test_subset",
+      "generated_killed": [
+        "wrong_length"
+      ],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": []
+    },
+    {
+      "run": "development_v2",
+      "output_id": "v009",
+      "project_id": "Tale",
+      "original_scope": "target_test_subset",
+      "generated_killed": [
+        "idle_always_zero",
+        "idle_reversed",
+        "send_does_not_reset"
+      ],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": []
+    },
+    {
+      "run": "development_v2",
+      "output_id": "v010",
+      "project_id": "Tale",
+      "original_scope": "target_test_subset",
+      "generated_killed": [
+        "idle_always_zero",
+        "idle_reversed"
+      ],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": []
+    },
+    {
+      "run": "development_v2",
+      "output_id": "v012",
+      "project_id": "fishbase",
+      "original_scope": "target_test_subset",
+      "generated_killed": [
+        "wrong_length"
+      ],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": [
+        "wrong_length"
+      ]
+    },
+    {
+      "run": "development_v2",
+      "output_id": "v013",
+      "project_id": "Tale",
+      "original_scope": "target_test_subset",
+      "generated_killed": [
+        "idle_always_zero",
+        "idle_reversed"
+      ],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": []
+    },
+    {
+      "run": "development_v2",
+      "output_id": "v017",
+      "project_id": "Tale",
+      "original_scope": "target_test_subset",
+      "generated_killed": [
+        "idle_always_zero",
+        "idle_reversed",
+        "send_does_not_reset"
+      ],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": []
+    },
+    {
+      "run": "development_v2",
+      "output_id": "v019",
+      "project_id": "fishbase",
+      "original_scope": "target_test_subset",
+      "generated_killed": [
+        "wrong_length"
+      ],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": [
+        "wrong_length"
+      ]
+    },
+    {
+      "run": "development_v2",
+      "output_id": "v024",
+      "project_id": "Tale",
+      "original_scope": "target_test_subset",
+      "generated_killed": [
+        "idle_always_zero",
+        "idle_reversed",
+        "send_does_not_reset"
+      ],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": []
+    },
+    {
+      "run": "development_v2",
+      "output_id": "v028",
+      "project_id": "fishbase",
+      "original_scope": "target_test_subset",
+      "generated_killed": [],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": []
+    },
+    {
+      "run": "development_v2",
+      "output_id": "v031",
+      "project_id": "Tale",
+      "original_scope": "target_test_subset",
+      "generated_killed": [
+        "idle_always_zero",
+        "idle_reversed",
+        "send_does_not_reset"
+      ],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": []
+    },
+    {
+      "run": "development_v2",
+      "output_id": "v034",
+      "project_id": "Tale",
+      "original_scope": "target_test_subset",
+      "generated_killed": [
+        "idle_always_zero",
+        "idle_reversed",
+        "send_does_not_reset"
+      ],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": []
+    },
+    {
+      "run": "development_v2",
+      "output_id": "v036",
+      "project_id": "RandomFileTree",
+      "original_scope": "target_test_subset",
+      "generated_killed": [
+        "wrong_length"
+      ],
+      "additional_over_ever_detected": [],
+      "additional_over_three_of_three": []
+    }
+  ],
+  "candidate_screening": [
+    {
+      "project": "kevinarpe/kevinarpe-rambutan3",
+      "commit": "5d7469912b559338dc15f5c7fb2abc91103ea0c5",
+      "counts": {
+        "fail": 27,
+        "pass": 3
+      },
+      "test": "tests/check_args/base/test_RNotNoneTypeMatcher.py::test_eq_ne_hash",
+      "status": "product_hash_contract_violation_excluded",
+      "evidence": "runs/curation_v3_initial/kevinarpe-rambutan3/summary.json",
+      "formal_eligible": false
+    },
+    {
+      "project": "grabbles/grabbit",
+      "commit": "83ff93df36019eaaee9d4e31f816a518e46cae07",
+      "counts": {
+        "pass": 30
+      },
+      "test": "grabbit/tests/test_core.py::TestLayout::test_init_with_include_arg[local]",
+      "status": "not_reproduced",
+      "evidence": "runs/curation_v3_initial/grabbit/summary.json",
+      "formal_eligible": false
+    },
+    {
+      "project": "grabbles/grabbit",
+      "commit": "83ff93df36019eaaee9d4e31f816a518e46cae07",
+      "test": "grabbit/tests/test_core.py::TestLayout::test_init_with_include_arg[local]",
+      "counts": {
+        "pass": 30
+      },
+      "status": "not_reproduced",
+      "formal_eligible": false,
+      "evidence": "runs/curation_v3_grabbit_include/summary.json"
+    },
+    {
+      "project": "neulab/compare-mt",
+      "commit": "92502b30b1f228773179a01dd86fe1b8dfd400e5",
+      "test": "tests/test_cache.py::TestScoreCache::test_score_cache_bootstrap",
+      "counts": {
+        "pass": 30
+      },
+      "status": "not_reproduced",
+      "formal_eligible": false,
+      "evidence": "runs/curation_v3_scientific/compare-mt/summary.json",
+      "retained_setup_probes": [
+        "runs/curation_v3_initial/compare-mt/summary.json",
+        "runs/curation_v3_compare/summary.json"
+      ]
+    }
+  ],
+  "new_manual_pair": {
+    "task": {
+      "task_id": "compare_mt_bootstrap_cache_001",
+      "project_id": "compare-mt",
+      "commit": "92502b30b1f228773179a01dd86fe1b8dfd400e5",
+      "project_path": "vendor/compare-mt-92502b30b1f228773179a01dd86fe1b8dfd400e5",
+      "target": "compare_mt.sign_utils.eval_with_paired_bootstrap",
+      "target_source": "def eval_with_paired_bootstrap(ref, outs,\n                               scorer,\n                               compare_directions=[(0, 1)],\n                               num_samples=1000, sample_ratio=0.5,\n                               cache_stats=None):\n  \"\"\"\n  Evaluate with paired boostrap.\n  This compares several systems, performing a signifiance tests with\n  paired bootstrap resampling to compare the accuracy of the specified systems.\n\n  Args:\n    ref: The correct labels\n    outs: The output of systems\n    scorer: The scorer\n    compare_directions: A string specifying which two systems to compare\n    num_samples: The number of bootstrap samples to take\n    sample_ratio: The ratio of samples to take every time\n    cache_stats: The precomputed statistics\n\n  Returns:\n    A tuple containing the win ratios, statistics for systems\n  \"\"\"\n  sys_scores = [[] for _ in outs] \n  wins = [[0, 0, 0] for _ in compare_directions] if compare_directions is not None else None\n  n = len(ref)\n  ids = list(range(n))\n\n  if cache_stats is None:\n    cache_stats = [scorer.cache_stats(ref, out) for out in outs] \n  sample_size = int(n*sample_ratio)\n  for _ in range(num_samples):\n    # Subsample the gold and system outputs (with replacement)\n    reduced_ids = np.random.choice(ids, size=sample_size, replace=True)\n    # Calculate accuracy on the reduced sample and save stats\n    if cache_stats[0]:\n      sys_score, _ = zip(*[scorer.score_cached_corpus(reduced_ids, cache_stat) for cache_stat in cache_stats])\n    else:\n      reduced_ref = [ref[i] for i in reduced_ids]\n      reduced_outs = [[out[i] for i in reduced_ids] for out in outs]\n      sys_score, _ = zip(*[scorer.score_corpus(reduced_ref, reduced_out) for reduced_out in reduced_outs])\n\n    if wins is not None:\n      for i, compare_direction in enumerate(compare_directions): \n        left, right = compare_direction\n        if sys_score[left] > sys_score[right]:\n          wins[i][0] += 1\n        if sys_score[left] < sys_score[right]:\n          wins[i][1] += 1\n        else:\n          wins[i][2] += 1\n\n    for i in range(len(outs)): \n      sys_scores[i].append(sys_score[i])\n\n  # Print win stats\n  wins = [[x/float(num_samples) for x in win] for win in wins] if wins is not None else None\n\n  # Print system stats\n  sys_stats = []\n  for i in range(len(outs)): \n    sys_scores[i].sort()\n    sys_stats.append({\n      'mean':np.mean(sys_scores[i]),\n      'median':np.median(sys_scores[i]),\n      'lower_bound':sys_scores[i][int(num_samples * 0.025)],\n      'upper_bound':sys_scores[i][int(num_samples * 0.975)]\n    })\n\n  return wins, sys_stats",
+      "source_sha256": "92c213c80bea94f610d21213ef16acda5ac17a7ec9e3fc07c28029fd7900d8db",
+      "provenance": "Constructed tiny-corpus/cache-path adaptation inspired by original test_score_cache_bootstrap; original historical node passed 30/30 in this environment.",
+      "dataset_layer": "historical_inspired_constructed",
+      "human_review_status": "pending",
+      "method_support": "M v2 abstains: NumPy paired state replay is not the stdlib seeded-regression rule.",
+      "contract": "Given identical bootstrap draws, explicit-cache and internally computed-cache paths must agree on results. Independent draws need not yield identical results. Do not replace scorer or target function.",
+      "limitation": "Known independent win-counting if/else issue in source is not evaluated by cache equivalence; no correctness claim for all statistical output.",
+      "entry_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "sample_count": 5,
+      "fixed_before_outcomes": true,
+      "clean_status": "Manual candidate reference, not automatic transformation or human-approved equivalence."
+    },
+    "counts": {
+      "risk": {
+        "fail": 28,
+        "pass": 2
+      },
+      "manual_clean": {
+        "pass": 30
+      }
+    },
+    "validation": {
+      "restoration": {
+        "pass": 3
+      },
+      "reverse_explicit_cache": {
+        "fail": 2,
+        "pass": 1
+      },
+      "duplicate_first_cache": {
+        "fail": 2,
+        "pass": 1
+      }
+    }
+  },
+  "development_targets": 6,
+  "rule_human_review": {
+    "completed": {
+      "fishbase_gen_random_str_001": {
+        "verdict": "preserved",
+        "evidence": "review\\rules_v2\\accepted\\fishbase_gen_random_str_001_2026-10-05.json"
+      },
+      "randomfiletree_random_string_001": {
+        "verdict": "preserved",
+        "evidence": "review\\rules_v2\\accepted\\randomfiletree_random_string_001_2026-10-05.json"
+      },
+      "tale_topic_idle_time_001": {
+        "verdict": "preserved",
+        "evidence": "review\\rules_v2\\accepted\\tale_topic_idle_time_001_2026-10-05.json"
+      }
+    },
+    "pending": [],
+    "status": "complete"
+  },
+  "new_api_calls": 0,
+  "v2_review_packet": "review/semantic_v2/人工语义核验.html",
+  "v2_human_reviews_received": 36,
+  "v2_pending_label_confirmation": [],
+  "v2_evidence_conflicts": [],
+  "v2_held_adjudications": [],
+  "v2_uncertain_correctness": [
+    "S018"
+  ],
+  "limitations": [
+    "Original subsets for four projects; only PENMAN full suite executed.",
+    "Hand-seeded defects and small development samples; no formal significance or superiority claim.",
+    "The historical compare-mt test itself did not reproduce; the new target is an explicit adaptation.",
+    "No human approval for the new cache-pair reference yet; NumPy replay not implemented in M v2.",
+    "Original frozen generated tests and execution records unchanged."
+  ]
+}

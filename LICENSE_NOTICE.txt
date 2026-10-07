@@ -1,0 +1,4 @@
+Original code and research data: no distribution/reuse license has yet been selected by the authors.
+No MIT, CC BY, or other blanket license is granted by this repository.
+Third-party source and notices in the replication bundle retain their own licenses.
+Publication does not transfer ownership of upstream projects to the study authors.

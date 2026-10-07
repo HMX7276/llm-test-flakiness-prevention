@@ -1,0 +1,17 @@
+﻿新项目适用性诊断（不是 LLM 独立效果比较）
+完成 189/189 次执行；冻结 M v2 拒绝转换 3/3。
+任务 | 版本 | 已完成/计划 | 结果 | 均调用真实目标
+networkx_ancestors | risk | 30/30 | {'pass': 15, 'fail': 15} | True
+networkx_ancestors | reference | 30/30 | {'pass': 30} | True
+networkx_ancestors | mutant | 3/3 | {'fail': 3} | True
+cachetools_ttl | risk | 30/30 | {'pass': 15, 'fail': 15} | True
+cachetools_ttl | reference | 30/30 | {'pass': 30} | True
+cachetools_ttl | mutant | 3/3 | {'fail': 3} | True
+faker_random_int | risk | 30/30 | {'pass': 1, 'fail': 29} | True
+faker_random_int | reference | 30/30 | {'pass': 30} | True
+faker_random_int | mutant | 3/3 | {'fail': 3} | True
+三个项目为规则开发后目的性选择的新项目，构造示例不是历史自然风险。
+reference 为助手编写的人工参考，不是 M 输出，未获本批人工语义核验。
+mutant 为每项目一项固定手工缺陷，仅作断言诊断，不是正式变异得分。
+对三个目标全弃权时，M 与原例相同，因此未进行没有干预差异的 LLM 生成比较。
+时钟例包含受控延迟；30/30 通过不能证明绝无不稳定性；运行次数不等于独立项目数。

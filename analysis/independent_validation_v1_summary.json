@@ -1,0 +1,104 @@
+{
+  "scope": "external_applicability_diagnostics_not_llm_comparison",
+  "completed": 189,
+  "planned": 189,
+  "method_abstentions": 3,
+  "groups": [
+    {
+      "task": "networkx_ancestors",
+      "variant": "risk",
+      "planned": 30,
+      "completed": 30,
+      "counts": {
+        "pass": 15,
+        "fail": 15
+      },
+      "all_target_called": true
+    },
+    {
+      "task": "networkx_ancestors",
+      "variant": "reference",
+      "planned": 30,
+      "completed": 30,
+      "counts": {
+        "pass": 30
+      },
+      "all_target_called": true
+    },
+    {
+      "task": "networkx_ancestors",
+      "variant": "mutant",
+      "planned": 3,
+      "completed": 3,
+      "counts": {
+        "fail": 3
+      },
+      "all_target_called": true
+    },
+    {
+      "task": "cachetools_ttl",
+      "variant": "risk",
+      "planned": 30,
+      "completed": 30,
+      "counts": {
+        "pass": 15,
+        "fail": 15
+      },
+      "all_target_called": true
+    },
+    {
+      "task": "cachetools_ttl",
+      "variant": "reference",
+      "planned": 30,
+      "completed": 30,
+      "counts": {
+        "pass": 30
+      },
+      "all_target_called": true
+    },
+    {
+      "task": "cachetools_ttl",
+      "variant": "mutant",
+      "planned": 3,
+      "completed": 3,
+      "counts": {
+        "fail": 3
+      },
+      "all_target_called": true
+    },
+    {
+      "task": "faker_random_int",
+      "variant": "risk",
+      "planned": 30,
+      "completed": 30,
+      "counts": {
+        "pass": 1,
+        "fail": 29
+      },
+      "all_target_called": true
+    },
+    {
+      "task": "faker_random_int",
+      "variant": "reference",
+      "planned": 30,
+      "completed": 30,
+      "counts": {
+        "pass": 30
+      },
+      "all_target_called": true
+    },
+    {
+      "task": "faker_random_int",
+      "variant": "mutant",
+      "planned": 3,
+      "completed": 3,
+      "counts": {
+        "fail": 3
+      },
+      "all_target_called": true
+    }
+  ],
+  "no_llm_calls": true,
+  "human_semantic_review": "not obtained for new pairs",
+  "frozen_sha256": "d3d7bff7875ef12aca78b7c5d639514d339fa28b10a608c5c177be59f444c1dd"
+}

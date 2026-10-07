@@ -1,0 +1,52 @@
+{
+  "analysis_type": "post_hoc_presentation_only",
+  "primary_results_unchanged": true,
+  "uniform_rule": "Trim opening and optional closing markdown fence only",
+  "changed_outputs": [
+    {
+      "output_id": "g004",
+      "original_sha256": "a8f801c13a25b6a3dcfb8930129f49729ad392125d7ff53cf433f89dc2b06a2e",
+      "normalized_sha256": "078c1b7560501f56445b8f0bbb78d8da3e66a11d2a32ea6d245f3849913cd9dd",
+      "evaluation": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30,
+        "has_pass": true,
+        "semantic_review": "pending",
+        "code_sha256": "078c1b7560501f56445b8f0bbb78d8da3e66a11d2a32ea6d245f3849913cd9dd"
+      }
+    },
+    {
+      "output_id": "g012",
+      "original_sha256": "1513fd46eb28efb07c3e29455deaa6f3341847bcb3664381b37f96c5954e1b42",
+      "normalized_sha256": "af32198978d7d126a7316e5a3df3adb65685fe56d06154ccccd39be029186d2a",
+      "evaluation": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30,
+        "has_pass": true,
+        "semantic_review": "pending",
+        "code_sha256": "af32198978d7d126a7316e5a3df3adb65685fe56d06154ccccd39be029186d2a"
+      }
+    },
+    {
+      "output_id": "g013",
+      "original_sha256": "8f0fb8b6126cc856350d33e3345d8e2c75a3b7a218f26f533a5d54f1a3c47871",
+      "normalized_sha256": "3f8079c99763186c78cb370d2ab656ba94a7fa5cb12cbd550b730af349ee1fb2",
+      "evaluation": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30,
+        "has_pass": true,
+        "semantic_review": "pending",
+        "code_sha256": "3f8079c99763186c78cb370d2ab656ba94a7fa5cb12cbd550b730af349ee1fb2"
+      }
+    }
+  ]
+}

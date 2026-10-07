@@ -1,0 +1,1420 @@
+{
+  "distinct_targets": 5,
+  "distinct_projects": 5,
+  "generated_targets": 3,
+  "planned": 36,
+  "counts": {
+    "execution_review_required": 10,
+    "persistent_failure": 12,
+    "stable_proxy_valid": 13,
+    "observed_unstable": 1
+  },
+  "http_attempts": 36,
+  "returned_usage": {
+    "prompt_tokens": 25476,
+    "completion_tokens": 6615,
+    "reasoning_tokens": 0
+  },
+  "primary_executions": 780,
+  "rows": [
+    {
+      "output_id": "v001",
+      "task_id": "fishbase_gen_random_str_001",
+      "model_id": "deepseek-v4-flash",
+      "context": "clean",
+      "method": "M",
+      "status": "execution_review_required",
+      "executions": 0,
+      "counts": {},
+      "usage": {
+        "prompt_tokens": 974,
+        "total_tokens": 1107,
+        "completion_tokens": 133,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "attempts": 1
+    },
+    {
+      "output_id": "v002",
+      "task_id": "randomfiletree_random_string_001",
+      "model_id": "deepseek-v4-flash",
+      "context": "risk",
+      "method": "B1",
+      "status": "persistent_failure",
+      "executions": 30,
+      "counts": {
+        "fail": 30
+      },
+      "usage": {
+        "prompt_tokens": 344,
+        "total_tokens": 479,
+        "completion_tokens": 135,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "attempts": 1
+    },
+    {
+      "output_id": "v003",
+      "task_id": "fishbase_gen_random_str_001",
+      "model_id": "deepseek-v4-flash",
+      "context": "risk",
+      "method": "B0",
+      "status": "persistent_failure",
+      "executions": 30,
+      "counts": {
+        "fail": 30
+      },
+      "usage": {
+        "prompt_tokens": 952,
+        "total_tokens": 1069,
+        "completion_tokens": 117,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "attempts": 1
+    },
+    {
+      "output_id": "v004",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "deepseek-v4-flash",
+      "context": "clean",
+      "method": "B1",
+      "status": "stable_proxy_valid",
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "usage": {
+        "prompt_tokens": 815,
+        "total_tokens": 965,
+        "completion_tokens": 150,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "attempts": 1,
+      "diagnostic_mutants": {
+        "killed": 3,
+        "total": 3
+      }
+    },
+    {
+      "output_id": "v005",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "qwen3.5",
+      "context": "risk",
+      "method": "M",
+      "status": "persistent_failure",
+      "executions": 30,
+      "counts": {
+        "fail": 30
+      },
+      "usage": {
+        "prompt_tokens": 820,
+        "total_tokens": 998,
+        "completion_tokens": 178,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "attempts": 1
+    },
+    {
+      "output_id": "v006",
+      "task_id": "fishbase_gen_random_str_001",
+      "model_id": "qwen3.5",
+      "context": "clean",
+      "method": "M",
+      "status": "persistent_failure",
+      "executions": 30,
+      "counts": {
+        "fail": 30
+      },
+      "usage": {
+        "prompt_tokens": 975,
+        "total_tokens": 1193,
+        "completion_tokens": 218,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "attempts": 1
+    },
+    {
+      "output_id": "v007",
+      "task_id": "randomfiletree_random_string_001",
+      "model_id": "deepseek-v4-flash",
+      "context": "risk",
+      "method": "M",
+      "status": "stable_proxy_valid",
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "usage": {
+        "prompt_tokens": 345,
+        "total_tokens": 434,
+        "completion_tokens": 89,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "attempts": 1,
+      "diagnostic_mutants": {
+        "killed": 1,
+        "total": 2
+      }
+    },
+    {
+      "output_id": "v008",
+      "task_id": "randomfiletree_random_string_001",
+      "model_id": "qwen3.5",
+      "context": "risk",
+      "method": "B0",
+      "status": "execution_review_required",
+      "executions": 0,
+      "counts": {},
+      "usage": {
+        "prompt_tokens": 338,
+        "total_tokens": 450,
+        "completion_tokens": 112,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "attempts": 1
+    },
+    {
+      "output_id": "v009",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "deepseek-v4-flash",
+      "context": "risk",
+      "method": "B1",
+      "status": "stable_proxy_valid",
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "usage": {
+        "prompt_tokens": 760,
+        "total_tokens": 902,
+        "completion_tokens": 142,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "attempts": 1,
+      "diagnostic_mutants": {
+        "killed": 3,
+        "total": 3
+      }
+    },
+    {
+      "output_id": "v010",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "deepseek-v4-flash",
+      "context": "clean",
+      "method": "B0",
+      "status": "stable_proxy_valid",
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "usage": {
+        "prompt_tokens": 790,
+        "total_tokens": 913,
+        "completion_tokens": 123,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "attempts": 1,
+      "diagnostic_mutants": {
+        "killed": 2,
+        "total": 3
+      }
+    },
+    {
+      "output_id": "v011",
+      "task_id": "randomfiletree_random_string_001",
+      "model_id": "qwen3.5",
+      "context": "risk",
+      "method": "B1",
+      "status": "execution_review_required",
+      "executions": 0,
+      "counts": {},
+      "usage": {
+        "prompt_tokens": 365,
+        "total_tokens": 490,
+        "completion_tokens": 125,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "attempts": 1
+    },
+    {
+      "output_id": "v012",
+      "task_id": "fishbase_gen_random_str_001",
+      "model_id": "deepseek-v4-flash",
+      "context": "risk",
+      "method": "M",
+      "status": "stable_proxy_valid",
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "usage": {
+        "prompt_tokens": 979,
+        "total_tokens": 1081,
+        "completion_tokens": 102,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "attempts": 1,
+      "diagnostic_mutants": {
+        "killed": 1,
+        "total": 2
+      }
+    },
+    {
+      "output_id": "v013",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "deepseek-v4-flash",
+      "context": "clean",
+      "method": "M",
+      "status": "stable_proxy_valid",
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "usage": {
+        "prompt_tokens": 790,
+        "total_tokens": 981,
+        "completion_tokens": 191,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "attempts": 1,
+      "diagnostic_mutants": {
+        "killed": 2,
+        "total": 3
+      }
+    },
+    {
+      "output_id": "v014",
+      "task_id": "randomfiletree_random_string_001",
+      "model_id": "deepseek-v4-flash",
+      "context": "clean",
+      "method": "B0",
+      "status": "persistent_failure",
+      "executions": 30,
+      "counts": {
+        "fail": 30
+      },
+      "usage": {
+        "prompt_tokens": 343,
+        "total_tokens": 452,
+        "completion_tokens": 109,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "attempts": 1
+    },
+    {
+      "output_id": "v015",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "qwen3.5",
+      "context": "risk",
+      "method": "B1",
+      "status": "observed_unstable",
+      "executions": 30,
+      "counts": {
+        "pass": 15,
+        "fail": 15
+      },
+      "usage": {
+        "prompt_tokens": 785,
+        "total_tokens": 893,
+        "completion_tokens": 108,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "attempts": 1
+    },
+    {
+      "output_id": "v016",
+      "task_id": "fishbase_gen_random_str_001",
+      "model_id": "qwen3.5",
+      "context": "clean",
+      "method": "B1",
+      "status": "execution_review_required",
+      "executions": 0,
+      "counts": {},
+      "usage": {
+        "prompt_tokens": 1002,
+        "total_tokens": 1499,
+        "completion_tokens": 497,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "attempts": 1
+    },
+    {
+      "output_id": "v017",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "qwen3.5",
+      "context": "clean",
+      "method": "M",
+      "status": "stable_proxy_valid",
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "usage": {
+        "prompt_tokens": 816,
+        "total_tokens": 1063,
+        "completion_tokens": 247,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "attempts": 1,
+      "diagnostic_mutants": {
+        "killed": 3,
+        "total": 3
+      }
+    },
+    {
+      "output_id": "v018",
+      "task_id": "fishbase_gen_random_str_001",
+      "model_id": "qwen3.5",
+      "context": "risk",
+      "method": "B1",
+      "status": "execution_review_required",
+      "executions": 0,
+      "counts": {},
+      "usage": {
+        "prompt_tokens": 980,
+        "total_tokens": 1525,
+        "completion_tokens": 545,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "attempts": 1
+    },
+    {
+      "output_id": "v019",
+      "task_id": "fishbase_gen_random_str_001",
+      "model_id": "deepseek-v4-flash",
+      "context": "clean",
+      "method": "B1",
+      "status": "stable_proxy_valid",
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "usage": {
+        "prompt_tokens": 999,
+        "total_tokens": 1090,
+        "completion_tokens": 91,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "attempts": 1,
+      "diagnostic_mutants": {
+        "killed": 1,
+        "total": 2
+      }
+    },
+    {
+      "output_id": "v020",
+      "task_id": "fishbase_gen_random_str_001",
+      "model_id": "deepseek-v4-flash",
+      "context": "risk",
+      "method": "B1",
+      "status": "persistent_failure",
+      "executions": 30,
+      "counts": {
+        "fail": 30
+      },
+      "usage": {
+        "prompt_tokens": 977,
+        "total_tokens": 1120,
+        "completion_tokens": 143,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "attempts": 1
+    },
+    {
+      "output_id": "v021",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "qwen3.5",
+      "context": "risk",
+      "method": "B0",
+      "status": "persistent_failure",
+      "executions": 30,
+      "counts": {
+        "fail": 30
+      },
+      "usage": {
+        "prompt_tokens": 758,
+        "total_tokens": 1061,
+        "completion_tokens": 303,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "attempts": 1
+    },
+    {
+      "output_id": "v022",
+      "task_id": "randomfiletree_random_string_001",
+      "model_id": "qwen3.5",
+      "context": "clean",
+      "method": "B0",
+      "status": "execution_review_required",
+      "executions": 0,
+      "counts": {},
+      "usage": {
+        "prompt_tokens": 357,
+        "total_tokens": 590,
+        "completion_tokens": 233,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "attempts": 1
+    },
+    {
+      "output_id": "v023",
+      "task_id": "randomfiletree_random_string_001",
+      "model_id": "deepseek-v4-flash",
+      "context": "clean",
+      "method": "M",
+      "status": "persistent_failure",
+      "executions": 30,
+      "counts": {
+        "fail": 30
+      },
+      "usage": {
+        "prompt_tokens": 343,
+        "total_tokens": 441,
+        "completion_tokens": 98,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "attempts": 1
+    },
+    {
+      "output_id": "v024",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "qwen3.5",
+      "context": "clean",
+      "method": "B0",
+      "status": "stable_proxy_valid",
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "usage": {
+        "prompt_tokens": 816,
+        "total_tokens": 1014,
+        "completion_tokens": 198,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "attempts": 1,
+      "diagnostic_mutants": {
+        "killed": 3,
+        "total": 3
+      }
+    },
+    {
+      "output_id": "v025",
+      "task_id": "fishbase_gen_random_str_001",
+      "model_id": "qwen3.5",
+      "context": "risk",
+      "method": "B0",
+      "status": "execution_review_required",
+      "executions": 0,
+      "counts": {},
+      "usage": {
+        "prompt_tokens": 953,
+        "total_tokens": 1065,
+        "completion_tokens": 112,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "attempts": 1
+    },
+    {
+      "output_id": "v026",
+      "task_id": "randomfiletree_random_string_001",
+      "model_id": "qwen3.5",
+      "context": "clean",
+      "method": "M",
+      "status": "execution_review_required",
+      "executions": 0,
+      "counts": {},
+      "usage": {
+        "prompt_tokens": 357,
+        "total_tokens": 521,
+        "completion_tokens": 164,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "attempts": 1
+    },
+    {
+      "output_id": "v027",
+      "task_id": "randomfiletree_random_string_001",
+      "model_id": "qwen3.5",
+      "context": "clean",
+      "method": "B1",
+      "status": "execution_review_required",
+      "executions": 0,
+      "counts": {},
+      "usage": {
+        "prompt_tokens": 384,
+        "total_tokens": 712,
+        "completion_tokens": 328,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "attempts": 1
+    },
+    {
+      "output_id": "v028",
+      "task_id": "fishbase_gen_random_str_001",
+      "model_id": "deepseek-v4-flash",
+      "context": "clean",
+      "method": "B0",
+      "status": "stable_proxy_valid",
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "usage": {
+        "prompt_tokens": 974,
+        "total_tokens": 1090,
+        "completion_tokens": 116,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "attempts": 1,
+      "diagnostic_mutants": {
+        "killed": 0,
+        "total": 2
+      }
+    },
+    {
+      "output_id": "v029",
+      "task_id": "fishbase_gen_random_str_001",
+      "model_id": "qwen3.5",
+      "context": "risk",
+      "method": "M",
+      "status": "persistent_failure",
+      "executions": 30,
+      "counts": {
+        "fail": 30
+      },
+      "usage": {
+        "prompt_tokens": 979,
+        "total_tokens": 1149,
+        "completion_tokens": 170,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "attempts": 1
+    },
+    {
+      "output_id": "v030",
+      "task_id": "fishbase_gen_random_str_001",
+      "model_id": "qwen3.5",
+      "context": "clean",
+      "method": "B0",
+      "status": "execution_review_required",
+      "executions": 0,
+      "counts": {},
+      "usage": {
+        "prompt_tokens": 975,
+        "total_tokens": 1298,
+        "completion_tokens": 323,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "attempts": 1
+    },
+    {
+      "output_id": "v031",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "deepseek-v4-flash",
+      "context": "risk",
+      "method": "M",
+      "status": "stable_proxy_valid",
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "usage": {
+        "prompt_tokens": 803,
+        "total_tokens": 981,
+        "completion_tokens": 178,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "attempts": 1,
+      "diagnostic_mutants": {
+        "killed": 3,
+        "total": 3
+      }
+    },
+    {
+      "output_id": "v032",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "deepseek-v4-flash",
+      "context": "risk",
+      "method": "B0",
+      "status": "persistent_failure",
+      "executions": 30,
+      "counts": {
+        "fail": 30
+      },
+      "usage": {
+        "prompt_tokens": 735,
+        "total_tokens": 931,
+        "completion_tokens": 196,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "attempts": 1
+    },
+    {
+      "output_id": "v033",
+      "task_id": "randomfiletree_random_string_001",
+      "model_id": "deepseek-v4-flash",
+      "context": "risk",
+      "method": "B0",
+      "status": "persistent_failure",
+      "executions": 30,
+      "counts": {
+        "fail": 30
+      },
+      "usage": {
+        "prompt_tokens": 319,
+        "total_tokens": 413,
+        "completion_tokens": 94,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "attempts": 1
+    },
+    {
+      "output_id": "v034",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "qwen3.5",
+      "context": "clean",
+      "method": "B1",
+      "status": "stable_proxy_valid",
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "usage": {
+        "prompt_tokens": 843,
+        "total_tokens": 1087,
+        "completion_tokens": 244,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "attempts": 1,
+      "diagnostic_mutants": {
+        "killed": 3,
+        "total": 3
+      }
+    },
+    {
+      "output_id": "v035",
+      "task_id": "randomfiletree_random_string_001",
+      "model_id": "deepseek-v4-flash",
+      "context": "clean",
+      "method": "B1",
+      "status": "persistent_failure",
+      "executions": 30,
+      "counts": {
+        "fail": 30
+      },
+      "usage": {
+        "prompt_tokens": 368,
+        "total_tokens": 557,
+        "completion_tokens": 189,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "attempts": 1
+    },
+    {
+      "output_id": "v036",
+      "task_id": "randomfiletree_random_string_001",
+      "model_id": "qwen3.5",
+      "context": "risk",
+      "method": "M",
+      "status": "stable_proxy_valid",
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "usage": {
+        "prompt_tokens": 363,
+        "total_tokens": 477,
+        "completion_tokens": 114,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "attempts": 1,
+      "diagnostic_mutants": {
+        "killed": 1,
+        "total": 2
+      }
+    }
+  ],
+  "groups": [
+    {
+      "task_id": "fishbase_gen_random_str_001",
+      "context": "clean",
+      "method": "M",
+      "counts": {
+        "execution_review_required": 1,
+        "persistent_failure": 1
+      }
+    },
+    {
+      "task_id": "randomfiletree_random_string_001",
+      "context": "risk",
+      "method": "B1",
+      "counts": {
+        "persistent_failure": 1,
+        "execution_review_required": 1
+      }
+    },
+    {
+      "task_id": "fishbase_gen_random_str_001",
+      "context": "risk",
+      "method": "B0",
+      "counts": {
+        "persistent_failure": 1,
+        "execution_review_required": 1
+      }
+    },
+    {
+      "task_id": "tale_topic_idle_time_001",
+      "context": "clean",
+      "method": "B1",
+      "counts": {
+        "stable_proxy_valid": 2
+      }
+    },
+    {
+      "task_id": "tale_topic_idle_time_001",
+      "context": "risk",
+      "method": "M",
+      "counts": {
+        "persistent_failure": 1,
+        "stable_proxy_valid": 1
+      }
+    },
+    {
+      "task_id": "randomfiletree_random_string_001",
+      "context": "risk",
+      "method": "M",
+      "counts": {
+        "stable_proxy_valid": 2
+      }
+    },
+    {
+      "task_id": "randomfiletree_random_string_001",
+      "context": "risk",
+      "method": "B0",
+      "counts": {
+        "execution_review_required": 1,
+        "persistent_failure": 1
+      }
+    },
+    {
+      "task_id": "tale_topic_idle_time_001",
+      "context": "risk",
+      "method": "B1",
+      "counts": {
+        "stable_proxy_valid": 1,
+        "observed_unstable": 1
+      }
+    },
+    {
+      "task_id": "tale_topic_idle_time_001",
+      "context": "clean",
+      "method": "B0",
+      "counts": {
+        "stable_proxy_valid": 2
+      }
+    },
+    {
+      "task_id": "fishbase_gen_random_str_001",
+      "context": "risk",
+      "method": "M",
+      "counts": {
+        "stable_proxy_valid": 1,
+        "persistent_failure": 1
+      }
+    },
+    {
+      "task_id": "tale_topic_idle_time_001",
+      "context": "clean",
+      "method": "M",
+      "counts": {
+        "stable_proxy_valid": 2
+      }
+    },
+    {
+      "task_id": "randomfiletree_random_string_001",
+      "context": "clean",
+      "method": "B0",
+      "counts": {
+        "persistent_failure": 1,
+        "execution_review_required": 1
+      }
+    },
+    {
+      "task_id": "fishbase_gen_random_str_001",
+      "context": "clean",
+      "method": "B1",
+      "counts": {
+        "execution_review_required": 1,
+        "stable_proxy_valid": 1
+      }
+    },
+    {
+      "task_id": "fishbase_gen_random_str_001",
+      "context": "risk",
+      "method": "B1",
+      "counts": {
+        "execution_review_required": 1,
+        "persistent_failure": 1
+      }
+    },
+    {
+      "task_id": "tale_topic_idle_time_001",
+      "context": "risk",
+      "method": "B0",
+      "counts": {
+        "persistent_failure": 2
+      }
+    },
+    {
+      "task_id": "randomfiletree_random_string_001",
+      "context": "clean",
+      "method": "M",
+      "counts": {
+        "persistent_failure": 1,
+        "execution_review_required": 1
+      }
+    },
+    {
+      "task_id": "randomfiletree_random_string_001",
+      "context": "clean",
+      "method": "B1",
+      "counts": {
+        "execution_review_required": 1,
+        "persistent_failure": 1
+      }
+    },
+    {
+      "task_id": "fishbase_gen_random_str_001",
+      "context": "clean",
+      "method": "B0",
+      "counts": {
+        "stable_proxy_valid": 1,
+        "execution_review_required": 1
+      }
+    }
+  ],
+  "controls": [
+    {
+      "task_id": "penman_graph_variables_001",
+      "project_id": "penman",
+      "risk": {
+        "status": "observed_unstable",
+        "counts": {
+          "pass": 15,
+          "fail": 15
+        },
+        "executions": 30,
+        "has_pass": true,
+        "semantic_review": "pending",
+        "code_sha256": "010ac5b23aa22c1e027e1c0236ff07a7ca6cc1887e44e442d807906e3023ebee"
+      },
+      "clean": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30,
+        "has_pass": true,
+        "semantic_review": "pending",
+        "code_sha256": "16ef07752f2528641e3220c27b39a1b02bc1a4faafae09515756af6a3c3ce4f3"
+      },
+      "transformed": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30,
+        "has_pass": true,
+        "semantic_review": "pending",
+        "code_sha256": "b573628c287941848fb9720398ab3c9c049947e2d638c8b9541f0d8fed8f94b5"
+      },
+      "rule": {
+        "changed": true,
+        "changes": [
+          {
+            "line": 5,
+            "rule": "set_contract_order_assertion",
+            "reason": "Set-valued API has no iteration-order guarantee; compare full multiplicities."
+          }
+        ],
+        "diff": "--- \n+++ \n@@ -1,5 +1,6 @@\n+from collections import Counter\n from penman import Graph\n \n def test_example():\n     g = Graph([('a', ':instance', 'alpha'), ('b', ':instance', 'beta')])\n-    assert list(g.variables()) == ['a', 'b']\n+    assert Counter(g.variables()) == Counter(['a', 'b'])\n",
+        "receiver_provenance": [
+          "g"
+        ],
+        "version": "v1_direct_import_and_constructor_only"
+      }
+    },
+    {
+      "task_id": "tale_topic_idle_time_001",
+      "project_id": "Tale",
+      "risk": {
+        "status": "observed_unstable",
+        "counts": {
+          "pass": 15,
+          "fail": 15
+        },
+        "executions": 30,
+        "has_pass": true,
+        "semantic_review": "pending",
+        "code_sha256": "94a5ef76ecbb8cc00ffa334f30e17f1dcaca9626b07e6da6f874dca82976a46e"
+      },
+      "clean": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30,
+        "has_pass": true,
+        "semantic_review": "pending",
+        "code_sha256": "5d41010ff2b7316bf53ea9cf69b8a32443afa3405fe2572878d55056f1f8f0f6"
+      },
+      "transformed": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30,
+        "has_pass": true,
+        "semantic_review": "pending",
+        "code_sha256": "449f7a35c703e9870a774afc3a14aeb9af0f353734a4535b1fa2f561dad744b2"
+      },
+      "rule": {
+        "changed": true,
+        "version": "v2",
+        "rule": "logical_elapsed_clock",
+        "assertions_ast_preserved": true,
+        "dependency": "tale.pubsub.time",
+        "base": 0.0,
+        "sleep_replacements": 1,
+        "limitation": "Tests logical duration/reset semantics, not OS scheduling or timer accuracy.",
+        "diff": "--- \n+++ \n@@ -1,10 +1,14 @@\n+import tale.pubsub as _risk_module\n+from types import SimpleNamespace as _risk_namespace\n from tale.pubsub import topic\n import time\n \n-def test_example():\n+def test_example(monkeypatch):\n+    _risk_clock = [0.0]\n+    monkeypatch.setattr(_risk_module, 'time', _risk_namespace(time=lambda: _risk_clock[0]))\n     s = topic('example_idle')\n     assert s.idle_time < 0.1\n-    time.sleep(0.2)\n+    _risk_clock[0] += 0.2\n     assert s.idle_time > 0.1\n     s.send('event')\n     assert s.idle_time < 0.1\n"
+      }
+    },
+    {
+      "task_id": "lithoxyl_moment_add_001",
+      "project_id": "lithoxyl",
+      "risk": {
+        "status": "observed_unstable",
+        "counts": {
+          "fail": 25,
+          "pass": 5
+        },
+        "executions": 30,
+        "has_pass": true,
+        "semantic_review": "pending",
+        "code_sha256": "e8459a47c3a14fee131cca507a41b7444c675137dbd407043abda1b7a5578d6b"
+      },
+      "clean": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30,
+        "has_pass": true,
+        "semantic_review": "pending",
+        "code_sha256": "7435bbe08c3cb702f503fcfb06a479fcd4416b392dbd4232230e92d4b6e900b7"
+      },
+      "transformed": {
+        "status": "observed_unstable",
+        "counts": {
+          "fail": 25,
+          "pass": 5
+        },
+        "executions": 30,
+        "has_pass": true,
+        "semantic_review": "pending",
+        "code_sha256": "e8459a47c3a14fee131cca507a41b7444c675137dbd407043abda1b7a5578d6b"
+      },
+      "rule": {
+        "changed": false,
+        "reason": "statistical_or_unproven_random_oracle",
+        "version": "v2"
+      }
+    },
+    {
+      "task_id": "randomfiletree_random_string_001",
+      "project_id": "RandomFileTree",
+      "risk": {
+        "status": "observed_unstable",
+        "counts": {
+          "pass": 1,
+          "fail": 29
+        },
+        "executions": 30,
+        "has_pass": true,
+        "semantic_review": "pending",
+        "code_sha256": "69695e3d2e57895a6a89618c4273a58ce61b0a1edb8bbbfe29bd260bec795587"
+      },
+      "clean": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30,
+        "has_pass": true,
+        "semantic_review": "pending",
+        "code_sha256": "17e1ae013470cb6b22be86d9dba781c5a1fef2bc434382f615fdee3a7c0d0d7e"
+      },
+      "transformed": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30,
+        "has_pass": true,
+        "semantic_review": "pending",
+        "code_sha256": "1f6a484c273e5353fbfa93ec7c3a0dcfbf8502c010e352181877c1ac633d2099"
+      },
+      "rule": {
+        "changed": true,
+        "version": "v2",
+        "rule": "local_rng_dependency",
+        "assertions_ast_preserved": true,
+        "dependency": "randomfiletree.core.random",
+        "seed_from_example": 0,
+        "seed_search": false,
+        "limitation": "Preserves seeded regression case, not the breadth of a distributional test; Python RNG version dependent.",
+        "diff": "--- \n+++ \n@@ -1,7 +1,7 @@\n+import randomfiletree.core as _risk_module\n import random\n from randomfiletree.core import random_string\n \n-random.seed(0)\n-\n-def test_example():\n+def test_example(monkeypatch):\n+    monkeypatch.setattr(_risk_module, 'random', random.Random(0))\n     assert random_string(3, 3) == '0CQ'\n"
+      }
+    },
+    {
+      "task_id": "fishbase_gen_random_str_001",
+      "project_id": "fishbase",
+      "risk": {
+        "status": "observed_unstable",
+        "counts": {
+          "pass": 1,
+          "fail": 29
+        },
+        "executions": 30,
+        "has_pass": true,
+        "semantic_review": "pending",
+        "code_sha256": "1529181b9f7d9ea78c5c8910ccfb82b972a8660ef1789eb7d7919ba8c2c5d08f"
+      },
+      "clean": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30,
+        "has_pass": true,
+        "semantic_review": "pending",
+        "code_sha256": "d9e5f3acc5bf360dc27f17fcd090dc014dc60bfd3dd3a3a2b2b9a242b4497de2"
+      },
+      "transformed": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30,
+        "has_pass": true,
+        "semantic_review": "pending",
+        "code_sha256": "015dc75a9ddf8cfa3cae84578c08de786d9354c9d3dbfcb9da97ef8e1ba8dd7f"
+      },
+      "rule": {
+        "changed": true,
+        "version": "v2",
+        "rule": "local_rng_dependency",
+        "assertions_ast_preserved": true,
+        "dependency": "fishbase.fish_random.random",
+        "seed_from_example": 0,
+        "seed_search": false,
+        "limitation": "Preserves seeded regression case, not the breadth of a distributional test; Python RNG version dependent.",
+        "diff": "--- \n+++ \n@@ -1,7 +1,7 @@\n+import fishbase.fish_random as _risk_module\n import random\n from fishbase.fish_random import gen_random_str\n \n-random.seed(0)\n-\n-def test_example():\n+def test_example(monkeypatch):\n+    monkeypatch.setattr(_risk_module, 'random', random.Random(0))\n     assert gen_random_str(4, 4, prefix='p_', suffix='_s') == 'p_WAcq_s'\n"
+      }
+    }
+  ],
+  "output_hash_mismatches": [],
+  "human_review": {
+    "reviewer_plan": "user personally",
+    "completed_received": 60,
+    "status": "partial_or_complete_exports_received",
+    "packet_scope": "48 development_v1 primary + 12 import sensitivity; excludes development_v2",
+    "pending_label_confirmation": [],
+    "v1_adjudication_status": "resolved",
+    "v1_effective_label_counts": {
+      "correctness": {
+        "correct": 43,
+        "incorrect": 17
+      },
+      "robustness": {
+        "robust": 44,
+        "fragile": 16
+      },
+      "adequacy": {
+        "meaningful": 50,
+        "weak_or_masked": 10
+      }
+    },
+    "development_v2_review_status": "resolved_with_uncertain_labels",
+    "development_v2_completed_received": 36,
+    "development_v2_pending_label_confirmation": [],
+    "development_v2_evidence_conflicts": [],
+    "development_v2_held_adjudications": [],
+    "development_v2_uncertain_correctness": [
+      "S018"
+    ],
+    "development_v2_effective_label_counts": {
+      "correctness": {
+        "correct": 21,
+        "incorrect": 14,
+        "uncertain": 1
+      },
+      "robustness": {
+        "robust": 17,
+        "fragile": 19
+      },
+      "adequacy": {
+        "meaningful": 24,
+        "weak_or_masked": 12
+      }
+    },
+    "rules_v2_review_status": {
+      "completed": {
+        "fishbase_gen_random_str_001": {
+          "verdict": "preserved",
+          "evidence": "review\\rules_v2\\accepted\\fishbase_gen_random_str_001_2026-10-05.json"
+        },
+        "randomfiletree_random_string_001": {
+          "verdict": "preserved",
+          "evidence": "review\\rules_v2\\accepted\\randomfiletree_random_string_001_2026-10-05.json"
+        },
+        "tale_topic_idle_time_001": {
+          "verdict": "preserved",
+          "evidence": "review\\rules_v2\\accepted\\tale_topic_idle_time_001_2026-10-05.json"
+        }
+      },
+      "pending": [],
+      "status": "complete"
+    }
+  },
+  "limitations": [
+    "One generation per cell; development only",
+    "Two new RNG tasks constructed, not historical natural cases",
+    "Manual source-backed adapter metadata; no general held-out-project claim",
+    "Unsupported statistical oracle abstains",
+    "Development_v1 independent labels and post-discussion adjudications recorded separately",
+    "Development_v2 labels and their adjudication status are separate from hash-bound fixed rule-pair judgments; inspect rules_v2_review_status for current completion",
+    "Execution gate can reject otherwise valid context-manager code"
+  ],
+  "posthoc_reviewed_execution": {
+    "counts": {
+      "stable_proxy_valid": 9,
+      "persistent_failure": 1
+    },
+    "rows": [
+      {
+        "output_id": "v001",
+        "outcome": {
+          "status": "stable_proxy_valid",
+          "counts": {
+            "pass": 30
+          },
+          "executions": 30,
+          "has_pass": true,
+          "semantic_review": "pending",
+          "code_sha256": "77eb56296c076e83d7417b1c1c7b7abe864a90b69550bb26e40e68b28bd4b7d9",
+          "reviewer_type": "assistant",
+          "post_hoc": true,
+          "purpose": "Original unedited code, reviewed execution only; primary unchanged; human semantics pending"
+        }
+      },
+      {
+        "output_id": "v008",
+        "outcome": {
+          "status": "persistent_failure",
+          "counts": {
+            "fail": 30
+          },
+          "executions": 30,
+          "has_pass": false,
+          "semantic_review": "pending",
+          "code_sha256": "4f70ad39e496cf990c2372680407dfecedb2d4ecb287606d817d4ef68e5cfacd",
+          "reviewer_type": "assistant",
+          "post_hoc": true,
+          "purpose": "Original unedited code, reviewed execution only; primary unchanged; human semantics pending"
+        }
+      },
+      {
+        "output_id": "v011",
+        "outcome": {
+          "status": "stable_proxy_valid",
+          "counts": {
+            "pass": 30
+          },
+          "executions": 30,
+          "has_pass": true,
+          "semantic_review": "pending",
+          "code_sha256": "9b828ce7165c201ecfdd0cc3efe49a788939c2a76dec4ae12d29460e49ca8945",
+          "reviewer_type": "assistant",
+          "post_hoc": true,
+          "purpose": "Original unedited code, reviewed execution only; primary unchanged; human semantics pending"
+        }
+      },
+      {
+        "output_id": "v016",
+        "outcome": {
+          "status": "stable_proxy_valid",
+          "counts": {
+            "pass": 30
+          },
+          "executions": 30,
+          "has_pass": true,
+          "semantic_review": "pending",
+          "code_sha256": "bb99bcdab1aba3ea261ebcde289d12dcdd0843b29f9c1ebeb06f7fe091f06ea9",
+          "reviewer_type": "assistant",
+          "post_hoc": true,
+          "purpose": "Original unedited code, reviewed execution only; primary unchanged; human semantics pending"
+        }
+      },
+      {
+        "output_id": "v018",
+        "outcome": {
+          "status": "stable_proxy_valid",
+          "counts": {
+            "pass": 30
+          },
+          "executions": 30,
+          "has_pass": true,
+          "semantic_review": "pending",
+          "code_sha256": "67154bff000b0022e5ae1ee994683dd56aedd22d798313b5b2d3a67d01d6932a",
+          "reviewer_type": "assistant",
+          "post_hoc": true,
+          "purpose": "Original unedited code, reviewed execution only; primary unchanged; human semantics pending"
+        }
+      },
+      {
+        "output_id": "v022",
+        "outcome": {
+          "status": "stable_proxy_valid",
+          "counts": {
+            "pass": 30
+          },
+          "executions": 30,
+          "has_pass": true,
+          "semantic_review": "pending",
+          "code_sha256": "27c302cfdb0ab68e8576fc08a3a5b8c7aa0493f65dc823b59c561907519a6219",
+          "reviewer_type": "assistant",
+          "post_hoc": true,
+          "purpose": "Original unedited code, reviewed execution only; primary unchanged; human semantics pending"
+        }
+      },
+      {
+        "output_id": "v025",
+        "outcome": {
+          "status": "stable_proxy_valid",
+          "counts": {
+            "pass": 30
+          },
+          "executions": 30,
+          "has_pass": true,
+          "semantic_review": "pending",
+          "code_sha256": "b1ff17395e5aa307ca68cd1195d5ff528811b66715529a1090d1fcf740c2b529",
+          "reviewer_type": "assistant",
+          "post_hoc": true,
+          "purpose": "Original unedited code, reviewed execution only; primary unchanged; human semantics pending"
+        }
+      },
+      {
+        "output_id": "v026",
+        "outcome": {
+          "status": "stable_proxy_valid",
+          "counts": {
+            "pass": 30
+          },
+          "executions": 30,
+          "has_pass": true,
+          "semantic_review": "pending",
+          "code_sha256": "fd901987c1f689d6bd83a33c446aebbde5a41a583645dcee45c57037616846e5",
+          "reviewer_type": "assistant",
+          "post_hoc": true,
+          "purpose": "Original unedited code, reviewed execution only; primary unchanged; human semantics pending"
+        }
+      },
+      {
+        "output_id": "v027",
+        "outcome": {
+          "status": "stable_proxy_valid",
+          "counts": {
+            "pass": 30
+          },
+          "executions": 30,
+          "has_pass": true,
+          "semantic_review": "pending",
+          "code_sha256": "7a29a0acaa12f2c6305bbc69749e53ae6c543549326412ee864f730177edc5ca",
+          "reviewer_type": "assistant",
+          "post_hoc": true,
+          "purpose": "Original unedited code, reviewed execution only; primary unchanged; human semantics pending"
+        }
+      },
+      {
+        "output_id": "v030",
+        "outcome": {
+          "status": "stable_proxy_valid",
+          "counts": {
+            "pass": 30
+          },
+          "executions": 30,
+          "has_pass": true,
+          "semantic_review": "pending",
+          "code_sha256": "29886bbd76cbe869e4d8d4c5c8b2d4e8a7ec8acfe793b3b5b3d23ba571e4e997",
+          "reviewer_type": "assistant",
+          "post_hoc": true,
+          "purpose": "Original unedited code, reviewed execution only; primary unchanged; human semantics pending"
+        }
+      }
+    ],
+    "primary_unchanged": true,
+    "reviewer_type": "assistant"
+  },
+  "diagnostic_quality": {
+    "tale_topic_idle_time_001": {
+      "3/3": 6,
+      "2/3": 2
+    },
+    "randomfiletree_random_string_001": {
+      "1/2": 2
+    },
+    "fishbase_gen_random_str_001": {
+      "1/2": 2,
+      "0/2": 1
+    }
+  }
+}

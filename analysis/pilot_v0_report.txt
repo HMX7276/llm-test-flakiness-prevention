@@ -1,0 +1,35 @@
+首个开发任务实验报告
+
+独立目标任务：1；计划输出：24；测试重复执行：450。
+当前互斥状态：{"stable_proxy_valid": 15, "syntax_error": 3, "api_incomplete": 6}
+API 请求尝试：42；已返回输入 token：5220；已返回输出 token：20022。
+24 次失败请求没有返回用量，上述 token 为可观测下界。用户确认学校 API 免费。
+
+每格只有两个生成重复；所有格属于同一个目标函数，不能进行跨项目推断。
+stable_proxy_valid 表示 30 次全通过、存在断言并实际调用目标函数；人工语义审查尚未完成。
+
+模型 | 上下文 | 方法 | 计划数 | 状态
+deepseek-v4-flash | clean | B0 | 2 | {"syntax_error": 1, "api_incomplete": 1}
+deepseek-v4-flash | clean | B1 | 2 | {"stable_proxy_valid": 1, "syntax_error": 1}
+deepseek-v4-flash | clean | M | 2 | {"stable_proxy_valid": 2}
+deepseek-v4-flash | risk | B0 | 2 | {"stable_proxy_valid": 2}
+deepseek-v4-flash | risk | B1 | 2 | {"stable_proxy_valid": 2}
+deepseek-v4-flash | risk | M | 2 | {"syntax_error": 1, "stable_proxy_valid": 1}
+qwen3.5 | clean | B0 | 2 | {"api_incomplete": 1, "stable_proxy_valid": 1}
+qwen3.5 | clean | B1 | 2 | {"stable_proxy_valid": 1, "api_incomplete": 1}
+qwen3.5 | clean | M | 2 | {"stable_proxy_valid": 1, "api_incomplete": 1}
+qwen3.5 | risk | B0 | 2 | {"api_incomplete": 1, "stable_proxy_valid": 1}
+qwen3.5 | risk | B1 | 2 | {"api_incomplete": 1, "stable_proxy_valid": 1}
+qwen3.5 | risk | M | 2 | {"stable_proxy_valid": 2}
+
+解释与下一步
+1. 风险控制示例为 15 pass / 15 fail，clean 和自动清理示例均 30 pass；执行器具备该风险检测能力。
+2. 原 PENMAN 测试已覆盖目标全部分支，且检出全部四个开发变异体。此任务不能证明新增覆盖或变异收益。
+3. 原始输出、格式失败、超时和重试均保留；不因结果不理想重采样。
+4. PENMAN 旧版与修复版各 30 次整套运行全通过。fparser 单独运行 30 次全失败；特定前置测试先执行时 30 次全通过，反向执行时 30 次全失败。已定位测试顺序/共享缓存依赖，单列为范围外诊断。
+5. 扩展前要增加任务复杂度和项目多样性，核查自然风险证据；不能通过重复这个简单函数凑样本。
+6. 待本批全部完成后，确认输出提取规则、API 超时/思考模式、自动规则适用范围，再开新开发批次。
+
+格式敏感性分析（事后分析，不覆盖主结果）
+{"changed_outputs": 3, "states": {"stable_proxy_valid": 3}}
+仅统一移除首尾 Markdown 围栏，未改测试逻辑；详见 analysis/format_sensitivity.json。

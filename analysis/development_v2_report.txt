@@ -1,0 +1,47 @@
+开发集 v2：语义核验准备、时间/随机规则、目标扩展
+
+人工核验：用户确认本人复核。已收到 v1 完整标签 60/60 项；待确认标签 0 项。收到标签不等于分歧裁定完成。
+这 60 项为 v1 主生成 48 项及导入路径诊断 12 项；不包含本批 v2 的 36 项。另规则意图人工核验已收到 3/3 项。详见 human_semantic_reconciliation.txt。
+第二批 v2 人工标签已另行收到 36/36 项，待回复 0 项，执行证据冲突 0 项；见 human_semantic_v2_reconciliation.txt。
+待裁定：0 项；已明确标为正确性不确定：['S018']。不确定单列，不并入正确或错误，也不是未回复。
+开发集：5 个不同目标 / 5 个项目（计划 24）。本批仅对 Tale、RandomFileTree、fishbase 三目标进行 36 次生成。
+新增两随机任务是真实固定项目上的构造种子作用域案例，不是未经修改的历史 flaky 测试。
+
+规则验证：Tale 原例 15 pass/15 fail，清理后 30/30 pass；两个随机原例各 1 pass/29 fail，清理后各 30/30 pass。
+清理前后 assert AST 完全相同。随机规则只采用示例既有 seed=0，不挑种子；依赖恢复和全局 RNG 不变通过 6 项真实包检查。
+三条转换上下文均检出其对应手工缺陷，共 7 个，每个 3 次持续失败。小样本开发检查，非正式变异得分或人类等价性判断。
+旧 lithoxyl 总体均值断言仍不转换；固定种子不能使错误统计 oracle 合理。
+
+生成输出：{"execution_review_required": 10, "persistent_failure": 12, "stable_proxy_valid": 13, "observed_unstable": 1}
+主执行次数：780；HTTP 尝试：36。返回用量：{"prompt_tokens": 25476, "completion_tokens": 6615, "reasoning_tokens": 0}
+
+fishbase_gen_random_str_001 / clean / M: {"execution_review_required": 1, "persistent_failure": 1}
+randomfiletree_random_string_001 / risk / B1: {"persistent_failure": 1, "execution_review_required": 1}
+fishbase_gen_random_str_001 / risk / B0: {"persistent_failure": 1, "execution_review_required": 1}
+tale_topic_idle_time_001 / clean / B1: {"stable_proxy_valid": 2}
+tale_topic_idle_time_001 / risk / M: {"persistent_failure": 1, "stable_proxy_valid": 1}
+randomfiletree_random_string_001 / risk / M: {"stable_proxy_valid": 2}
+randomfiletree_random_string_001 / risk / B0: {"execution_review_required": 1, "persistent_failure": 1}
+tale_topic_idle_time_001 / risk / B1: {"stable_proxy_valid": 1, "observed_unstable": 1}
+tale_topic_idle_time_001 / clean / B0: {"stable_proxy_valid": 2}
+fishbase_gen_random_str_001 / risk / M: {"stable_proxy_valid": 1, "persistent_failure": 1}
+tale_topic_idle_time_001 / clean / M: {"stable_proxy_valid": 2}
+randomfiletree_random_string_001 / clean / B0: {"persistent_failure": 1, "execution_review_required": 1}
+fishbase_gen_random_str_001 / clean / B1: {"execution_review_required": 1, "stable_proxy_valid": 1}
+fishbase_gen_random_str_001 / risk / B1: {"execution_review_required": 1, "persistent_failure": 1}
+tale_topic_idle_time_001 / risk / B0: {"persistent_failure": 2}
+randomfiletree_random_string_001 / clean / M: {"persistent_failure": 1, "execution_review_required": 1}
+randomfiletree_random_string_001 / clean / B1: {"execution_review_required": 1, "persistent_failure": 1}
+fishbase_gen_random_str_001 / clean / B0: {"stable_proxy_valid": 1, "execution_review_required": 1}
+
+语义复核补充：上轮 d032 的时钟读取间隙诊断为 14 pass/16 fail，原主协议 30/30 pass 保留。说明执行通过不能替代语义审查。
+历史案例：fishbase/tangle 隔离各 30/30 pass；freezegun 隔离通过，但显式连续两次调用第二次 30/30 fail，归入范围外共享模块状态；nxviz 缺 numpy，尚未执行到断言。
+无效诊断已保留并标记：v2 首轮 controls 误取旧 v1 源路径；freezegun 重复 node ID 实际只收集一次。正式本批控制结果来自 validated_controls，hash 已校验。
+不能从本批推断 M 普遍优于基线；单次生成、固定适配项目、构造案例、静态执行检查和待完成人工审查均限制结论。
+下一步：完成尚待确认的人工分歧、规则意图及 v2 人工审查；更广项目与正确性/覆盖/强基线评估；增加重复生成与项目隔离。
+
+保守检查器拦截项的事后 AI 检查后原文执行（主结果不改写）：{"stable_proxy_valid": 9, "persistent_failure": 1}
+这些不是新增生成或人工语义批准；说明检查器拒绝与模型测试错误必须分开。
+
+主批次通过输出的手工缺陷诊断分布：{"tale_topic_idle_time_001": {"3/3": 6, "2/3": 2}, "randomfiletree_random_string_001": {"1/2": 2}, "fishbase_gen_random_str_001": {"1/2": 2, "0/2": 1}}
+不同任务缺陷数不同，不合并成跨项目百分比；无完整原测试套件质量基线，尚不能声称增量检错收益。

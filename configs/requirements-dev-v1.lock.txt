@@ -1,0 +1,14 @@
+boltons==20.2.1
+colorama==0.4.6
+cons==0.4.6
+coverage==7.6.12
+etuples==0.3.10
+iniconfig==2.3.0
+logical-unification==0.4.6
+multipledispatch==1.0.0
+munch==2.5.0
+packaging==26.3
+pluggy==1.6.0
+pytest==8.3.5
+six==1.17.0
+toolz==1.0.0

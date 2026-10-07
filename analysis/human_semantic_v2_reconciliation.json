@@ -1,0 +1,1615 @@
+{
+  "schema": "human-semantic-reconciliation-v2",
+  "source_sha256": "7b0e6296df82b9187d1d2ee980b855c06b064857d0babeecf7db4935508fcb1d",
+  "source_archive": "review\\semantic_v2\\returned\\7b0e6296df82b9187d1d2ee980b855c06b064857d0babeecf7db4935508fcb1d.json",
+  "reviewer": "何林贵",
+  "exported_at": "2026-10-05T06:19:37.965Z",
+  "imported_utc": "2026-10-05T06:21:40.440088+00:00",
+  "complete_received": 36,
+  "partial": 0,
+  "not_returned": [],
+  "verified_code_hashes": 36,
+  "raw_label_counts": {
+    "correctness": {
+      "correct": 22,
+      "incorrect": 14
+    },
+    "robustness": {
+      "robust": 17,
+      "fragile": 19
+    },
+    "adequacy": {
+      "meaningful": 22,
+      "weak_or_masked": 14
+    }
+  },
+  "pending_label_confirmation": [],
+  "human_current_label_counts": {
+    "correctness": {
+      "correct": 21,
+      "incorrect": 14,
+      "uncertain": 1
+    },
+    "robustness": {
+      "robust": 17,
+      "fragile": 19
+    },
+    "adequacy": {
+      "meaningful": 24,
+      "weak_or_masked": 12
+    }
+  },
+  "human_responses_recorded": [
+    "S003",
+    "S010",
+    "S012",
+    "S018",
+    "S028"
+  ],
+  "applied_label_changes": [
+    "S003",
+    "S012",
+    "S010",
+    "S018",
+    "S028"
+  ],
+  "unresolved_evidence_conflicts": [],
+  "held_adjudications": [],
+  "historical_conflict_flags_retained": [
+    "S010",
+    "S018",
+    "S028"
+  ],
+  "uncertain_correctness": [
+    "S018"
+  ],
+  "latest_adjudications": [
+    {
+      "review_id": "S010",
+      "code_sha256": "b49f6581b246b322bd76c59baad3fce58c13a498c57fdee724c32057ff93c341",
+      "previous_effective_labels": {
+        "correctness": "correct",
+        "robustness": "fragile",
+        "adequacy": "meaningful"
+      },
+      "labels": {
+        "correctness": "incorrect",
+        "robustness": "fragile",
+        "adequacy": "meaningful"
+      },
+      "reason": "若 idle_time 通过时间相减计算，最后得到的是 2.299999999999997，严格比较 == 2.3 会失败，应使用近似比较。另外，topic() 按名称返回单例，固定名称可能复用其他测试留下的状态。断言确实检查了时间增长和发送后重置，具有意义。"
+    },
+    {
+      "review_id": "S018",
+      "code_sha256": "0d37077383e3f2320d5e7bccc9e2dbd98ceb7e8975c49b6d8d24c537c311f3b5",
+      "previous_effective_labels": {
+        "correctness": "incorrect",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked"
+      },
+      "labels": {
+        "correctness": "uncertain",
+        "robustness": "fragile",
+        "adequacy": "meaningful"
+      },
+      "reason": "尚不能确认 sync() 是否按目标版本契约保持计时。中间断言在当前浮点运算下允许 0.5 通过，但几乎贴着容差边界，表达不稳妥；固定主题名也有共享状态风险。不过最后的 1.0 断言仍能检出在 200.5 重置计时的行为，不能仅因中间容差过大就判整项过弱。"
+    },
+    {
+      "review_id": "S028",
+      "code_sha256": "77eb56296c076e83d7417b1c1c7b7abe864a90b69550bb26e40e68b28bd4b7d9",
+      "previous_effective_labels": {
+        "correctness": "incorrect",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked"
+      },
+      "labels": {
+        "correctness": "incorrect",
+        "robustness": "fragile",
+        "adequacy": "meaningful"
+      },
+      "reason": "缺少 import string；当结果为标点时，最后一个分支会触发 NameError，字母或数字则因短路求值掩盖该问题。固定种子不能消除这种分支依赖。实际调用及长度、字符范围断言有意义，但单个样本不能证明三类字符都能被生成。"
+    }
+  ],
+  "latest_adjudication_evidence": "review/semantic_v2/adjudications/2026-10-05_final_three.json",
+  "proposed_changes_applied": true,
+  "adjudication_status": "resolved_with_uncertain_labels",
+  "assistant_prior_notes": "notes/semantic_v2_assistant_review.txt",
+  "expression_evidence": "runs/semantic_review_v2_followup/expression_evidence.json",
+  "rules_v2_human_review_status": {
+    "completed": {
+      "fishbase_gen_random_str_001": {
+        "verdict": "preserved",
+        "evidence": "review\\rules_v2\\accepted\\fishbase_gen_random_str_001_2026-10-05.json"
+      },
+      "randomfiletree_random_string_001": {
+        "verdict": "preserved",
+        "evidence": "review\\rules_v2\\accepted\\randomfiletree_random_string_001_2026-10-05.json"
+      },
+      "tale_topic_idle_time_001": {
+        "verdict": "preserved",
+        "evidence": "review\\rules_v2\\accepted\\tale_topic_idle_time_001_2026-10-05.json"
+      }
+    },
+    "pending": [],
+    "status": "complete"
+  },
+  "agreement_coefficient": null,
+  "limitations": [
+    "One human reviewer; assistant is not an independent second human.",
+    "Original labels retained; proposed changes require reviewer confirmation.",
+    "Fixed example correctness, robustness and adequacy are separate.",
+    "This return does not adjudicate RNG rule pairs or the compare-mt reference."
+  ],
+  "rows": [
+    {
+      "review_id": "S001",
+      "output_id": "v009",
+      "target": "tale.pubsub.Topic.idle_time",
+      "code_path": "runs\\development_v2\\outputs\\v009\\test_generated.py",
+      "code_sha256": "f5e71ec81c2016416b339473cab852167718c8170c078e0b58a7a6185b7bd497",
+      "human_raw": {
+        "review_id": "S001",
+        "code_sha256": "f5e71ec81c2016416b339473cab852167718c8170c078e0b58a7a6185b7bd497",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T06:09:25.192Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "send 强制重置后受控时钟，sync 不重置，断言符合契约。"
+      },
+      "primary_execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "proposal": null,
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_note": null,
+      "scope_note": null,
+      "diagnostic_quality": {
+        "killed": 3,
+        "total": 3
+      },
+      "human_current_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "S002",
+      "output_id": "v033",
+      "target": "randomfiletree.core.random_string",
+      "code_path": "runs\\development_v2\\outputs\\v033\\test_generated.py",
+      "code_sha256": "f55910c0d8b93a8f1af90a99224c4133e1f8badee4108983f4de48d9d9f2d1b6",
+      "human_raw": {
+        "review_id": "S002",
+        "code_sha256": "f55910c0d8b93a8f1af90a99224c4133e1f8badee4108983f4de48d9d9f2d1b6",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T06:09:35.561Z",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked",
+        "reason": " 未导入 randomfiletree.core，会 NameError。"
+      },
+      "primary_execution": {
+        "status": "persistent_failure",
+        "counts": {
+          "fail": 30
+        },
+        "executions": 30
+      },
+      "proposal": null,
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_note": null,
+      "scope_note": null,
+      "human_current_labels": {
+        "correctness": "incorrect",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked"
+      }
+    },
+    {
+      "review_id": "S003",
+      "output_id": "v029",
+      "target": "fishbase.fish_random.gen_random_str",
+      "code_path": "runs\\development_v2\\outputs\\v029\\test_generated.py",
+      "code_sha256": "0cc885ef4c8b85e5e5ffc629e5ea959eac2b62a276cc25b182a6364b7e11d3eb",
+      "human_raw": {
+        "review_id": "S003",
+        "code_sha256": "0cc885ef4c8b85e5e5ffc629e5ea959eac2b62a276cc25b182a6364b7e11d3eb",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T06:09:47.499Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "正确 monkeypatch 模块 random，验证长度、前后缀和数字。"
+      },
+      "primary_execution": {
+        "status": "persistent_failure",
+        "counts": {
+          "fail": 30
+        },
+        "executions": 30
+      },
+      "proposal": {
+        "field": "correctness",
+        "proposed": "incorrect",
+        "kind": "concrete_missed_failure",
+        "reason": "前缀 D_ 长 2，中间长 3，后缀 _E 长 2，总长 7；原断言 len(result)==3+2 错误。主协议 30/30 fail。"
+      },
+      "adjudication_status": "human_response_recorded",
+      "assistant_note": null,
+      "scope_note": null,
+      "human_current_labels": {
+        "correctness": "incorrect",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      },
+      "human_followup_reason": "正确性改为“不符合”。prefix='D_'、suffix='_E' 各占 2 字符，总长应为 3+2+2=7，断言 len(result)==3+2 固定失败。",
+      "adjudication_evidence": "review\\semantic_v2\\adjudications\\2026-10-05_response_five.json"
+    },
+    {
+      "review_id": "S004",
+      "output_id": "v011",
+      "target": "randomfiletree.core.random_string",
+      "code_path": "runs\\development_v2\\outputs\\v011\\test_generated.py",
+      "code_sha256": "9b828ce7165c201ecfdd0cc3efe49a788939c2a76dec4ae12d29460e49ca8945",
+      "human_raw": {
+        "review_id": "S004",
+        "code_sha256": "9b828ce7165c201ecfdd0cc3efe49a788939c2a76dec4ae12d29460e49ca8945",
+        "reason": "字符串路径 monkeypatch 正确，验证长度和字符集。",
+        "updated_at": "2026-10-05T06:09:59.933Z",
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      },
+      "primary_execution": {
+        "status": "execution_review_required",
+        "counts": {},
+        "executions": 0
+      },
+      "proposal": null,
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_note": null,
+      "scope_note": null,
+      "posthoc_execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "human_current_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "S005",
+      "output_id": "v016",
+      "target": "fishbase.fish_random.gen_random_str",
+      "code_path": "runs\\development_v2\\outputs\\v016\\test_generated.py",
+      "code_sha256": "bb99bcdab1aba3ea261ebcde289d12dcdd0843b29f9c1ebeb06f7fe091f06ea9",
+      "human_raw": {
+        "review_id": "S005",
+        "code_sha256": "bb99bcdab1aba3ea261ebcde289d12dcdd0843b29f9c1ebeb06f7fe091f06ea9",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T06:10:10.186Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "手动替换 random.randint/sample 并恢复，验证数字中间段。"
+      },
+      "primary_execution": {
+        "status": "execution_review_required",
+        "counts": {},
+        "executions": 0
+      },
+      "proposal": null,
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_note": null,
+      "scope_note": null,
+      "posthoc_execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "human_current_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "S006",
+      "output_id": "v002",
+      "target": "randomfiletree.core.random_string",
+      "code_path": "runs\\development_v2\\outputs\\v002\\test_generated.py",
+      "code_sha256": "cb84b8bc5ce446467fcdc4003cf050523dd4c631509eedad06c884075079b941",
+      "human_raw": {
+        "review_id": "S006",
+        "code_sha256": "cb84b8bc5ce446467fcdc4003cf050523dd4c631509eedad06c884075079b941",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T06:10:23.720Z",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked",
+        "reason": "未导入 randomfiletree.core，会 NameError。"
+      },
+      "primary_execution": {
+        "status": "persistent_failure",
+        "counts": {
+          "fail": 30
+        },
+        "executions": 30
+      },
+      "proposal": null,
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_note": null,
+      "scope_note": null,
+      "human_current_labels": {
+        "correctness": "incorrect",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked"
+      }
+    },
+    {
+      "review_id": "S007",
+      "output_id": "v020",
+      "target": "fishbase.fish_random.gen_random_str",
+      "code_path": "runs\\development_v2\\outputs\\v020\\test_generated.py",
+      "code_sha256": "024faeb28ff24a1ce6309b574271ddb79df5297d1cd7f71d56499481200b6c0b",
+      "human_raw": {
+        "review_id": "S007",
+        "code_sha256": "024faeb28ff24a1ce6309b574271ddb79df5297d1cd7f71d56499481200b6c0b",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T06:10:34.233Z",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked",
+        "reason": "未导入 fishbase，NameError；期望字符串也错误。"
+      },
+      "primary_execution": {
+        "status": "persistent_failure",
+        "counts": {
+          "fail": 30
+        },
+        "executions": 30
+      },
+      "proposal": null,
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_note": "未绑定 fishbase 的导入错误与错误预期字符串均保留；首次实际阻断是 NameError。",
+      "scope_note": null,
+      "human_current_labels": {
+        "correctness": "incorrect",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked"
+      }
+    },
+    {
+      "review_id": "S008",
+      "output_id": "v022",
+      "target": "randomfiletree.core.random_string",
+      "code_path": "runs\\development_v2\\outputs\\v022\\test_generated.py",
+      "code_sha256": "27c302cfdb0ab68e8576fc08a3a5b8c7aa0493f65dc823b59c561907519a6219",
+      "human_raw": {
+        "review_id": "S008",
+        "code_sha256": "27c302cfdb0ab68e8576fc08a3a5b8c7aa0493f65dc823b59c561907519a6219",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T06:10:51.903Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "正确 monkeypatch 并恢复，验证边界长度和字符集。"
+      },
+      "primary_execution": {
+        "status": "execution_review_required",
+        "counts": {},
+        "executions": 0
+      },
+      "proposal": null,
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_note": null,
+      "scope_note": null,
+      "posthoc_execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "human_current_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "S009",
+      "output_id": "v012",
+      "target": "fishbase.fish_random.gen_random_str",
+      "code_path": "runs\\development_v2\\outputs\\v012\\test_generated.py",
+      "code_sha256": "d923f1b6a5a71cea74cfcf361e3fc522fc81bcd769dd0e15f6d341b9a973b9d8",
+      "human_raw": {
+        "review_id": "S009",
+        "code_sha256": "d923f1b6a5a71cea74cfcf361e3fc522fc81bcd769dd0e15f6d341b9a973b9d8",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T06:11:04.228Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "正确替换 _risk_module.random，验证长度 1 数字。"
+      },
+      "primary_execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "proposal": null,
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_note": null,
+      "scope_note": null,
+      "diagnostic_quality": {
+        "killed": 1,
+        "total": 2
+      },
+      "human_current_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "S010",
+      "output_id": "v005",
+      "target": "tale.pubsub.Topic.idle_time",
+      "code_path": "runs\\development_v2\\outputs\\v005\\test_generated.py",
+      "code_sha256": "b49f6581b246b322bd76c59baad3fce58c13a498c57fdee724c32057ff93c341",
+      "human_raw": {
+        "review_id": "S010",
+        "code_sha256": "b49f6581b246b322bd76c59baad3fce58c13a498c57fdee724c32057ff93c341",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T06:11:16.072Z",
+        "robustness": "fragile",
+        "adequacy": "meaningful",
+        "reason": "monkeypatch 正确，但未清理 registry，同名残留会使首断言失败。"
+      },
+      "primary_execution": {
+        "status": "persistent_failure",
+        "counts": {
+          "fail": 30
+        },
+        "executions": 30
+      },
+      "proposal": {
+        "field": "correctness",
+        "proposed": "incorrect",
+        "kind": "concrete_missed_failure",
+        "reason": "最后实际差值为 2.299999999999997，不等于断言的 2.3；主协议 30/30 fail。注册表风险之外，还存在当前原代码的确定性浮点失败。"
+      },
+      "adjudication_status": "human_adjudicated",
+      "assistant_note": null,
+      "scope_note": "保留共享注册表/套件组合风险；独立进程通过不排除此风险。",
+      "human_current_labels": {
+        "correctness": "incorrect",
+        "robustness": "fragile",
+        "adequacy": "meaningful"
+      },
+      "human_followup_reason": "正确性在干净单次运行下符合；稳健性“存在依赖”。若同名 topic 已存在或测试重复运行，构造不会重置 last_event，首断言会失败。",
+      "adjudication_evidence": "review\\semantic_v2\\adjudications\\2026-10-05_response_five.json",
+      "fresh_unperturbed_execution": {
+        "review_id": "S010",
+        "output_id": "v005",
+        "code_sha256": "b49f6581b246b322bd76c59baad3fce58c13a498c57fdee724c32057ff93c341",
+        "counts": {
+          "fail": 3
+        },
+        "runs": [
+          {
+            "run_id": "run_000",
+            "hash_seed": 0,
+            "protocol": "none",
+            "collect_only": false,
+            "artifact_hash": "b49f6581b246b322bd76c59baad3fce58c13a498c57fdee724c32057ff93c341",
+            "return_code": 1,
+            "target_calls": 4,
+            "collected": 1,
+            "status": "fail",
+            "duration": 0.7339999999967404,
+            "stdout": "runs\\semantic_review_v2_followup\\fresh_unperturbed\\S010\\run_000\\stdout.txt",
+            "stderr": "runs\\semantic_review_v2_followup\\fresh_unperturbed\\S010\\run_000\\stderr.txt"
+          },
+          {
+            "run_id": "run_001",
+            "hash_seed": 1,
+            "protocol": "none",
+            "collect_only": false,
+            "artifact_hash": "b49f6581b246b322bd76c59baad3fce58c13a498c57fdee724c32057ff93c341",
+            "return_code": 1,
+            "target_calls": 4,
+            "collected": 1,
+            "status": "fail",
+            "duration": 0.7029999999795109,
+            "stdout": "runs\\semantic_review_v2_followup\\fresh_unperturbed\\S010\\run_001\\stdout.txt",
+            "stderr": "runs\\semantic_review_v2_followup\\fresh_unperturbed\\S010\\run_001\\stderr.txt"
+          },
+          {
+            "run_id": "run_002",
+            "hash_seed": 2,
+            "protocol": "none",
+            "collect_only": false,
+            "artifact_hash": "b49f6581b246b322bd76c59baad3fce58c13a498c57fdee724c32057ff93c341",
+            "return_code": 1,
+            "target_calls": 4,
+            "collected": 1,
+            "status": "fail",
+            "duration": 0.7190000000409782,
+            "stdout": "runs\\semantic_review_v2_followup\\fresh_unperturbed\\S010\\run_002\\stdout.txt",
+            "stderr": "runs\\semantic_review_v2_followup\\fresh_unperturbed\\S010\\run_002\\stderr.txt"
+          }
+        ]
+      },
+      "human_latest_clarification": "正确性应为不符合。全新进程也会因浮点得到 2.299999999999997 != 2.3；稳健性存在依赖，充分性仍有意义。",
+      "clarification_evidence": "review\\semantic_v2\\adjudications\\2026-10-05_clarification_three.json",
+      "execution_fact_status": "acknowledged_by_human",
+      "human_current_labels_note": "Explicit latest human labels; uncertain is a recorded category, not a pending response.",
+      "human_latest_adjudication_reason": "若 idle_time 通过时间相减计算，最后得到的是 2.299999999999997，严格比较 == 2.3 会失败，应使用近似比较。另外，topic() 按名称返回单例，固定名称可能复用其他测试留下的状态。断言确实检查了时间增长和发送后重置，具有意义。",
+      "latest_adjudication_evidence": "review/semantic_v2/adjudications/2026-10-05_final_three.json",
+      "latest_adjudication_sha256": "dcbfb4ca7b1a286e9e81a93b12206f7a7929e2e786a112d3cb1259ad25587ee3",
+      "assistant_latest_evidence_note": "Original fixed code fails in fresh-process evidence due to exact floating-point equality."
+    },
+    {
+      "review_id": "S011",
+      "output_id": "v025",
+      "target": "fishbase.fish_random.gen_random_str",
+      "code_path": "runs\\development_v2\\outputs\\v025\\test_generated.py",
+      "code_sha256": "b1ff17395e5aa307ca68cd1195d5ff528811b66715529a1090d1fcf740c2b529",
+      "human_raw": {
+        "review_id": "S011",
+        "code_sha256": "b1ff17395e5aa307ca68cd1195d5ff528811b66715529a1090d1fcf740c2b529",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T06:11:26.817Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "字符串路径 monkeypatch 正确，验证数字长度。"
+      },
+      "primary_execution": {
+        "status": "execution_review_required",
+        "counts": {},
+        "executions": 0
+      },
+      "proposal": null,
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_note": null,
+      "scope_note": null,
+      "posthoc_execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "human_current_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "S012",
+      "output_id": "v007",
+      "target": "randomfiletree.core.random_string",
+      "code_path": "runs\\development_v2\\outputs\\v007\\test_generated.py",
+      "code_sha256": "8531b081da83dfd33d555af043ee54778af03f0fde3ab7c576d738822803fbe6",
+      "human_raw": {
+        "review_id": "S012",
+        "code_sha256": "8531b081da83dfd33d555af043ee54778af03f0fde3ab7c576d738822803fbe6",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T06:11:49.038Z",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked",
+        "reason": " 断言强制单字符为大写字母，契约允许数字"
+      },
+      "primary_execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "proposal": {
+        "field": "correctness",
+        "proposed": "correct",
+        "kind": "fixed_example_scope_confirmation",
+        "reason": "原代码固定 Random(42)，当前固定项目/Python 中输出 B，故 isupper() 成立；不能用“其它种子可能产生数字”推导该固定样例必错。仍只覆盖单一样例，保留弱充分性判断；不代表任意正确实现或全部随机输出。"
+      },
+      "adjudication_status": "human_response_recorded",
+      "assistant_note": null,
+      "scope_note": null,
+      "diagnostic_quality": {
+        "killed": 1,
+        "total": 2
+      },
+      "human_current_labels": {
+        "correctness": "correct",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked"
+      },
+      "human_followup_reason": "区分固定样例与潜在风险。固定 seed 42 下可能通过，但断言要求单字符为大写字母，契约允许数字；因此正确性可视为符合固定样例，稳健性存在依赖，充分性过弱或掩盖行为。",
+      "adjudication_evidence": "review\\semantic_v2\\adjudications\\2026-10-05_response_five.json"
+    },
+    {
+      "review_id": "S013",
+      "output_id": "v006",
+      "target": "fishbase.fish_random.gen_random_str",
+      "code_path": "runs\\development_v2\\outputs\\v006\\test_generated.py",
+      "code_sha256": "0c11bab43270cb6b14ad059d6d49e0f7af29bd45a2a0758c601f0994bef656f5",
+      "human_raw": {
+        "review_id": "S013",
+        "code_sha256": "0c11bab43270cb6b14ad059d6d49e0f7af29bd45a2a0758c601f0994bef656f5",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T06:12:04.176Z",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked",
+        "reason": "合字符集 sample 不保证含数字和标点，断言过强。"
+      },
+      "primary_execution": {
+        "status": "persistent_failure",
+        "counts": {
+          "fail": 30
+        },
+        "executions": 30
+      },
+      "proposal": null,
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_note": null,
+      "scope_note": null,
+      "human_current_labels": {
+        "correctness": "incorrect",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked"
+      }
+    },
+    {
+      "review_id": "S014",
+      "output_id": "v027",
+      "target": "randomfiletree.core.random_string",
+      "code_path": "runs\\development_v2\\outputs\\v027\\test_generated.py",
+      "code_sha256": "7a29a0acaa12f2c6305bbc69749e53ae6c543549326412ee864f730177edc5ca",
+      "human_raw": {
+        "review_id": "S014",
+        "code_sha256": "7a29a0acaa12f2c6305bbc69749e53ae6c543549326412ee864f730177edc5ca",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T06:12:17.887Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "正确 monkeypatch 并重算 expected，验证确定性输出。"
+      },
+      "primary_execution": {
+        "status": "execution_review_required",
+        "counts": {},
+        "executions": 0
+      },
+      "proposal": null,
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_note": null,
+      "scope_note": null,
+      "posthoc_execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "human_current_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "S015",
+      "output_id": "v021",
+      "target": "tale.pubsub.Topic.idle_time",
+      "code_path": "runs\\development_v2\\outputs\\v021\\test_generated.py",
+      "code_sha256": "d5bf1783f81879fe726373999ff881dff0d25fe56ce5f5792503fbdaf1a65706",
+      "human_raw": {
+        "review_id": "S015",
+        "code_sha256": "d5bf1783f81879fe726373999ff881dff0d25fe56ce5f5792503fbdaf1a65706",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T06:12:28.649Z",
+        "robustness": "fragile",
+        "adequacy": "meaningful",
+        "reason": "把 tale.pubsub.time 替换为函数，源码 time.time() 会 AttributeError。"
+      },
+      "primary_execution": {
+        "status": "persistent_failure",
+        "counts": {
+          "fail": 30
+        },
+        "executions": 30
+      },
+      "proposal": null,
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_note": null,
+      "scope_note": null,
+      "human_current_labels": {
+        "correctness": "incorrect",
+        "robustness": "fragile",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "S016",
+      "output_id": "v028",
+      "target": "fishbase.fish_random.gen_random_str",
+      "code_path": "runs\\development_v2\\outputs\\v028\\test_generated.py",
+      "code_sha256": "843f1732e6eeeca1eae674f935817af8c3dd6c3c59654e1a3406d2a9d5e0a166",
+      "human_raw": {
+        "review_id": "S016",
+        "code_sha256": "843f1732e6eeeca1eae674f935817af8c3dd6c3c59654e1a3406d2a9d5e0a166",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T06:12:41.142Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "替换 random.randint/sample，验证固定中间字符串。"
+      },
+      "primary_execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "proposal": null,
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_note": "有目标真实调用与字符串组装断言，故暂保留本人 meaningful。但 randint/sample 桩忽略实参，可能掩盖长度参数错误；两个手工缺陷均未检出（0/2）。应作为充分性局限，不能把稳定且有断言写成已充分检错。",
+      "scope_note": null,
+      "diagnostic_quality": {
+        "killed": 0,
+        "total": 2
+      },
+      "human_current_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "S017",
+      "output_id": "v008",
+      "target": "randomfiletree.core.random_string",
+      "code_path": "runs\\development_v2\\outputs\\v008\\test_generated.py",
+      "code_sha256": "4f70ad39e496cf990c2372680407dfecedb2d4ecb287606d817d4ef68e5cfacd",
+      "human_raw": {
+        "review_id": "S017",
+        "code_sha256": "4f70ad39e496cf990c2372680407dfecedb2d4ecb287606d817d4ef68e5cfacd",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T06:12:49.415Z",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked",
+        "reason": "未导入 randomfiletree.core，会 NameError。"
+      },
+      "primary_execution": {
+        "status": "execution_review_required",
+        "counts": {},
+        "executions": 0
+      },
+      "proposal": null,
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_note": null,
+      "scope_note": null,
+      "posthoc_execution": {
+        "status": "persistent_failure",
+        "counts": {
+          "fail": 30
+        },
+        "executions": 30
+      },
+      "human_current_labels": {
+        "correctness": "incorrect",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked"
+      }
+    },
+    {
+      "review_id": "S018",
+      "output_id": "v013",
+      "target": "tale.pubsub.Topic.idle_time",
+      "code_path": "runs\\development_v2\\outputs\\v013\\test_generated.py",
+      "code_sha256": "0d37077383e3f2320d5e7bccc9e2dbd98ceb7e8975c49b6d8d24c537c311f3b5",
+      "human_raw": {
+        "review_id": "S018",
+        "code_sha256": "0d37077383e3f2320d5e7bccc9e2dbd98ceb7e8975c49b6d8d24c537c311f3b5",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T06:12:57.341Z",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked",
+        "reason": "sync 后 idle 应保持 0.5，断言边界错误会失败。"
+      },
+      "primary_execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "proposal": {
+        "field": "correctness",
+        "proposed": "correct",
+        "kind": "fixed_example_scope_confirmation",
+        "reason": "当前二进制浮点中 abs(0.5-0.966)=0.46599999999999997 < 0.466，原测试 30/30 pass；“此处会失败”不符合实际。该边界写法仍脆弱且过宽，fragile/weak_or_masked 保留；正确性仅针对固定例实际值，不等于数学实数边界或充分性获认可。"
+      },
+      "adjudication_status": "human_adjudicated_uncertain",
+      "assistant_note": null,
+      "scope_note": null,
+      "diagnostic_quality": {
+        "killed": 2,
+        "total": 3
+      },
+      "human_current_labels": {
+        "correctness": "uncertain",
+        "robustness": "fragile",
+        "adequacy": "meaningful"
+      },
+      "human_followup_reason": "正确性“不符合”。sync 后实际 idle_time 应为 0.5，断言 abs(0.5-0.966)<0.466 因等于边界而不成立，固定样例即失败。",
+      "adjudication_evidence": "review\\semantic_v2\\adjudications\\2026-10-05_response_five.json",
+      "fresh_unperturbed_execution": {
+        "review_id": "S018",
+        "output_id": "v013",
+        "code_sha256": "0d37077383e3f2320d5e7bccc9e2dbd98ceb7e8975c49b6d8d24c537c311f3b5",
+        "counts": {
+          "pass": 3
+        },
+        "runs": [
+          {
+            "run_id": "run_000",
+            "hash_seed": 0,
+            "protocol": "none",
+            "collect_only": false,
+            "artifact_hash": "0d37077383e3f2320d5e7bccc9e2dbd98ceb7e8975c49b6d8d24c537c311f3b5",
+            "return_code": 0,
+            "target_calls": 3,
+            "collected": 1,
+            "status": "pass",
+            "duration": 0.6100000000442378,
+            "stdout": "runs\\semantic_review_v2_followup\\fresh_unperturbed\\S018\\run_000\\stdout.txt",
+            "stderr": "runs\\semantic_review_v2_followup\\fresh_unperturbed\\S018\\run_000\\stderr.txt"
+          },
+          {
+            "run_id": "run_001",
+            "hash_seed": 1,
+            "protocol": "none",
+            "collect_only": false,
+            "artifact_hash": "0d37077383e3f2320d5e7bccc9e2dbd98ceb7e8975c49b6d8d24c537c311f3b5",
+            "return_code": 0,
+            "target_calls": 3,
+            "collected": 1,
+            "status": "pass",
+            "duration": 0.625,
+            "stdout": "runs\\semantic_review_v2_followup\\fresh_unperturbed\\S018\\run_001\\stdout.txt",
+            "stderr": "runs\\semantic_review_v2_followup\\fresh_unperturbed\\S018\\run_001\\stderr.txt"
+          },
+          {
+            "run_id": "run_002",
+            "hash_seed": 2,
+            "protocol": "none",
+            "collect_only": false,
+            "artifact_hash": "0d37077383e3f2320d5e7bccc9e2dbd98ceb7e8975c49b6d8d24c537c311f3b5",
+            "return_code": 0,
+            "target_calls": 3,
+            "collected": 1,
+            "status": "pass",
+            "duration": 0.6089999999967404,
+            "stdout": "runs\\semantic_review_v2_followup\\fresh_unperturbed\\S018\\run_002\\stdout.txt",
+            "stderr": "runs\\semantic_review_v2_followup\\fresh_unperturbed\\S018\\run_002\\stderr.txt"
+          }
+        ]
+      },
+      "human_latest_clarification": "固定样例通过，原来的失败解释错误。实际是 0.46599999999999997 < 0.466。但断言依赖浮点边界，稳健性存在依赖，充分性过弱或掩盖行为。",
+      "clarification_evidence": "review\\semantic_v2\\adjudications\\2026-10-05_clarification_three.json",
+      "execution_fact_status": "acknowledged_by_human",
+      "human_current_labels_note": "Explicit latest human labels; uncertain is a recorded category, not a pending response.",
+      "human_latest_adjudication_reason": "尚不能确认 sync() 是否按目标版本契约保持计时。中间断言在当前浮点运算下允许 0.5 通过，但几乎贴着容差边界，表达不稳妥；固定主题名也有共享状态风险。不过最后的 1.0 断言仍能检出在 200.5 重置计时的行为，不能仅因中间容差过大就判整项过弱。",
+      "latest_adjudication_evidence": "review/semantic_v2/adjudications/2026-10-05_final_three.json",
+      "latest_adjudication_sha256": "dcbfb4ca7b1a286e9e81a93b12206f7a7929e2e786a112d3cb1259ad25587ee3",
+      "assistant_latest_evidence_note": "The target commit's Topic.sync does not assign last_event. Under this test's no-subscriber fixed case it preserves elapsed time. The final assertion distinguishes a reset at 200.5 from no reset. This is separate from the retained human uncertain label."
+    },
+    {
+      "review_id": "S019",
+      "output_id": "v034",
+      "target": "tale.pubsub.Topic.idle_time",
+      "code_path": "runs\\development_v2\\outputs\\v034\\test_generated.py",
+      "code_sha256": "fae583d631dc995fcb197b438f2e615511dfd24519643934a46cbba0147e1978",
+      "human_raw": {
+        "review_id": "S019",
+        "code_sha256": "fae583d631dc995fcb197b438f2e615511dfd24519643934a46cbba0147e1978",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T06:13:11.184Z",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked",
+        "reason": "时钟控制正确，但未清理 registry，残留会影响首断言。"
+      },
+      "primary_execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "proposal": null,
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_note": "保留 weak_or_masked；本人理由当前说明注册表风险，尚未具体解释充分性弱点。两维不互相替代，此项不擅自重标。",
+      "scope_note": "保留共享注册表/套件组合风险；独立进程通过不排除此风险。",
+      "diagnostic_quality": {
+        "killed": 3,
+        "total": 3
+      },
+      "human_current_labels": {
+        "correctness": "correct",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked"
+      }
+    },
+    {
+      "review_id": "S020",
+      "output_id": "v014",
+      "target": "randomfiletree.core.random_string",
+      "code_path": "runs\\development_v2\\outputs\\v014\\test_generated.py",
+      "code_sha256": "93a38189203db0a17435210b6ae598925d608aec0bf25e1697d5f37262666d07",
+      "human_raw": {
+        "review_id": "S020",
+        "code_sha256": "93a38189203db0a17435210b6ae598925d608aec0bf25e1697d5f37262666d07",
+        "reason": "未导入 randomfiletree.core，会 NameError。",
+        "updated_at": "2026-10-05T06:13:22.932Z",
+        "correctness": "incorrect",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked"
+      },
+      "primary_execution": {
+        "status": "persistent_failure",
+        "counts": {
+          "fail": 30
+        },
+        "executions": 30
+      },
+      "proposal": null,
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_note": null,
+      "scope_note": null,
+      "human_current_labels": {
+        "correctness": "incorrect",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked"
+      }
+    },
+    {
+      "review_id": "S021",
+      "output_id": "v015",
+      "target": "tale.pubsub.Topic.idle_time",
+      "code_path": "runs\\development_v2\\outputs\\v015\\test_generated.py",
+      "code_sha256": "41246d3532d00a45ee08e336a874ba8cfbbf139aaa47d86907b7adce31451fe4",
+      "human_raw": {
+        "review_id": "S021",
+        "code_sha256": "41246d3532d00a45ee08e336a874ba8cfbbf139aaa47d86907b7adce31451fe4",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T06:13:40.389Z",
+        "robustness": "fragile",
+        "adequacy": "meaningful",
+        "reason": "真实 sleep 和阈值宽松，验证 send 重置但依赖调度。"
+      },
+      "primary_execution": {
+        "status": "observed_unstable",
+        "counts": {
+          "pass": 15,
+          "fail": 15
+        },
+        "executions": 30
+      },
+      "proposal": null,
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_note": null,
+      "scope_note": null,
+      "human_current_labels": {
+        "correctness": "correct",
+        "robustness": "fragile",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "S022",
+      "output_id": "v024",
+      "target": "tale.pubsub.Topic.idle_time",
+      "code_path": "runs\\development_v2\\outputs\\v024\\test_generated.py",
+      "code_sha256": "94c1f185225290d9d107fa029b5702430362d7e37a5d2a8ab03f6395f07d23b2",
+      "human_raw": {
+        "review_id": "S022",
+        "code_sha256": "94c1f185225290d9d107fa029b5702430362d7e37a5d2a8ab03f6395f07d23b2",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T06:14:03.639Z",
+        "robustness": "fragile",
+        "adequacy": "meaningful",
+        "reason": "时钟控制正确，但未清理 registry，残留会影响首断言。"
+      },
+      "primary_execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "proposal": null,
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_note": null,
+      "scope_note": "保留共享注册表/套件组合风险；独立进程通过不排除此风险。",
+      "diagnostic_quality": {
+        "killed": 3,
+        "total": 3
+      },
+      "human_current_labels": {
+        "correctness": "correct",
+        "robustness": "fragile",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "S023",
+      "output_id": "v030",
+      "target": "fishbase.fish_random.gen_random_str",
+      "code_path": "runs\\development_v2\\outputs\\v030\\test_generated.py",
+      "code_sha256": "29886bbd76cbe869e4d8d4c5c8b2d4e8a7ec8acfe793b3b5b3d23ba571e4e997",
+      "human_raw": {
+        "review_id": "S023",
+        "code_sha256": "29886bbd76cbe869e4d8d4c5c8b2d4e8a7ec8acfe793b3b5b3d23ba571e4e997",
+        "reason": "正确替换并恢复 random.randint/sample，验证字符类别。",
+        "updated_at": "2026-10-05T06:14:32.994Z",
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      },
+      "primary_execution": {
+        "status": "execution_review_required",
+        "counts": {},
+        "executions": 0
+      },
+      "proposal": null,
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_note": null,
+      "scope_note": null,
+      "posthoc_execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "human_current_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "S024",
+      "output_id": "v032",
+      "target": "tale.pubsub.Topic.idle_time",
+      "code_path": "runs\\development_v2\\outputs\\v032\\test_generated.py",
+      "code_sha256": "b90b276c90b606cf16ae650b0cc32964e4a24de54d8e568d622e0182facc39e0",
+      "human_raw": {
+        "review_id": "S024",
+        "code_sha256": "b90b276c90b606cf16ae650b0cc32964e4a24de54d8e568d622e0182facc39e0",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T06:14:44.513Z",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked",
+        "reason": "FakeTime 实例的 time 会绑定 self，lambda 无参导致 TypeError。"
+      },
+      "primary_execution": {
+        "status": "persistent_failure",
+        "counts": {
+          "fail": 30
+        },
+        "executions": 30
+      },
+      "proposal": null,
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_note": "incorrect 有依据；实际先因未绑定 tale 名称发生 NameError，补上导入之后才可能触发本人指出的 lambda 绑定 self 问题。原始执行不能写成已到 TypeError。",
+      "scope_note": null,
+      "human_current_labels": {
+        "correctness": "incorrect",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked"
+      }
+    },
+    {
+      "review_id": "S025",
+      "output_id": "v023",
+      "target": "randomfiletree.core.random_string",
+      "code_path": "runs\\development_v2\\outputs\\v023\\test_generated.py",
+      "code_sha256": "0b8d45eeeaffd41299d40e3618351d0b7738f1816ac70f31c17541c94a1fb03b",
+      "human_raw": {
+        "review_id": "S025",
+        "code_sha256": "0b8d45eeeaffd41299d40e3618351d0b7738f1816ac70f31c17541c94a1fb03b",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T06:14:54.396Z",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked",
+        "reason": "未导入 randomfiletree.core，会 NameError。"
+      },
+      "primary_execution": {
+        "status": "persistent_failure",
+        "counts": {
+          "fail": 30
+        },
+        "executions": 30
+      },
+      "proposal": null,
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_note": null,
+      "scope_note": null,
+      "human_current_labels": {
+        "correctness": "incorrect",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked"
+      }
+    },
+    {
+      "review_id": "S026",
+      "output_id": "v031",
+      "target": "tale.pubsub.Topic.idle_time",
+      "code_path": "runs\\development_v2\\outputs\\v031\\test_generated.py",
+      "code_sha256": "2d558ed2fe74c798c48ebfce4cfedd87e6d35c32fa6120c3649e9af55194cb30",
+      "human_raw": {
+        "review_id": "S026",
+        "code_sha256": "2d558ed2fe74c798c48ebfce4cfedd87e6d35c32fa6120c3649e9af55194cb30",
+        "reason": "monkeypatch 正确，但未清理 registry，同名残留会影响首个 sync 断言。",
+        "updated_at": "2026-10-05T06:17:59.652Z",
+        "correctness": "correct",
+        "robustness": "fragile",
+        "adequacy": "meaningful"
+      },
+      "primary_execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "proposal": null,
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_note": null,
+      "scope_note": "保留共享注册表/套件组合风险；独立进程通过不排除此风险。",
+      "diagnostic_quality": {
+        "killed": 3,
+        "total": 3
+      },
+      "human_current_labels": {
+        "correctness": "correct",
+        "robustness": "fragile",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "S027",
+      "output_id": "v003",
+      "target": "fishbase.fish_random.gen_random_str",
+      "code_path": "runs\\development_v2\\outputs\\v003\\test_generated.py",
+      "code_sha256": "e9f436b74bd0aa273f4baf50b5204ec8c48c7d7de8726f4b8022824dc436b832",
+      "human_raw": {
+        "review_id": "S027",
+        "code_sha256": "e9f436b74bd0aa273f4baf50b5204ec8c48c7d7de8726f4b8022824dc436b832",
+        "reason": "未导入 fishbase，会 NameError。",
+        "updated_at": "2026-10-05T06:18:09.206Z",
+        "correctness": "incorrect",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked"
+      },
+      "primary_execution": {
+        "status": "persistent_failure",
+        "counts": {
+          "fail": 30
+        },
+        "executions": 30
+      },
+      "proposal": null,
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_note": null,
+      "scope_note": null,
+      "human_current_labels": {
+        "correctness": "incorrect",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked"
+      }
+    },
+    {
+      "review_id": "S028",
+      "output_id": "v001",
+      "target": "fishbase.fish_random.gen_random_str",
+      "code_path": "runs\\development_v2\\outputs\\v001\\test_generated.py",
+      "code_sha256": "77eb56296c076e83d7417b1c1c7b7abe864a90b69550bb26e40e68b28bd4b7d9",
+      "human_raw": {
+        "review_id": "S028",
+        "code_sha256": "77eb56296c076e83d7417b1c1c7b7abe864a90b69550bb26e40e68b28bd4b7d9",
+        "reason": "缺少 import string，断言会 NameError。",
+        "updated_at": "2026-10-05T06:18:20.582Z",
+        "correctness": "incorrect",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked"
+      },
+      "primary_execution": {
+        "status": "execution_review_required",
+        "counts": {},
+        "executions": 0
+      },
+      "proposal": {
+        "field": "correctness",
+        "proposed": "correct",
+        "kind": "fixed_example_scope_confirmation",
+        "reason": "固定 Random(42) 输出 d，or 的首分支为真，缺少 string 的第三分支没有执行。独立 AI 检查后的原文执行 30/30 pass，主协议仍是检查器拦截。缺失导入是潜在缺陷，但不能描述为本例已发生 NameError；保留 fragile/weak_or_masked 及范围局限。"
+      },
+      "adjudication_status": "human_adjudicated",
+      "assistant_note": null,
+      "scope_note": null,
+      "posthoc_execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "human_current_labels": {
+        "correctness": "incorrect",
+        "robustness": "fragile",
+        "adequacy": "meaningful"
+      },
+      "human_followup_reason": "正确性“不符合”。缺少 import string，断言中 string.punctuation 会 NameError；即使补上，该断言也几乎恒真，充分性过弱。",
+      "adjudication_evidence": "review\\semantic_v2\\adjudications\\2026-10-05_response_five.json",
+      "fresh_unperturbed_execution": {
+        "review_id": "S028",
+        "output_id": "v001",
+        "code_sha256": "77eb56296c076e83d7417b1c1c7b7abe864a90b69550bb26e40e68b28bd4b7d9",
+        "counts": {
+          "pass": 3
+        },
+        "runs": [
+          {
+            "run_id": "run_000",
+            "hash_seed": 0,
+            "protocol": "none",
+            "collect_only": false,
+            "artifact_hash": "77eb56296c076e83d7417b1c1c7b7abe864a90b69550bb26e40e68b28bd4b7d9",
+            "return_code": 0,
+            "target_calls": 1,
+            "collected": 1,
+            "status": "pass",
+            "duration": 0.34399999998277053,
+            "stdout": "runs\\semantic_review_v2_followup\\fresh_unperturbed\\S028\\run_000\\stdout.txt",
+            "stderr": "runs\\semantic_review_v2_followup\\fresh_unperturbed\\S028\\run_000\\stderr.txt"
+          },
+          {
+            "run_id": "run_001",
+            "hash_seed": 1,
+            "protocol": "none",
+            "collect_only": false,
+            "artifact_hash": "77eb56296c076e83d7417b1c1c7b7abe864a90b69550bb26e40e68b28bd4b7d9",
+            "return_code": 0,
+            "target_calls": 1,
+            "collected": 1,
+            "status": "pass",
+            "duration": 0.3119999999762513,
+            "stdout": "runs\\semantic_review_v2_followup\\fresh_unperturbed\\S028\\run_001\\stdout.txt",
+            "stderr": "runs\\semantic_review_v2_followup\\fresh_unperturbed\\S028\\run_001\\stderr.txt"
+          },
+          {
+            "run_id": "run_002",
+            "hash_seed": 2,
+            "protocol": "none",
+            "collect_only": false,
+            "artifact_hash": "77eb56296c076e83d7417b1c1c7b7abe864a90b69550bb26e40e68b28bd4b7d9",
+            "return_code": 0,
+            "target_calls": 1,
+            "collected": 1,
+            "status": "pass",
+            "duration": 0.3130000000237487,
+            "stdout": "runs\\semantic_review_v2_followup\\fresh_unperturbed\\S028\\run_002\\stdout.txt",
+            "stderr": "runs\\semantic_review_v2_followup\\fresh_unperturbed\\S028\\run_002\\stderr.txt"
+          }
+        ]
+      },
+      "human_latest_clarification": "固定样例通过，因输出 d 时 or 首分支成立，不会执行 string.punctuation。但换种子/输出标点会 NameError，稳健性存在依赖，充分性过弱或掩盖行为。",
+      "clarification_evidence": "review\\semantic_v2\\adjudications\\2026-10-05_clarification_three.json",
+      "execution_fact_status": "acknowledged_by_human",
+      "human_current_labels_note": "Explicit latest human labels; uncertain is a recorded category, not a pending response.",
+      "human_latest_adjudication_reason": "缺少 import string；当结果为标点时，最后一个分支会触发 NameError，字母或数字则因短路求值掩盖该问题。固定种子不能消除这种分支依赖。实际调用及长度、字符范围断言有意义，但单个样本不能证明三类字符都能被生成。",
+      "latest_adjudication_evidence": "review/semantic_v2/adjudications/2026-10-05_final_three.json",
+      "latest_adjudication_sha256": "dcbfb4ca7b1a286e9e81a93b12206f7a7929e2e786a112d3cb1259ad25587ee3",
+      "assistant_latest_evidence_note": "The original fixed Random(42) run returns d and passes by short-circuiting. The incorrect label concerns a missing-import branch over permitted outputs, not a NameError observed in that fixed run. Meaningful assertions do not establish coverage of every character class."
+    },
+    {
+      "review_id": "S029",
+      "output_id": "v017",
+      "target": "tale.pubsub.Topic.idle_time",
+      "code_path": "runs\\development_v2\\outputs\\v017\\test_generated.py",
+      "code_sha256": "1f92044b850114d6e7e773f8fc2510155022168ead22f49cf38c1457f352823d",
+      "human_raw": {
+        "review_id": "S029",
+        "code_sha256": "1f92044b850114d6e7e773f8fc2510155022168ead22f49cf38c1457f352823d",
+        "reason": "时钟控制正确，但未清理 registry，残留会影响首断言。",
+        "updated_at": "2026-10-05T06:18:29.373Z",
+        "correctness": "correct",
+        "robustness": "fragile",
+        "adequacy": "meaningful"
+      },
+      "primary_execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "proposal": null,
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_note": null,
+      "scope_note": "保留共享注册表/套件组合风险；独立进程通过不排除此风险。",
+      "diagnostic_quality": {
+        "killed": 3,
+        "total": 3
+      },
+      "human_current_labels": {
+        "correctness": "correct",
+        "robustness": "fragile",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "S030",
+      "output_id": "v036",
+      "target": "randomfiletree.core.random_string",
+      "code_path": "runs\\development_v2\\outputs\\v036\\test_generated.py",
+      "code_sha256": "d5507a83151b0fbbc39718bfc92cd8e81a320fd2eaf1ff5a8416b53d788e5250",
+      "human_raw": {
+        "review_id": "S030",
+        "code_sha256": "d5507a83151b0fbbc39718bfc92cd8e81a320fd2eaf1ff5a8416b53d788e5250",
+        "reason": "正确 monkeypatch，验证固定长度和允许字符。",
+        "updated_at": "2026-10-05T06:18:39.749Z",
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      },
+      "primary_execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "proposal": null,
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_note": null,
+      "scope_note": null,
+      "diagnostic_quality": {
+        "killed": 1,
+        "total": 2
+      },
+      "human_current_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "S031",
+      "output_id": "v004",
+      "target": "tale.pubsub.Topic.idle_time",
+      "code_path": "runs\\development_v2\\outputs\\v004\\test_generated.py",
+      "code_sha256": "9027056ac4a3580220cca2ab51ec94defec213dac65b712141c155333c5aec3c",
+      "human_raw": {
+        "review_id": "S031",
+        "code_sha256": "9027056ac4a3580220cca2ab51ec94defec213dac65b712141c155333c5aec3c",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T06:18:47.912Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "send 强制重置，sync 不重置，断言符合。"
+      },
+      "primary_execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "proposal": null,
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_note": null,
+      "scope_note": null,
+      "diagnostic_quality": {
+        "killed": 3,
+        "total": 3
+      },
+      "human_current_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "S032",
+      "output_id": "v010",
+      "target": "tale.pubsub.Topic.idle_time",
+      "code_path": "runs\\development_v2\\outputs\\v010\\test_generated.py",
+      "code_sha256": "3d72d2fc09278aec81a311505a9a38391cad3699adb76dfd9f6ecf2d9a708357",
+      "human_raw": {
+        "review_id": "S032",
+        "code_sha256": "3d72d2fc09278aec81a311505a9a38391cad3699adb76dfd9f6ecf2d9a708357",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T06:18:54.639Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "send 后 sync 不重置，idle 保持 0.5。"
+      },
+      "primary_execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "proposal": null,
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_note": null,
+      "scope_note": null,
+      "diagnostic_quality": {
+        "killed": 2,
+        "total": 3
+      },
+      "human_current_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "S033",
+      "output_id": "v026",
+      "target": "randomfiletree.core.random_string",
+      "code_path": "runs\\development_v2\\outputs\\v026\\test_generated.py",
+      "code_sha256": "fd901987c1f689d6bd83a33c446aebbde5a41a583645dcee45c57037616846e5",
+      "human_raw": {
+        "review_id": "S033",
+        "code_sha256": "fd901987c1f689d6bd83a33c446aebbde5a41a583645dcee45c57037616846e5",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T06:19:03.263Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "替换全局 random 并 finally 恢复，验证长度和字符集。"
+      },
+      "primary_execution": {
+        "status": "execution_review_required",
+        "counts": {},
+        "executions": 0
+      },
+      "proposal": null,
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_note": null,
+      "scope_note": null,
+      "posthoc_execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "human_current_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "S034",
+      "output_id": "v019",
+      "target": "fishbase.fish_random.gen_random_str",
+      "code_path": "runs\\development_v2\\outputs\\v019\\test_generated.py",
+      "code_sha256": "e9c677e7c84258d3f4b1e12d1103cd808840a1bd96ad5ed30a1e59500d8a31bc",
+      "human_raw": {
+        "review_id": "S034",
+        "code_sha256": "e9c677e7c84258d3f4b1e12d1103cd808840a1bd96ad5ed30a1e59500d8a31bc",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T06:19:10.944Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": " 正确 monkeypatch，验证数字长度。"
+      },
+      "primary_execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "proposal": null,
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_note": null,
+      "scope_note": null,
+      "diagnostic_quality": {
+        "killed": 1,
+        "total": 2
+      },
+      "human_current_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    },
+    {
+      "review_id": "S035",
+      "output_id": "v035",
+      "target": "randomfiletree.core.random_string",
+      "code_path": "runs\\development_v2\\outputs\\v035\\test_generated.py",
+      "code_sha256": "62b5df9dc56c5002f465e2800cd257eda6193bf183573fe205940f31385c44a3",
+      "human_raw": {
+        "review_id": "S035",
+        "code_sha256": "62b5df9dc56c5002f465e2800cd257eda6193bf183573fe205940f31385c44a3",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T06:19:22.542Z",
+        "robustness": "robust",
+        "adequacy": "weak_or_masked",
+        "reason": "未导入 randomfiletree.core，会 NameError。"
+      },
+      "primary_execution": {
+        "status": "persistent_failure",
+        "counts": {
+          "fail": 30
+        },
+        "executions": 30
+      },
+      "proposal": null,
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_note": null,
+      "scope_note": null,
+      "human_current_labels": {
+        "correctness": "incorrect",
+        "robustness": "robust",
+        "adequacy": "weak_or_masked"
+      }
+    },
+    {
+      "review_id": "S036",
+      "output_id": "v018",
+      "target": "fishbase.fish_random.gen_random_str",
+      "code_path": "runs\\development_v2\\outputs\\v018\\test_generated.py",
+      "code_sha256": "67154bff000b0022e5ae1ee994683dd56aedd22d798313b5b2d3a67d01d6932a",
+      "human_raw": {
+        "review_id": "S036",
+        "code_sha256": "67154bff000b0022e5ae1ee994683dd56aedd22d798313b5b2d3a67d01d6932a",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T06:19:32.386Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "手动替换并恢复模块 random，验证前后缀和数字。\n\n"
+      },
+      "primary_execution": {
+        "status": "execution_review_required",
+        "counts": {},
+        "executions": 0
+      },
+      "proposal": null,
+      "adjudication_status": "no_label_change_proposed",
+      "assistant_note": null,
+      "scope_note": null,
+      "posthoc_execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30
+      },
+      "human_current_labels": {
+        "correctness": "correct",
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      }
+    }
+  ]
+}

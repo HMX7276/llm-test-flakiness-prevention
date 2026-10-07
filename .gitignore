@@ -1,0 +1,9 @@
+api-key.txt
+.env
+.env.*
+.venv*/
+__pycache__/
+.pytest_cache/
+*.pyc
+replay*/
+replication_workspace/

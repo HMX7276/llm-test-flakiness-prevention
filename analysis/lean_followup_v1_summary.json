@@ -1,0 +1,3603 @@
+{
+  "scope": "Prospective repeated generations on three already-seen development targets; not a held-out evaluation.",
+  "scheduled": 72,
+  "seen_tasks": 3,
+  "heldout_tasks": 0,
+  "generation_complete": true,
+  "primary_execution_complete": true,
+  "diagnostic_quality_complete": true,
+  "generation_counts": {
+    "api_success": 72
+  },
+  "outcome_counts": {
+    "persistent_failure": 23,
+    "stable_proxy_valid": 32,
+    "execution_review_required": 15,
+    "execution_exception": 1,
+    "observed_unstable": 1
+  },
+  "primary_test_executions": 1710,
+  "http_attempts": 72,
+  "returned_tokens": {
+    "prompt_tokens": 48900,
+    "completion_tokens": 13299,
+    "reasoning_tokens": 0
+  },
+  "output_hash_mismatches": [],
+  "returned_model_counts": {
+    "ds-v4-flash": 36,
+    "Qwen3.5-397B-A17B": 36
+  },
+  "finish_reason_counts": {
+    "stop": 72
+  },
+  "completed_calls_without_usage": 0,
+  "groups": [
+    {
+      "model": "deepseek-v4-flash",
+      "method": "B0",
+      "scheduled": 9,
+      "counts": {
+        "stable_proxy_valid": 3,
+        "persistent_failure": 6
+      },
+      "stable_proxy_valid": 3,
+      "stable_proxy_yield": 0.3333333333333333,
+      "quality_evaluated_outputs": 3,
+      "stable_and_detects_any_diagnostic_defect": 3,
+      "quality_pending_outputs": 0
+    },
+    {
+      "model": "deepseek-v4-flash",
+      "method": "B1",
+      "scheduled": 9,
+      "counts": {
+        "persistent_failure": 5,
+        "stable_proxy_valid": 4
+      },
+      "stable_proxy_valid": 4,
+      "stable_proxy_yield": 0.4444444444444444,
+      "quality_evaluated_outputs": 4,
+      "stable_and_detects_any_diagnostic_defect": 3,
+      "quality_pending_outputs": 0
+    },
+    {
+      "model": "deepseek-v4-flash",
+      "method": "B2",
+      "scheduled": 9,
+      "counts": {
+        "persistent_failure": 3,
+        "stable_proxy_valid": 6
+      },
+      "stable_proxy_valid": 6,
+      "stable_proxy_yield": 0.6666666666666666,
+      "quality_evaluated_outputs": 6,
+      "stable_and_detects_any_diagnostic_defect": 6,
+      "quality_pending_outputs": 0
+    },
+    {
+      "model": "deepseek-v4-flash",
+      "method": "M",
+      "scheduled": 9,
+      "counts": {
+        "stable_proxy_valid": 7,
+        "persistent_failure": 2
+      },
+      "stable_proxy_valid": 7,
+      "stable_proxy_yield": 0.7777777777777778,
+      "quality_evaluated_outputs": 7,
+      "stable_and_detects_any_diagnostic_defect": 7,
+      "quality_pending_outputs": 0
+    },
+    {
+      "model": "qwen3.5",
+      "method": "B0",
+      "scheduled": 9,
+      "counts": {
+        "stable_proxy_valid": 2,
+        "execution_review_required": 6,
+        "persistent_failure": 1
+      },
+      "stable_proxy_valid": 2,
+      "stable_proxy_yield": 0.2222222222222222,
+      "quality_evaluated_outputs": 2,
+      "stable_and_detects_any_diagnostic_defect": 2,
+      "quality_pending_outputs": 0
+    },
+    {
+      "model": "qwen3.5",
+      "method": "B1",
+      "scheduled": 9,
+      "counts": {
+        "execution_review_required": 6,
+        "stable_proxy_valid": 1,
+        "persistent_failure": 1,
+        "observed_unstable": 1
+      },
+      "stable_proxy_valid": 1,
+      "stable_proxy_yield": 0.1111111111111111,
+      "quality_evaluated_outputs": 1,
+      "stable_and_detects_any_diagnostic_defect": 1,
+      "quality_pending_outputs": 0
+    },
+    {
+      "model": "qwen3.5",
+      "method": "B2",
+      "scheduled": 9,
+      "counts": {
+        "execution_review_required": 3,
+        "stable_proxy_valid": 3,
+        "execution_exception": 1,
+        "persistent_failure": 2
+      },
+      "stable_proxy_valid": 3,
+      "stable_proxy_yield": 0.3333333333333333,
+      "quality_evaluated_outputs": 3,
+      "stable_and_detects_any_diagnostic_defect": 3,
+      "quality_pending_outputs": 0
+    },
+    {
+      "model": "qwen3.5",
+      "method": "M",
+      "scheduled": 9,
+      "counts": {
+        "stable_proxy_valid": 6,
+        "persistent_failure": 3
+      },
+      "stable_proxy_valid": 6,
+      "stable_proxy_yield": 0.6666666666666666,
+      "quality_evaluated_outputs": 6,
+      "stable_and_detects_any_diagnostic_defect": 6,
+      "quality_pending_outputs": 0
+    }
+  ],
+  "task_level_differences": [
+    {
+      "task": "tale_topic_idle_time_001",
+      "model": "qwen3.5",
+      "comparison": "M-B0",
+      "status": "complete",
+      "stable_proxy_yield_difference": 0.33333333333333337
+    },
+    {
+      "task": "tale_topic_idle_time_001",
+      "model": "qwen3.5",
+      "comparison": "M-B1",
+      "status": "complete",
+      "stable_proxy_yield_difference": 0.6666666666666667
+    },
+    {
+      "task": "tale_topic_idle_time_001",
+      "model": "qwen3.5",
+      "comparison": "M-B2",
+      "status": "complete",
+      "stable_proxy_yield_difference": 1.0
+    },
+    {
+      "task": "tale_topic_idle_time_001",
+      "model": "deepseek-v4-flash",
+      "comparison": "M-B0",
+      "status": "complete",
+      "stable_proxy_yield_difference": 1.0
+    },
+    {
+      "task": "tale_topic_idle_time_001",
+      "model": "deepseek-v4-flash",
+      "comparison": "M-B1",
+      "status": "complete",
+      "stable_proxy_yield_difference": 0.33333333333333337
+    },
+    {
+      "task": "tale_topic_idle_time_001",
+      "model": "deepseek-v4-flash",
+      "comparison": "M-B2",
+      "status": "complete",
+      "stable_proxy_yield_difference": 0.0
+    },
+    {
+      "task": "randomfiletree_random_string_001",
+      "model": "qwen3.5",
+      "comparison": "M-B0",
+      "status": "complete",
+      "stable_proxy_yield_difference": 0.0
+    },
+    {
+      "task": "randomfiletree_random_string_001",
+      "model": "qwen3.5",
+      "comparison": "M-B1",
+      "status": "complete",
+      "stable_proxy_yield_difference": 0.0
+    },
+    {
+      "task": "randomfiletree_random_string_001",
+      "model": "qwen3.5",
+      "comparison": "M-B2",
+      "status": "complete",
+      "stable_proxy_yield_difference": 0.0
+    },
+    {
+      "task": "randomfiletree_random_string_001",
+      "model": "deepseek-v4-flash",
+      "comparison": "M-B0",
+      "status": "complete",
+      "stable_proxy_yield_difference": 0.0
+    },
+    {
+      "task": "randomfiletree_random_string_001",
+      "model": "deepseek-v4-flash",
+      "comparison": "M-B1",
+      "status": "complete",
+      "stable_proxy_yield_difference": 0.3333333333333333
+    },
+    {
+      "task": "randomfiletree_random_string_001",
+      "model": "deepseek-v4-flash",
+      "comparison": "M-B2",
+      "status": "complete",
+      "stable_proxy_yield_difference": 0.0
+    },
+    {
+      "task": "fishbase_gen_random_str_001",
+      "model": "qwen3.5",
+      "comparison": "M-B0",
+      "status": "complete",
+      "stable_proxy_yield_difference": 1.0
+    },
+    {
+      "task": "fishbase_gen_random_str_001",
+      "model": "qwen3.5",
+      "comparison": "M-B1",
+      "status": "complete",
+      "stable_proxy_yield_difference": 1.0
+    },
+    {
+      "task": "fishbase_gen_random_str_001",
+      "model": "qwen3.5",
+      "comparison": "M-B2",
+      "status": "complete",
+      "stable_proxy_yield_difference": 0.0
+    },
+    {
+      "task": "fishbase_gen_random_str_001",
+      "model": "deepseek-v4-flash",
+      "comparison": "M-B0",
+      "status": "complete",
+      "stable_proxy_yield_difference": 0.33333333333333337
+    },
+    {
+      "task": "fishbase_gen_random_str_001",
+      "model": "deepseek-v4-flash",
+      "comparison": "M-B1",
+      "status": "complete",
+      "stable_proxy_yield_difference": 0.33333333333333337
+    },
+    {
+      "task": "fishbase_gen_random_str_001",
+      "model": "deepseek-v4-flash",
+      "comparison": "M-B2",
+      "status": "complete",
+      "stable_proxy_yield_difference": 0.33333333333333337
+    }
+  ],
+  "rows": [
+    {
+      "output_id": "lp001",
+      "task_id": "randomfiletree_random_string_001",
+      "model_id": "deepseek-v4-flash",
+      "method": "B1",
+      "generation_round": 1,
+      "generation_status": "api_success",
+      "outcome": "persistent_failure",
+      "executions": 30,
+      "quality_evaluated": false,
+      "stable_defects_detected": null,
+      "defects_evaluated": null,
+      "defect_details": {},
+      "http_attempts": 1,
+      "returned_model": "ds-v4-flash",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 16.21799999999348
+    },
+    {
+      "output_id": "lp002",
+      "task_id": "fishbase_gen_random_str_001",
+      "model_id": "qwen3.5",
+      "method": "M",
+      "generation_round": 1,
+      "generation_status": "api_success",
+      "outcome": "stable_proxy_valid",
+      "executions": 30,
+      "quality_evaluated": true,
+      "stable_defects_detected": 1,
+      "defects_evaluated": 2,
+      "defect_details": {
+        "omit_prefix": {
+          "stable_detection": false,
+          "any_detection": false,
+          "evaluation": {
+            "status": "stable_proxy_valid",
+            "counts": {
+              "pass": 3
+            },
+            "executions": 3,
+            "has_pass": true,
+            "semantic_review": "pending",
+            "code_sha256": "7fb92a528244161e868b7e5c5a3e914eb538934789439f5846c6656de6fb1132"
+          }
+        },
+        "wrong_length": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "7fb92a528244161e868b7e5c5a3e914eb538934789439f5846c6656de6fb1132"
+          }
+        }
+      },
+      "http_attempts": 1,
+      "returned_model": "Qwen3.5-397B-A17B",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 9.10899999999674
+    },
+    {
+      "output_id": "lp003",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "deepseek-v4-flash",
+      "method": "M",
+      "generation_round": 2,
+      "generation_status": "api_success",
+      "outcome": "stable_proxy_valid",
+      "executions": 30,
+      "quality_evaluated": true,
+      "stable_defects_detected": 3,
+      "defects_evaluated": 3,
+      "defect_details": {
+        "idle_always_zero": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "666ef4fb6c073c0eddb545827638088b32f632f384fe8fd53d8a0af5e071ce00"
+          }
+        },
+        "idle_reversed": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "666ef4fb6c073c0eddb545827638088b32f632f384fe8fd53d8a0af5e071ce00"
+          }
+        },
+        "send_does_not_reset": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "666ef4fb6c073c0eddb545827638088b32f632f384fe8fd53d8a0af5e071ce00"
+          }
+        }
+      },
+      "http_attempts": 1,
+      "returned_model": "ds-v4-flash",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 17.03100000001723
+    },
+    {
+      "output_id": "lp004",
+      "task_id": "randomfiletree_random_string_001",
+      "model_id": "deepseek-v4-flash",
+      "method": "B1",
+      "generation_round": 2,
+      "generation_status": "api_success",
+      "outcome": "persistent_failure",
+      "executions": 30,
+      "quality_evaluated": false,
+      "stable_defects_detected": null,
+      "defects_evaluated": null,
+      "defect_details": {},
+      "http_attempts": 1,
+      "returned_model": "ds-v4-flash",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 8.172000000020489
+    },
+    {
+      "output_id": "lp005",
+      "task_id": "fishbase_gen_random_str_001",
+      "model_id": "deepseek-v4-flash",
+      "method": "B2",
+      "generation_round": 1,
+      "generation_status": "api_success",
+      "outcome": "persistent_failure",
+      "executions": 30,
+      "quality_evaluated": false,
+      "stable_defects_detected": null,
+      "defects_evaluated": null,
+      "defect_details": {},
+      "http_attempts": 1,
+      "returned_model": "ds-v4-flash",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 8.76600000000326
+    },
+    {
+      "output_id": "lp006",
+      "task_id": "randomfiletree_random_string_001",
+      "model_id": "qwen3.5",
+      "method": "B2",
+      "generation_round": 1,
+      "generation_status": "api_success",
+      "outcome": "execution_review_required",
+      "executions": 0,
+      "quality_evaluated": false,
+      "stable_defects_detected": null,
+      "defects_evaluated": null,
+      "defect_details": {},
+      "http_attempts": 1,
+      "returned_model": "Qwen3.5-397B-A17B",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 13.827999999979511
+    },
+    {
+      "output_id": "lp007",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "deepseek-v4-flash",
+      "method": "B2",
+      "generation_round": 3,
+      "generation_status": "api_success",
+      "outcome": "stable_proxy_valid",
+      "executions": 30,
+      "quality_evaluated": true,
+      "stable_defects_detected": 3,
+      "defects_evaluated": 3,
+      "defect_details": {
+        "idle_always_zero": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "ae5778a30f7ffb6afc20bbda5e2da31ca5a00ad53c816632070a2afef51a1414"
+          }
+        },
+        "idle_reversed": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "ae5778a30f7ffb6afc20bbda5e2da31ca5a00ad53c816632070a2afef51a1414"
+          }
+        },
+        "send_does_not_reset": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "ae5778a30f7ffb6afc20bbda5e2da31ca5a00ad53c816632070a2afef51a1414"
+          }
+        }
+      },
+      "http_attempts": 1,
+      "returned_model": "ds-v4-flash",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 10.686999999976251
+    },
+    {
+      "output_id": "lp008",
+      "task_id": "randomfiletree_random_string_001",
+      "model_id": "deepseek-v4-flash",
+      "method": "M",
+      "generation_round": 2,
+      "generation_status": "api_success",
+      "outcome": "stable_proxy_valid",
+      "executions": 30,
+      "quality_evaluated": true,
+      "stable_defects_detected": 1,
+      "defects_evaluated": 2,
+      "defect_details": {
+        "constant_chars": {
+          "stable_detection": false,
+          "any_detection": false,
+          "evaluation": {
+            "status": "stable_proxy_valid",
+            "counts": {
+              "pass": 3
+            },
+            "executions": 3,
+            "has_pass": true,
+            "semantic_review": "pending",
+            "code_sha256": "b898c703615e8f605fe000d0fdad838e905b334642c83d59bb8ee34cd40a3b48"
+          }
+        },
+        "wrong_length": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "b898c703615e8f605fe000d0fdad838e905b334642c83d59bb8ee34cd40a3b48"
+          }
+        }
+      },
+      "http_attempts": 1,
+      "returned_model": "ds-v4-flash",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 7.797000000020489
+    },
+    {
+      "output_id": "lp009",
+      "task_id": "randomfiletree_random_string_001",
+      "model_id": "deepseek-v4-flash",
+      "method": "B2",
+      "generation_round": 1,
+      "generation_status": "api_success",
+      "outcome": "stable_proxy_valid",
+      "executions": 30,
+      "quality_evaluated": true,
+      "stable_defects_detected": 1,
+      "defects_evaluated": 2,
+      "defect_details": {
+        "constant_chars": {
+          "stable_detection": false,
+          "any_detection": false,
+          "evaluation": {
+            "status": "stable_proxy_valid",
+            "counts": {
+              "pass": 3
+            },
+            "executions": 3,
+            "has_pass": true,
+            "semantic_review": "pending",
+            "code_sha256": "e9e89bd9a7126aacac314182eb8df21a5dd65c192694b0d679a9a261ffad8054"
+          }
+        },
+        "wrong_length": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "e9e89bd9a7126aacac314182eb8df21a5dd65c192694b0d679a9a261ffad8054"
+          }
+        }
+      },
+      "http_attempts": 1,
+      "returned_model": "ds-v4-flash",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 10.90600000001723
+    },
+    {
+      "output_id": "lp010",
+      "task_id": "randomfiletree_random_string_001",
+      "model_id": "qwen3.5",
+      "method": "B1",
+      "generation_round": 3,
+      "generation_status": "api_success",
+      "outcome": "execution_review_required",
+      "executions": 0,
+      "quality_evaluated": false,
+      "stable_defects_detected": null,
+      "defects_evaluated": null,
+      "defect_details": {},
+      "http_attempts": 1,
+      "returned_model": "Qwen3.5-397B-A17B",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 9.76500000001397
+    },
+    {
+      "output_id": "lp011",
+      "task_id": "randomfiletree_random_string_001",
+      "model_id": "qwen3.5",
+      "method": "B2",
+      "generation_round": 3,
+      "generation_status": "api_success",
+      "outcome": "execution_review_required",
+      "executions": 0,
+      "quality_evaluated": false,
+      "stable_defects_detected": null,
+      "defects_evaluated": null,
+      "defect_details": {},
+      "http_attempts": 1,
+      "returned_model": "Qwen3.5-397B-A17B",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 8.547000000020489
+    },
+    {
+      "output_id": "lp012",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "deepseek-v4-flash",
+      "method": "M",
+      "generation_round": 1,
+      "generation_status": "api_success",
+      "outcome": "stable_proxy_valid",
+      "executions": 30,
+      "quality_evaluated": true,
+      "stable_defects_detected": 3,
+      "defects_evaluated": 3,
+      "defect_details": {
+        "idle_always_zero": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "122906991bbf67638ba172a31b94b3e20502a88e6365ecdc35e4459cc8f35744"
+          }
+        },
+        "idle_reversed": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "122906991bbf67638ba172a31b94b3e20502a88e6365ecdc35e4459cc8f35744"
+          }
+        },
+        "send_does_not_reset": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "122906991bbf67638ba172a31b94b3e20502a88e6365ecdc35e4459cc8f35744"
+          }
+        }
+      },
+      "http_attempts": 1,
+      "returned_model": "ds-v4-flash",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 10.139999999955762
+    },
+    {
+      "output_id": "lp013",
+      "task_id": "randomfiletree_random_string_001",
+      "model_id": "qwen3.5",
+      "method": "B1",
+      "generation_round": 1,
+      "generation_status": "api_success",
+      "outcome": "execution_review_required",
+      "executions": 0,
+      "quality_evaluated": false,
+      "stable_defects_detected": null,
+      "defects_evaluated": null,
+      "defect_details": {},
+      "http_attempts": 1,
+      "returned_model": "Qwen3.5-397B-A17B",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 18.0
+    },
+    {
+      "output_id": "lp014",
+      "task_id": "fishbase_gen_random_str_001",
+      "model_id": "qwen3.5",
+      "method": "B2",
+      "generation_round": 1,
+      "generation_status": "api_success",
+      "outcome": "stable_proxy_valid",
+      "executions": 30,
+      "quality_evaluated": true,
+      "stable_defects_detected": 1,
+      "defects_evaluated": 2,
+      "defect_details": {
+        "omit_prefix": {
+          "stable_detection": false,
+          "any_detection": false,
+          "evaluation": {
+            "status": "stable_proxy_valid",
+            "counts": {
+              "pass": 3
+            },
+            "executions": 3,
+            "has_pass": true,
+            "semantic_review": "pending",
+            "code_sha256": "feef26ecc648ba8fd162414f9813a307f5381189a75b2491604380d2742e1019"
+          }
+        },
+        "wrong_length": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "feef26ecc648ba8fd162414f9813a307f5381189a75b2491604380d2742e1019"
+          }
+        }
+      },
+      "http_attempts": 1,
+      "returned_model": "Qwen3.5-397B-A17B",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 20.14100000000326
+    },
+    {
+      "output_id": "lp015",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "qwen3.5",
+      "method": "B2",
+      "generation_round": 1,
+      "generation_status": "api_success",
+      "outcome": "execution_exception",
+      "executions": 30,
+      "quality_evaluated": false,
+      "stable_defects_detected": null,
+      "defects_evaluated": null,
+      "defect_details": {},
+      "http_attempts": 1,
+      "returned_model": "Qwen3.5-397B-A17B",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 15.110000000044238
+    },
+    {
+      "output_id": "lp016",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "qwen3.5",
+      "method": "B0",
+      "generation_round": 2,
+      "generation_status": "api_success",
+      "outcome": "stable_proxy_valid",
+      "executions": 30,
+      "quality_evaluated": true,
+      "stable_defects_detected": 3,
+      "defects_evaluated": 3,
+      "defect_details": {
+        "idle_always_zero": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "e44e5deac4882d7b5e0ff92be3fb0f1a73aa21db244a3d3977c968ea04ca431b"
+          }
+        },
+        "idle_reversed": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "e44e5deac4882d7b5e0ff92be3fb0f1a73aa21db244a3d3977c968ea04ca431b"
+          }
+        },
+        "send_does_not_reset": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "e44e5deac4882d7b5e0ff92be3fb0f1a73aa21db244a3d3977c968ea04ca431b"
+          }
+        }
+      },
+      "http_attempts": 1,
+      "returned_model": "Qwen3.5-397B-A17B",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 13.438000000023749
+    },
+    {
+      "output_id": "lp017",
+      "task_id": "fishbase_gen_random_str_001",
+      "model_id": "deepseek-v4-flash",
+      "method": "B0",
+      "generation_round": 1,
+      "generation_status": "api_success",
+      "outcome": "stable_proxy_valid",
+      "executions": 30,
+      "quality_evaluated": true,
+      "stable_defects_detected": 1,
+      "defects_evaluated": 2,
+      "defect_details": {
+        "omit_prefix": {
+          "stable_detection": false,
+          "any_detection": false,
+          "evaluation": {
+            "status": "stable_proxy_valid",
+            "counts": {
+              "pass": 3
+            },
+            "executions": 3,
+            "has_pass": true,
+            "semantic_review": "pending",
+            "code_sha256": "6c0581429cf7b7f0b016154883a877606c6f86397646adf7a66ce1d5813ac088"
+          }
+        },
+        "wrong_length": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "6c0581429cf7b7f0b016154883a877606c6f86397646adf7a66ce1d5813ac088"
+          }
+        }
+      },
+      "http_attempts": 1,
+      "returned_model": "ds-v4-flash",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 8.0
+    },
+    {
+      "output_id": "lp018",
+      "task_id": "fishbase_gen_random_str_001",
+      "model_id": "deepseek-v4-flash",
+      "method": "B1",
+      "generation_round": 3,
+      "generation_status": "api_success",
+      "outcome": "stable_proxy_valid",
+      "executions": 30,
+      "quality_evaluated": true,
+      "stable_defects_detected": 2,
+      "defects_evaluated": 2,
+      "defect_details": {
+        "omit_prefix": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "d6fd20a8689fff61b76d3735782c617105977d8261e36f7c4af9ba8e26b1d236"
+          }
+        },
+        "wrong_length": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "d6fd20a8689fff61b76d3735782c617105977d8261e36f7c4af9ba8e26b1d236"
+          }
+        }
+      },
+      "http_attempts": 1,
+      "returned_model": "ds-v4-flash",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 8.188000000023749
+    },
+    {
+      "output_id": "lp019",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "qwen3.5",
+      "method": "B2",
+      "generation_round": 3,
+      "generation_status": "api_success",
+      "outcome": "persistent_failure",
+      "executions": 30,
+      "quality_evaluated": false,
+      "stable_defects_detected": null,
+      "defects_evaluated": null,
+      "defect_details": {},
+      "http_attempts": 1,
+      "returned_model": "Qwen3.5-397B-A17B",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 12.09399999998277
+    },
+    {
+      "output_id": "lp020",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "qwen3.5",
+      "method": "B2",
+      "generation_round": 2,
+      "generation_status": "api_success",
+      "outcome": "persistent_failure",
+      "executions": 30,
+      "quality_evaluated": false,
+      "stable_defects_detected": null,
+      "defects_evaluated": null,
+      "defect_details": {},
+      "http_attempts": 1,
+      "returned_model": "Qwen3.5-397B-A17B",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 13.73399999999674
+    },
+    {
+      "output_id": "lp021",
+      "task_id": "fishbase_gen_random_str_001",
+      "model_id": "deepseek-v4-flash",
+      "method": "B1",
+      "generation_round": 2,
+      "generation_status": "api_success",
+      "outcome": "stable_proxy_valid",
+      "executions": 30,
+      "quality_evaluated": true,
+      "stable_defects_detected": 0,
+      "defects_evaluated": 2,
+      "defect_details": {
+        "omit_prefix": {
+          "stable_detection": false,
+          "any_detection": false,
+          "evaluation": {
+            "status": "stable_proxy_valid",
+            "counts": {
+              "pass": 3
+            },
+            "executions": 3,
+            "has_pass": true,
+            "semantic_review": "pending",
+            "code_sha256": "478b74050dd8f2106d6ce540064f046fae848428ce09f4b12e6c41a765198c6c"
+          }
+        },
+        "wrong_length": {
+          "stable_detection": false,
+          "any_detection": false,
+          "evaluation": {
+            "status": "stable_proxy_valid",
+            "counts": {
+              "pass": 3
+            },
+            "executions": 3,
+            "has_pass": true,
+            "semantic_review": "pending",
+            "code_sha256": "478b74050dd8f2106d6ce540064f046fae848428ce09f4b12e6c41a765198c6c"
+          }
+        }
+      },
+      "http_attempts": 1,
+      "returned_model": "ds-v4-flash",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 13.85999999998603
+    },
+    {
+      "output_id": "lp022",
+      "task_id": "fishbase_gen_random_str_001",
+      "model_id": "qwen3.5",
+      "method": "B1",
+      "generation_round": 3,
+      "generation_status": "api_success",
+      "outcome": "execution_review_required",
+      "executions": 0,
+      "quality_evaluated": false,
+      "stable_defects_detected": null,
+      "defects_evaluated": null,
+      "defect_details": {},
+      "http_attempts": 1,
+      "returned_model": "Qwen3.5-397B-A17B",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 13.577999999979511
+    },
+    {
+      "output_id": "lp023",
+      "task_id": "fishbase_gen_random_str_001",
+      "model_id": "qwen3.5",
+      "method": "B2",
+      "generation_round": 2,
+      "generation_status": "api_success",
+      "outcome": "stable_proxy_valid",
+      "executions": 30,
+      "quality_evaluated": true,
+      "stable_defects_detected": 2,
+      "defects_evaluated": 2,
+      "defect_details": {
+        "omit_prefix": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "00527baf860225b6b84ba062b63e84e312ca7584c66adbc7ab4e1a8cf9aa93ac"
+          }
+        },
+        "wrong_length": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "00527baf860225b6b84ba062b63e84e312ca7584c66adbc7ab4e1a8cf9aa93ac"
+          }
+        }
+      },
+      "http_attempts": 1,
+      "returned_model": "Qwen3.5-397B-A17B",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 10.59299999999348
+    },
+    {
+      "output_id": "lp024",
+      "task_id": "randomfiletree_random_string_001",
+      "model_id": "deepseek-v4-flash",
+      "method": "B0",
+      "generation_round": 3,
+      "generation_status": "api_success",
+      "outcome": "stable_proxy_valid",
+      "executions": 30,
+      "quality_evaluated": true,
+      "stable_defects_detected": 1,
+      "defects_evaluated": 2,
+      "defect_details": {
+        "constant_chars": {
+          "stable_detection": false,
+          "any_detection": false,
+          "evaluation": {
+            "status": "stable_proxy_valid",
+            "counts": {
+              "pass": 3
+            },
+            "executions": 3,
+            "has_pass": true,
+            "semantic_review": "pending",
+            "code_sha256": "34d710eb2cac051100b3cde5fdf4c8dcbe52a53f0242e9eef4233a68673b41f1"
+          }
+        },
+        "wrong_length": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "34d710eb2cac051100b3cde5fdf4c8dcbe52a53f0242e9eef4233a68673b41f1"
+          }
+        }
+      },
+      "http_attempts": 1,
+      "returned_model": "ds-v4-flash",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 9.077999999979511
+    },
+    {
+      "output_id": "lp025",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "qwen3.5",
+      "method": "B1",
+      "generation_round": 2,
+      "generation_status": "api_success",
+      "outcome": "stable_proxy_valid",
+      "executions": 30,
+      "quality_evaluated": true,
+      "stable_defects_detected": 3,
+      "defects_evaluated": 3,
+      "defect_details": {
+        "idle_always_zero": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "07027c78f9f52aaecdf3775a3f4e1a9afa40c19dec1d98ef85d91e5d498f81b6"
+          }
+        },
+        "idle_reversed": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "07027c78f9f52aaecdf3775a3f4e1a9afa40c19dec1d98ef85d91e5d498f81b6"
+          }
+        },
+        "send_does_not_reset": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "07027c78f9f52aaecdf3775a3f4e1a9afa40c19dec1d98ef85d91e5d498f81b6"
+          }
+        }
+      },
+      "http_attempts": 1,
+      "returned_model": "Qwen3.5-397B-A17B",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 13.78200000000652
+    },
+    {
+      "output_id": "lp026",
+      "task_id": "fishbase_gen_random_str_001",
+      "model_id": "deepseek-v4-flash",
+      "method": "M",
+      "generation_round": 3,
+      "generation_status": "api_success",
+      "outcome": "stable_proxy_valid",
+      "executions": 30,
+      "quality_evaluated": true,
+      "stable_defects_detected": 1,
+      "defects_evaluated": 2,
+      "defect_details": {
+        "omit_prefix": {
+          "stable_detection": false,
+          "any_detection": false,
+          "evaluation": {
+            "status": "stable_proxy_valid",
+            "counts": {
+              "pass": 3
+            },
+            "executions": 3,
+            "has_pass": true,
+            "semantic_review": "pending",
+            "code_sha256": "ff49843c5043969e15c75ae9c5112a443e33e43885d02f94f26aca9c611464f0"
+          }
+        },
+        "wrong_length": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "ff49843c5043969e15c75ae9c5112a443e33e43885d02f94f26aca9c611464f0"
+          }
+        }
+      },
+      "http_attempts": 1,
+      "returned_model": "ds-v4-flash",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 7.7810000000172295
+    },
+    {
+      "output_id": "lp027",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "deepseek-v4-flash",
+      "method": "B1",
+      "generation_round": 1,
+      "generation_status": "api_success",
+      "outcome": "stable_proxy_valid",
+      "executions": 30,
+      "quality_evaluated": true,
+      "stable_defects_detected": 3,
+      "defects_evaluated": 3,
+      "defect_details": {
+        "idle_always_zero": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "7bfe7e9b30743d919e8fe3d68cab66c63bcc5cfef188b41ee7026eaa1de9bc15"
+          }
+        },
+        "idle_reversed": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "7bfe7e9b30743d919e8fe3d68cab66c63bcc5cfef188b41ee7026eaa1de9bc15"
+          }
+        },
+        "send_does_not_reset": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "7bfe7e9b30743d919e8fe3d68cab66c63bcc5cfef188b41ee7026eaa1de9bc15"
+          }
+        }
+      },
+      "http_attempts": 1,
+      "returned_model": "ds-v4-flash",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 15.327999999979511
+    },
+    {
+      "output_id": "lp028",
+      "task_id": "randomfiletree_random_string_001",
+      "model_id": "deepseek-v4-flash",
+      "method": "B0",
+      "generation_round": 1,
+      "generation_status": "api_success",
+      "outcome": "persistent_failure",
+      "executions": 30,
+      "quality_evaluated": false,
+      "stable_defects_detected": null,
+      "defects_evaluated": null,
+      "defect_details": {},
+      "http_attempts": 1,
+      "returned_model": "ds-v4-flash",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 7.327999999979511
+    },
+    {
+      "output_id": "lp029",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "qwen3.5",
+      "method": "B1",
+      "generation_round": 3,
+      "generation_status": "api_success",
+      "outcome": "persistent_failure",
+      "executions": 30,
+      "quality_evaluated": false,
+      "stable_defects_detected": null,
+      "defects_evaluated": null,
+      "defect_details": {},
+      "http_attempts": 1,
+      "returned_model": "Qwen3.5-397B-A17B",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 13.01600000000326
+    },
+    {
+      "output_id": "lp030",
+      "task_id": "fishbase_gen_random_str_001",
+      "model_id": "qwen3.5",
+      "method": "B1",
+      "generation_round": 2,
+      "generation_status": "api_success",
+      "outcome": "execution_review_required",
+      "executions": 0,
+      "quality_evaluated": false,
+      "stable_defects_detected": null,
+      "defects_evaluated": null,
+      "defect_details": {},
+      "http_attempts": 1,
+      "returned_model": "Qwen3.5-397B-A17B",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 14.65600000001723
+    },
+    {
+      "output_id": "lp031",
+      "task_id": "randomfiletree_random_string_001",
+      "model_id": "deepseek-v4-flash",
+      "method": "B2",
+      "generation_round": 2,
+      "generation_status": "api_success",
+      "outcome": "persistent_failure",
+      "executions": 30,
+      "quality_evaluated": false,
+      "stable_defects_detected": null,
+      "defects_evaluated": null,
+      "defect_details": {},
+      "http_attempts": 1,
+      "returned_model": "ds-v4-flash",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 7.327999999979511
+    },
+    {
+      "output_id": "lp032",
+      "task_id": "fishbase_gen_random_str_001",
+      "model_id": "qwen3.5",
+      "method": "B0",
+      "generation_round": 2,
+      "generation_status": "api_success",
+      "outcome": "execution_review_required",
+      "executions": 0,
+      "quality_evaluated": false,
+      "stable_defects_detected": null,
+      "defects_evaluated": null,
+      "defect_details": {},
+      "http_attempts": 1,
+      "returned_model": "Qwen3.5-397B-A17B",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 9.84299999999348
+    },
+    {
+      "output_id": "lp033",
+      "task_id": "fishbase_gen_random_str_001",
+      "model_id": "qwen3.5",
+      "method": "B0",
+      "generation_round": 3,
+      "generation_status": "api_success",
+      "outcome": "execution_review_required",
+      "executions": 0,
+      "quality_evaluated": false,
+      "stable_defects_detected": null,
+      "defects_evaluated": null,
+      "defect_details": {},
+      "http_attempts": 1,
+      "returned_model": "Qwen3.5-397B-A17B",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 9.85899999999674
+    },
+    {
+      "output_id": "lp034",
+      "task_id": "randomfiletree_random_string_001",
+      "model_id": "qwen3.5",
+      "method": "B2",
+      "generation_round": 2,
+      "generation_status": "api_success",
+      "outcome": "execution_review_required",
+      "executions": 0,
+      "quality_evaluated": false,
+      "stable_defects_detected": null,
+      "defects_evaluated": null,
+      "defect_details": {},
+      "http_attempts": 1,
+      "returned_model": "Qwen3.5-397B-A17B",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 16.07900000002701
+    },
+    {
+      "output_id": "lp035",
+      "task_id": "randomfiletree_random_string_001",
+      "model_id": "qwen3.5",
+      "method": "M",
+      "generation_round": 1,
+      "generation_status": "api_success",
+      "outcome": "persistent_failure",
+      "executions": 30,
+      "quality_evaluated": false,
+      "stable_defects_detected": null,
+      "defects_evaluated": null,
+      "defect_details": {},
+      "http_attempts": 1,
+      "returned_model": "Qwen3.5-397B-A17B",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 7.342999999993481
+    },
+    {
+      "output_id": "lp036",
+      "task_id": "fishbase_gen_random_str_001",
+      "model_id": "deepseek-v4-flash",
+      "method": "B2",
+      "generation_round": 2,
+      "generation_status": "api_success",
+      "outcome": "stable_proxy_valid",
+      "executions": 30,
+      "quality_evaluated": true,
+      "stable_defects_detected": 2,
+      "defects_evaluated": 2,
+      "defect_details": {
+        "omit_prefix": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "088dc3958f0cde49ebe31cc0736003b0b5b8e1c1e86aedc458d5ea02b498e1ad"
+          }
+        },
+        "wrong_length": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "088dc3958f0cde49ebe31cc0736003b0b5b8e1c1e86aedc458d5ea02b498e1ad"
+          }
+        }
+      },
+      "http_attempts": 1,
+      "returned_model": "ds-v4-flash",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 10.64100000000326
+    },
+    {
+      "output_id": "lp037",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "deepseek-v4-flash",
+      "method": "B1",
+      "generation_round": 2,
+      "generation_status": "api_success",
+      "outcome": "stable_proxy_valid",
+      "executions": 30,
+      "quality_evaluated": true,
+      "stable_defects_detected": 3,
+      "defects_evaluated": 3,
+      "defect_details": {
+        "idle_always_zero": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "0f6dfb878333ea91890ecd7ade37fbc2303f0438095ca8fcbdfd67d1e69f4e06"
+          }
+        },
+        "idle_reversed": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "0f6dfb878333ea91890ecd7ade37fbc2303f0438095ca8fcbdfd67d1e69f4e06"
+          }
+        },
+        "send_does_not_reset": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "0f6dfb878333ea91890ecd7ade37fbc2303f0438095ca8fcbdfd67d1e69f4e06"
+          }
+        }
+      },
+      "http_attempts": 1,
+      "returned_model": "ds-v4-flash",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 9.25
+    },
+    {
+      "output_id": "lp038",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "qwen3.5",
+      "method": "M",
+      "generation_round": 2,
+      "generation_status": "api_success",
+      "outcome": "stable_proxy_valid",
+      "executions": 30,
+      "quality_evaluated": true,
+      "stable_defects_detected": 2,
+      "defects_evaluated": 3,
+      "defect_details": {
+        "idle_always_zero": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "4fa1374a1346c5285b99deffc965ec0fa63594d5a1878223e8a13304eb81c5ae"
+          }
+        },
+        "idle_reversed": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "4fa1374a1346c5285b99deffc965ec0fa63594d5a1878223e8a13304eb81c5ae"
+          }
+        },
+        "send_does_not_reset": {
+          "stable_detection": false,
+          "any_detection": false,
+          "evaluation": {
+            "status": "stable_proxy_valid",
+            "counts": {
+              "pass": 3
+            },
+            "executions": 3,
+            "has_pass": true,
+            "semantic_review": "pending",
+            "code_sha256": "4fa1374a1346c5285b99deffc965ec0fa63594d5a1878223e8a13304eb81c5ae"
+          }
+        }
+      },
+      "http_attempts": 1,
+      "returned_model": "Qwen3.5-397B-A17B",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 12.421999999962281
+    },
+    {
+      "output_id": "lp039",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "deepseek-v4-flash",
+      "method": "B0",
+      "generation_round": 2,
+      "generation_status": "api_success",
+      "outcome": "persistent_failure",
+      "executions": 30,
+      "quality_evaluated": false,
+      "stable_defects_detected": null,
+      "defects_evaluated": null,
+      "defect_details": {},
+      "http_attempts": 1,
+      "returned_model": "ds-v4-flash",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 7.952999999979511
+    },
+    {
+      "output_id": "lp040",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "qwen3.5",
+      "method": "B1",
+      "generation_round": 1,
+      "generation_status": "api_success",
+      "outcome": "observed_unstable",
+      "executions": 30,
+      "quality_evaluated": false,
+      "stable_defects_detected": null,
+      "defects_evaluated": null,
+      "defect_details": {},
+      "http_attempts": 1,
+      "returned_model": "Qwen3.5-397B-A17B",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 9.969000000040978
+    },
+    {
+      "output_id": "lp041",
+      "task_id": "fishbase_gen_random_str_001",
+      "model_id": "qwen3.5",
+      "method": "B0",
+      "generation_round": 1,
+      "generation_status": "api_success",
+      "outcome": "execution_review_required",
+      "executions": 0,
+      "quality_evaluated": false,
+      "stable_defects_detected": null,
+      "defects_evaluated": null,
+      "defect_details": {},
+      "http_attempts": 1,
+      "returned_model": "Qwen3.5-397B-A17B",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 11.045999999972992
+    },
+    {
+      "output_id": "lp042",
+      "task_id": "randomfiletree_random_string_001",
+      "model_id": "deepseek-v4-flash",
+      "method": "B2",
+      "generation_round": 3,
+      "generation_status": "api_success",
+      "outcome": "persistent_failure",
+      "executions": 30,
+      "quality_evaluated": false,
+      "stable_defects_detected": null,
+      "defects_evaluated": null,
+      "defect_details": {},
+      "http_attempts": 1,
+      "returned_model": "ds-v4-flash",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 10.64100000000326
+    },
+    {
+      "output_id": "lp043",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "deepseek-v4-flash",
+      "method": "B1",
+      "generation_round": 3,
+      "generation_status": "api_success",
+      "outcome": "persistent_failure",
+      "executions": 30,
+      "quality_evaluated": false,
+      "stable_defects_detected": null,
+      "defects_evaluated": null,
+      "defect_details": {},
+      "http_attempts": 1,
+      "returned_model": "ds-v4-flash",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 12.75
+    },
+    {
+      "output_id": "lp044",
+      "task_id": "fishbase_gen_random_str_001",
+      "model_id": "deepseek-v4-flash",
+      "method": "B2",
+      "generation_round": 3,
+      "generation_status": "api_success",
+      "outcome": "stable_proxy_valid",
+      "executions": 30,
+      "quality_evaluated": true,
+      "stable_defects_detected": 2,
+      "defects_evaluated": 2,
+      "defect_details": {
+        "omit_prefix": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "80bb8ad9e5d1dd261e1ed572d1c89a0344ebff3c314b89ef941a634149266a37"
+          }
+        },
+        "wrong_length": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "80bb8ad9e5d1dd261e1ed572d1c89a0344ebff3c314b89ef941a634149266a37"
+          }
+        }
+      },
+      "http_attempts": 1,
+      "returned_model": "ds-v4-flash",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 12.01500000001397
+    },
+    {
+      "output_id": "lp045",
+      "task_id": "fishbase_gen_random_str_001",
+      "model_id": "qwen3.5",
+      "method": "M",
+      "generation_round": 3,
+      "generation_status": "api_success",
+      "outcome": "stable_proxy_valid",
+      "executions": 30,
+      "quality_evaluated": true,
+      "stable_defects_detected": 2,
+      "defects_evaluated": 2,
+      "defect_details": {
+        "omit_prefix": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "98a5c45e474424084c83a9d71cf13508bebda078217da5ac64a6922befc5e496"
+          }
+        },
+        "wrong_length": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "98a5c45e474424084c83a9d71cf13508bebda078217da5ac64a6922befc5e496"
+          }
+        }
+      },
+      "http_attempts": 1,
+      "returned_model": "Qwen3.5-397B-A17B",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 11.078000000037719
+    },
+    {
+      "output_id": "lp046",
+      "task_id": "fishbase_gen_random_str_001",
+      "model_id": "qwen3.5",
+      "method": "M",
+      "generation_round": 2,
+      "generation_status": "api_success",
+      "outcome": "stable_proxy_valid",
+      "executions": 30,
+      "quality_evaluated": true,
+      "stable_defects_detected": 2,
+      "defects_evaluated": 2,
+      "defect_details": {
+        "omit_prefix": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "a8cd25e60571a8956b35d985d518f192187aedf34568e576f976bb3c4257b859"
+          }
+        },
+        "wrong_length": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "a8cd25e60571a8956b35d985d518f192187aedf34568e576f976bb3c4257b859"
+          }
+        }
+      },
+      "http_attempts": 1,
+      "returned_model": "Qwen3.5-397B-A17B",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 9.14100000000326
+    },
+    {
+      "output_id": "lp047",
+      "task_id": "randomfiletree_random_string_001",
+      "model_id": "qwen3.5",
+      "method": "B0",
+      "generation_round": 2,
+      "generation_status": "api_success",
+      "outcome": "execution_review_required",
+      "executions": 0,
+      "quality_evaluated": false,
+      "stable_defects_detected": null,
+      "defects_evaluated": null,
+      "defect_details": {},
+      "http_attempts": 1,
+      "returned_model": "Qwen3.5-397B-A17B",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 26.42199999996228
+    },
+    {
+      "output_id": "lp048",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "deepseek-v4-flash",
+      "method": "M",
+      "generation_round": 3,
+      "generation_status": "api_success",
+      "outcome": "stable_proxy_valid",
+      "executions": 30,
+      "quality_evaluated": true,
+      "stable_defects_detected": 2,
+      "defects_evaluated": 3,
+      "defect_details": {
+        "idle_always_zero": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "88248e48f18aa128665a97a2bb71b84deac64be9009cff3e7f9c5d6142067fa9"
+          }
+        },
+        "idle_reversed": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "88248e48f18aa128665a97a2bb71b84deac64be9009cff3e7f9c5d6142067fa9"
+          }
+        },
+        "send_does_not_reset": {
+          "stable_detection": false,
+          "any_detection": false,
+          "evaluation": {
+            "status": "stable_proxy_valid",
+            "counts": {
+              "pass": 3
+            },
+            "executions": 3,
+            "has_pass": true,
+            "semantic_review": "pending",
+            "code_sha256": "88248e48f18aa128665a97a2bb71b84deac64be9009cff3e7f9c5d6142067fa9"
+          }
+        }
+      },
+      "http_attempts": 1,
+      "returned_model": "ds-v4-flash",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 10.5
+    },
+    {
+      "output_id": "lp049",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "qwen3.5",
+      "method": "M",
+      "generation_round": 1,
+      "generation_status": "api_success",
+      "outcome": "stable_proxy_valid",
+      "executions": 30,
+      "quality_evaluated": true,
+      "stable_defects_detected": 3,
+      "defects_evaluated": 3,
+      "defect_details": {
+        "idle_always_zero": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "f791014d6c84bbe5bfb314b2e04994dbe894064d5a29042036d21ec5b0ed6854"
+          }
+        },
+        "idle_reversed": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "f791014d6c84bbe5bfb314b2e04994dbe894064d5a29042036d21ec5b0ed6854"
+          }
+        },
+        "send_does_not_reset": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "f791014d6c84bbe5bfb314b2e04994dbe894064d5a29042036d21ec5b0ed6854"
+          }
+        }
+      },
+      "http_attempts": 1,
+      "returned_model": "Qwen3.5-397B-A17B",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 12.75
+    },
+    {
+      "output_id": "lp050",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "qwen3.5",
+      "method": "B0",
+      "generation_round": 1,
+      "generation_status": "api_success",
+      "outcome": "persistent_failure",
+      "executions": 30,
+      "quality_evaluated": false,
+      "stable_defects_detected": null,
+      "defects_evaluated": null,
+      "defect_details": {},
+      "http_attempts": 1,
+      "returned_model": "Qwen3.5-397B-A17B",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 34.75
+    },
+    {
+      "output_id": "lp051",
+      "task_id": "fishbase_gen_random_str_001",
+      "model_id": "deepseek-v4-flash",
+      "method": "B1",
+      "generation_round": 1,
+      "generation_status": "api_success",
+      "outcome": "persistent_failure",
+      "executions": 30,
+      "quality_evaluated": false,
+      "stable_defects_detected": null,
+      "defects_evaluated": null,
+      "defect_details": {},
+      "http_attempts": 1,
+      "returned_model": "ds-v4-flash",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 22.73399999999674
+    },
+    {
+      "output_id": "lp052",
+      "task_id": "randomfiletree_random_string_001",
+      "model_id": "qwen3.5",
+      "method": "B0",
+      "generation_round": 1,
+      "generation_status": "api_success",
+      "outcome": "execution_review_required",
+      "executions": 0,
+      "quality_evaluated": false,
+      "stable_defects_detected": null,
+      "defects_evaluated": null,
+      "defect_details": {},
+      "http_attempts": 1,
+      "returned_model": "Qwen3.5-397B-A17B",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 11.139999999955762
+    },
+    {
+      "output_id": "lp053",
+      "task_id": "fishbase_gen_random_str_001",
+      "model_id": "deepseek-v4-flash",
+      "method": "B0",
+      "generation_round": 3,
+      "generation_status": "api_success",
+      "outcome": "stable_proxy_valid",
+      "executions": 30,
+      "quality_evaluated": true,
+      "stable_defects_detected": 1,
+      "defects_evaluated": 2,
+      "defect_details": {
+        "omit_prefix": {
+          "stable_detection": false,
+          "any_detection": false,
+          "evaluation": {
+            "status": "stable_proxy_valid",
+            "counts": {
+              "pass": 3
+            },
+            "executions": 3,
+            "has_pass": true,
+            "semantic_review": "pending",
+            "code_sha256": "a464a75f23ce0c20dde8cb65c02b6757b714f9009fb678235b6957fd9b4aad1d"
+          }
+        },
+        "wrong_length": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "a464a75f23ce0c20dde8cb65c02b6757b714f9009fb678235b6957fd9b4aad1d"
+          }
+        }
+      },
+      "http_attempts": 1,
+      "returned_model": "ds-v4-flash",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 8.76500000001397
+    },
+    {
+      "output_id": "lp054",
+      "task_id": "fishbase_gen_random_str_001",
+      "model_id": "deepseek-v4-flash",
+      "method": "M",
+      "generation_round": 2,
+      "generation_status": "api_success",
+      "outcome": "stable_proxy_valid",
+      "executions": 30,
+      "quality_evaluated": true,
+      "stable_defects_detected": 1,
+      "defects_evaluated": 2,
+      "defect_details": {
+        "omit_prefix": {
+          "stable_detection": false,
+          "any_detection": false,
+          "evaluation": {
+            "status": "stable_proxy_valid",
+            "counts": {
+              "pass": 3
+            },
+            "executions": 3,
+            "has_pass": true,
+            "semantic_review": "pending",
+            "code_sha256": "0dcb4581bec9b83f5bdb65c838e0119b5890b1b1da7f75790530598e46998c6d"
+          }
+        },
+        "wrong_length": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "0dcb4581bec9b83f5bdb65c838e0119b5890b1b1da7f75790530598e46998c6d"
+          }
+        }
+      },
+      "http_attempts": 1,
+      "returned_model": "ds-v4-flash",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 8.219000000040978
+    },
+    {
+      "output_id": "lp055",
+      "task_id": "randomfiletree_random_string_001",
+      "model_id": "qwen3.5",
+      "method": "B0",
+      "generation_round": 3,
+      "generation_status": "api_success",
+      "outcome": "execution_review_required",
+      "executions": 0,
+      "quality_evaluated": false,
+      "stable_defects_detected": null,
+      "defects_evaluated": null,
+      "defect_details": {},
+      "http_attempts": 1,
+      "returned_model": "Qwen3.5-397B-A17B",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 9.047000000020489
+    },
+    {
+      "output_id": "lp056",
+      "task_id": "randomfiletree_random_string_001",
+      "model_id": "deepseek-v4-flash",
+      "method": "B1",
+      "generation_round": 3,
+      "generation_status": "api_success",
+      "outcome": "persistent_failure",
+      "executions": 30,
+      "quality_evaluated": false,
+      "stable_defects_detected": null,
+      "defects_evaluated": null,
+      "defect_details": {},
+      "http_attempts": 1,
+      "returned_model": "ds-v4-flash",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 7.311999999976251
+    },
+    {
+      "output_id": "lp057",
+      "task_id": "randomfiletree_random_string_001",
+      "model_id": "qwen3.5",
+      "method": "B1",
+      "generation_round": 2,
+      "generation_status": "api_success",
+      "outcome": "execution_review_required",
+      "executions": 0,
+      "quality_evaluated": false,
+      "stable_defects_detected": null,
+      "defects_evaluated": null,
+      "defect_details": {},
+      "http_attempts": 1,
+      "returned_model": "Qwen3.5-397B-A17B",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 9.73399999999674
+    },
+    {
+      "output_id": "lp058",
+      "task_id": "fishbase_gen_random_str_001",
+      "model_id": "qwen3.5",
+      "method": "B2",
+      "generation_round": 3,
+      "generation_status": "api_success",
+      "outcome": "stable_proxy_valid",
+      "executions": 30,
+      "quality_evaluated": true,
+      "stable_defects_detected": 1,
+      "defects_evaluated": 2,
+      "defect_details": {
+        "omit_prefix": {
+          "stable_detection": false,
+          "any_detection": false,
+          "evaluation": {
+            "status": "stable_proxy_valid",
+            "counts": {
+              "pass": 3
+            },
+            "executions": 3,
+            "has_pass": true,
+            "semantic_review": "pending",
+            "code_sha256": "27e900a0822d30018fff371323f08584af05e62987b94cc465e4132130af0c8b"
+          }
+        },
+        "wrong_length": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "27e900a0822d30018fff371323f08584af05e62987b94cc465e4132130af0c8b"
+          }
+        }
+      },
+      "http_attempts": 1,
+      "returned_model": "Qwen3.5-397B-A17B",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 10.389999999955762
+    },
+    {
+      "output_id": "lp059",
+      "task_id": "randomfiletree_random_string_001",
+      "model_id": "deepseek-v4-flash",
+      "method": "M",
+      "generation_round": 3,
+      "generation_status": "api_success",
+      "outcome": "persistent_failure",
+      "executions": 30,
+      "quality_evaluated": false,
+      "stable_defects_detected": null,
+      "defects_evaluated": null,
+      "defect_details": {},
+      "http_attempts": 1,
+      "returned_model": "ds-v4-flash",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 8.625
+    },
+    {
+      "output_id": "lp060",
+      "task_id": "fishbase_gen_random_str_001",
+      "model_id": "deepseek-v4-flash",
+      "method": "B0",
+      "generation_round": 2,
+      "generation_status": "api_success",
+      "outcome": "persistent_failure",
+      "executions": 30,
+      "quality_evaluated": false,
+      "stable_defects_detected": null,
+      "defects_evaluated": null,
+      "defect_details": {},
+      "http_attempts": 1,
+      "returned_model": "ds-v4-flash",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 10.063000000023749
+    },
+    {
+      "output_id": "lp061",
+      "task_id": "randomfiletree_random_string_001",
+      "model_id": "qwen3.5",
+      "method": "M",
+      "generation_round": 2,
+      "generation_status": "api_success",
+      "outcome": "persistent_failure",
+      "executions": 30,
+      "quality_evaluated": false,
+      "stable_defects_detected": null,
+      "defects_evaluated": null,
+      "defect_details": {},
+      "http_attempts": 1,
+      "returned_model": "Qwen3.5-397B-A17B",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 7.26500000001397
+    },
+    {
+      "output_id": "lp062",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "deepseek-v4-flash",
+      "method": "B2",
+      "generation_round": 1,
+      "generation_status": "api_success",
+      "outcome": "stable_proxy_valid",
+      "executions": 30,
+      "quality_evaluated": true,
+      "stable_defects_detected": 3,
+      "defects_evaluated": 3,
+      "defect_details": {
+        "idle_always_zero": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "5b380e150461c71431d9c6009eaccc13ce3eb46e67ec724625233e014e408e23"
+          }
+        },
+        "idle_reversed": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "5b380e150461c71431d9c6009eaccc13ce3eb46e67ec724625233e014e408e23"
+          }
+        },
+        "send_does_not_reset": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "5b380e150461c71431d9c6009eaccc13ce3eb46e67ec724625233e014e408e23"
+          }
+        }
+      },
+      "http_attempts": 1,
+      "returned_model": "ds-v4-flash",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 38.17099999997299
+    },
+    {
+      "output_id": "lp063",
+      "task_id": "randomfiletree_random_string_001",
+      "model_id": "deepseek-v4-flash",
+      "method": "M",
+      "generation_round": 1,
+      "generation_status": "api_success",
+      "outcome": "persistent_failure",
+      "executions": 30,
+      "quality_evaluated": false,
+      "stable_defects_detected": null,
+      "defects_evaluated": null,
+      "defect_details": {},
+      "http_attempts": 1,
+      "returned_model": "ds-v4-flash",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 7.4689999999827705
+    },
+    {
+      "output_id": "lp064",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "deepseek-v4-flash",
+      "method": "B0",
+      "generation_round": 3,
+      "generation_status": "api_success",
+      "outcome": "persistent_failure",
+      "executions": 30,
+      "quality_evaluated": false,
+      "stable_defects_detected": null,
+      "defects_evaluated": null,
+      "defect_details": {},
+      "http_attempts": 1,
+      "returned_model": "ds-v4-flash",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 24.10899999999674
+    },
+    {
+      "output_id": "lp065",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "qwen3.5",
+      "method": "M",
+      "generation_round": 3,
+      "generation_status": "api_success",
+      "outcome": "stable_proxy_valid",
+      "executions": 30,
+      "quality_evaluated": true,
+      "stable_defects_detected": 3,
+      "defects_evaluated": 3,
+      "defect_details": {
+        "idle_always_zero": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "11975959e83045aa8fd467685865c8efb33e8f228867614dadbfeb1b8776d5fe"
+          }
+        },
+        "idle_reversed": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "11975959e83045aa8fd467685865c8efb33e8f228867614dadbfeb1b8776d5fe"
+          }
+        },
+        "send_does_not_reset": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "11975959e83045aa8fd467685865c8efb33e8f228867614dadbfeb1b8776d5fe"
+          }
+        }
+      },
+      "http_attempts": 1,
+      "returned_model": "Qwen3.5-397B-A17B",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 20.73399999999674
+    },
+    {
+      "output_id": "lp066",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "qwen3.5",
+      "method": "B0",
+      "generation_round": 3,
+      "generation_status": "api_success",
+      "outcome": "stable_proxy_valid",
+      "executions": 30,
+      "quality_evaluated": true,
+      "stable_defects_detected": 3,
+      "defects_evaluated": 3,
+      "defect_details": {
+        "idle_always_zero": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "d09aaf4f1d2504bea197b963dd1c3124ea74f084a738b7e6bf8532b9e71598cd"
+          }
+        },
+        "idle_reversed": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "d09aaf4f1d2504bea197b963dd1c3124ea74f084a738b7e6bf8532b9e71598cd"
+          }
+        },
+        "send_does_not_reset": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "d09aaf4f1d2504bea197b963dd1c3124ea74f084a738b7e6bf8532b9e71598cd"
+          }
+        }
+      },
+      "http_attempts": 1,
+      "returned_model": "Qwen3.5-397B-A17B",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 14.48399999999674
+    },
+    {
+      "output_id": "lp067",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "deepseek-v4-flash",
+      "method": "B0",
+      "generation_round": 1,
+      "generation_status": "api_success",
+      "outcome": "persistent_failure",
+      "executions": 30,
+      "quality_evaluated": false,
+      "stable_defects_detected": null,
+      "defects_evaluated": null,
+      "defect_details": {},
+      "http_attempts": 1,
+      "returned_model": "ds-v4-flash",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 11.313000000023749
+    },
+    {
+      "output_id": "lp068",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "deepseek-v4-flash",
+      "method": "B2",
+      "generation_round": 2,
+      "generation_status": "api_success",
+      "outcome": "stable_proxy_valid",
+      "executions": 30,
+      "quality_evaluated": true,
+      "stable_defects_detected": 3,
+      "defects_evaluated": 3,
+      "defect_details": {
+        "idle_always_zero": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "6c245a33aa51b12778f07cf831ef202d70821248c163cf58c5b5b35e7ac52dda"
+          }
+        },
+        "idle_reversed": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "6c245a33aa51b12778f07cf831ef202d70821248c163cf58c5b5b35e7ac52dda"
+          }
+        },
+        "send_does_not_reset": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "6c245a33aa51b12778f07cf831ef202d70821248c163cf58c5b5b35e7ac52dda"
+          }
+        }
+      },
+      "http_attempts": 1,
+      "returned_model": "ds-v4-flash",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 9.15600000001723
+    },
+    {
+      "output_id": "lp069",
+      "task_id": "fishbase_gen_random_str_001",
+      "model_id": "qwen3.5",
+      "method": "B1",
+      "generation_round": 1,
+      "generation_status": "api_success",
+      "outcome": "execution_review_required",
+      "executions": 0,
+      "quality_evaluated": false,
+      "stable_defects_detected": null,
+      "defects_evaluated": null,
+      "defect_details": {},
+      "http_attempts": 1,
+      "returned_model": "Qwen3.5-397B-A17B",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 13.60899999999674
+    },
+    {
+      "output_id": "lp070",
+      "task_id": "randomfiletree_random_string_001",
+      "model_id": "deepseek-v4-flash",
+      "method": "B0",
+      "generation_round": 2,
+      "generation_status": "api_success",
+      "outcome": "persistent_failure",
+      "executions": 30,
+      "quality_evaluated": false,
+      "stable_defects_detected": null,
+      "defects_evaluated": null,
+      "defect_details": {},
+      "http_attempts": 1,
+      "returned_model": "ds-v4-flash",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 8.547000000020489
+    },
+    {
+      "output_id": "lp071",
+      "task_id": "fishbase_gen_random_str_001",
+      "model_id": "deepseek-v4-flash",
+      "method": "M",
+      "generation_round": 1,
+      "generation_status": "api_success",
+      "outcome": "stable_proxy_valid",
+      "executions": 30,
+      "quality_evaluated": true,
+      "stable_defects_detected": 1,
+      "defects_evaluated": 2,
+      "defect_details": {
+        "omit_prefix": {
+          "stable_detection": false,
+          "any_detection": false,
+          "evaluation": {
+            "status": "stable_proxy_valid",
+            "counts": {
+              "pass": 3
+            },
+            "executions": 3,
+            "has_pass": true,
+            "semantic_review": "pending",
+            "code_sha256": "8d564e49258e7f52455bf4d63bc795df87e364570fcc56915f3b5b9d0a52a77e"
+          }
+        },
+        "wrong_length": {
+          "stable_detection": true,
+          "any_detection": true,
+          "evaluation": {
+            "status": "persistent_failure",
+            "counts": {
+              "fail": 3
+            },
+            "executions": 3,
+            "has_pass": false,
+            "semantic_review": "pending",
+            "code_sha256": "8d564e49258e7f52455bf4d63bc795df87e364570fcc56915f3b5b9d0a52a77e"
+          }
+        }
+      },
+      "http_attempts": 1,
+      "returned_model": "ds-v4-flash",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 8.15600000001723
+    },
+    {
+      "output_id": "lp072",
+      "task_id": "randomfiletree_random_string_001",
+      "model_id": "qwen3.5",
+      "method": "M",
+      "generation_round": 3,
+      "generation_status": "api_success",
+      "outcome": "persistent_failure",
+      "executions": 30,
+      "quality_evaluated": false,
+      "stable_defects_detected": null,
+      "defects_evaluated": null,
+      "defect_details": {},
+      "http_attempts": 1,
+      "returned_model": "Qwen3.5-397B-A17B",
+      "finish_reason": "stop",
+      "usage_returned": true,
+      "attempt_seconds": 7.23399999999674
+    }
+  ],
+  "human_review_status": "complete",
+  "human_review": {
+    "reviewer": "赵泓江",
+    "present": 48,
+    "complete": 48,
+    "partial": 0,
+    "source_sha256": "41cbe15e3d46c41885c6e0ba03c4600240ddf2f6ea84dc7819e878b3f5e4fd70",
+    "raw_complete": 47,
+    "raw_partial": 1,
+    "all_labels_finalized": true,
+    "applied_completions": [
+      {
+        "schema": "semantic-review-completion-v1",
+        "date": "2026-10-05",
+        "source": "Explicit user completion in conversation",
+        "actor": "user",
+        "actor_type": "human",
+        "source_sha256": "41cbe15e3d46c41885c6e0ba03c4600240ddf2f6ea84dc7819e878b3f5e4fd70",
+        "review_id": "L014",
+        "code_sha256": "c732722cab98b34dce7492730df24ad3d64b529c4e8b4927c44e92364eb61f05",
+        "field": "correctness",
+        "original": null,
+        "completed": "correct",
+        "reason": "测试真实调用 random_string(7, 7)，并通过替换标准库 random.randint/choice 控制随机源；min_length == max_length == 7 时长度必为 7，字符属于大写字母/数字集合，断言符合契约；第二次用同种子 Random(42) 重跑得到相同结果也成立。未替换目标函数。手动改全局 random 而非用 monkeypatch 只是隔离风格问题，不影响正确性。",
+        "unchanged_fields": {
+          "robustness": "robust",
+          "adequacy": "meaningful"
+        },
+        "raw_export_unchanged": true,
+        "ledger": "review/semantic_lean_v1/completions/2026-10-05_L014.json",
+        "ledger_sha256": "d494d71a1a4da7c327ee2fc7aa6c5c4364605db4805621d25796801a66077f36"
+      }
+    ],
+    "raw_per_field_counts": {
+      "correctness": {
+        "available": 47,
+        "counts": {
+          "correct": 32,
+          "incorrect": 15
+        }
+      },
+      "robustness": {
+        "available": 48,
+        "counts": {
+          "fragile": 15,
+          "robust": 33
+        }
+      },
+      "adequacy": {
+        "available": 48,
+        "counts": {
+          "meaningful": 40,
+          "weak_or_masked": 8
+        }
+      }
+    },
+    "effective_per_field_counts": {
+      "correctness": {
+        "available": 48,
+        "counts": {
+          "correct": 31,
+          "incorrect": 17
+        }
+      },
+      "robustness": {
+        "available": 48,
+        "counts": {
+          "fragile": 15,
+          "robust": 33
+        }
+      },
+      "adequacy": {
+        "available": 48,
+        "counts": {
+          "meaningful": 40,
+          "weak_or_masked": 8
+        }
+      }
+    },
+    "applied_adjudications": [
+      {
+        "review_id": "L005",
+        "code_sha256": "90fd17d16ba77c7324fd5c1b85ee2fef1e9f0fc5400c14eeddfea87177ba98a4",
+        "field": "correctness",
+        "original": "correct",
+        "adjudicated": "incorrect",
+        "reason": "测试使用了 random.Random(1)，但只导入了 randomfiletree.core 和 random_string，没有 import random，运行时会 NameError，与“符合”冲突。",
+        "ledger": "review/semantic_lean_v1/adjudications/2026-10-05_L005_L039.json",
+        "ledger_sha256": "4adb8217a0e6715733dc33adce9b965ee346e157b7b44942bd170dcf4e26bb5f",
+        "actor": "user",
+        "unchanged_fields_reason": "两者稳健性“可靠”、充分性“有意义”，因为若补上缺失导入，断言与契约本身是成立的，问题只在导入缺失导致无法执行。"
+      },
+      {
+        "review_id": "L039",
+        "code_sha256": "cf28c77b44ec6178226a06c4c6ccdc233c14d18be2db1d72d90413a8e89dffc5",
+        "field": "correctness",
+        "original": "correct",
+        "adjudicated": "incorrect",
+        "reason": "同样使用 random.Random(42)，但只 import randomfiletree.core as _risk_module，没有 import random，同样 NameError。",
+        "ledger": "review/semantic_lean_v1/adjudications/2026-10-05_L005_L039.json",
+        "ledger_sha256": "4adb8217a0e6715733dc33adce9b965ee346e157b7b44942bd170dcf4e26bb5f",
+        "actor": "user",
+        "unchanged_fields_reason": "两者稳健性“可靠”、充分性“有意义”，因为若补上缺失导入，断言与契约本身是成立的，问题只在导入缺失导致无法执行。"
+      }
+    ],
+    "raw_execution_conflicts": [
+      "L005",
+      "L039"
+    ],
+    "execution_conflicts": [],
+    "missing_fields": {}
+  },
+  "reviewed_execution_sensitivity": {
+    "post_hoc": true,
+    "primary_unchanged": true,
+    "source": "runs/lean_followup_v1/reviewed_execution/summary.json",
+    "source_sha256": "52af3db7e11ec8ae2b41e0ef081e6a479c6e16953bb50c2118845507b3463e39",
+    "executions": 450,
+    "counts": {
+      "stable_proxy_valid": 14,
+      "persistent_failure": 1
+    },
+    "supplemental_diagnostic_quality_evaluated": true,
+    "groups": [
+      {
+        "model": "deepseek-v4-flash",
+        "method": "B0",
+        "scheduled": 9,
+        "primary_stable": 3,
+        "additional_stable": 0,
+        "primary_plus_reviewed_stable": 3,
+        "additional_detects_any": 0,
+        "primary_plus_reviewed_detects_any": 3
+      },
+      {
+        "model": "deepseek-v4-flash",
+        "method": "B1",
+        "scheduled": 9,
+        "primary_stable": 4,
+        "additional_stable": 0,
+        "primary_plus_reviewed_stable": 4,
+        "additional_detects_any": 0,
+        "primary_plus_reviewed_detects_any": 3
+      },
+      {
+        "model": "deepseek-v4-flash",
+        "method": "B2",
+        "scheduled": 9,
+        "primary_stable": 6,
+        "additional_stable": 0,
+        "primary_plus_reviewed_stable": 6,
+        "additional_detects_any": 0,
+        "primary_plus_reviewed_detects_any": 6
+      },
+      {
+        "model": "deepseek-v4-flash",
+        "method": "M",
+        "scheduled": 9,
+        "primary_stable": 7,
+        "additional_stable": 0,
+        "primary_plus_reviewed_stable": 7,
+        "additional_detects_any": 0,
+        "primary_plus_reviewed_detects_any": 7
+      },
+      {
+        "model": "qwen3.5",
+        "method": "B0",
+        "scheduled": 9,
+        "primary_stable": 2,
+        "additional_stable": 6,
+        "primary_plus_reviewed_stable": 8,
+        "additional_detects_any": 6,
+        "primary_plus_reviewed_detects_any": 8
+      },
+      {
+        "model": "qwen3.5",
+        "method": "B1",
+        "scheduled": 9,
+        "primary_stable": 1,
+        "additional_stable": 5,
+        "primary_plus_reviewed_stable": 6,
+        "additional_detects_any": 5,
+        "primary_plus_reviewed_detects_any": 6
+      },
+      {
+        "model": "qwen3.5",
+        "method": "B2",
+        "scheduled": 9,
+        "primary_stable": 3,
+        "additional_stable": 3,
+        "primary_plus_reviewed_stable": 6,
+        "additional_detects_any": 3,
+        "primary_plus_reviewed_detects_any": 6
+      },
+      {
+        "model": "qwen3.5",
+        "method": "M",
+        "scheduled": 9,
+        "primary_stable": 6,
+        "additional_stable": 0,
+        "primary_plus_reviewed_stable": 6,
+        "additional_detects_any": 0,
+        "primary_plus_reviewed_detects_any": 6
+      }
+    ],
+    "diagnostic_quality": {
+      "post_hoc": true,
+      "diagnostic_only": true,
+      "primary_unchanged": true,
+      "outputs": 14,
+      "outputs_detecting_any": 14,
+      "executions": 84,
+      "rows": [
+        {
+          "output_id": "lp006",
+          "task_id": "randomfiletree_random_string_001",
+          "model_id": "qwen3.5",
+          "method": "B2",
+          "code_sha256": "1d380c9b8064810fd2a1f68a2c5a53d89a4dee05407309083f73a591029dd9be",
+          "mutants": {
+            "constant_chars": {
+              "stable_detection": false,
+              "any_detection": false,
+              "evaluation": {
+                "status": "stable_proxy_valid",
+                "counts": {
+                  "pass": 3
+                },
+                "executions": 3,
+                "has_pass": true,
+                "semantic_review": "pending",
+                "code_sha256": "1d380c9b8064810fd2a1f68a2c5a53d89a4dee05407309083f73a591029dd9be",
+                "post_hoc": true
+              }
+            },
+            "wrong_length": {
+              "stable_detection": true,
+              "any_detection": true,
+              "evaluation": {
+                "status": "persistent_failure",
+                "counts": {
+                  "fail": 3
+                },
+                "executions": 3,
+                "has_pass": false,
+                "semantic_review": "pending",
+                "code_sha256": "1d380c9b8064810fd2a1f68a2c5a53d89a4dee05407309083f73a591029dd9be",
+                "post_hoc": true
+              }
+            }
+          },
+          "stable_detected": 1,
+          "total": 2,
+          "post_hoc": true,
+          "diagnostic_only": true
+        },
+        {
+          "output_id": "lp010",
+          "task_id": "randomfiletree_random_string_001",
+          "model_id": "qwen3.5",
+          "method": "B1",
+          "code_sha256": "82d6097b0e1b19e868e0abe066943e0ec4c9b8b74aff275d69a96a93d5d8bc9d",
+          "mutants": {
+            "constant_chars": {
+              "stable_detection": false,
+              "any_detection": false,
+              "evaluation": {
+                "status": "stable_proxy_valid",
+                "counts": {
+                  "pass": 3
+                },
+                "executions": 3,
+                "has_pass": true,
+                "semantic_review": "pending",
+                "code_sha256": "82d6097b0e1b19e868e0abe066943e0ec4c9b8b74aff275d69a96a93d5d8bc9d",
+                "post_hoc": true
+              }
+            },
+            "wrong_length": {
+              "stable_detection": true,
+              "any_detection": true,
+              "evaluation": {
+                "status": "persistent_failure",
+                "counts": {
+                  "fail": 3
+                },
+                "executions": 3,
+                "has_pass": false,
+                "semantic_review": "pending",
+                "code_sha256": "82d6097b0e1b19e868e0abe066943e0ec4c9b8b74aff275d69a96a93d5d8bc9d",
+                "post_hoc": true
+              }
+            }
+          },
+          "stable_detected": 1,
+          "total": 2,
+          "post_hoc": true,
+          "diagnostic_only": true
+        },
+        {
+          "output_id": "lp011",
+          "task_id": "randomfiletree_random_string_001",
+          "model_id": "qwen3.5",
+          "method": "B2",
+          "code_sha256": "d4611e57d72abafc2a917a1699c7fe2c9d87f68e8274893d34201fbbb64cf21c",
+          "mutants": {
+            "constant_chars": {
+              "stable_detection": false,
+              "any_detection": false,
+              "evaluation": {
+                "status": "stable_proxy_valid",
+                "counts": {
+                  "pass": 3
+                },
+                "executions": 3,
+                "has_pass": true,
+                "semantic_review": "pending",
+                "code_sha256": "d4611e57d72abafc2a917a1699c7fe2c9d87f68e8274893d34201fbbb64cf21c",
+                "post_hoc": true
+              }
+            },
+            "wrong_length": {
+              "stable_detection": true,
+              "any_detection": true,
+              "evaluation": {
+                "status": "persistent_failure",
+                "counts": {
+                  "fail": 3
+                },
+                "executions": 3,
+                "has_pass": false,
+                "semantic_review": "pending",
+                "code_sha256": "d4611e57d72abafc2a917a1699c7fe2c9d87f68e8274893d34201fbbb64cf21c",
+                "post_hoc": true
+              }
+            }
+          },
+          "stable_detected": 1,
+          "total": 2,
+          "post_hoc": true,
+          "diagnostic_only": true
+        },
+        {
+          "output_id": "lp013",
+          "task_id": "randomfiletree_random_string_001",
+          "model_id": "qwen3.5",
+          "method": "B1",
+          "code_sha256": "8fdd15d29cb6e03c0c5aff178b0fec42af573dec70b5431c70bdca8201baf318",
+          "mutants": {
+            "constant_chars": {
+              "stable_detection": false,
+              "any_detection": false,
+              "evaluation": {
+                "status": "stable_proxy_valid",
+                "counts": {
+                  "pass": 3
+                },
+                "executions": 3,
+                "has_pass": true,
+                "semantic_review": "pending",
+                "code_sha256": "8fdd15d29cb6e03c0c5aff178b0fec42af573dec70b5431c70bdca8201baf318",
+                "post_hoc": true
+              }
+            },
+            "wrong_length": {
+              "stable_detection": true,
+              "any_detection": true,
+              "evaluation": {
+                "status": "persistent_failure",
+                "counts": {
+                  "fail": 3
+                },
+                "executions": 3,
+                "has_pass": false,
+                "semantic_review": "pending",
+                "code_sha256": "8fdd15d29cb6e03c0c5aff178b0fec42af573dec70b5431c70bdca8201baf318",
+                "post_hoc": true
+              }
+            }
+          },
+          "stable_detected": 1,
+          "total": 2,
+          "post_hoc": true,
+          "diagnostic_only": true
+        },
+        {
+          "output_id": "lp030",
+          "task_id": "fishbase_gen_random_str_001",
+          "model_id": "qwen3.5",
+          "method": "B1",
+          "code_sha256": "84f6a31cfbd1123c05d520474e1052d53bf656191e1aae6e4933989647c92905",
+          "mutants": {
+            "omit_prefix": {
+              "stable_detection": true,
+              "any_detection": true,
+              "evaluation": {
+                "status": "persistent_failure",
+                "counts": {
+                  "fail": 3
+                },
+                "executions": 3,
+                "has_pass": false,
+                "semantic_review": "pending",
+                "code_sha256": "84f6a31cfbd1123c05d520474e1052d53bf656191e1aae6e4933989647c92905",
+                "post_hoc": true
+              }
+            },
+            "wrong_length": {
+              "stable_detection": true,
+              "any_detection": true,
+              "evaluation": {
+                "status": "persistent_failure",
+                "counts": {
+                  "fail": 3
+                },
+                "executions": 3,
+                "has_pass": false,
+                "semantic_review": "pending",
+                "code_sha256": "84f6a31cfbd1123c05d520474e1052d53bf656191e1aae6e4933989647c92905",
+                "post_hoc": true
+              }
+            }
+          },
+          "stable_detected": 2,
+          "total": 2,
+          "post_hoc": true,
+          "diagnostic_only": true
+        },
+        {
+          "output_id": "lp032",
+          "task_id": "fishbase_gen_random_str_001",
+          "model_id": "qwen3.5",
+          "method": "B0",
+          "code_sha256": "82f3062d9aecf5b2d97f6c3c8d99e431e4c49c1432a539895549d84a7e6a183f",
+          "mutants": {
+            "omit_prefix": {
+              "stable_detection": false,
+              "any_detection": false,
+              "evaluation": {
+                "status": "stable_proxy_valid",
+                "counts": {
+                  "pass": 3
+                },
+                "executions": 3,
+                "has_pass": true,
+                "semantic_review": "pending",
+                "code_sha256": "82f3062d9aecf5b2d97f6c3c8d99e431e4c49c1432a539895549d84a7e6a183f",
+                "post_hoc": true
+              }
+            },
+            "wrong_length": {
+              "stable_detection": true,
+              "any_detection": true,
+              "evaluation": {
+                "status": "persistent_failure",
+                "counts": {
+                  "fail": 3
+                },
+                "executions": 3,
+                "has_pass": false,
+                "semantic_review": "pending",
+                "code_sha256": "82f3062d9aecf5b2d97f6c3c8d99e431e4c49c1432a539895549d84a7e6a183f",
+                "post_hoc": true
+              }
+            }
+          },
+          "stable_detected": 1,
+          "total": 2,
+          "post_hoc": true,
+          "diagnostic_only": true
+        },
+        {
+          "output_id": "lp033",
+          "task_id": "fishbase_gen_random_str_001",
+          "model_id": "qwen3.5",
+          "method": "B0",
+          "code_sha256": "77bba0fd8e023383fe073263b6ba7f7fcf3041466026d339ccdad1fecdec2ae9",
+          "mutants": {
+            "omit_prefix": {
+              "stable_detection": false,
+              "any_detection": false,
+              "evaluation": {
+                "status": "stable_proxy_valid",
+                "counts": {
+                  "pass": 3
+                },
+                "executions": 3,
+                "has_pass": true,
+                "semantic_review": "pending",
+                "code_sha256": "77bba0fd8e023383fe073263b6ba7f7fcf3041466026d339ccdad1fecdec2ae9",
+                "post_hoc": true
+              }
+            },
+            "wrong_length": {
+              "stable_detection": true,
+              "any_detection": true,
+              "evaluation": {
+                "status": "persistent_failure",
+                "counts": {
+                  "fail": 3
+                },
+                "executions": 3,
+                "has_pass": false,
+                "semantic_review": "pending",
+                "code_sha256": "77bba0fd8e023383fe073263b6ba7f7fcf3041466026d339ccdad1fecdec2ae9",
+                "post_hoc": true
+              }
+            }
+          },
+          "stable_detected": 1,
+          "total": 2,
+          "post_hoc": true,
+          "diagnostic_only": true
+        },
+        {
+          "output_id": "lp034",
+          "task_id": "randomfiletree_random_string_001",
+          "model_id": "qwen3.5",
+          "method": "B2",
+          "code_sha256": "c732722cab98b34dce7492730df24ad3d64b529c4e8b4927c44e92364eb61f05",
+          "mutants": {
+            "constant_chars": {
+              "stable_detection": false,
+              "any_detection": false,
+              "evaluation": {
+                "status": "stable_proxy_valid",
+                "counts": {
+                  "pass": 3
+                },
+                "executions": 3,
+                "has_pass": true,
+                "semantic_review": "pending",
+                "code_sha256": "c732722cab98b34dce7492730df24ad3d64b529c4e8b4927c44e92364eb61f05",
+                "post_hoc": true
+              }
+            },
+            "wrong_length": {
+              "stable_detection": true,
+              "any_detection": true,
+              "evaluation": {
+                "status": "persistent_failure",
+                "counts": {
+                  "fail": 3
+                },
+                "executions": 3,
+                "has_pass": false,
+                "semantic_review": "pending",
+                "code_sha256": "c732722cab98b34dce7492730df24ad3d64b529c4e8b4927c44e92364eb61f05",
+                "post_hoc": true
+              }
+            }
+          },
+          "stable_detected": 1,
+          "total": 2,
+          "post_hoc": true,
+          "diagnostic_only": true
+        },
+        {
+          "output_id": "lp041",
+          "task_id": "fishbase_gen_random_str_001",
+          "model_id": "qwen3.5",
+          "method": "B0",
+          "code_sha256": "fd65af3b3daa1cd0df039a05c0af53dd4a17640c911c49e768162922d3c45c97",
+          "mutants": {
+            "omit_prefix": {
+              "stable_detection": true,
+              "any_detection": true,
+              "evaluation": {
+                "status": "persistent_failure",
+                "counts": {
+                  "fail": 3
+                },
+                "executions": 3,
+                "has_pass": false,
+                "semantic_review": "pending",
+                "code_sha256": "fd65af3b3daa1cd0df039a05c0af53dd4a17640c911c49e768162922d3c45c97",
+                "post_hoc": true
+              }
+            },
+            "wrong_length": {
+              "stable_detection": true,
+              "any_detection": true,
+              "evaluation": {
+                "status": "persistent_failure",
+                "counts": {
+                  "fail": 3
+                },
+                "executions": 3,
+                "has_pass": false,
+                "semantic_review": "pending",
+                "code_sha256": "fd65af3b3daa1cd0df039a05c0af53dd4a17640c911c49e768162922d3c45c97",
+                "post_hoc": true
+              }
+            }
+          },
+          "stable_detected": 2,
+          "total": 2,
+          "post_hoc": true,
+          "diagnostic_only": true
+        },
+        {
+          "output_id": "lp047",
+          "task_id": "randomfiletree_random_string_001",
+          "model_id": "qwen3.5",
+          "method": "B0",
+          "code_sha256": "40efedc949845d6c527a97edc278d605c41568d6be904d7606d38328541f8956",
+          "mutants": {
+            "constant_chars": {
+              "stable_detection": false,
+              "any_detection": false,
+              "evaluation": {
+                "status": "stable_proxy_valid",
+                "counts": {
+                  "pass": 3
+                },
+                "executions": 3,
+                "has_pass": true,
+                "semantic_review": "pending",
+                "code_sha256": "40efedc949845d6c527a97edc278d605c41568d6be904d7606d38328541f8956",
+                "post_hoc": true
+              }
+            },
+            "wrong_length": {
+              "stable_detection": true,
+              "any_detection": true,
+              "evaluation": {
+                "status": "persistent_failure",
+                "counts": {
+                  "fail": 3
+                },
+                "executions": 3,
+                "has_pass": false,
+                "semantic_review": "pending",
+                "code_sha256": "40efedc949845d6c527a97edc278d605c41568d6be904d7606d38328541f8956",
+                "post_hoc": true
+              }
+            }
+          },
+          "stable_detected": 1,
+          "total": 2,
+          "post_hoc": true,
+          "diagnostic_only": true
+        },
+        {
+          "output_id": "lp052",
+          "task_id": "randomfiletree_random_string_001",
+          "model_id": "qwen3.5",
+          "method": "B0",
+          "code_sha256": "1d068903d86dd5658b3346edfc90dc3cf6afd2e2ffbc3f04d891cc12661dd1c9",
+          "mutants": {
+            "constant_chars": {
+              "stable_detection": false,
+              "any_detection": false,
+              "evaluation": {
+                "status": "stable_proxy_valid",
+                "counts": {
+                  "pass": 3
+                },
+                "executions": 3,
+                "has_pass": true,
+                "semantic_review": "pending",
+                "code_sha256": "1d068903d86dd5658b3346edfc90dc3cf6afd2e2ffbc3f04d891cc12661dd1c9",
+                "post_hoc": true
+              }
+            },
+            "wrong_length": {
+              "stable_detection": true,
+              "any_detection": true,
+              "evaluation": {
+                "status": "persistent_failure",
+                "counts": {
+                  "fail": 3
+                },
+                "executions": 3,
+                "has_pass": false,
+                "semantic_review": "pending",
+                "code_sha256": "1d068903d86dd5658b3346edfc90dc3cf6afd2e2ffbc3f04d891cc12661dd1c9",
+                "post_hoc": true
+              }
+            }
+          },
+          "stable_detected": 1,
+          "total": 2,
+          "post_hoc": true,
+          "diagnostic_only": true
+        },
+        {
+          "output_id": "lp055",
+          "task_id": "randomfiletree_random_string_001",
+          "model_id": "qwen3.5",
+          "method": "B0",
+          "code_sha256": "57f19cc8945beaa3f784b358f3429d8e32d1faef6914a43ab6a69b2b65868502",
+          "mutants": {
+            "constant_chars": {
+              "stable_detection": false,
+              "any_detection": false,
+              "evaluation": {
+                "status": "stable_proxy_valid",
+                "counts": {
+                  "pass": 3
+                },
+                "executions": 3,
+                "has_pass": true,
+                "semantic_review": "pending",
+                "code_sha256": "57f19cc8945beaa3f784b358f3429d8e32d1faef6914a43ab6a69b2b65868502",
+                "post_hoc": true
+              }
+            },
+            "wrong_length": {
+              "stable_detection": true,
+              "any_detection": true,
+              "evaluation": {
+                "status": "persistent_failure",
+                "counts": {
+                  "fail": 3
+                },
+                "executions": 3,
+                "has_pass": false,
+                "semantic_review": "pending",
+                "code_sha256": "57f19cc8945beaa3f784b358f3429d8e32d1faef6914a43ab6a69b2b65868502",
+                "post_hoc": true
+              }
+            }
+          },
+          "stable_detected": 1,
+          "total": 2,
+          "post_hoc": true,
+          "diagnostic_only": true
+        },
+        {
+          "output_id": "lp057",
+          "task_id": "randomfiletree_random_string_001",
+          "model_id": "qwen3.5",
+          "method": "B1",
+          "code_sha256": "ab999082197b88991b8612c3a5060ccca2520f51102eae58faee8962b1b56316",
+          "mutants": {
+            "constant_chars": {
+              "stable_detection": false,
+              "any_detection": false,
+              "evaluation": {
+                "status": "stable_proxy_valid",
+                "counts": {
+                  "pass": 3
+                },
+                "executions": 3,
+                "has_pass": true,
+                "semantic_review": "pending",
+                "code_sha256": "ab999082197b88991b8612c3a5060ccca2520f51102eae58faee8962b1b56316",
+                "post_hoc": true
+              }
+            },
+            "wrong_length": {
+              "stable_detection": true,
+              "any_detection": true,
+              "evaluation": {
+                "status": "persistent_failure",
+                "counts": {
+                  "fail": 3
+                },
+                "executions": 3,
+                "has_pass": false,
+                "semantic_review": "pending",
+                "code_sha256": "ab999082197b88991b8612c3a5060ccca2520f51102eae58faee8962b1b56316",
+                "post_hoc": true
+              }
+            }
+          },
+          "stable_detected": 1,
+          "total": 2,
+          "post_hoc": true,
+          "diagnostic_only": true
+        },
+        {
+          "output_id": "lp069",
+          "task_id": "fishbase_gen_random_str_001",
+          "model_id": "qwen3.5",
+          "method": "B1",
+          "code_sha256": "a7167d489333bbccbbf0529a3bee3660db0e0e276a2cf4ca7ff44432fc2e08ed",
+          "mutants": {
+            "omit_prefix": {
+              "stable_detection": true,
+              "any_detection": true,
+              "evaluation": {
+                "status": "persistent_failure",
+                "counts": {
+                  "fail": 3
+                },
+                "executions": 3,
+                "has_pass": false,
+                "semantic_review": "pending",
+                "code_sha256": "a7167d489333bbccbbf0529a3bee3660db0e0e276a2cf4ca7ff44432fc2e08ed",
+                "post_hoc": true
+              }
+            },
+            "wrong_length": {
+              "stable_detection": true,
+              "any_detection": true,
+              "evaluation": {
+                "status": "persistent_failure",
+                "counts": {
+                  "fail": 3
+                },
+                "executions": 3,
+                "has_pass": false,
+                "semantic_review": "pending",
+                "code_sha256": "a7167d489333bbccbbf0529a3bee3660db0e0e276a2cf4ca7ff44432fc2e08ed",
+                "post_hoc": true
+              }
+            }
+          },
+          "stable_detected": 2,
+          "total": 2,
+          "post_hoc": true,
+          "diagnostic_only": true
+        }
+      ]
+    },
+    "diagnostic_quality_source_sha256": "1d1b9944a5235eae1bfee5731d1c85315bf417bda7c83bc62878157b7ffd98ed"
+  },
+  "limitations": [
+    "Three previously seen projects, three generations per cell; no held-out generalization claim.",
+    "Stable proxy-valid is not a human semantic label.",
+    "Seven targeted hand-seeded defects, not a representative mutation benchmark.",
+    "No significance, equivalence, or noninferiority claim; execution repeats are not independent tasks.",
+    "Failed API calls can have unreturned token usage; token totals count returned usage only.",
+    "Incomplete stages are reported explicitly; missing quality results are not zero observed detection."
+  ]
+}

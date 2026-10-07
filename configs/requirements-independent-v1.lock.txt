@@ -1,0 +1,9 @@
+cachetools==5.5.2
+colorama==0.4.6
+Faker==37.1.0
+iniconfig==2.3.1
+networkx==3.4.2
+packaging==26.3
+pluggy==1.6.0
+pytest==8.3.5
+tzdata==2026.5

@@ -1,0 +1,29 @@
+{
+  "object": "list",
+  "data": [
+    {
+      "id": "gpt-oss-120b",
+      "object": "model",
+      "created": 1754612423,
+      "owned_by": "CSTCloud"
+    },
+    {
+      "id": "qwen3.5",
+      "object": "model",
+      "created": 1771245985,
+      "owned_by": "CSTCloud"
+    },
+    {
+      "id": "deepseek-v4-flash",
+      "object": "model",
+      "created": 1777111311,
+      "owned_by": "CSTCloud"
+    },
+    {
+      "id": "minimax-m27",
+      "object": "model",
+      "created": 1777164565,
+      "owned_by": "CSTCloud"
+    }
+  ]
+}

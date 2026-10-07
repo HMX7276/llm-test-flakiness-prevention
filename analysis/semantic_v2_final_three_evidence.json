@@ -1,0 +1,18 @@
+{
+  "scope": "Separate assistant source/evidence check; does not override human uncertain label.",
+  "target_commit": "a2a26443465ab6978b32d9253e833471500e7b68",
+  "source_path": "vendor/Tale-a2a26443465ab6978b32d9253e833471500e7b68/tale/pubsub.py",
+  "source_sha256": "47759f30b268c5309345b6b0aeed267e6a7c43fdbfedd109d35d5ecf1898582b",
+  "sync_lines": [
+    93,
+    98
+  ],
+  "sync_source": "def sync(self) -> List[Any]:\n        events, self.events = self.events, []\n        results = []\n        for event in events:\n            results.extend(self.__sync_event(event))\n        return results",
+  "observation": "Topic.sync contains no assignment to last_event; the no-subscriber fixed test preserves elapsed time. This does not claim subscriber callbacks can never have side effects.",
+  "human_adjudication": "review/semantic_v2/adjudications/2026-10-05_final_three.json",
+  "existing_execution_evidence": "runs/semantic_review_v2_followup/fresh_unperturbed/summary.json",
+  "existing_diagnostic_evidence": "runs/development_v2/quality/v013/summary.json",
+  "documentation_checked": "https://pythonhosted.org/tale/api.html",
+  "documentation_scope": "The retrieved Tale 3.4 API page documents topic as a singleton; it does not document idle_time. Use target-version source for time behavior.",
+  "new_test_executions": 0
+}

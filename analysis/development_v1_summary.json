@@ -1,0 +1,1415 @@
+{
+  "planned": 48,
+  "distinct_targets": 3,
+  "projects": 3,
+  "counts": {
+    "execution_review_required": 1,
+    "stable_proxy_valid": 34,
+    "observed_unstable": 1,
+    "persistent_failure": 8,
+    "collection_failure": 4
+  },
+  "by_task": {
+    "tale_topic_idle_time_001": {
+      "execution_review_required": 1,
+      "observed_unstable": 1,
+      "stable_proxy_valid": 10,
+      "persistent_failure": 4
+    },
+    "penman_graph_variables_001": {
+      "stable_proxy_valid": 15,
+      "persistent_failure": 1
+    },
+    "lithoxyl_moment_add_001": {
+      "stable_proxy_valid": 9,
+      "persistent_failure": 3,
+      "collection_failure": 4
+    }
+  },
+  "http_attempts": 48,
+  "returned_usage": {
+    "prompt_tokens": 33207,
+    "completion_tokens": 7611,
+    "reasoning_tokens": 0
+  },
+  "primary_execution_count": 1290,
+  "output_hash_mismatches": [],
+  "rows": [
+    {
+      "output_id": "d001",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "qwen3.5",
+      "context": "clean",
+      "method": "B2",
+      "status": "execution_review_required",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 694,
+        "total_tokens": 1383,
+        "completion_tokens": 689,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 0,
+      "counts": {}
+    },
+    {
+      "output_id": "d002",
+      "task_id": "penman_graph_variables_001",
+      "model_id": "deepseek-v4-flash",
+      "context": "risk",
+      "method": "B2",
+      "status": "stable_proxy_valid",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 214,
+        "total_tokens": 298,
+        "completion_tokens": 84,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "diagnostic_mutants": {
+        "killed": 4,
+        "total": 4
+      }
+    },
+    {
+      "output_id": "d003",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "qwen3.5",
+      "context": "risk",
+      "method": "B0",
+      "status": "observed_unstable",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 765,
+        "total_tokens": 878,
+        "completion_tokens": 113,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 30,
+      "counts": {
+        "pass": 15,
+        "fail": 15
+      }
+    },
+    {
+      "output_id": "d004",
+      "task_id": "lithoxyl_moment_add_001",
+      "model_id": "deepseek-v4-flash",
+      "context": "risk",
+      "method": "B1",
+      "status": "stable_proxy_valid",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 1065,
+        "total_tokens": 1194,
+        "completion_tokens": 129,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "diagnostic_mutants": {
+        "killed": 2,
+        "total": 3
+      }
+    },
+    {
+      "output_id": "d005",
+      "task_id": "lithoxyl_moment_add_001",
+      "model_id": "deepseek-v4-flash",
+      "context": "clean",
+      "method": "M",
+      "status": "persistent_failure",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 1020,
+        "total_tokens": 1146,
+        "completion_tokens": 126,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 30,
+      "counts": {
+        "fail": 30
+      }
+    },
+    {
+      "output_id": "d006",
+      "task_id": "penman_graph_variables_001",
+      "model_id": "deepseek-v4-flash",
+      "context": "clean",
+      "method": "B1",
+      "status": "stable_proxy_valid",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 283,
+        "total_tokens": 347,
+        "completion_tokens": 64,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "diagnostic_mutants": {
+        "killed": 4,
+        "total": 4
+      }
+    },
+    {
+      "output_id": "d007",
+      "task_id": "penman_graph_variables_001",
+      "model_id": "deepseek-v4-flash",
+      "context": "clean",
+      "method": "B2",
+      "status": "stable_proxy_valid",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 214,
+        "total_tokens": 436,
+        "completion_tokens": 222,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "diagnostic_mutants": {
+        "killed": 3,
+        "total": 4
+      }
+    },
+    {
+      "output_id": "d008",
+      "task_id": "penman_graph_variables_001",
+      "model_id": "qwen3.5",
+      "context": "risk",
+      "method": "B2",
+      "status": "stable_proxy_valid",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 228,
+        "total_tokens": 277,
+        "completion_tokens": 49,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "diagnostic_mutants": {
+        "killed": 2,
+        "total": 4
+      }
+    },
+    {
+      "output_id": "d009",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "deepseek-v4-flash",
+      "context": "clean",
+      "method": "B1",
+      "status": "stable_proxy_valid",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 820,
+        "total_tokens": 985,
+        "completion_tokens": 165,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "diagnostic_mutants": {
+        "killed": 3,
+        "total": 3
+      }
+    },
+    {
+      "output_id": "d010",
+      "task_id": "penman_graph_variables_001",
+      "model_id": "qwen3.5",
+      "context": "risk",
+      "method": "M",
+      "status": "stable_proxy_valid",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 278,
+        "total_tokens": 352,
+        "completion_tokens": 74,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "diagnostic_mutants": {
+        "killed": 4,
+        "total": 4
+      }
+    },
+    {
+      "output_id": "d011",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "deepseek-v4-flash",
+      "context": "clean",
+      "method": "B2",
+      "status": "persistent_failure",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 669,
+        "total_tokens": 926,
+        "completion_tokens": 257,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 30,
+      "counts": {
+        "fail": 30
+      }
+    },
+    {
+      "output_id": "d012",
+      "task_id": "penman_graph_variables_001",
+      "model_id": "deepseek-v4-flash",
+      "context": "clean",
+      "method": "M",
+      "status": "stable_proxy_valid",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 258,
+        "total_tokens": 317,
+        "completion_tokens": 59,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "diagnostic_mutants": {
+        "killed": 3,
+        "total": 4
+      }
+    },
+    {
+      "output_id": "d013",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "deepseek-v4-flash",
+      "context": "clean",
+      "method": "M",
+      "status": "stable_proxy_valid",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 795,
+        "total_tokens": 993,
+        "completion_tokens": 198,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "diagnostic_mutants": {
+        "killed": 3,
+        "total": 3
+      }
+    },
+    {
+      "output_id": "d014",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "qwen3.5",
+      "context": "clean",
+      "method": "B0",
+      "status": "stable_proxy_valid",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 823,
+        "total_tokens": 1017,
+        "completion_tokens": 194,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "diagnostic_mutants": {
+        "killed": 3,
+        "total": 3
+      }
+    },
+    {
+      "output_id": "d015",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "qwen3.5",
+      "context": "risk",
+      "method": "M",
+      "status": "persistent_failure",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 765,
+        "total_tokens": 1027,
+        "completion_tokens": 262,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 30,
+      "counts": {
+        "fail": 30
+      }
+    },
+    {
+      "output_id": "d016",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "qwen3.5",
+      "context": "clean",
+      "method": "B1",
+      "status": "stable_proxy_valid",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 850,
+        "total_tokens": 1036,
+        "completion_tokens": 186,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "diagnostic_mutants": {
+        "killed": 3,
+        "total": 3
+      }
+    },
+    {
+      "output_id": "d017",
+      "task_id": "lithoxyl_moment_add_001",
+      "model_id": "qwen3.5",
+      "context": "clean",
+      "method": "B2",
+      "status": "collection_failure",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 1028,
+        "total_tokens": 1303,
+        "completion_tokens": 275,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 0,
+      "counts": {}
+    },
+    {
+      "output_id": "d018",
+      "task_id": "lithoxyl_moment_add_001",
+      "model_id": "deepseek-v4-flash",
+      "context": "risk",
+      "method": "B2",
+      "status": "collection_failure",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 974,
+        "total_tokens": 1146,
+        "completion_tokens": 172,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 0,
+      "counts": {}
+    },
+    {
+      "output_id": "d019",
+      "task_id": "lithoxyl_moment_add_001",
+      "model_id": "qwen3.5",
+      "context": "clean",
+      "method": "M",
+      "status": "stable_proxy_valid",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 1080,
+        "total_tokens": 1217,
+        "completion_tokens": 137,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "diagnostic_mutants": {
+        "killed": 3,
+        "total": 3
+      }
+    },
+    {
+      "output_id": "d020",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "deepseek-v4-flash",
+      "context": "risk",
+      "method": "M",
+      "status": "stable_proxy_valid",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 740,
+        "total_tokens": 877,
+        "completion_tokens": 137,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "diagnostic_mutants": {
+        "killed": 3,
+        "total": 3
+      }
+    },
+    {
+      "output_id": "d021",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "qwen3.5",
+      "context": "clean",
+      "method": "M",
+      "status": "stable_proxy_valid",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 823,
+        "total_tokens": 1001,
+        "completion_tokens": 178,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "diagnostic_mutants": {
+        "killed": 3,
+        "total": 3
+      }
+    },
+    {
+      "output_id": "d022",
+      "task_id": "penman_graph_variables_001",
+      "model_id": "deepseek-v4-flash",
+      "context": "risk",
+      "method": "B0",
+      "status": "stable_proxy_valid",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 259,
+        "total_tokens": 347,
+        "completion_tokens": 88,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "diagnostic_mutants": {
+        "killed": 3,
+        "total": 4
+      }
+    },
+    {
+      "output_id": "d023",
+      "task_id": "lithoxyl_moment_add_001",
+      "model_id": "deepseek-v4-flash",
+      "context": "clean",
+      "method": "B0",
+      "status": "stable_proxy_valid",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 1020,
+        "total_tokens": 1123,
+        "completion_tokens": 103,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "diagnostic_mutants": {
+        "killed": 3,
+        "total": 3
+      }
+    },
+    {
+      "output_id": "d024",
+      "task_id": "lithoxyl_moment_add_001",
+      "model_id": "deepseek-v4-flash",
+      "context": "risk",
+      "method": "M",
+      "status": "stable_proxy_valid",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 1040,
+        "total_tokens": 1154,
+        "completion_tokens": 114,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "diagnostic_mutants": {
+        "killed": 2,
+        "total": 3
+      }
+    },
+    {
+      "output_id": "d025",
+      "task_id": "lithoxyl_moment_add_001",
+      "model_id": "qwen3.5",
+      "context": "risk",
+      "method": "B0",
+      "status": "persistent_failure",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 1100,
+        "total_tokens": 1339,
+        "completion_tokens": 239,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 30,
+      "counts": {
+        "fail": 30
+      }
+    },
+    {
+      "output_id": "d026",
+      "task_id": "penman_graph_variables_001",
+      "model_id": "deepseek-v4-flash",
+      "context": "clean",
+      "method": "B0",
+      "status": "stable_proxy_valid",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 258,
+        "total_tokens": 310,
+        "completion_tokens": 52,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "diagnostic_mutants": {
+        "killed": 4,
+        "total": 4
+      }
+    },
+    {
+      "output_id": "d027",
+      "task_id": "penman_graph_variables_001",
+      "model_id": "deepseek-v4-flash",
+      "context": "risk",
+      "method": "M",
+      "status": "stable_proxy_valid",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 265,
+        "total_tokens": 329,
+        "completion_tokens": 64,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "diagnostic_mutants": {
+        "killed": 4,
+        "total": 4
+      }
+    },
+    {
+      "output_id": "d028",
+      "task_id": "penman_graph_variables_001",
+      "model_id": "qwen3.5",
+      "context": "clean",
+      "method": "B0",
+      "status": "stable_proxy_valid",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 271,
+        "total_tokens": 318,
+        "completion_tokens": 47,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "diagnostic_mutants": {
+        "killed": 2,
+        "total": 4
+      }
+    },
+    {
+      "output_id": "d029",
+      "task_id": "penman_graph_variables_001",
+      "model_id": "qwen3.5",
+      "context": "risk",
+      "method": "B0",
+      "status": "stable_proxy_valid",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 272,
+        "total_tokens": 329,
+        "completion_tokens": 57,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "diagnostic_mutants": {
+        "killed": 2,
+        "total": 4
+      }
+    },
+    {
+      "output_id": "d030",
+      "task_id": "lithoxyl_moment_add_001",
+      "model_id": "deepseek-v4-flash",
+      "context": "risk",
+      "method": "B0",
+      "status": "stable_proxy_valid",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 1040,
+        "total_tokens": 1149,
+        "completion_tokens": 109,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "diagnostic_mutants": {
+        "killed": 2,
+        "total": 3
+      }
+    },
+    {
+      "output_id": "d031",
+      "task_id": "lithoxyl_moment_add_001",
+      "model_id": "qwen3.5",
+      "context": "clean",
+      "method": "B1",
+      "status": "stable_proxy_valid",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 1107,
+        "total_tokens": 1448,
+        "completion_tokens": 341,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "diagnostic_mutants": {
+        "killed": 3,
+        "total": 3
+      }
+    },
+    {
+      "output_id": "d032",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "deepseek-v4-flash",
+      "context": "risk",
+      "method": "B0",
+      "status": "stable_proxy_valid",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 740,
+        "total_tokens": 837,
+        "completion_tokens": 97,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "diagnostic_mutants": {
+        "killed": 2,
+        "total": 3
+      }
+    },
+    {
+      "output_id": "d033",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "deepseek-v4-flash",
+      "context": "risk",
+      "method": "B2",
+      "status": "persistent_failure",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 669,
+        "total_tokens": 1029,
+        "completion_tokens": 360,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 30,
+      "counts": {
+        "fail": 30
+      }
+    },
+    {
+      "output_id": "d034",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "deepseek-v4-flash",
+      "context": "clean",
+      "method": "B0",
+      "status": "stable_proxy_valid",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 795,
+        "total_tokens": 967,
+        "completion_tokens": 172,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "diagnostic_mutants": {
+        "killed": 3,
+        "total": 3
+      }
+    },
+    {
+      "output_id": "d035",
+      "task_id": "lithoxyl_moment_add_001",
+      "model_id": "qwen3.5",
+      "context": "clean",
+      "method": "B0",
+      "status": "stable_proxy_valid",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 1080,
+        "total_tokens": 1243,
+        "completion_tokens": 163,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "diagnostic_mutants": {
+        "killed": 3,
+        "total": 3
+      }
+    },
+    {
+      "output_id": "d036",
+      "task_id": "lithoxyl_moment_add_001",
+      "model_id": "deepseek-v4-flash",
+      "context": "clean",
+      "method": "B2",
+      "status": "collection_failure",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 974,
+        "total_tokens": 1099,
+        "completion_tokens": 125,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 0,
+      "counts": {}
+    },
+    {
+      "output_id": "d037",
+      "task_id": "lithoxyl_moment_add_001",
+      "model_id": "deepseek-v4-flash",
+      "context": "clean",
+      "method": "B1",
+      "status": "stable_proxy_valid",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 1045,
+        "total_tokens": 1156,
+        "completion_tokens": 111,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "diagnostic_mutants": {
+        "killed": 2,
+        "total": 3
+      }
+    },
+    {
+      "output_id": "d038",
+      "task_id": "penman_graph_variables_001",
+      "model_id": "qwen3.5",
+      "context": "clean",
+      "method": "M",
+      "status": "persistent_failure",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 271,
+        "total_tokens": 346,
+        "completion_tokens": 75,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 30,
+      "counts": {
+        "fail": 30
+      }
+    },
+    {
+      "output_id": "d039",
+      "task_id": "penman_graph_variables_001",
+      "model_id": "qwen3.5",
+      "context": "clean",
+      "method": "B1",
+      "status": "stable_proxy_valid",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 298,
+        "total_tokens": 402,
+        "completion_tokens": 104,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "diagnostic_mutants": {
+        "killed": 3,
+        "total": 4
+      }
+    },
+    {
+      "output_id": "d040",
+      "task_id": "penman_graph_variables_001",
+      "model_id": "qwen3.5",
+      "context": "risk",
+      "method": "B1",
+      "status": "stable_proxy_valid",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 299,
+        "total_tokens": 368,
+        "completion_tokens": 69,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "diagnostic_mutants": {
+        "killed": 4,
+        "total": 4
+      }
+    },
+    {
+      "output_id": "d041",
+      "task_id": "lithoxyl_moment_add_001",
+      "model_id": "qwen3.5",
+      "context": "risk",
+      "method": "B1",
+      "status": "persistent_failure",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 1127,
+        "total_tokens": 1333,
+        "completion_tokens": 206,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 30,
+      "counts": {
+        "fail": 30
+      }
+    },
+    {
+      "output_id": "d042",
+      "task_id": "lithoxyl_moment_add_001",
+      "model_id": "qwen3.5",
+      "context": "risk",
+      "method": "M",
+      "status": "stable_proxy_valid",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 1100,
+        "total_tokens": 1267,
+        "completion_tokens": 167,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "diagnostic_mutants": {
+        "killed": 3,
+        "total": 3
+      }
+    },
+    {
+      "output_id": "d043",
+      "task_id": "penman_graph_variables_001",
+      "model_id": "qwen3.5",
+      "context": "clean",
+      "method": "B2",
+      "status": "stable_proxy_valid",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 228,
+        "total_tokens": 293,
+        "completion_tokens": 65,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "diagnostic_mutants": {
+        "killed": 2,
+        "total": 4
+      }
+    },
+    {
+      "output_id": "d044",
+      "task_id": "penman_graph_variables_001",
+      "model_id": "deepseek-v4-flash",
+      "context": "risk",
+      "method": "B1",
+      "status": "stable_proxy_valid",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 284,
+        "total_tokens": 398,
+        "completion_tokens": 114,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "diagnostic_mutants": {
+        "killed": 3,
+        "total": 4
+      }
+    },
+    {
+      "output_id": "d045",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "deepseek-v4-flash",
+      "context": "risk",
+      "method": "B1",
+      "status": "stable_proxy_valid",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 765,
+        "total_tokens": 926,
+        "completion_tokens": 161,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "diagnostic_mutants": {
+        "killed": 3,
+        "total": 3
+      }
+    },
+    {
+      "output_id": "d046",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "qwen3.5",
+      "context": "risk",
+      "method": "B2",
+      "status": "stable_proxy_valid",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 694,
+        "total_tokens": 971,
+        "completion_tokens": 277,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 30,
+      "counts": {
+        "pass": 30
+      },
+      "diagnostic_mutants": {
+        "killed": 3,
+        "total": 3
+      }
+    },
+    {
+      "output_id": "d047",
+      "task_id": "lithoxyl_moment_add_001",
+      "model_id": "qwen3.5",
+      "context": "risk",
+      "method": "B2",
+      "status": "collection_failure",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 1028,
+        "total_tokens": 1142,
+        "completion_tokens": 114,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 0,
+      "counts": {}
+    },
+    {
+      "output_id": "d048",
+      "task_id": "tale_topic_idle_time_001",
+      "model_id": "qwen3.5",
+      "context": "risk",
+      "method": "B1",
+      "status": "persistent_failure",
+      "attempts": 1,
+      "usage": {
+        "prompt_tokens": 792,
+        "total_tokens": 1039,
+        "completion_tokens": 247,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "executions": 30,
+      "counts": {
+        "fail": 30
+      }
+    }
+  ],
+  "interpretation": "Controlled development diagnostic; 1 generation per cell; human semantic review pending. M abstains on time/randomness. No significance or superiority inference.",
+  "diagnostic_mutant_distribution": {
+    "penman_graph_variables_001": {
+      "4/4": 6,
+      "3/4": 5,
+      "2/4": 4
+    },
+    "lithoxyl_moment_add_001": {
+      "2/3": 4,
+      "3/3": 5
+    },
+    "tale_topic_idle_time_001": {
+      "3/3": 9,
+      "2/3": 1
+    }
+  },
+  "import_path_sensitivity": {
+    "counts": {
+      "stable_proxy_valid": 8,
+      "persistent_failure": 4
+    },
+    "rows": [
+      {
+        "output_id": "d001",
+        "task_id": "tale_topic_idle_time_001",
+        "outcome": {
+          "status": "stable_proxy_valid",
+          "counts": {
+            "pass": 30
+          },
+          "executions": 30,
+          "has_pass": true,
+          "semantic_review": "pending",
+          "code_sha256": "becc6c5ac9e3816044a0af920cdc82ac8ab4c8b8ad292892e44e1ce8fa97d0b0"
+        },
+        "usage": {
+          "prompt_tokens": 713,
+          "total_tokens": 1004,
+          "completion_tokens": 291,
+          "prompt_tokens_details": null,
+          "reasoning_tokens": 0
+        },
+        "attempts": 1
+      },
+      {
+        "output_id": "d002",
+        "task_id": "penman_graph_variables_001",
+        "outcome": {
+          "status": "stable_proxy_valid",
+          "counts": {
+            "pass": 30
+          },
+          "executions": 30,
+          "has_pass": true,
+          "semantic_review": "pending",
+          "code_sha256": "ab9c31d81a6918c922d840dcc1695f087acb89a6453321699727c9196b4f9925"
+        },
+        "usage": {
+          "prompt_tokens": 234,
+          "total_tokens": 381,
+          "completion_tokens": 147,
+          "prompt_tokens_details": null,
+          "reasoning_tokens": 0
+        },
+        "attempts": 1
+      },
+      {
+        "output_id": "d007",
+        "task_id": "penman_graph_variables_001",
+        "outcome": {
+          "status": "stable_proxy_valid",
+          "counts": {
+            "pass": 30
+          },
+          "executions": 30,
+          "has_pass": true,
+          "semantic_review": "pending",
+          "code_sha256": "5d3757b5216969cf0d2ac3ec7d799e25ca542bc3b6192db00dd4b64b20a7f012"
+        },
+        "usage": {
+          "prompt_tokens": 234,
+          "total_tokens": 367,
+          "completion_tokens": 133,
+          "prompt_tokens_details": null,
+          "reasoning_tokens": 0
+        },
+        "attempts": 1
+      },
+      {
+        "output_id": "d008",
+        "task_id": "penman_graph_variables_001",
+        "outcome": {
+          "status": "stable_proxy_valid",
+          "counts": {
+            "pass": 30
+          },
+          "executions": 30,
+          "has_pass": true,
+          "semantic_review": "pending",
+          "code_sha256": "2eb30953b0ee01f55e3816e720d62513ebe869c0efdd07185640d1c33d690251"
+        },
+        "usage": {
+          "prompt_tokens": 245,
+          "total_tokens": 295,
+          "completion_tokens": 50,
+          "prompt_tokens_details": null,
+          "reasoning_tokens": 0
+        },
+        "attempts": 1
+      },
+      {
+        "output_id": "d011",
+        "task_id": "tale_topic_idle_time_001",
+        "outcome": {
+          "status": "persistent_failure",
+          "counts": {
+            "fail": 30
+          },
+          "executions": 30,
+          "has_pass": false,
+          "semantic_review": "pending",
+          "code_sha256": "687a767eede88cfabf4c46675147b5b1c44c197646c1d89114c2879f8359eae9"
+        },
+        "usage": {
+          "prompt_tokens": 692,
+          "total_tokens": 976,
+          "completion_tokens": 284,
+          "prompt_tokens_details": null,
+          "reasoning_tokens": 0
+        },
+        "attempts": 1
+      },
+      {
+        "output_id": "d017",
+        "task_id": "lithoxyl_moment_add_001",
+        "outcome": {
+          "status": "stable_proxy_valid",
+          "counts": {
+            "pass": 30
+          },
+          "executions": 30,
+          "has_pass": true,
+          "semantic_review": "pending",
+          "code_sha256": "d0183588614ce3d2614eaa96e207a9e7f0bd98e19c64b148caa29914c2254578"
+        },
+        "usage": {
+          "prompt_tokens": 1053,
+          "total_tokens": 1162,
+          "completion_tokens": 109,
+          "prompt_tokens_details": null,
+          "reasoning_tokens": 0
+        },
+        "attempts": 1
+      },
+      {
+        "output_id": "d018",
+        "task_id": "lithoxyl_moment_add_001",
+        "outcome": {
+          "status": "persistent_failure",
+          "counts": {
+            "fail": 30
+          },
+          "executions": 30,
+          "has_pass": false,
+          "semantic_review": "pending",
+          "code_sha256": "a9238c447122ae73fdac704f06dedbc1666e9590ffdbbd7750b575cee1a7498a"
+        },
+        "usage": {
+          "prompt_tokens": 998,
+          "total_tokens": 1193,
+          "completion_tokens": 195,
+          "prompt_tokens_details": null,
+          "reasoning_tokens": 0
+        },
+        "attempts": 1
+      },
+      {
+        "output_id": "d033",
+        "task_id": "tale_topic_idle_time_001",
+        "outcome": {
+          "status": "persistent_failure",
+          "counts": {
+            "fail": 30
+          },
+          "executions": 30,
+          "has_pass": false,
+          "semantic_review": "pending",
+          "code_sha256": "46c2553820a809a4f0f76b90e84bc6b179d3cd90bb399a2c9d10bb0848f89bbf"
+        },
+        "usage": {
+          "prompt_tokens": 692,
+          "total_tokens": 893,
+          "completion_tokens": 201,
+          "prompt_tokens_details": null,
+          "reasoning_tokens": 0
+        },
+        "attempts": 1
+      },
+      {
+        "output_id": "d036",
+        "task_id": "lithoxyl_moment_add_001",
+        "outcome": {
+          "status": "persistent_failure",
+          "counts": {
+            "fail": 30
+          },
+          "executions": 30,
+          "has_pass": false,
+          "semantic_review": "pending",
+          "code_sha256": "b92c52dc21088f8e1dc83ec4cd902ed19bd2fcca559bb783e301a90a4e5718e3"
+        },
+        "usage": {
+          "prompt_tokens": 998,
+          "total_tokens": 1225,
+          "completion_tokens": 227,
+          "prompt_tokens_details": null,
+          "reasoning_tokens": 0
+        },
+        "attempts": 1
+      },
+      {
+        "output_id": "d043",
+        "task_id": "penman_graph_variables_001",
+        "outcome": {
+          "status": "stable_proxy_valid",
+          "counts": {
+            "pass": 30
+          },
+          "executions": 30,
+          "has_pass": true,
+          "semantic_review": "pending",
+          "code_sha256": "6801b21cbd57e668727aba3749ab9b216aba4494103ef12ad84b2b2e6d5bad5c"
+        },
+        "usage": {
+          "prompt_tokens": 245,
+          "total_tokens": 313,
+          "completion_tokens": 68,
+          "prompt_tokens_details": null,
+          "reasoning_tokens": 0
+        },
+        "attempts": 1
+      },
+      {
+        "output_id": "d046",
+        "task_id": "tale_topic_idle_time_001",
+        "outcome": {
+          "status": "stable_proxy_valid",
+          "counts": {
+            "pass": 30
+          },
+          "executions": 30,
+          "has_pass": true,
+          "semantic_review": "pending",
+          "code_sha256": "42f4bf37769760a607569f79ef6e1d3743d4e0d6814ee06faf834a9d6cb6126a"
+        },
+        "usage": {
+          "prompt_tokens": 713,
+          "total_tokens": 966,
+          "completion_tokens": 253,
+          "prompt_tokens_details": null,
+          "reasoning_tokens": 0
+        },
+        "attempts": 1
+      },
+      {
+        "output_id": "d047",
+        "task_id": "lithoxyl_moment_add_001",
+        "outcome": {
+          "status": "stable_proxy_valid",
+          "counts": {
+            "pass": 30
+          },
+          "executions": 30,
+          "has_pass": true,
+          "semantic_review": "pending",
+          "code_sha256": "bc201fa1094c1a5b76c1666fa59a3b67fc8f3a1e4aab27d9e468607500f630a0"
+        },
+        "usage": {
+          "prompt_tokens": 1053,
+          "total_tokens": 1201,
+          "completion_tokens": 148,
+          "prompt_tokens_details": null,
+          "reasoning_tokens": 0
+        },
+        "attempts": 1
+      }
+    ],
+    "post_hoc": true
+  }
+}

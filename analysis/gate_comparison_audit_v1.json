@@ -1,0 +1,97 @@
+{
+  "scope": "Reconciliation of existing records; no new executions or generations",
+  "primary_unchanged": true,
+  "primary_scheduled": 72,
+  "primary_stable": 32,
+  "supplemental_stable": 14,
+  "pooled_stable": 46,
+  "primary_detects_any": 31,
+  "pooled_detects_any": 45,
+  "groups": [
+    {
+      "model": "deepseek-v4-flash",
+      "method": "B0",
+      "scheduled": 9,
+      "held": 0,
+      "primary_stable": 3,
+      "supplemental_stable": 0,
+      "combined_stable": 3,
+      "primary_stable_and_detects_any": 3
+    },
+    {
+      "model": "deepseek-v4-flash",
+      "method": "B1",
+      "scheduled": 9,
+      "held": 0,
+      "primary_stable": 4,
+      "supplemental_stable": 0,
+      "combined_stable": 4,
+      "primary_stable_and_detects_any": 3
+    },
+    {
+      "model": "deepseek-v4-flash",
+      "method": "B2",
+      "scheduled": 9,
+      "held": 0,
+      "primary_stable": 6,
+      "supplemental_stable": 0,
+      "combined_stable": 6,
+      "primary_stable_and_detects_any": 6
+    },
+    {
+      "model": "deepseek-v4-flash",
+      "method": "M",
+      "scheduled": 9,
+      "held": 0,
+      "primary_stable": 7,
+      "supplemental_stable": 0,
+      "combined_stable": 7,
+      "primary_stable_and_detects_any": 7
+    },
+    {
+      "model": "qwen3.5",
+      "method": "B0",
+      "scheduled": 9,
+      "held": 6,
+      "primary_stable": 2,
+      "supplemental_stable": 6,
+      "combined_stable": 8,
+      "primary_stable_and_detects_any": 2
+    },
+    {
+      "model": "qwen3.5",
+      "method": "B1",
+      "scheduled": 9,
+      "held": 6,
+      "primary_stable": 1,
+      "supplemental_stable": 5,
+      "combined_stable": 6,
+      "primary_stable_and_detects_any": 1
+    },
+    {
+      "model": "qwen3.5",
+      "method": "B2",
+      "scheduled": 9,
+      "held": 3,
+      "primary_stable": 3,
+      "supplemental_stable": 3,
+      "combined_stable": 6,
+      "primary_stable_and_detects_any": 3
+    },
+    {
+      "model": "qwen3.5",
+      "method": "M",
+      "scheduled": 9,
+      "held": 0,
+      "primary_stable": 6,
+      "supplemental_stable": 0,
+      "combined_stable": 6,
+      "primary_stable_and_detects_any": 6
+    }
+  ],
+  "source_sha256": {
+    "analysis\\lean_followup_v1_summary.json": "12f8a453de19c090a61b3aceea513e1ee49ebc54fbb24b9f853d1a02f52b77fe",
+    "runs\\lean_followup_v1\\reviewed_execution\\summary.json": "52af3db7e11ec8ae2b41e0ef081e6a479c6e16953bb50c2118845507b3463e39"
+  },
+  "limitation": "Post-hoc execution review is not a prospectively uniform gate; pooled counts remain sensitivity results."
+}

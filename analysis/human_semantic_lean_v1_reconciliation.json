@@ -1,0 +1,3077 @@
+{
+  "status": "complete",
+  "source_sha256": "41cbe15e3d46c41885c6e0ba03c4600240ddf2f6ea84dc7819e878b3f5e4fd70",
+  "raw_archive": "review/semantic_lean_v1/returned/41cbe15e3d46c41885c6e0ba03c4600240ddf2f6ea84dc7819e878b3f5e4fd70.json",
+  "reviewer": "赵泓江",
+  "reviewer_type": "human",
+  "present": 48,
+  "complete": 48,
+  "partial": 0,
+  "code_hashes_matched": 48,
+  "raw_complete": 47,
+  "raw_partial": 1,
+  "raw_complete_only_counts": {
+    "correctness": {
+      "available": 47,
+      "counts": {
+        "correct": 32,
+        "incorrect": 15
+      }
+    },
+    "robustness": {
+      "available": 47,
+      "counts": {
+        "fragile": 15,
+        "robust": 32
+      }
+    },
+    "adequacy": {
+      "available": 47,
+      "counts": {
+        "meaningful": 39,
+        "weak_or_masked": 8
+      }
+    }
+  },
+  "raw_per_field_counts": {
+    "correctness": {
+      "available": 47,
+      "counts": {
+        "correct": 32,
+        "incorrect": 15
+      }
+    },
+    "robustness": {
+      "available": 48,
+      "counts": {
+        "fragile": 15,
+        "robust": 33
+      }
+    },
+    "adequacy": {
+      "available": 48,
+      "counts": {
+        "meaningful": 40,
+        "weak_or_masked": 8
+      }
+    }
+  },
+  "execution_conflicts": [],
+  "raw_execution_conflicts": [
+    "L005",
+    "L039"
+  ],
+  "effective_complete_only_counts": {
+    "correctness": {
+      "available": 48,
+      "counts": {
+        "correct": 31,
+        "incorrect": 17
+      }
+    },
+    "robustness": {
+      "available": 48,
+      "counts": {
+        "fragile": 15,
+        "robust": 33
+      }
+    },
+    "adequacy": {
+      "available": 48,
+      "counts": {
+        "meaningful": 40,
+        "weak_or_masked": 8
+      }
+    }
+  },
+  "effective_per_field_counts": {
+    "correctness": {
+      "available": 48,
+      "counts": {
+        "correct": 31,
+        "incorrect": 17
+      }
+    },
+    "robustness": {
+      "available": 48,
+      "counts": {
+        "fragile": 15,
+        "robust": 33
+      }
+    },
+    "adequacy": {
+      "available": 48,
+      "counts": {
+        "meaningful": 40,
+        "weak_or_masked": 8
+      }
+    }
+  },
+  "missing_fields": {},
+  "all_labels_finalized": true,
+  "applied_adjudications": [
+    {
+      "review_id": "L005",
+      "code_sha256": "90fd17d16ba77c7324fd5c1b85ee2fef1e9f0fc5400c14eeddfea87177ba98a4",
+      "field": "correctness",
+      "original": "correct",
+      "adjudicated": "incorrect",
+      "reason": "测试使用了 random.Random(1)，但只导入了 randomfiletree.core 和 random_string，没有 import random，运行时会 NameError，与“符合”冲突。",
+      "ledger": "review/semantic_lean_v1/adjudications/2026-10-05_L005_L039.json",
+      "ledger_sha256": "4adb8217a0e6715733dc33adce9b965ee346e157b7b44942bd170dcf4e26bb5f",
+      "actor": "user",
+      "unchanged_fields_reason": "两者稳健性“可靠”、充分性“有意义”，因为若补上缺失导入，断言与契约本身是成立的，问题只在导入缺失导致无法执行。"
+    },
+    {
+      "review_id": "L039",
+      "code_sha256": "cf28c77b44ec6178226a06c4c6ccdc233c14d18be2db1d72d90413a8e89dffc5",
+      "field": "correctness",
+      "original": "correct",
+      "adjudicated": "incorrect",
+      "reason": "同样使用 random.Random(42)，但只 import randomfiletree.core as _risk_module，没有 import random，同样 NameError。",
+      "ledger": "review/semantic_lean_v1/adjudications/2026-10-05_L005_L039.json",
+      "ledger_sha256": "4adb8217a0e6715733dc33adce9b965ee346e157b7b44942bd170dcf4e26bb5f",
+      "actor": "user",
+      "unchanged_fields_reason": "两者稳健性“可靠”、充分性“有意义”，因为若补上缺失导入，断言与契约本身是成立的，问题只在导入缺失导致无法执行。"
+    }
+  ],
+  "applied_completions": [
+    {
+      "schema": "semantic-review-completion-v1",
+      "date": "2026-10-05",
+      "source": "Explicit user completion in conversation",
+      "actor": "user",
+      "actor_type": "human",
+      "source_sha256": "41cbe15e3d46c41885c6e0ba03c4600240ddf2f6ea84dc7819e878b3f5e4fd70",
+      "review_id": "L014",
+      "code_sha256": "c732722cab98b34dce7492730df24ad3d64b529c4e8b4927c44e92364eb61f05",
+      "field": "correctness",
+      "original": null,
+      "completed": "correct",
+      "reason": "测试真实调用 random_string(7, 7)，并通过替换标准库 random.randint/choice 控制随机源；min_length == max_length == 7 时长度必为 7，字符属于大写字母/数字集合，断言符合契约；第二次用同种子 Random(42) 重跑得到相同结果也成立。未替换目标函数。手动改全局 random 而非用 monkeypatch 只是隔离风格问题，不影响正确性。",
+      "unchanged_fields": {
+        "robustness": "robust",
+        "adequacy": "meaningful"
+      },
+      "raw_export_unchanged": true,
+      "ledger": "review/semantic_lean_v1/completions/2026-10-05_L014.json",
+      "ledger_sha256": "d494d71a1a4da7c327ee2fc7aa6c5c4364605db4805621d25796801a66077f36"
+    }
+  ],
+  "groups": [
+    {
+      "model": "deepseek-v4-flash",
+      "method": "B0",
+      "reviewed_sample": 6,
+      "raw_per_field": {
+        "correctness": {
+          "available": 6,
+          "counts": {
+            "incorrect": 5,
+            "correct": 1
+          }
+        },
+        "robustness": {
+          "available": 6,
+          "counts": {
+            "robust": 4,
+            "fragile": 2
+          }
+        },
+        "adequacy": {
+          "available": 6,
+          "counts": {
+            "meaningful": 5,
+            "weak_or_masked": 1
+          }
+        }
+      },
+      "effective_per_field": {
+        "correctness": {
+          "available": 6,
+          "counts": {
+            "incorrect": 5,
+            "correct": 1
+          }
+        },
+        "robustness": {
+          "available": 6,
+          "counts": {
+            "robust": 4,
+            "fragile": 2
+          }
+        },
+        "adequacy": {
+          "available": 6,
+          "counts": {
+            "meaningful": 5,
+            "weak_or_masked": 1
+          }
+        }
+      },
+      "pending_ids": []
+    },
+    {
+      "model": "deepseek-v4-flash",
+      "method": "B1",
+      "reviewed_sample": 6,
+      "raw_per_field": {
+        "correctness": {
+          "available": 6,
+          "counts": {
+            "correct": 3,
+            "incorrect": 3
+          }
+        },
+        "robustness": {
+          "available": 6,
+          "counts": {
+            "robust": 5,
+            "fragile": 1
+          }
+        },
+        "adequacy": {
+          "available": 6,
+          "counts": {
+            "meaningful": 5,
+            "weak_or_masked": 1
+          }
+        }
+      },
+      "effective_per_field": {
+        "correctness": {
+          "available": 6,
+          "counts": {
+            "correct": 3,
+            "incorrect": 3
+          }
+        },
+        "robustness": {
+          "available": 6,
+          "counts": {
+            "robust": 5,
+            "fragile": 1
+          }
+        },
+        "adequacy": {
+          "available": 6,
+          "counts": {
+            "meaningful": 5,
+            "weak_or_masked": 1
+          }
+        }
+      },
+      "pending_ids": []
+    },
+    {
+      "model": "deepseek-v4-flash",
+      "method": "B2",
+      "reviewed_sample": 6,
+      "raw_per_field": {
+        "correctness": {
+          "available": 6,
+          "counts": {
+            "incorrect": 2,
+            "correct": 4
+          }
+        },
+        "robustness": {
+          "available": 6,
+          "counts": {
+            "fragile": 1,
+            "robust": 5
+          }
+        },
+        "adequacy": {
+          "available": 6,
+          "counts": {
+            "weak_or_masked": 1,
+            "meaningful": 5
+          }
+        }
+      },
+      "effective_per_field": {
+        "correctness": {
+          "available": 6,
+          "counts": {
+            "incorrect": 2,
+            "correct": 4
+          }
+        },
+        "robustness": {
+          "available": 6,
+          "counts": {
+            "fragile": 1,
+            "robust": 5
+          }
+        },
+        "adequacy": {
+          "available": 6,
+          "counts": {
+            "weak_or_masked": 1,
+            "meaningful": 5
+          }
+        }
+      },
+      "pending_ids": []
+    },
+    {
+      "model": "deepseek-v4-flash",
+      "method": "M",
+      "reviewed_sample": 6,
+      "raw_per_field": {
+        "correctness": {
+          "available": 6,
+          "counts": {
+            "correct": 6
+          }
+        },
+        "robustness": {
+          "available": 6,
+          "counts": {
+            "fragile": 2,
+            "robust": 4
+          }
+        },
+        "adequacy": {
+          "available": 6,
+          "counts": {
+            "meaningful": 6
+          }
+        }
+      },
+      "effective_per_field": {
+        "correctness": {
+          "available": 6,
+          "counts": {
+            "correct": 4,
+            "incorrect": 2
+          }
+        },
+        "robustness": {
+          "available": 6,
+          "counts": {
+            "fragile": 2,
+            "robust": 4
+          }
+        },
+        "adequacy": {
+          "available": 6,
+          "counts": {
+            "meaningful": 6
+          }
+        }
+      },
+      "pending_ids": []
+    },
+    {
+      "model": "qwen3.5",
+      "method": "B0",
+      "reviewed_sample": 6,
+      "raw_per_field": {
+        "correctness": {
+          "available": 6,
+          "counts": {
+            "correct": 5,
+            "incorrect": 1
+          }
+        },
+        "robustness": {
+          "available": 6,
+          "counts": {
+            "robust": 5,
+            "fragile": 1
+          }
+        },
+        "adequacy": {
+          "available": 6,
+          "counts": {
+            "meaningful": 5,
+            "weak_or_masked": 1
+          }
+        }
+      },
+      "effective_per_field": {
+        "correctness": {
+          "available": 6,
+          "counts": {
+            "correct": 5,
+            "incorrect": 1
+          }
+        },
+        "robustness": {
+          "available": 6,
+          "counts": {
+            "robust": 5,
+            "fragile": 1
+          }
+        },
+        "adequacy": {
+          "available": 6,
+          "counts": {
+            "meaningful": 5,
+            "weak_or_masked": 1
+          }
+        }
+      },
+      "pending_ids": []
+    },
+    {
+      "model": "qwen3.5",
+      "method": "B1",
+      "reviewed_sample": 6,
+      "raw_per_field": {
+        "correctness": {
+          "available": 6,
+          "counts": {
+            "correct": 6
+          }
+        },
+        "robustness": {
+          "available": 6,
+          "counts": {
+            "robust": 5,
+            "fragile": 1
+          }
+        },
+        "adequacy": {
+          "available": 6,
+          "counts": {
+            "meaningful": 6
+          }
+        }
+      },
+      "effective_per_field": {
+        "correctness": {
+          "available": 6,
+          "counts": {
+            "correct": 6
+          }
+        },
+        "robustness": {
+          "available": 6,
+          "counts": {
+            "robust": 5,
+            "fragile": 1
+          }
+        },
+        "adequacy": {
+          "available": 6,
+          "counts": {
+            "meaningful": 6
+          }
+        }
+      },
+      "pending_ids": []
+    },
+    {
+      "model": "qwen3.5",
+      "method": "B2",
+      "reviewed_sample": 6,
+      "raw_per_field": {
+        "correctness": {
+          "available": 5,
+          "counts": {
+            "correct": 3,
+            "incorrect": 2
+          }
+        },
+        "robustness": {
+          "available": 6,
+          "counts": {
+            "robust": 3,
+            "fragile": 3
+          }
+        },
+        "adequacy": {
+          "available": 6,
+          "counts": {
+            "meaningful": 4,
+            "weak_or_masked": 2
+          }
+        }
+      },
+      "effective_per_field": {
+        "correctness": {
+          "available": 6,
+          "counts": {
+            "correct": 4,
+            "incorrect": 2
+          }
+        },
+        "robustness": {
+          "available": 6,
+          "counts": {
+            "robust": 3,
+            "fragile": 3
+          }
+        },
+        "adequacy": {
+          "available": 6,
+          "counts": {
+            "meaningful": 4,
+            "weak_or_masked": 2
+          }
+        }
+      },
+      "pending_ids": []
+    },
+    {
+      "model": "qwen3.5",
+      "method": "M",
+      "reviewed_sample": 6,
+      "raw_per_field": {
+        "correctness": {
+          "available": 6,
+          "counts": {
+            "incorrect": 2,
+            "correct": 4
+          }
+        },
+        "robustness": {
+          "available": 6,
+          "counts": {
+            "fragile": 4,
+            "robust": 2
+          }
+        },
+        "adequacy": {
+          "available": 6,
+          "counts": {
+            "weak_or_masked": 2,
+            "meaningful": 4
+          }
+        }
+      },
+      "effective_per_field": {
+        "correctness": {
+          "available": 6,
+          "counts": {
+            "incorrect": 2,
+            "correct": 4
+          }
+        },
+        "robustness": {
+          "available": 6,
+          "counts": {
+            "fragile": 4,
+            "robust": 2
+          }
+        },
+        "adequacy": {
+          "available": 6,
+          "counts": {
+            "weak_or_masked": 2,
+            "meaningful": 4
+          }
+        }
+      },
+      "pending_ids": []
+    }
+  ],
+  "rows": [
+    {
+      "review_id": "L001",
+      "output_id": "lp012",
+      "code_sha256": "122906991bbf67638ba172a31b94b3e20502a88e6365ecdc35e4459cc8f35744",
+      "model_id": "deepseek-v4-flash",
+      "method": "M",
+      "task_id": "tale_topic_idle_time_001",
+      "raw_labels": {
+        "review_id": "L001",
+        "code_sha256": "122906991bbf67638ba172a31b94b3e20502a88e6365ecdc35e4459cc8f35744",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:28:08.185Z",
+        "robustness": "fragile",
+        "adequacy": "meaningful",
+        "reason": "判断理由：若 topic('sync_idle_test') 是干净新建实例，则构造时 last_event=100.0，后续 idle_time 依次为 0.0、5.0、0.0、3.0、5.0，完全符合“构造和 send 重置、sync 不重置”的契约；测试真实调用 topic/send/sync/idle_time，只替换允许的外部时钟依赖，未替换目标方法，断言覆盖了关键行为。但它未 destroy() 或隔离共享注册表，若同名 topic 已存在或测试重复运行，构造不会重新设置 last_event，首个断言可能失败，因此稳健性存在依赖。"
+      },
+      "effective_labels": {
+        "review_id": "L001",
+        "code_sha256": "122906991bbf67638ba172a31b94b3e20502a88e6365ecdc35e4459cc8f35744",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:28:08.185Z",
+        "robustness": "fragile",
+        "adequacy": "meaningful",
+        "reason": "判断理由：若 topic('sync_idle_test') 是干净新建实例，则构造时 last_event=100.0，后续 idle_time 依次为 0.0、5.0、0.0、3.0、5.0，完全符合“构造和 send 重置、sync 不重置”的契约；测试真实调用 topic/send/sync/idle_time，只替换允许的外部时钟依赖，未替换目标方法，断言覆盖了关键行为。但它未 destroy() 或隔离共享注册表，若同名 topic 已存在或测试重复运行，构造不会重新设置 last_event，首个断言可能失败，因此稳健性存在依赖。"
+      },
+      "missing_fields": [],
+      "primary_outcome": "stable_proxy_valid",
+      "primary_counts": {
+        "pass": 30
+      },
+      "diagnostic_stable_detected": 3,
+      "diagnostic_defects": 3,
+      "supplemental_execution": null,
+      "supplemental_diagnostic_quality": null,
+      "raw_execution_conflict": false,
+      "execution_conflict": false,
+      "adjudication_status": "no_change_requested",
+      "assistant_evidence_note": null
+    },
+    {
+      "review_id": "L002",
+      "output_id": "lp006",
+      "code_sha256": "1d380c9b8064810fd2a1f68a2c5a53d89a4dee05407309083f73a591029dd9be",
+      "model_id": "qwen3.5",
+      "method": "B2",
+      "task_id": "randomfiletree_random_string_001",
+      "raw_labels": {
+        "review_id": "L002",
+        "code_sha256": "1d380c9b8064810fd2a1f68a2c5a53d89a4dee05407309083f73a591029dd9be",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:28:21.026Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试真实调用 random_string(7, 7)，仅替换允许的模块级 random 依赖为局部 random.Random(42)，并在 finally 恢复；min_length == max_length 时长度必为 7，字符来自大写字母和数字集合，断言符合契约。它未断言精确字符串，但该契约把精确输出限定为 seed-0 回归样例，此处验证结构与字符集仍有意义。"
+      },
+      "effective_labels": {
+        "review_id": "L002",
+        "code_sha256": "1d380c9b8064810fd2a1f68a2c5a53d89a4dee05407309083f73a591029dd9be",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:28:21.026Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试真实调用 random_string(7, 7)，仅替换允许的模块级 random 依赖为局部 random.Random(42)，并在 finally 恢复；min_length == max_length 时长度必为 7，字符来自大写字母和数字集合，断言符合契约。它未断言精确字符串，但该契约把精确输出限定为 seed-0 回归样例，此处验证结构与字符集仍有意义。"
+      },
+      "missing_fields": [],
+      "primary_outcome": "execution_review_required",
+      "primary_counts": {},
+      "diagnostic_stable_detected": null,
+      "diagnostic_defects": null,
+      "supplemental_execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30,
+        "has_pass": true,
+        "semantic_review": "See separate human reconciliation; not inferred from passing.",
+        "code_sha256": "1d380c9b8064810fd2a1f68a2c5a53d89a4dee05407309083f73a591029dd9be",
+        "post_hoc": true,
+        "reviewer_type": "assistant",
+        "purpose": "Supplemental original-code execution; primary unchanged."
+      },
+      "supplemental_diagnostic_quality": {
+        "output_id": "lp006",
+        "task_id": "randomfiletree_random_string_001",
+        "model_id": "qwen3.5",
+        "method": "B2",
+        "code_sha256": "1d380c9b8064810fd2a1f68a2c5a53d89a4dee05407309083f73a591029dd9be",
+        "mutants": {
+          "constant_chars": {
+            "stable_detection": false,
+            "any_detection": false,
+            "evaluation": {
+              "status": "stable_proxy_valid",
+              "counts": {
+                "pass": 3
+              },
+              "executions": 3,
+              "has_pass": true,
+              "semantic_review": "pending",
+              "code_sha256": "1d380c9b8064810fd2a1f68a2c5a53d89a4dee05407309083f73a591029dd9be",
+              "post_hoc": true
+            }
+          },
+          "wrong_length": {
+            "stable_detection": true,
+            "any_detection": true,
+            "evaluation": {
+              "status": "persistent_failure",
+              "counts": {
+                "fail": 3
+              },
+              "executions": 3,
+              "has_pass": false,
+              "semantic_review": "pending",
+              "code_sha256": "1d380c9b8064810fd2a1f68a2c5a53d89a4dee05407309083f73a591029dd9be",
+              "post_hoc": true
+            }
+          }
+        },
+        "stable_detected": 1,
+        "total": 2,
+        "post_hoc": true,
+        "diagnostic_only": true
+      },
+      "raw_execution_conflict": false,
+      "execution_conflict": false,
+      "adjudication_status": "no_change_requested",
+      "assistant_evidence_note": null
+    },
+    {
+      "review_id": "L003",
+      "output_id": "lp005",
+      "code_sha256": "fedcdc7d54a28a50bc992d4f46932d30f39b69736314a87abd65ec89f98cffc0",
+      "model_id": "deepseek-v4-flash",
+      "method": "B2",
+      "task_id": "fishbase_gen_random_str_001",
+      "raw_labels": {
+        "review_id": "L003",
+        "code_sha256": "fedcdc7d54a28a50bc992d4f46932d30f39b69736314a87abd65ec89f98cffc0",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T09:28:40.628Z",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked",
+        "reason": "monkeypatch.setattr(fishbase.fish_random.random, random.Random(42)) 调用方式错误，缺少属性名或字符串路径，测试会直接报错；即使修正，has_digit=True 时 has_letter 仍默认为 True，中间字符来自字母和数字混合源，不保证 result[4:-4].isdigit()，该断言会失败并掩盖真实行为。"
+      },
+      "effective_labels": {
+        "review_id": "L003",
+        "code_sha256": "fedcdc7d54a28a50bc992d4f46932d30f39b69736314a87abd65ec89f98cffc0",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T09:28:40.628Z",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked",
+        "reason": "monkeypatch.setattr(fishbase.fish_random.random, random.Random(42)) 调用方式错误，缺少属性名或字符串路径，测试会直接报错；即使修正，has_digit=True 时 has_letter 仍默认为 True，中间字符来自字母和数字混合源，不保证 result[4:-4].isdigit()，该断言会失败并掩盖真实行为。"
+      },
+      "missing_fields": [],
+      "primary_outcome": "persistent_failure",
+      "primary_counts": {
+        "fail": 30
+      },
+      "diagnostic_stable_detected": null,
+      "diagnostic_defects": null,
+      "supplemental_execution": null,
+      "supplemental_diagnostic_quality": null,
+      "raw_execution_conflict": false,
+      "execution_conflict": false,
+      "adjudication_status": "no_change_requested",
+      "assistant_evidence_note": null
+    },
+    {
+      "review_id": "L004",
+      "output_id": "lp025",
+      "code_sha256": "07027c78f9f52aaecdf3775a3f4e1a9afa40c19dec1d98ef85d91e5d498f81b6",
+      "model_id": "qwen3.5",
+      "method": "B1",
+      "task_id": "tale_topic_idle_time_001",
+      "raw_labels": {
+        "review_id": "L004",
+        "code_sha256": "07027c78f9f52aaecdf3775a3f4e1a9afa40c19dec1d98ef85d91e5d498f81b6",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:29:01.619Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试用可控时钟替换外部时间依赖，并显式重置 last_event 与 events 以消除共享 registry 残留影响；send 前 idle_time=50.0，send 后时钟推进到 155.0 得 5.0，符合“send 重置 last_event”契约，且真实调用了 topic/send/idle_time，未替换 Topic 方法或 idle_time。直接设置内部属性虽略侵入，但未放宽核心断言。\n\n"
+      },
+      "effective_labels": {
+        "review_id": "L004",
+        "code_sha256": "07027c78f9f52aaecdf3775a3f4e1a9afa40c19dec1d98ef85d91e5d498f81b6",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:29:01.619Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试用可控时钟替换外部时间依赖，并显式重置 last_event 与 events 以消除共享 registry 残留影响；send 前 idle_time=50.0，send 后时钟推进到 155.0 得 5.0，符合“send 重置 last_event”契约，且真实调用了 topic/send/idle_time，未替换 Topic 方法或 idle_time。直接设置内部属性虽略侵入，但未放宽核心断言。\n\n"
+      },
+      "missing_fields": [],
+      "primary_outcome": "stable_proxy_valid",
+      "primary_counts": {
+        "pass": 30
+      },
+      "diagnostic_stable_detected": 3,
+      "diagnostic_defects": 3,
+      "supplemental_execution": null,
+      "supplemental_diagnostic_quality": null,
+      "raw_execution_conflict": false,
+      "execution_conflict": false,
+      "adjudication_status": "no_change_requested",
+      "assistant_evidence_note": null
+    },
+    {
+      "review_id": "L005",
+      "output_id": "lp059",
+      "code_sha256": "90fd17d16ba77c7324fd5c1b85ee2fef1e9f0fc5400c14eeddfea87177ba98a4",
+      "model_id": "deepseek-v4-flash",
+      "method": "M",
+      "task_id": "randomfiletree_random_string_001",
+      "raw_labels": {
+        "review_id": "L005",
+        "code_sha256": "90fd17d16ba77c7324fd5c1b85ee2fef1e9f0fc5400c14eeddfea87177ba98a4",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:29:15.762Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试真实调用 random_string(1, 1)，仅将模块内 random 替换为 random.Random(1)，验证长度恰为 1 且字符属于大写字母/数字集合，符合“长度 inclusive 选择、字符集限定”的契约；替换方式允许、可恢复，无外部状态或顺序依赖，边界断言有效。"
+      },
+      "effective_labels": {
+        "review_id": "L005",
+        "code_sha256": "90fd17d16ba77c7324fd5c1b85ee2fef1e9f0fc5400c14eeddfea87177ba98a4",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T09:29:15.762Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试真实调用 random_string(1, 1)，仅将模块内 random 替换为 random.Random(1)，验证长度恰为 1 且字符属于大写字母/数字集合，符合“长度 inclusive 选择、字符集限定”的契约；替换方式允许、可恢复，无外部状态或顺序依赖，边界断言有效。"
+      },
+      "missing_fields": [],
+      "primary_outcome": "persistent_failure",
+      "primary_counts": {
+        "fail": 30
+      },
+      "diagnostic_stable_detected": null,
+      "diagnostic_defects": null,
+      "supplemental_execution": null,
+      "supplemental_diagnostic_quality": null,
+      "raw_execution_conflict": true,
+      "execution_conflict": false,
+      "adjudication_status": "human_adjudicated",
+      "assistant_evidence_note": "Missing import random; original execution fails with NameError in 30/30 runs. Correctness conflicts with execution."
+    },
+    {
+      "review_id": "L006",
+      "output_id": "lp060",
+      "code_sha256": "3f654a5e87b817d4f30cdb5fcac2fb201bdbbf2d2333429542979a22e664b538",
+      "model_id": "deepseek-v4-flash",
+      "method": "B0",
+      "task_id": "fishbase_gen_random_str_001",
+      "raw_labels": {
+        "review_id": "L006",
+        "code_sha256": "3f654a5e87b817d4f30cdb5fcac2fb201bdbbf2d2333429542979a22e664b538",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T09:29:33.618Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试只 from fishbase.fish_random import gen_random_str，没有 import fishbase.fish_random，因此执行 fishbase.fish_random.random 时会 NameError，无法运行；若补上该导入，monkeypatch 将 randint 固定为 a、sample 固定为 pop[:k]，在 has_letter=False, has_digit=True 下 random_source='0123456789'，结果确为 '01'，断言与契约一致，且未替换目标函数。\n\n"
+      },
+      "effective_labels": {
+        "review_id": "L006",
+        "code_sha256": "3f654a5e87b817d4f30cdb5fcac2fb201bdbbf2d2333429542979a22e664b538",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T09:29:33.618Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试只 from fishbase.fish_random import gen_random_str，没有 import fishbase.fish_random，因此执行 fishbase.fish_random.random 时会 NameError，无法运行；若补上该导入，monkeypatch 将 randint 固定为 a、sample 固定为 pop[:k]，在 has_letter=False, has_digit=True 下 random_source='0123456789'，结果确为 '01'，断言与契约一致，且未替换目标函数。\n\n"
+      },
+      "missing_fields": [],
+      "primary_outcome": "persistent_failure",
+      "primary_counts": {
+        "fail": 30
+      },
+      "diagnostic_stable_detected": null,
+      "diagnostic_defects": null,
+      "supplemental_execution": null,
+      "supplemental_diagnostic_quality": null,
+      "raw_execution_conflict": false,
+      "execution_conflict": false,
+      "adjudication_status": "no_change_requested",
+      "assistant_evidence_note": null
+    },
+    {
+      "review_id": "L007",
+      "output_id": "lp052",
+      "code_sha256": "1d068903d86dd5658b3346edfc90dc3cf6afd2e2ffbc3f04d891cc12661dd1c9",
+      "model_id": "qwen3.5",
+      "method": "B0",
+      "task_id": "randomfiletree_random_string_001",
+      "raw_labels": {
+        "review_id": "L007",
+        "code_sha256": "1d068903d86dd5658b3346edfc90dc3cf6afd2e2ffbc3f04d891cc12661dd1c9",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:29:45.269Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试真实调用 random_string(7, 7)，通过局部 Random(42) 控制 randint/choice，验证长度恰为 7 且字符属于大写字母/数字集合，符合契约；虽然手动替换的是全局 random 模块函数，但 randomfiletree.core 使用的是同一 random 模块对象，且在 finally 中恢复，单线程测试下可靠，未替换目标函数。"
+      },
+      "effective_labels": {
+        "review_id": "L007",
+        "code_sha256": "1d068903d86dd5658b3346edfc90dc3cf6afd2e2ffbc3f04d891cc12661dd1c9",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:29:45.269Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试真实调用 random_string(7, 7)，通过局部 Random(42) 控制 randint/choice，验证长度恰为 7 且字符属于大写字母/数字集合，符合契约；虽然手动替换的是全局 random 模块函数，但 randomfiletree.core 使用的是同一 random 模块对象，且在 finally 中恢复，单线程测试下可靠，未替换目标函数。"
+      },
+      "missing_fields": [],
+      "primary_outcome": "execution_review_required",
+      "primary_counts": {},
+      "diagnostic_stable_detected": null,
+      "diagnostic_defects": null,
+      "supplemental_execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30,
+        "has_pass": true,
+        "semantic_review": "See separate human reconciliation; not inferred from passing.",
+        "code_sha256": "1d068903d86dd5658b3346edfc90dc3cf6afd2e2ffbc3f04d891cc12661dd1c9",
+        "post_hoc": true,
+        "reviewer_type": "assistant",
+        "purpose": "Supplemental original-code execution; primary unchanged."
+      },
+      "supplemental_diagnostic_quality": {
+        "output_id": "lp052",
+        "task_id": "randomfiletree_random_string_001",
+        "model_id": "qwen3.5",
+        "method": "B0",
+        "code_sha256": "1d068903d86dd5658b3346edfc90dc3cf6afd2e2ffbc3f04d891cc12661dd1c9",
+        "mutants": {
+          "constant_chars": {
+            "stable_detection": false,
+            "any_detection": false,
+            "evaluation": {
+              "status": "stable_proxy_valid",
+              "counts": {
+                "pass": 3
+              },
+              "executions": 3,
+              "has_pass": true,
+              "semantic_review": "pending",
+              "code_sha256": "1d068903d86dd5658b3346edfc90dc3cf6afd2e2ffbc3f04d891cc12661dd1c9",
+              "post_hoc": true
+            }
+          },
+          "wrong_length": {
+            "stable_detection": true,
+            "any_detection": true,
+            "evaluation": {
+              "status": "persistent_failure",
+              "counts": {
+                "fail": 3
+              },
+              "executions": 3,
+              "has_pass": false,
+              "semantic_review": "pending",
+              "code_sha256": "1d068903d86dd5658b3346edfc90dc3cf6afd2e2ffbc3f04d891cc12661dd1c9",
+              "post_hoc": true
+            }
+          }
+        },
+        "stable_detected": 1,
+        "total": 2,
+        "post_hoc": true,
+        "diagnostic_only": true
+      },
+      "raw_execution_conflict": false,
+      "execution_conflict": false,
+      "adjudication_status": "no_change_requested",
+      "assistant_evidence_note": null
+    },
+    {
+      "review_id": "L008",
+      "output_id": "lp032",
+      "code_sha256": "82f3062d9aecf5b2d97f6c3c8d99e431e4c49c1432a539895549d84a7e6a183f",
+      "model_id": "qwen3.5",
+      "method": "B0",
+      "task_id": "fishbase_gen_random_str_001",
+      "raw_labels": {
+        "review_id": "L008",
+        "code_sha256": "82f3062d9aecf5b2d97f6c3c8d99e431e4c49c1432a539895549d84a7e6a183f",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:29:55.571Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试真实调用 gen_random_str(3, 3, has_letter=False, has_digit=True, has_punctuation=False)，并用 pytest.MonkeyPatch.context() 将 fishbase.fish_random.random 隔离为 random.Random(42)；此时随机源只含数字，长度固定为 3，结果必为 3 位数字，断言符合契约且可恢复依赖，未替换目标函数。\n\n"
+      },
+      "effective_labels": {
+        "review_id": "L008",
+        "code_sha256": "82f3062d9aecf5b2d97f6c3c8d99e431e4c49c1432a539895549d84a7e6a183f",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:29:55.571Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试真实调用 gen_random_str(3, 3, has_letter=False, has_digit=True, has_punctuation=False)，并用 pytest.MonkeyPatch.context() 将 fishbase.fish_random.random 隔离为 random.Random(42)；此时随机源只含数字，长度固定为 3，结果必为 3 位数字，断言符合契约且可恢复依赖，未替换目标函数。\n\n"
+      },
+      "missing_fields": [],
+      "primary_outcome": "execution_review_required",
+      "primary_counts": {},
+      "diagnostic_stable_detected": null,
+      "diagnostic_defects": null,
+      "supplemental_execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30,
+        "has_pass": true,
+        "semantic_review": "See separate human reconciliation; not inferred from passing.",
+        "code_sha256": "82f3062d9aecf5b2d97f6c3c8d99e431e4c49c1432a539895549d84a7e6a183f",
+        "post_hoc": true,
+        "reviewer_type": "assistant",
+        "purpose": "Supplemental original-code execution; primary unchanged."
+      },
+      "supplemental_diagnostic_quality": {
+        "output_id": "lp032",
+        "task_id": "fishbase_gen_random_str_001",
+        "model_id": "qwen3.5",
+        "method": "B0",
+        "code_sha256": "82f3062d9aecf5b2d97f6c3c8d99e431e4c49c1432a539895549d84a7e6a183f",
+        "mutants": {
+          "omit_prefix": {
+            "stable_detection": false,
+            "any_detection": false,
+            "evaluation": {
+              "status": "stable_proxy_valid",
+              "counts": {
+                "pass": 3
+              },
+              "executions": 3,
+              "has_pass": true,
+              "semantic_review": "pending",
+              "code_sha256": "82f3062d9aecf5b2d97f6c3c8d99e431e4c49c1432a539895549d84a7e6a183f",
+              "post_hoc": true
+            }
+          },
+          "wrong_length": {
+            "stable_detection": true,
+            "any_detection": true,
+            "evaluation": {
+              "status": "persistent_failure",
+              "counts": {
+                "fail": 3
+              },
+              "executions": 3,
+              "has_pass": false,
+              "semantic_review": "pending",
+              "code_sha256": "82f3062d9aecf5b2d97f6c3c8d99e431e4c49c1432a539895549d84a7e6a183f",
+              "post_hoc": true
+            }
+          }
+        },
+        "stable_detected": 1,
+        "total": 2,
+        "post_hoc": true,
+        "diagnostic_only": true
+      },
+      "raw_execution_conflict": false,
+      "execution_conflict": false,
+      "adjudication_status": "no_change_requested",
+      "assistant_evidence_note": null
+    },
+    {
+      "review_id": "L009",
+      "output_id": "lp010",
+      "code_sha256": "82d6097b0e1b19e868e0abe066943e0ec4c9b8b74aff275d69a96a93d5d8bc9d",
+      "model_id": "qwen3.5",
+      "method": "B1",
+      "task_id": "randomfiletree_random_string_001",
+      "raw_labels": {
+        "review_id": "L009",
+        "code_sha256": "82d6097b0e1b19e868e0abe066943e0ec4c9b8b74aff275d69a96a93d5d8bc9d",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:30:07.544Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试真实调用 random_string(7, 7)，并用 pytest.MonkeyPatch().context() 将标准库 random 的 randint/choice 临时绑定到局部 random.Random(42)，因 randomfiletree.core 使用的正是同一 random 模块，随机源被隔离且会自动恢复；长度固定为 7、字符属于大写字母/数字集合，断言符合契约且未替换目标函数。\n\n"
+      },
+      "effective_labels": {
+        "review_id": "L009",
+        "code_sha256": "82d6097b0e1b19e868e0abe066943e0ec4c9b8b74aff275d69a96a93d5d8bc9d",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:30:07.544Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试真实调用 random_string(7, 7)，并用 pytest.MonkeyPatch().context() 将标准库 random 的 randint/choice 临时绑定到局部 random.Random(42)，因 randomfiletree.core 使用的正是同一 random 模块，随机源被隔离且会自动恢复；长度固定为 7、字符属于大写字母/数字集合，断言符合契约且未替换目标函数。\n\n"
+      },
+      "missing_fields": [],
+      "primary_outcome": "execution_review_required",
+      "primary_counts": {},
+      "diagnostic_stable_detected": null,
+      "diagnostic_defects": null,
+      "supplemental_execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30,
+        "has_pass": true,
+        "semantic_review": "See separate human reconciliation; not inferred from passing.",
+        "code_sha256": "82d6097b0e1b19e868e0abe066943e0ec4c9b8b74aff275d69a96a93d5d8bc9d",
+        "post_hoc": true,
+        "reviewer_type": "assistant",
+        "purpose": "Supplemental original-code execution; primary unchanged."
+      },
+      "supplemental_diagnostic_quality": {
+        "output_id": "lp010",
+        "task_id": "randomfiletree_random_string_001",
+        "model_id": "qwen3.5",
+        "method": "B1",
+        "code_sha256": "82d6097b0e1b19e868e0abe066943e0ec4c9b8b74aff275d69a96a93d5d8bc9d",
+        "mutants": {
+          "constant_chars": {
+            "stable_detection": false,
+            "any_detection": false,
+            "evaluation": {
+              "status": "stable_proxy_valid",
+              "counts": {
+                "pass": 3
+              },
+              "executions": 3,
+              "has_pass": true,
+              "semantic_review": "pending",
+              "code_sha256": "82d6097b0e1b19e868e0abe066943e0ec4c9b8b74aff275d69a96a93d5d8bc9d",
+              "post_hoc": true
+            }
+          },
+          "wrong_length": {
+            "stable_detection": true,
+            "any_detection": true,
+            "evaluation": {
+              "status": "persistent_failure",
+              "counts": {
+                "fail": 3
+              },
+              "executions": 3,
+              "has_pass": false,
+              "semantic_review": "pending",
+              "code_sha256": "82d6097b0e1b19e868e0abe066943e0ec4c9b8b74aff275d69a96a93d5d8bc9d",
+              "post_hoc": true
+            }
+          }
+        },
+        "stable_detected": 1,
+        "total": 2,
+        "post_hoc": true,
+        "diagnostic_only": true
+      },
+      "raw_execution_conflict": false,
+      "execution_conflict": false,
+      "adjudication_status": "no_change_requested",
+      "assistant_evidence_note": null
+    },
+    {
+      "review_id": "L010",
+      "output_id": "lp050",
+      "code_sha256": "29ff30bf3f78980ed7375246c0d50adcf1b92a476a5e59b17fb7676b4e311e29",
+      "model_id": "qwen3.5",
+      "method": "B0",
+      "task_id": "tale_topic_idle_time_001",
+      "raw_labels": {
+        "review_id": "L010",
+        "code_sha256": "29ff30bf3f78980ed7375246c0d50adcf1b92a476a5e59b17fb7676b4e311e29",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T09:30:30.243Z",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked",
+        "reason": "monkeypatch.setattr(tale.pubsub, 'time', type('MockTime', (), {'time': lambda: fake_time})()) 创建的是类实例，而 time 是类属性函数；通过实例访问 time.time 会绑定 self，调用无参 lambda 会抛 TypeError，源码中 time.time() 无法执行。若修正绑定问题，测试逻辑本身能验证构造重置和 idle_time 差值，但它没有调用 send，未覆盖契约中“send 重置 last_event”的关键行为，且未清理共享 registry，对测试顺序存在依赖。\n\n"
+      },
+      "effective_labels": {
+        "review_id": "L010",
+        "code_sha256": "29ff30bf3f78980ed7375246c0d50adcf1b92a476a5e59b17fb7676b4e311e29",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T09:30:30.243Z",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked",
+        "reason": "monkeypatch.setattr(tale.pubsub, 'time', type('MockTime', (), {'time': lambda: fake_time})()) 创建的是类实例，而 time 是类属性函数；通过实例访问 time.time 会绑定 self，调用无参 lambda 会抛 TypeError，源码中 time.time() 无法执行。若修正绑定问题，测试逻辑本身能验证构造重置和 idle_time 差值，但它没有调用 send，未覆盖契约中“send 重置 last_event”的关键行为，且未清理共享 registry，对测试顺序存在依赖。\n\n"
+      },
+      "missing_fields": [],
+      "primary_outcome": "persistent_failure",
+      "primary_counts": {
+        "fail": 30
+      },
+      "diagnostic_stable_detected": null,
+      "diagnostic_defects": null,
+      "supplemental_execution": null,
+      "supplemental_diagnostic_quality": null,
+      "raw_execution_conflict": false,
+      "execution_conflict": false,
+      "adjudication_status": "no_change_requested",
+      "assistant_evidence_note": null
+    },
+    {
+      "review_id": "L011",
+      "output_id": "lp064",
+      "code_sha256": "6903be25da321c556d768d9cbd03fea09a3dceb6a3f93063a9233b0b57a5cb76",
+      "model_id": "deepseek-v4-flash",
+      "method": "B0",
+      "task_id": "tale_topic_idle_time_001",
+      "raw_labels": {
+        "review_id": "L011",
+        "code_sha256": "6903be25da321c556d768d9cbd03fea09a3dceb6a3f93063a9233b0b57a5cb76",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T09:30:53.939Z",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked",
+        "reason": "s.send('event') 在 monkeypatch 时钟之前执行，last_event 被设为真实当前时间；随后时钟被替换为 100.0，sync() 按契约不重置 last_event，因此 idle_time 实际是 100.0 - 真实时间戳，为很大的负数，不是断言的 0.0，测试会失败。同时未清理共享 registry，对测试顺序存在依赖。\n\n"
+      },
+      "effective_labels": {
+        "review_id": "L011",
+        "code_sha256": "6903be25da321c556d768d9cbd03fea09a3dceb6a3f93063a9233b0b57a5cb76",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T09:30:53.939Z",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked",
+        "reason": "s.send('event') 在 monkeypatch 时钟之前执行，last_event 被设为真实当前时间；随后时钟被替换为 100.0，sync() 按契约不重置 last_event，因此 idle_time 实际是 100.0 - 真实时间戳，为很大的负数，不是断言的 0.0，测试会失败。同时未清理共享 registry，对测试顺序存在依赖。\n\n"
+      },
+      "missing_fields": [],
+      "primary_outcome": "persistent_failure",
+      "primary_counts": {
+        "fail": 30
+      },
+      "diagnostic_stable_detected": null,
+      "diagnostic_defects": null,
+      "supplemental_execution": null,
+      "supplemental_diagnostic_quality": null,
+      "raw_execution_conflict": false,
+      "execution_conflict": false,
+      "adjudication_status": "no_change_requested",
+      "assistant_evidence_note": null
+    },
+    {
+      "review_id": "L012",
+      "output_id": "lp072",
+      "code_sha256": "1d525ee86a863185864b241bc4af569dd6d64a286bf832ceb42758d72bfb3d4d",
+      "model_id": "qwen3.5",
+      "method": "M",
+      "task_id": "randomfiletree_random_string_001",
+      "raw_labels": {
+        "review_id": "L012",
+        "code_sha256": "1d525ee86a863185864b241bc4af569dd6d64a286bf832ceb42758d72bfb3d4d",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T09:31:26.610Z",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked",
+        "reason": "契约只把 seed-0 精确字符串 作为 Python 3.11 回归样例，并明确不是无条件精确字符串 API 保证；这里改用 random.Random(42) 后直接断言精确字符串 '71R1O51'，把未保证的特定随机序列当成契约期望，超出允许范围，且会随 Python 版本/随机实现变化而失效。测试虽真实调用目标函数并隔离了 random 依赖，但精确断言依赖未承诺行为，掩盖了应验证的长度与字符集等结构约束。"
+      },
+      "effective_labels": {
+        "review_id": "L012",
+        "code_sha256": "1d525ee86a863185864b241bc4af569dd6d64a286bf832ceb42758d72bfb3d4d",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T09:31:26.610Z",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked",
+        "reason": "契约只把 seed-0 精确字符串 作为 Python 3.11 回归样例，并明确不是无条件精确字符串 API 保证；这里改用 random.Random(42) 后直接断言精确字符串 '71R1O51'，把未保证的特定随机序列当成契约期望，超出允许范围，且会随 Python 版本/随机实现变化而失效。测试虽真实调用目标函数并隔离了 random 依赖，但精确断言依赖未承诺行为，掩盖了应验证的长度与字符集等结构约束。"
+      },
+      "missing_fields": [],
+      "primary_outcome": "persistent_failure",
+      "primary_counts": {
+        "fail": 30
+      },
+      "diagnostic_stable_detected": null,
+      "diagnostic_defects": null,
+      "supplemental_execution": null,
+      "supplemental_diagnostic_quality": null,
+      "raw_execution_conflict": false,
+      "execution_conflict": false,
+      "adjudication_status": "no_change_requested",
+      "assistant_evidence_note": "In the fixed seed-42 example, actual BRPOIG8 differs from asserted 71R1O51; failure is not only hypothetical across seeds."
+    },
+    {
+      "review_id": "L013",
+      "output_id": "lp047",
+      "code_sha256": "40efedc949845d6c527a97edc278d605c41568d6be904d7606d38328541f8956",
+      "model_id": "qwen3.5",
+      "method": "B0",
+      "task_id": "randomfiletree_random_string_001",
+      "raw_labels": {
+        "review_id": "L013",
+        "code_sha256": "40efedc949845d6c527a97edc278d605c41568d6be904d7606d38328541f8956",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:31:38.312Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试真实调用 random_string(7, 7)，将 randomfiletree.core.random 临时替换为 random.Random(12345) 并在 finally 中恢复，隔离了随机依赖且未替换目标函数；min_length == max_length == 7 时长度必为 7，字符属于大写字母/数字集合，断言符合契约。契约只把 seed-0 精确字符串作为回归样例，并非任意 seed 的精确输出保证，因此此处不强制精确字符串是合理的。\n\n"
+      },
+      "effective_labels": {
+        "review_id": "L013",
+        "code_sha256": "40efedc949845d6c527a97edc278d605c41568d6be904d7606d38328541f8956",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:31:38.312Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试真实调用 random_string(7, 7)，将 randomfiletree.core.random 临时替换为 random.Random(12345) 并在 finally 中恢复，隔离了随机依赖且未替换目标函数；min_length == max_length == 7 时长度必为 7，字符属于大写字母/数字集合，断言符合契约。契约只把 seed-0 精确字符串作为回归样例，并非任意 seed 的精确输出保证，因此此处不强制精确字符串是合理的。\n\n"
+      },
+      "missing_fields": [],
+      "primary_outcome": "execution_review_required",
+      "primary_counts": {},
+      "diagnostic_stable_detected": null,
+      "diagnostic_defects": null,
+      "supplemental_execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30,
+        "has_pass": true,
+        "semantic_review": "See separate human reconciliation; not inferred from passing.",
+        "code_sha256": "40efedc949845d6c527a97edc278d605c41568d6be904d7606d38328541f8956",
+        "post_hoc": true,
+        "reviewer_type": "assistant",
+        "purpose": "Supplemental original-code execution; primary unchanged."
+      },
+      "supplemental_diagnostic_quality": {
+        "output_id": "lp047",
+        "task_id": "randomfiletree_random_string_001",
+        "model_id": "qwen3.5",
+        "method": "B0",
+        "code_sha256": "40efedc949845d6c527a97edc278d605c41568d6be904d7606d38328541f8956",
+        "mutants": {
+          "constant_chars": {
+            "stable_detection": false,
+            "any_detection": false,
+            "evaluation": {
+              "status": "stable_proxy_valid",
+              "counts": {
+                "pass": 3
+              },
+              "executions": 3,
+              "has_pass": true,
+              "semantic_review": "pending",
+              "code_sha256": "40efedc949845d6c527a97edc278d605c41568d6be904d7606d38328541f8956",
+              "post_hoc": true
+            }
+          },
+          "wrong_length": {
+            "stable_detection": true,
+            "any_detection": true,
+            "evaluation": {
+              "status": "persistent_failure",
+              "counts": {
+                "fail": 3
+              },
+              "executions": 3,
+              "has_pass": false,
+              "semantic_review": "pending",
+              "code_sha256": "40efedc949845d6c527a97edc278d605c41568d6be904d7606d38328541f8956",
+              "post_hoc": true
+            }
+          }
+        },
+        "stable_detected": 1,
+        "total": 2,
+        "post_hoc": true,
+        "diagnostic_only": true
+      },
+      "raw_execution_conflict": false,
+      "execution_conflict": false,
+      "adjudication_status": "no_change_requested",
+      "assistant_evidence_note": null
+    },
+    {
+      "review_id": "L014",
+      "output_id": "lp034",
+      "code_sha256": "c732722cab98b34dce7492730df24ad3d64b529c4e8b4927c44e92364eb61f05",
+      "model_id": "qwen3.5",
+      "method": "B2",
+      "task_id": "randomfiletree_random_string_001",
+      "raw_labels": {
+        "review_id": "L014",
+        "code_sha256": "c732722cab98b34dce7492730df24ad3d64b529c4e8b4927c44e92364eb61f05",
+        "robustness": "robust",
+        "updated_at": "2026-10-05T09:31:50.859Z",
+        "adequacy": "meaningful",
+        "reason": "测试真实调用 random_string(7, 7)，通过局部 Random(42) 控制 random.randint/choice 并在 finally 中恢复，验证长度固定为 7、字符属于大写字母/数字集合，且同种子结果可复现，符合契约；未替换目标函数，随机依赖被隔离，单线程下可靠。"
+      },
+      "effective_labels": {
+        "review_id": "L014",
+        "code_sha256": "c732722cab98b34dce7492730df24ad3d64b529c4e8b4927c44e92364eb61f05",
+        "robustness": "robust",
+        "updated_at": "2026-10-05T09:31:50.859Z",
+        "adequacy": "meaningful",
+        "reason": "测试真实调用 random_string(7, 7)，通过局部 Random(42) 控制 random.randint/choice 并在 finally 中恢复，验证长度固定为 7、字符属于大写字母/数字集合，且同种子结果可复现，符合契约；未替换目标函数，随机依赖被隔离，单线程下可靠。",
+        "correctness": "correct"
+      },
+      "missing_fields": [],
+      "primary_outcome": "execution_review_required",
+      "primary_counts": {},
+      "diagnostic_stable_detected": null,
+      "diagnostic_defects": null,
+      "supplemental_execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30,
+        "has_pass": true,
+        "semantic_review": "See separate human reconciliation; not inferred from passing.",
+        "code_sha256": "c732722cab98b34dce7492730df24ad3d64b529c4e8b4927c44e92364eb61f05",
+        "post_hoc": true,
+        "reviewer_type": "assistant",
+        "purpose": "Supplemental original-code execution; primary unchanged."
+      },
+      "supplemental_diagnostic_quality": {
+        "output_id": "lp034",
+        "task_id": "randomfiletree_random_string_001",
+        "model_id": "qwen3.5",
+        "method": "B2",
+        "code_sha256": "c732722cab98b34dce7492730df24ad3d64b529c4e8b4927c44e92364eb61f05",
+        "mutants": {
+          "constant_chars": {
+            "stable_detection": false,
+            "any_detection": false,
+            "evaluation": {
+              "status": "stable_proxy_valid",
+              "counts": {
+                "pass": 3
+              },
+              "executions": 3,
+              "has_pass": true,
+              "semantic_review": "pending",
+              "code_sha256": "c732722cab98b34dce7492730df24ad3d64b529c4e8b4927c44e92364eb61f05",
+              "post_hoc": true
+            }
+          },
+          "wrong_length": {
+            "stable_detection": true,
+            "any_detection": true,
+            "evaluation": {
+              "status": "persistent_failure",
+              "counts": {
+                "fail": 3
+              },
+              "executions": 3,
+              "has_pass": false,
+              "semantic_review": "pending",
+              "code_sha256": "c732722cab98b34dce7492730df24ad3d64b529c4e8b4927c44e92364eb61f05",
+              "post_hoc": true
+            }
+          }
+        },
+        "stable_detected": 1,
+        "total": 2,
+        "post_hoc": true,
+        "diagnostic_only": true
+      },
+      "raw_execution_conflict": false,
+      "execution_conflict": false,
+      "adjudication_status": "human_completed",
+      "assistant_evidence_note": "Correctness was absent in the original export; the explicit human completion is archived separately."
+    },
+    {
+      "review_id": "L015",
+      "output_id": "lp037",
+      "code_sha256": "0f6dfb878333ea91890ecd7ade37fbc2303f0438095ca8fcbdfd67d1e69f4e06",
+      "model_id": "deepseek-v4-flash",
+      "method": "B1",
+      "task_id": "tale_topic_idle_time_001",
+      "raw_labels": {
+        "review_id": "L015",
+        "code_sha256": "0f6dfb878333ea91890ecd7ade37fbc2303f0438095ca8fcbdfd67d1e69f4e06",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:32:03.803Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试先取 topic 再 monkeypatch 时钟，但随后立即 send('event')，send 会使用已替换的时钟把 last_event 重置为 1000.0，因此避开了构造时机问题；之后 idle_time 依次为 5.0、8.0，符合“send 重置、sync 不重置”的契约。FakeTime.time 用 staticmethod 包装，实例访问不会绑定 self，调用正确；测试真实调用 send/sync/idle_time，只替换允许的外部时钟依赖，未替换目标方法。唯一小问题是未清理共享 registry，但 send 重置使本测试自身不受残留影响。\n\n"
+      },
+      "effective_labels": {
+        "review_id": "L015",
+        "code_sha256": "0f6dfb878333ea91890ecd7ade37fbc2303f0438095ca8fcbdfd67d1e69f4e06",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:32:03.803Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试先取 topic 再 monkeypatch 时钟，但随后立即 send('event')，send 会使用已替换的时钟把 last_event 重置为 1000.0，因此避开了构造时机问题；之后 idle_time 依次为 5.0、8.0，符合“send 重置、sync 不重置”的契约。FakeTime.time 用 staticmethod 包装，实例访问不会绑定 self，调用正确；测试真实调用 send/sync/idle_time，只替换允许的外部时钟依赖，未替换目标方法。唯一小问题是未清理共享 registry，但 send 重置使本测试自身不受残留影响。\n\n"
+      },
+      "missing_fields": [],
+      "primary_outcome": "stable_proxy_valid",
+      "primary_counts": {
+        "pass": 30
+      },
+      "diagnostic_stable_detected": 3,
+      "diagnostic_defects": 3,
+      "supplemental_execution": null,
+      "supplemental_diagnostic_quality": null,
+      "raw_execution_conflict": false,
+      "execution_conflict": false,
+      "adjudication_status": "no_change_requested",
+      "assistant_evidence_note": null
+    },
+    {
+      "review_id": "L016",
+      "output_id": "lp014",
+      "code_sha256": "feef26ecc648ba8fd162414f9813a307f5381189a75b2491604380d2742e1019",
+      "model_id": "qwen3.5",
+      "method": "B2",
+      "task_id": "fishbase_gen_random_str_001",
+      "raw_labels": {
+        "review_id": "L016",
+        "code_sha256": "feef26ecc648ba8fd162414f9813a307f5381189a75b2491604380d2742e1019",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:32:14.388Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试真实调用 gen_random_str(6, 6, has_letter=False, has_digit=True, has_punctuation=True)，并用 monkeypatch 将模块内 random 隔离为 random.Random(42)；长度固定为 6、字符来自数字与标点集合，断言符合契约，随机依赖被隔离且可恢复。最后一条“至少含数字或标点”虽偏弱且近乎恒真，但未导致错误或掩盖核心长度/字符集验证。"
+      },
+      "effective_labels": {
+        "review_id": "L016",
+        "code_sha256": "feef26ecc648ba8fd162414f9813a307f5381189a75b2491604380d2742e1019",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:32:14.388Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试真实调用 gen_random_str(6, 6, has_letter=False, has_digit=True, has_punctuation=True)，并用 monkeypatch 将模块内 random 隔离为 random.Random(42)；长度固定为 6、字符来自数字与标点集合，断言符合契约，随机依赖被隔离且可恢复。最后一条“至少含数字或标点”虽偏弱且近乎恒真，但未导致错误或掩盖核心长度/字符集验证。"
+      },
+      "missing_fields": [],
+      "primary_outcome": "stable_proxy_valid",
+      "primary_counts": {
+        "pass": 30
+      },
+      "diagnostic_stable_detected": 1,
+      "diagnostic_defects": 2,
+      "supplemental_execution": null,
+      "supplemental_diagnostic_quality": null,
+      "raw_execution_conflict": false,
+      "execution_conflict": false,
+      "adjudication_status": "no_change_requested",
+      "assistant_evidence_note": null
+    },
+    {
+      "review_id": "L017",
+      "output_id": "lp001",
+      "code_sha256": "318a007e527e8aeafe7e73f27988904930bafe52b777069b9675dbdb56c6ebd6",
+      "model_id": "deepseek-v4-flash",
+      "method": "B1",
+      "task_id": "randomfiletree_random_string_001",
+      "raw_labels": {
+        "review_id": "L017",
+        "code_sha256": "318a007e527e8aeafe7e73f27988904930bafe52b777069b9675dbdb56c6ebd6",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T09:32:27.793Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试只 from randomfiletree.core import random_string，没有 import randomfiletree.core，因此执行 monkeypatch.setattr(randomfiletree.core.random, ...) 会 NameError，无法运行；若补上该导入，则通过 monkeypatch 固定 randint 返回下界、choice 返回首字符，真实验证 random_string(5, 10) 的最小长度边界和字符集，断言符合契约且依赖可恢复，测试意图有效。\n\n"
+      },
+      "effective_labels": {
+        "review_id": "L017",
+        "code_sha256": "318a007e527e8aeafe7e73f27988904930bafe52b777069b9675dbdb56c6ebd6",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T09:32:27.793Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试只 from randomfiletree.core import random_string，没有 import randomfiletree.core，因此执行 monkeypatch.setattr(randomfiletree.core.random, ...) 会 NameError，无法运行；若补上该导入，则通过 monkeypatch 固定 randint 返回下界、choice 返回首字符，真实验证 random_string(5, 10) 的最小长度边界和字符集，断言符合契约且依赖可恢复，测试意图有效。\n\n"
+      },
+      "missing_fields": [],
+      "primary_outcome": "persistent_failure",
+      "primary_counts": {
+        "fail": 30
+      },
+      "diagnostic_stable_detected": null,
+      "diagnostic_defects": null,
+      "supplemental_execution": null,
+      "supplemental_diagnostic_quality": null,
+      "raw_execution_conflict": false,
+      "execution_conflict": false,
+      "adjudication_status": "no_change_requested",
+      "assistant_evidence_note": null
+    },
+    {
+      "review_id": "L018",
+      "output_id": "lp042",
+      "code_sha256": "c48f81930f4a36eefc8f56b3bc321cbb9ff2c91e6b05aa04d668431ef9824cdf",
+      "model_id": "deepseek-v4-flash",
+      "method": "B2",
+      "task_id": "randomfiletree_random_string_001",
+      "raw_labels": {
+        "review_id": "L018",
+        "code_sha256": "c48f81930f4a36eefc8f56b3bc321cbb9ff2c91e6b05aa04d668431ef9824cdf",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T09:32:46.259Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试只 from randomfiletree.core import random_string，没有 import randomfiletree.core，因此 monkeypatch.setattr(randomfiletree.core, ...) 会因 randomfiletree 未定义而 NameError，无法运行。若补上模块导入，固定 min=max 时长度分别为 3、1，且字符属于大写字母/数字集合，断言符合契约；随机依赖被隔离为 Random(42)，无顺序或时间依赖，测试意图有效。\n\n"
+      },
+      "effective_labels": {
+        "review_id": "L018",
+        "code_sha256": "c48f81930f4a36eefc8f56b3bc321cbb9ff2c91e6b05aa04d668431ef9824cdf",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T09:32:46.259Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试只 from randomfiletree.core import random_string，没有 import randomfiletree.core，因此 monkeypatch.setattr(randomfiletree.core, ...) 会因 randomfiletree 未定义而 NameError，无法运行。若补上模块导入，固定 min=max 时长度分别为 3、1，且字符属于大写字母/数字集合，断言符合契约；随机依赖被隔离为 Random(42)，无顺序或时间依赖，测试意图有效。\n\n"
+      },
+      "missing_fields": [],
+      "primary_outcome": "persistent_failure",
+      "primary_counts": {
+        "fail": 30
+      },
+      "diagnostic_stable_detected": null,
+      "diagnostic_defects": null,
+      "supplemental_execution": null,
+      "supplemental_diagnostic_quality": null,
+      "raw_execution_conflict": false,
+      "execution_conflict": false,
+      "adjudication_status": "no_change_requested",
+      "assistant_evidence_note": null
+    },
+    {
+      "review_id": "L019",
+      "output_id": "lp062",
+      "code_sha256": "5b380e150461c71431d9c6009eaccc13ce3eb46e67ec724625233e014e408e23",
+      "model_id": "deepseek-v4-flash",
+      "method": "B2",
+      "task_id": "tale_topic_idle_time_001",
+      "raw_labels": {
+        "review_id": "L019",
+        "code_sha256": "5b380e150461c71431d9c6009eaccc13ce3eb46e67ec724625233e014e408e23",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:33:01.406Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试正确替换了外部时钟依赖，并通过手动设置 last_event=50.0 消除了共享 registry 可能带来的初始状态影响；send 使用受控时钟重置 last_event，后续 idle_time 依次为 50.0、0.0、10.0，符合契约。真实调用了 topic/send/idle_time，未替换目标方法，断言有效。唯一小瑕疵是未清理 topic 和事件队列，但本测试自身确定且不受影响。\n\n"
+      },
+      "effective_labels": {
+        "review_id": "L019",
+        "code_sha256": "5b380e150461c71431d9c6009eaccc13ce3eb46e67ec724625233e014e408e23",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:33:01.406Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试正确替换了外部时钟依赖，并通过手动设置 last_event=50.0 消除了共享 registry 可能带来的初始状态影响；send 使用受控时钟重置 last_event，后续 idle_time 依次为 50.0、0.0、10.0，符合契约。真实调用了 topic/send/idle_time，未替换目标方法，断言有效。唯一小瑕疵是未清理 topic 和事件队列，但本测试自身确定且不受影响。\n\n"
+      },
+      "missing_fields": [],
+      "primary_outcome": "stable_proxy_valid",
+      "primary_counts": {
+        "pass": 30
+      },
+      "diagnostic_stable_detected": 3,
+      "diagnostic_defects": 3,
+      "supplemental_execution": null,
+      "supplemental_diagnostic_quality": null,
+      "raw_execution_conflict": false,
+      "execution_conflict": false,
+      "adjudication_status": "no_change_requested",
+      "assistant_evidence_note": null
+    },
+    {
+      "review_id": "L020",
+      "output_id": "lp069",
+      "code_sha256": "a7167d489333bbccbbf0529a3bee3660db0e0e276a2cf4ca7ff44432fc2e08ed",
+      "model_id": "qwen3.5",
+      "method": "B1",
+      "task_id": "fishbase_gen_random_str_001",
+      "raw_labels": {
+        "review_id": "L020",
+        "code_sha256": "a7167d489333bbccbbf0529a3bee3660db0e0e276a2cf4ca7ff44432fc2e08ed",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:33:12.691Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试真实调用 gen_random_str(6, 6, prefix=\"ID_\", suffix=\"_END\", has_letter=False, has_digit=True, has_punctuation=False)，并用 pytest.MonkeyPatch.context() 将 fishbase.fish_random.random 隔离为 random.Random(42)，结束后自动恢复；随机源仅含数字且长度固定为 6，因此中间部分必为 6 位数字，前后缀断言和切片长度都符合契约，未替换目标函数，也无顺序或时间依赖。"
+      },
+      "effective_labels": {
+        "review_id": "L020",
+        "code_sha256": "a7167d489333bbccbbf0529a3bee3660db0e0e276a2cf4ca7ff44432fc2e08ed",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:33:12.691Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试真实调用 gen_random_str(6, 6, prefix=\"ID_\", suffix=\"_END\", has_letter=False, has_digit=True, has_punctuation=False)，并用 pytest.MonkeyPatch.context() 将 fishbase.fish_random.random 隔离为 random.Random(42)，结束后自动恢复；随机源仅含数字且长度固定为 6，因此中间部分必为 6 位数字，前后缀断言和切片长度都符合契约，未替换目标函数，也无顺序或时间依赖。"
+      },
+      "missing_fields": [],
+      "primary_outcome": "execution_review_required",
+      "primary_counts": {},
+      "diagnostic_stable_detected": null,
+      "diagnostic_defects": null,
+      "supplemental_execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30,
+        "has_pass": true,
+        "semantic_review": "See separate human reconciliation; not inferred from passing.",
+        "code_sha256": "a7167d489333bbccbbf0529a3bee3660db0e0e276a2cf4ca7ff44432fc2e08ed",
+        "post_hoc": true,
+        "reviewer_type": "assistant",
+        "purpose": "Supplemental original-code execution; primary unchanged."
+      },
+      "supplemental_diagnostic_quality": {
+        "output_id": "lp069",
+        "task_id": "fishbase_gen_random_str_001",
+        "model_id": "qwen3.5",
+        "method": "B1",
+        "code_sha256": "a7167d489333bbccbbf0529a3bee3660db0e0e276a2cf4ca7ff44432fc2e08ed",
+        "mutants": {
+          "omit_prefix": {
+            "stable_detection": true,
+            "any_detection": true,
+            "evaluation": {
+              "status": "persistent_failure",
+              "counts": {
+                "fail": 3
+              },
+              "executions": 3,
+              "has_pass": false,
+              "semantic_review": "pending",
+              "code_sha256": "a7167d489333bbccbbf0529a3bee3660db0e0e276a2cf4ca7ff44432fc2e08ed",
+              "post_hoc": true
+            }
+          },
+          "wrong_length": {
+            "stable_detection": true,
+            "any_detection": true,
+            "evaluation": {
+              "status": "persistent_failure",
+              "counts": {
+                "fail": 3
+              },
+              "executions": 3,
+              "has_pass": false,
+              "semantic_review": "pending",
+              "code_sha256": "a7167d489333bbccbbf0529a3bee3660db0e0e276a2cf4ca7ff44432fc2e08ed",
+              "post_hoc": true
+            }
+          }
+        },
+        "stable_detected": 2,
+        "total": 2,
+        "post_hoc": true,
+        "diagnostic_only": true
+      },
+      "raw_execution_conflict": false,
+      "execution_conflict": false,
+      "adjudication_status": "no_change_requested",
+      "assistant_evidence_note": null
+    },
+    {
+      "review_id": "L021",
+      "output_id": "lp068",
+      "code_sha256": "6c245a33aa51b12778f07cf831ef202d70821248c163cf58c5b5b35e7ac52dda",
+      "model_id": "deepseek-v4-flash",
+      "method": "B2",
+      "task_id": "tale_topic_idle_time_001",
+      "raw_labels": {
+        "review_id": "L021",
+        "code_sha256": "6c245a33aa51b12778f07cf831ef202d70821248c163cf58c5b5b35e7ac52dda",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:33:25.873Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试先取 topic，但随后 t.send('event1') 会使用受控时钟重置 last_event，因此不依赖构造时的初始值；idle_time 依次为 0.0、5.0、0.0，符合“send 重置 last_event”的契约。真实调用 topic/send/idle_time，仅替换外部时钟依赖，未替换目标方法；虽未清理共享 registry，但 send 重置使本测试自身不受残留影响。\n\n"
+      },
+      "effective_labels": {
+        "review_id": "L021",
+        "code_sha256": "6c245a33aa51b12778f07cf831ef202d70821248c163cf58c5b5b35e7ac52dda",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:33:25.873Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试先取 topic，但随后 t.send('event1') 会使用受控时钟重置 last_event，因此不依赖构造时的初始值；idle_time 依次为 0.0、5.0、0.0，符合“send 重置 last_event”的契约。真实调用 topic/send/idle_time，仅替换外部时钟依赖，未替换目标方法；虽未清理共享 registry，但 send 重置使本测试自身不受残留影响。\n\n"
+      },
+      "missing_fields": [],
+      "primary_outcome": "stable_proxy_valid",
+      "primary_counts": {
+        "pass": 30
+      },
+      "diagnostic_stable_detected": 3,
+      "diagnostic_defects": 3,
+      "supplemental_execution": null,
+      "supplemental_diagnostic_quality": null,
+      "raw_execution_conflict": false,
+      "execution_conflict": false,
+      "adjudication_status": "no_change_requested",
+      "assistant_evidence_note": null
+    },
+    {
+      "review_id": "L022",
+      "output_id": "lp015",
+      "code_sha256": "f53fc7593234004c503aa6607aa2089b857f86b2af005451dd8d5dac4fe93653",
+      "model_id": "qwen3.5",
+      "method": "B2",
+      "task_id": "tale_topic_idle_time_001",
+      "raw_labels": {
+        "review_id": "L022",
+        "code_sha256": "f53fc7593234004c503aa6607aa2089b857f86b2af005451dd8d5dac4fe93653",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T09:33:56.264Z",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked",
+        "reason": "测试没有导入 tale.pubsub，却请求未说明的 tale fixture；若该 fixture 不存在则直接收集失败。即使 tale fixture 存在，time_sequence 的差值设计使 send 是否真正使用 send_time 重置 last_event 无法被区分：topic 已存在时 send 实际用 base_time，idle_time 用 send_time，仍得到 5.0，掩盖了真实重置行为；同时未验证 sync 不重置。\n\n"
+      },
+      "effective_labels": {
+        "review_id": "L022",
+        "code_sha256": "f53fc7593234004c503aa6607aa2089b857f86b2af005451dd8d5dac4fe93653",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T09:33:56.264Z",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked",
+        "reason": "测试没有导入 tale.pubsub，却请求未说明的 tale fixture；若该 fixture 不存在则直接收集失败。即使 tale fixture 存在，time_sequence 的差值设计使 send 是否真正使用 send_time 重置 last_event 无法被区分：topic 已存在时 send 实际用 base_time，idle_time 用 send_time，仍得到 5.0，掩盖了真实重置行为；同时未验证 sync 不重置。\n\n"
+      },
+      "missing_fields": [],
+      "primary_outcome": "execution_exception",
+      "primary_counts": {
+        "setup_teardown_error": 30
+      },
+      "diagnostic_stable_detected": null,
+      "diagnostic_defects": null,
+      "supplemental_execution": null,
+      "supplemental_diagnostic_quality": null,
+      "raw_execution_conflict": false,
+      "execution_conflict": false,
+      "adjudication_status": "no_change_requested",
+      "assistant_evidence_note": "Missing tale fixture causes a setup-stage error, not a collection error."
+    },
+    {
+      "review_id": "L023",
+      "output_id": "lp033",
+      "code_sha256": "77bba0fd8e023383fe073263b6ba7f7fcf3041466026d339ccdad1fecdec2ae9",
+      "model_id": "qwen3.5",
+      "method": "B0",
+      "task_id": "fishbase_gen_random_str_001",
+      "raw_labels": {
+        "review_id": "L023",
+        "code_sha256": "77bba0fd8e023383fe073263b6ba7f7fcf3041466026d339ccdad1fecdec2ae9",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:34:07.235Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试真实调用 gen_random_str(3, 3, has_letter=False, has_digit=True, has_punctuation=False)，并用 pytest.MonkeyPatch.context() 将 fishbase.fish_random.random 隔离为 random.Random(42)，结束后自动恢复；随机源仅含数字、长度固定为 3，结果必为 3 位数字，三条断言均符合契约，未替换目标函数，也无顺序或时间依赖。\n\n"
+      },
+      "effective_labels": {
+        "review_id": "L023",
+        "code_sha256": "77bba0fd8e023383fe073263b6ba7f7fcf3041466026d339ccdad1fecdec2ae9",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:34:07.235Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试真实调用 gen_random_str(3, 3, has_letter=False, has_digit=True, has_punctuation=False)，并用 pytest.MonkeyPatch.context() 将 fishbase.fish_random.random 隔离为 random.Random(42)，结束后自动恢复；随机源仅含数字、长度固定为 3，结果必为 3 位数字，三条断言均符合契约，未替换目标函数，也无顺序或时间依赖。\n\n"
+      },
+      "missing_fields": [],
+      "primary_outcome": "execution_review_required",
+      "primary_counts": {},
+      "diagnostic_stable_detected": null,
+      "diagnostic_defects": null,
+      "supplemental_execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30,
+        "has_pass": true,
+        "semantic_review": "See separate human reconciliation; not inferred from passing.",
+        "code_sha256": "77bba0fd8e023383fe073263b6ba7f7fcf3041466026d339ccdad1fecdec2ae9",
+        "post_hoc": true,
+        "reviewer_type": "assistant",
+        "purpose": "Supplemental original-code execution; primary unchanged."
+      },
+      "supplemental_diagnostic_quality": {
+        "output_id": "lp033",
+        "task_id": "fishbase_gen_random_str_001",
+        "model_id": "qwen3.5",
+        "method": "B0",
+        "code_sha256": "77bba0fd8e023383fe073263b6ba7f7fcf3041466026d339ccdad1fecdec2ae9",
+        "mutants": {
+          "omit_prefix": {
+            "stable_detection": false,
+            "any_detection": false,
+            "evaluation": {
+              "status": "stable_proxy_valid",
+              "counts": {
+                "pass": 3
+              },
+              "executions": 3,
+              "has_pass": true,
+              "semantic_review": "pending",
+              "code_sha256": "77bba0fd8e023383fe073263b6ba7f7fcf3041466026d339ccdad1fecdec2ae9",
+              "post_hoc": true
+            }
+          },
+          "wrong_length": {
+            "stable_detection": true,
+            "any_detection": true,
+            "evaluation": {
+              "status": "persistent_failure",
+              "counts": {
+                "fail": 3
+              },
+              "executions": 3,
+              "has_pass": false,
+              "semantic_review": "pending",
+              "code_sha256": "77bba0fd8e023383fe073263b6ba7f7fcf3041466026d339ccdad1fecdec2ae9",
+              "post_hoc": true
+            }
+          }
+        },
+        "stable_detected": 1,
+        "total": 2,
+        "post_hoc": true,
+        "diagnostic_only": true
+      },
+      "raw_execution_conflict": false,
+      "execution_conflict": false,
+      "adjudication_status": "no_change_requested",
+      "assistant_evidence_note": null
+    },
+    {
+      "review_id": "L024",
+      "output_id": "lp056",
+      "code_sha256": "b384b29d84f5acd5790114d45cfba57933bef09e0e1df943ea8c96fbb2caff40",
+      "model_id": "deepseek-v4-flash",
+      "method": "B1",
+      "task_id": "randomfiletree_random_string_001",
+      "raw_labels": {
+        "review_id": "L024",
+        "code_sha256": "b384b29d84f5acd5790114d45cfba57933bef09e0e1df943ea8c96fbb2caff40",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T09:34:21.696Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试只 from randomfiletree.core import random_string，没有导入 randomfiletree，执行 monkeypatch.setattr(randomfiletree.core, \"random\", random.Random(0)) 会 NameError，无法运行；若补上 import randomfiletree.core，则把模块内 random 隔离为 Random(0)，random_string(5,5) 长度固定为 5、字符属于大写字母/数字集合，断言符合契约且确定性可靠。\n\n"
+      },
+      "effective_labels": {
+        "review_id": "L024",
+        "code_sha256": "b384b29d84f5acd5790114d45cfba57933bef09e0e1df943ea8c96fbb2caff40",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T09:34:21.696Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试只 from randomfiletree.core import random_string，没有导入 randomfiletree，执行 monkeypatch.setattr(randomfiletree.core, \"random\", random.Random(0)) 会 NameError，无法运行；若补上 import randomfiletree.core，则把模块内 random 隔离为 Random(0)，random_string(5,5) 长度固定为 5、字符属于大写字母/数字集合，断言符合契约且确定性可靠。\n\n"
+      },
+      "missing_fields": [],
+      "primary_outcome": "persistent_failure",
+      "primary_counts": {
+        "fail": 30
+      },
+      "diagnostic_stable_detected": null,
+      "diagnostic_defects": null,
+      "supplemental_execution": null,
+      "supplemental_diagnostic_quality": null,
+      "raw_execution_conflict": false,
+      "execution_conflict": false,
+      "adjudication_status": "no_change_requested",
+      "assistant_evidence_note": null
+    },
+    {
+      "review_id": "L025",
+      "output_id": "lp065",
+      "code_sha256": "11975959e83045aa8fd467685865c8efb33e8f228867614dadbfeb1b8776d5fe",
+      "model_id": "qwen3.5",
+      "method": "M",
+      "task_id": "tale_topic_idle_time_001",
+      "raw_labels": {
+        "review_id": "L025",
+        "code_sha256": "11975959e83045aa8fd467685865c8efb33e8f228867614dadbfeb1b8776d5fe",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:34:36.342Z",
+        "robustness": "fragile",
+        "adequacy": "meaningful",
+        "reason": "在干净 registry 下，monkeypatch 在创建 topic 前生效，构造时 last_event=100.0，后续 idle_time 依次为 0.0、10.0、10.0、20.0，正确验证了构造重置、send 重置、sync 不重置；但未 destroy() 或隔离共享 registry，若同名 topic 已存在，首断言 t.last_event == 100.0 会失败。测试真实调用 topic/send/sync/idle_time，只替换外部时钟，断言覆盖了核心契约。\n\n"
+      },
+      "effective_labels": {
+        "review_id": "L025",
+        "code_sha256": "11975959e83045aa8fd467685865c8efb33e8f228867614dadbfeb1b8776d5fe",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:34:36.342Z",
+        "robustness": "fragile",
+        "adequacy": "meaningful",
+        "reason": "在干净 registry 下，monkeypatch 在创建 topic 前生效，构造时 last_event=100.0，后续 idle_time 依次为 0.0、10.0、10.0、20.0，正确验证了构造重置、send 重置、sync 不重置；但未 destroy() 或隔离共享 registry，若同名 topic 已存在，首断言 t.last_event == 100.0 会失败。测试真实调用 topic/send/sync/idle_time，只替换外部时钟，断言覆盖了核心契约。\n\n"
+      },
+      "missing_fields": [],
+      "primary_outcome": "stable_proxy_valid",
+      "primary_counts": {
+        "pass": 30
+      },
+      "diagnostic_stable_detected": 3,
+      "diagnostic_defects": 3,
+      "supplemental_execution": null,
+      "supplemental_diagnostic_quality": null,
+      "raw_execution_conflict": false,
+      "execution_conflict": false,
+      "adjudication_status": "no_change_requested",
+      "assistant_evidence_note": null
+    },
+    {
+      "review_id": "L026",
+      "output_id": "lp070",
+      "code_sha256": "4717f7e0288e8180536bed4308ea7b1345fbf60380e1d2969ce5fc89c8552ca0",
+      "model_id": "deepseek-v4-flash",
+      "method": "B0",
+      "task_id": "randomfiletree_random_string_001",
+      "raw_labels": {
+        "review_id": "L026",
+        "code_sha256": "4717f7e0288e8180536bed4308ea7b1345fbf60380e1d2969ce5fc89c8552ca0",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T09:34:50.792Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试只 from randomfiletree.core import random_string，没有导入 randomfiletree，执行 monkeypatch.setattr(randomfiletree.core.random, ...) 会 NameError，无法运行。若补上 import randomfiletree.core，则 randint 固定返回下界、choice 固定返回首字符，random_string(5, 5) 必为 \"AAAAA\"，长度和字符集断言符合契约，随机依赖被隔离且无顺序或时间依赖。"
+      },
+      "effective_labels": {
+        "review_id": "L026",
+        "code_sha256": "4717f7e0288e8180536bed4308ea7b1345fbf60380e1d2969ce5fc89c8552ca0",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T09:34:50.792Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试只 from randomfiletree.core import random_string，没有导入 randomfiletree，执行 monkeypatch.setattr(randomfiletree.core.random, ...) 会 NameError，无法运行。若补上 import randomfiletree.core，则 randint 固定返回下界、choice 固定返回首字符，random_string(5, 5) 必为 \"AAAAA\"，长度和字符集断言符合契约，随机依赖被隔离且无顺序或时间依赖。"
+      },
+      "missing_fields": [],
+      "primary_outcome": "persistent_failure",
+      "primary_counts": {
+        "fail": 30
+      },
+      "diagnostic_stable_detected": null,
+      "diagnostic_defects": null,
+      "supplemental_execution": null,
+      "supplemental_diagnostic_quality": null,
+      "raw_execution_conflict": false,
+      "execution_conflict": false,
+      "adjudication_status": "no_change_requested",
+      "assistant_evidence_note": null
+    },
+    {
+      "review_id": "L027",
+      "output_id": "lp008",
+      "code_sha256": "b898c703615e8f605fe000d0fdad838e905b334642c83d59bb8ee34cd40a3b48",
+      "model_id": "deepseek-v4-flash",
+      "method": "M",
+      "task_id": "randomfiletree_random_string_001",
+      "raw_labels": {
+        "review_id": "L027",
+        "code_sha256": "b898c703615e8f605fe000d0fdad838e905b334642c83d59bb8ee34cd40a3b48",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:34:59.506Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试正确导入 randomfiletree.core 并将模块内 random 隔离为 random.Random(42)，真实调用 random_string(7, 7)；min_length == max_length == 7 时长度必为 7，字符属于大写字母/数字集合，断言符合契约，且未替换目标函数，无顺序或时间依赖。\n\n"
+      },
+      "effective_labels": {
+        "review_id": "L027",
+        "code_sha256": "b898c703615e8f605fe000d0fdad838e905b334642c83d59bb8ee34cd40a3b48",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:34:59.506Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试正确导入 randomfiletree.core 并将模块内 random 隔离为 random.Random(42)，真实调用 random_string(7, 7)；min_length == max_length == 7 时长度必为 7，字符属于大写字母/数字集合，断言符合契约，且未替换目标函数，无顺序或时间依赖。\n\n"
+      },
+      "missing_fields": [],
+      "primary_outcome": "stable_proxy_valid",
+      "primary_counts": {
+        "pass": 30
+      },
+      "diagnostic_stable_detected": 1,
+      "diagnostic_defects": 2,
+      "supplemental_execution": null,
+      "supplemental_diagnostic_quality": null,
+      "raw_execution_conflict": false,
+      "execution_conflict": false,
+      "adjudication_status": "no_change_requested",
+      "assistant_evidence_note": null
+    },
+    {
+      "review_id": "L028",
+      "output_id": "lp055",
+      "code_sha256": "57f19cc8945beaa3f784b358f3429d8e32d1faef6914a43ab6a69b2b65868502",
+      "model_id": "qwen3.5",
+      "method": "B0",
+      "task_id": "randomfiletree_random_string_001",
+      "raw_labels": {
+        "review_id": "L028",
+        "code_sha256": "57f19cc8945beaa3f784b358f3429d8e32d1faef6914a43ab6a69b2b65868502",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:35:09.192Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "pytest.MonkeyPatch.context() 用字符串路径 \"randomfiletree.core.random\" 定位并替换模块内 random，不依赖本地是否导入 randomfiletree；测试真实调用 random_string(7, 7)，长度固定为 7、字符属于大写字母/数字集合，符合契约，且随机依赖被隔离并自动恢复，无顺序或时间依赖。\n\n"
+      },
+      "effective_labels": {
+        "review_id": "L028",
+        "code_sha256": "57f19cc8945beaa3f784b358f3429d8e32d1faef6914a43ab6a69b2b65868502",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:35:09.192Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "pytest.MonkeyPatch.context() 用字符串路径 \"randomfiletree.core.random\" 定位并替换模块内 random，不依赖本地是否导入 randomfiletree；测试真实调用 random_string(7, 7)，长度固定为 7、字符属于大写字母/数字集合，符合契约，且随机依赖被隔离并自动恢复，无顺序或时间依赖。\n\n"
+      },
+      "missing_fields": [],
+      "primary_outcome": "execution_review_required",
+      "primary_counts": {},
+      "diagnostic_stable_detected": null,
+      "diagnostic_defects": null,
+      "supplemental_execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30,
+        "has_pass": true,
+        "semantic_review": "See separate human reconciliation; not inferred from passing.",
+        "code_sha256": "57f19cc8945beaa3f784b358f3429d8e32d1faef6914a43ab6a69b2b65868502",
+        "post_hoc": true,
+        "reviewer_type": "assistant",
+        "purpose": "Supplemental original-code execution; primary unchanged."
+      },
+      "supplemental_diagnostic_quality": {
+        "output_id": "lp055",
+        "task_id": "randomfiletree_random_string_001",
+        "model_id": "qwen3.5",
+        "method": "B0",
+        "code_sha256": "57f19cc8945beaa3f784b358f3429d8e32d1faef6914a43ab6a69b2b65868502",
+        "mutants": {
+          "constant_chars": {
+            "stable_detection": false,
+            "any_detection": false,
+            "evaluation": {
+              "status": "stable_proxy_valid",
+              "counts": {
+                "pass": 3
+              },
+              "executions": 3,
+              "has_pass": true,
+              "semantic_review": "pending",
+              "code_sha256": "57f19cc8945beaa3f784b358f3429d8e32d1faef6914a43ab6a69b2b65868502",
+              "post_hoc": true
+            }
+          },
+          "wrong_length": {
+            "stable_detection": true,
+            "any_detection": true,
+            "evaluation": {
+              "status": "persistent_failure",
+              "counts": {
+                "fail": 3
+              },
+              "executions": 3,
+              "has_pass": false,
+              "semantic_review": "pending",
+              "code_sha256": "57f19cc8945beaa3f784b358f3429d8e32d1faef6914a43ab6a69b2b65868502",
+              "post_hoc": true
+            }
+          }
+        },
+        "stable_detected": 1,
+        "total": 2,
+        "post_hoc": true,
+        "diagnostic_only": true
+      },
+      "raw_execution_conflict": false,
+      "execution_conflict": false,
+      "adjudication_status": "no_change_requested",
+      "assistant_evidence_note": null
+    },
+    {
+      "review_id": "L029",
+      "output_id": "lp048",
+      "code_sha256": "88248e48f18aa128665a97a2bb71b84deac64be9009cff3e7f9c5d6142067fa9",
+      "model_id": "deepseek-v4-flash",
+      "method": "M",
+      "task_id": "tale_topic_idle_time_001",
+      "raw_labels": {
+        "review_id": "L029",
+        "code_sha256": "88248e48f18aa128665a97a2bb71b84deac64be9009cff3e7f9c5d6142067fa9",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:35:22.833Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试先替换外部时钟，再调用 send('event1') 强制重置 last_event，因此即使共享 registry 中已有同名 topic，也不依赖构造时的初始值；随后 idle_time 依次为 5.0、5.0、7.0，正确验证了 send 重置、sync 不重置。测试真实调用 topic/send/sync/idle_time，未替换目标方法，断言有效。未清理 registry 可能影响其他测试，但本测试自身不依赖残留状态。"
+      },
+      "effective_labels": {
+        "review_id": "L029",
+        "code_sha256": "88248e48f18aa128665a97a2bb71b84deac64be9009cff3e7f9c5d6142067fa9",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:35:22.833Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试先替换外部时钟，再调用 send('event1') 强制重置 last_event，因此即使共享 registry 中已有同名 topic，也不依赖构造时的初始值；随后 idle_time 依次为 5.0、5.0、7.0，正确验证了 send 重置、sync 不重置。测试真实调用 topic/send/sync/idle_time，未替换目标方法，断言有效。未清理 registry 可能影响其他测试，但本测试自身不依赖残留状态。"
+      },
+      "missing_fields": [],
+      "primary_outcome": "stable_proxy_valid",
+      "primary_counts": {
+        "pass": 30
+      },
+      "diagnostic_stable_detected": 2,
+      "diagnostic_defects": 3,
+      "supplemental_execution": null,
+      "supplemental_diagnostic_quality": null,
+      "raw_execution_conflict": false,
+      "execution_conflict": false,
+      "adjudication_status": "no_change_requested",
+      "assistant_evidence_note": null
+    },
+    {
+      "review_id": "L030",
+      "output_id": "lp067",
+      "code_sha256": "49d366294fe70d8a413115a41d24df7da6b45c333a37222a9255428f474c45fe",
+      "model_id": "deepseek-v4-flash",
+      "method": "B0",
+      "task_id": "tale_topic_idle_time_001",
+      "raw_labels": {
+        "review_id": "L030",
+        "code_sha256": "49d366294fe70d8a413115a41d24df7da6b45c333a37222a9255428f474c45fe",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T09:35:38.978Z",
+        "robustness": "fragile",
+        "adequacy": "meaningful",
+        "reason": "测试先 topic(...) 再替换时钟，构造时 last_event 用真实时间，首个 idle_time == 0.0 失败；且 FakeTime 的 time 是普通 lambda，实例访问会绑定 self 导致 TypeError；同时未隔离共享 registry。但测试确实真实调用 send/sync/idle_time，断言覆盖核心行为，只是被前置错误破坏。\n\n"
+      },
+      "effective_labels": {
+        "review_id": "L030",
+        "code_sha256": "49d366294fe70d8a413115a41d24df7da6b45c333a37222a9255428f474c45fe",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T09:35:38.978Z",
+        "robustness": "fragile",
+        "adequacy": "meaningful",
+        "reason": "测试先 topic(...) 再替换时钟，构造时 last_event 用真实时间，首个 idle_time == 0.0 失败；且 FakeTime 的 time 是普通 lambda，实例访问会绑定 self 导致 TypeError；同时未隔离共享 registry。但测试确实真实调用 send/sync/idle_time，断言覆盖核心行为，只是被前置错误破坏。\n\n"
+      },
+      "missing_fields": [],
+      "primary_outcome": "persistent_failure",
+      "primary_counts": {
+        "fail": 30
+      },
+      "diagnostic_stable_detected": null,
+      "diagnostic_defects": null,
+      "supplemental_execution": null,
+      "supplemental_diagnostic_quality": null,
+      "raw_execution_conflict": false,
+      "execution_conflict": false,
+      "adjudication_status": "no_change_requested",
+      "assistant_evidence_note": "Bound self argument causes TypeError in the clock lambda before the later clock-oracle issue."
+    },
+    {
+      "review_id": "L031",
+      "output_id": "lp057",
+      "code_sha256": "ab999082197b88991b8612c3a5060ccca2520f51102eae58faee8962b1b56316",
+      "model_id": "qwen3.5",
+      "method": "B1",
+      "task_id": "randomfiletree_random_string_001",
+      "raw_labels": {
+        "review_id": "L031",
+        "code_sha256": "ab999082197b88991b8612c3a5060ccca2520f51102eae58faee8962b1b56316",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:35:49.392Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试用 pytest.MonkeyPatch.context() 以字符串路径 \"randomfiletree.core.random\" 将模块内 random 隔离为 random.Random(42)，随后真实调用 random_string(7, 7)；min_length == max_length == 7 时长度必为 7，字符属于大写字母/数字集合，断言符合契约且未替换目标函数。上下文自动恢复依赖，种子固定，无顺序或时间依赖，验证了边界行为。\n\n"
+      },
+      "effective_labels": {
+        "review_id": "L031",
+        "code_sha256": "ab999082197b88991b8612c3a5060ccca2520f51102eae58faee8962b1b56316",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:35:49.392Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试用 pytest.MonkeyPatch.context() 以字符串路径 \"randomfiletree.core.random\" 将模块内 random 隔离为 random.Random(42)，随后真实调用 random_string(7, 7)；min_length == max_length == 7 时长度必为 7，字符属于大写字母/数字集合，断言符合契约且未替换目标函数。上下文自动恢复依赖，种子固定，无顺序或时间依赖，验证了边界行为。\n\n"
+      },
+      "missing_fields": [],
+      "primary_outcome": "execution_review_required",
+      "primary_counts": {},
+      "diagnostic_stable_detected": null,
+      "diagnostic_defects": null,
+      "supplemental_execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30,
+        "has_pass": true,
+        "semantic_review": "See separate human reconciliation; not inferred from passing.",
+        "code_sha256": "ab999082197b88991b8612c3a5060ccca2520f51102eae58faee8962b1b56316",
+        "post_hoc": true,
+        "reviewer_type": "assistant",
+        "purpose": "Supplemental original-code execution; primary unchanged."
+      },
+      "supplemental_diagnostic_quality": {
+        "output_id": "lp057",
+        "task_id": "randomfiletree_random_string_001",
+        "model_id": "qwen3.5",
+        "method": "B1",
+        "code_sha256": "ab999082197b88991b8612c3a5060ccca2520f51102eae58faee8962b1b56316",
+        "mutants": {
+          "constant_chars": {
+            "stable_detection": false,
+            "any_detection": false,
+            "evaluation": {
+              "status": "stable_proxy_valid",
+              "counts": {
+                "pass": 3
+              },
+              "executions": 3,
+              "has_pass": true,
+              "semantic_review": "pending",
+              "code_sha256": "ab999082197b88991b8612c3a5060ccca2520f51102eae58faee8962b1b56316",
+              "post_hoc": true
+            }
+          },
+          "wrong_length": {
+            "stable_detection": true,
+            "any_detection": true,
+            "evaluation": {
+              "status": "persistent_failure",
+              "counts": {
+                "fail": 3
+              },
+              "executions": 3,
+              "has_pass": false,
+              "semantic_review": "pending",
+              "code_sha256": "ab999082197b88991b8612c3a5060ccca2520f51102eae58faee8962b1b56316",
+              "post_hoc": true
+            }
+          }
+        },
+        "stable_detected": 1,
+        "total": 2,
+        "post_hoc": true,
+        "diagnostic_only": true
+      },
+      "raw_execution_conflict": false,
+      "execution_conflict": false,
+      "adjudication_status": "no_change_requested",
+      "assistant_evidence_note": null
+    },
+    {
+      "review_id": "L032",
+      "output_id": "lp021",
+      "code_sha256": "478b74050dd8f2106d6ce540064f046fae848428ce09f4b12e6c41a765198c6c",
+      "model_id": "deepseek-v4-flash",
+      "method": "B1",
+      "task_id": "fishbase_gen_random_str_001",
+      "raw_labels": {
+        "review_id": "L032",
+        "code_sha256": "478b74050dd8f2106d6ce540064f046fae848428ce09f4b12e6c41a765198c6c",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:36:03.810Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试通过 monkeypatch 固定标准库 random.randint 和 random.sample，而 fishbase.fish_random 内部使用的是同一 random 模块对象，因此 gen_random_str 会按固定值返回 'a1!b2'；真实调用了目标函数，未替换目标实现，依赖可自动恢复，断言有效。\n\n"
+      },
+      "effective_labels": {
+        "review_id": "L032",
+        "code_sha256": "478b74050dd8f2106d6ce540064f046fae848428ce09f4b12e6c41a765198c6c",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:36:03.810Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试通过 monkeypatch 固定标准库 random.randint 和 random.sample，而 fishbase.fish_random 内部使用的是同一 random 模块对象，因此 gen_random_str 会按固定值返回 'a1!b2'；真实调用了目标函数，未替换目标实现，依赖可自动恢复，断言有效。\n\n"
+      },
+      "missing_fields": [],
+      "primary_outcome": "stable_proxy_valid",
+      "primary_counts": {
+        "pass": 30
+      },
+      "diagnostic_stable_detected": 0,
+      "diagnostic_defects": 2,
+      "supplemental_execution": null,
+      "supplemental_diagnostic_quality": null,
+      "raw_execution_conflict": false,
+      "execution_conflict": false,
+      "adjudication_status": "no_change_requested",
+      "assistant_evidence_note": "The random.sample stub ignores population and k, masking length behavior. Zero of two diagnostic defects detected; this alone does not invalidate every assertion."
+    },
+    {
+      "review_id": "L033",
+      "output_id": "lp035",
+      "code_sha256": "c5b26339fc8581828bbdab027f6058aae0b3d65755aaafd1301a4a20fcc093d3",
+      "model_id": "qwen3.5",
+      "method": "M",
+      "task_id": "randomfiletree_random_string_001",
+      "raw_labels": {
+        "review_id": "L033",
+        "code_sha256": "c5b26339fc8581828bbdab027f6058aae0b3d65755aaafd1301a4a20fcc093d3",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T09:36:21.872Z",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked",
+        "reason": "契约只把 seed-0 精确字符串作为 Python 3.11 回归样例，并非任意 seed 的精确输出保证；测试用 random.Random(42) 后断言精确字符串 'N9K7X2Q'，把未承诺的特定随机序列当成契约期望，依赖 Python 版本/随机实现，且掩盖了应验证的长度与字符集等结构约束。"
+      },
+      "effective_labels": {
+        "review_id": "L033",
+        "code_sha256": "c5b26339fc8581828bbdab027f6058aae0b3d65755aaafd1301a4a20fcc093d3",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T09:36:21.872Z",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked",
+        "reason": "契约只把 seed-0 精确字符串作为 Python 3.11 回归样例，并非任意 seed 的精确输出保证；测试用 random.Random(42) 后断言精确字符串 'N9K7X2Q'，把未承诺的特定随机序列当成契约期望，依赖 Python 版本/随机实现，且掩盖了应验证的长度与字符集等结构约束。"
+      },
+      "missing_fields": [],
+      "primary_outcome": "persistent_failure",
+      "primary_counts": {
+        "fail": 30
+      },
+      "diagnostic_stable_detected": null,
+      "diagnostic_defects": null,
+      "supplemental_execution": null,
+      "supplemental_diagnostic_quality": null,
+      "raw_execution_conflict": false,
+      "execution_conflict": false,
+      "adjudication_status": "no_change_requested",
+      "assistant_evidence_note": "In the fixed seed-42 example, actual BRPOIG8 differs from asserted N9K7X2Q."
+    },
+    {
+      "review_id": "L034",
+      "output_id": "lp038",
+      "code_sha256": "4fa1374a1346c5285b99deffc965ec0fa63594d5a1878223e8a13304eb81c5ae",
+      "model_id": "qwen3.5",
+      "method": "M",
+      "task_id": "tale_topic_idle_time_001",
+      "raw_labels": {
+        "review_id": "L034",
+        "code_sha256": "4fa1374a1346c5285b99deffc965ec0fa63594d5a1878223e8a13304eb81c5ae",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:36:34.451Z",
+        "robustness": "fragile",
+        "adequacy": "meaningful",
+        "reason": "在干净 registry 下，构造时 last_event=100.0，sync 不重置，idle_time 依次为 50.0、50.0、100.0，符合契约且真实调用 sync/idle_time；但未清理共享 registry，若同名 topic 已存在，首个 last_event == 100.0 断言会失败。\n\n"
+      },
+      "effective_labels": {
+        "review_id": "L034",
+        "code_sha256": "4fa1374a1346c5285b99deffc965ec0fa63594d5a1878223e8a13304eb81c5ae",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:36:34.451Z",
+        "robustness": "fragile",
+        "adequacy": "meaningful",
+        "reason": "在干净 registry 下，构造时 last_event=100.0，sync 不重置，idle_time 依次为 50.0、50.0、100.0，符合契约且真实调用 sync/idle_time；但未清理共享 registry，若同名 topic 已存在，首个 last_event == 100.0 断言会失败。\n\n"
+      },
+      "missing_fields": [],
+      "primary_outcome": "stable_proxy_valid",
+      "primary_counts": {
+        "pass": 30
+      },
+      "diagnostic_stable_detected": 2,
+      "diagnostic_defects": 3,
+      "supplemental_execution": null,
+      "supplemental_diagnostic_quality": null,
+      "raw_execution_conflict": false,
+      "execution_conflict": false,
+      "adjudication_status": "no_change_requested",
+      "assistant_evidence_note": null
+    },
+    {
+      "review_id": "L035",
+      "output_id": "lp002",
+      "code_sha256": "7fb92a528244161e868b7e5c5a3e914eb538934789439f5846c6656de6fb1132",
+      "model_id": "qwen3.5",
+      "method": "M",
+      "task_id": "fishbase_gen_random_str_001",
+      "raw_labels": {
+        "review_id": "L035",
+        "code_sha256": "7fb92a528244161e868b7e5c5a3e914eb538934789439f5846c6656de6fb1132",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:36:47.388Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试真实调用 gen_random_str(3, 3, has_letter=False, has_digit=True, has_punctuation=False)，并用 monkeypatch 将模块内 random 隔离为 random.Random(42)；随机源只含数字且长度固定为 3，结果必为 3 位数字，断言符合契约，依赖可恢复且无顺序或时间依赖。\n\n"
+      },
+      "effective_labels": {
+        "review_id": "L035",
+        "code_sha256": "7fb92a528244161e868b7e5c5a3e914eb538934789439f5846c6656de6fb1132",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:36:47.388Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试真实调用 gen_random_str(3, 3, has_letter=False, has_digit=True, has_punctuation=False)，并用 monkeypatch 将模块内 random 隔离为 random.Random(42)；随机源只含数字且长度固定为 3，结果必为 3 位数字，断言符合契约，依赖可恢复且无顺序或时间依赖。\n\n"
+      },
+      "missing_fields": [],
+      "primary_outcome": "stable_proxy_valid",
+      "primary_counts": {
+        "pass": 30
+      },
+      "diagnostic_stable_detected": 1,
+      "diagnostic_defects": 2,
+      "supplemental_execution": null,
+      "supplemental_diagnostic_quality": null,
+      "raw_execution_conflict": false,
+      "execution_conflict": false,
+      "adjudication_status": "no_change_requested",
+      "assistant_evidence_note": null
+    },
+    {
+      "review_id": "L036",
+      "output_id": "lp045",
+      "code_sha256": "98a5c45e474424084c83a9d71cf13508bebda078217da5ac64a6922befc5e496",
+      "model_id": "qwen3.5",
+      "method": "M",
+      "task_id": "fishbase_gen_random_str_001",
+      "raw_labels": {
+        "review_id": "L036",
+        "code_sha256": "98a5c45e474424084c83a9d71cf13508bebda078217da5ac64a6922befc5e496",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:36:58.314Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试将 fishbase.fish_random.random 隔离为 random.Random(42)，真实调用 gen_random_str(3, 3, has_letter=False, has_digit=True, has_punctuation=True, prefix='[', suffix=']')；中间长度固定为 3，字符来自数字和标点集合，加上前后缀总长 5，断言均符合契约，且无顺序或时间依赖。"
+      },
+      "effective_labels": {
+        "review_id": "L036",
+        "code_sha256": "98a5c45e474424084c83a9d71cf13508bebda078217da5ac64a6922befc5e496",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:36:58.314Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试将 fishbase.fish_random.random 隔离为 random.Random(42)，真实调用 gen_random_str(3, 3, has_letter=False, has_digit=True, has_punctuation=True, prefix='[', suffix=']')；中间长度固定为 3，字符来自数字和标点集合，加上前后缀总长 5，断言均符合契约，且无顺序或时间依赖。"
+      },
+      "missing_fields": [],
+      "primary_outcome": "stable_proxy_valid",
+      "primary_counts": {
+        "pass": 30
+      },
+      "diagnostic_stable_detected": 2,
+      "diagnostic_defects": 2,
+      "supplemental_execution": null,
+      "supplemental_diagnostic_quality": null,
+      "raw_execution_conflict": false,
+      "execution_conflict": false,
+      "adjudication_status": "no_change_requested",
+      "assistant_evidence_note": null
+    },
+    {
+      "review_id": "L037",
+      "output_id": "lp009",
+      "code_sha256": "e9e89bd9a7126aacac314182eb8df21a5dd65c192694b0d679a9a261ffad8054",
+      "model_id": "deepseek-v4-flash",
+      "method": "B2",
+      "task_id": "randomfiletree_random_string_001",
+      "raw_labels": {
+        "review_id": "L037",
+        "code_sha256": "e9e89bd9a7126aacac314182eb8df21a5dd65c192694b0d679a9a261ffad8054",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:37:11.345Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试正确导入 randomfiletree.core，通过 monkeypatch 固定 randint 返回 min_length=5，并用确定性的 choice 序列控制字符，真实调用 randomfiletree.core.random_string(5, 10)；结果长度必为 5，字符来自大写字母/数字集合，断言符合契约，且未替换目标函数，依赖会被 monkeypatch 自动恢复，无顺序或时间依赖。"
+      },
+      "effective_labels": {
+        "review_id": "L037",
+        "code_sha256": "e9e89bd9a7126aacac314182eb8df21a5dd65c192694b0d679a9a261ffad8054",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:37:11.345Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试正确导入 randomfiletree.core，通过 monkeypatch 固定 randint 返回 min_length=5，并用确定性的 choice 序列控制字符，真实调用 randomfiletree.core.random_string(5, 10)；结果长度必为 5，字符来自大写字母/数字集合，断言符合契约，且未替换目标函数，依赖会被 monkeypatch 自动恢复，无顺序或时间依赖。"
+      },
+      "missing_fields": [],
+      "primary_outcome": "stable_proxy_valid",
+      "primary_counts": {
+        "pass": 30
+      },
+      "diagnostic_stable_detected": 1,
+      "diagnostic_defects": 2,
+      "supplemental_execution": null,
+      "supplemental_diagnostic_quality": null,
+      "raw_execution_conflict": false,
+      "execution_conflict": false,
+      "adjudication_status": "no_change_requested",
+      "assistant_evidence_note": null
+    },
+    {
+      "review_id": "L038",
+      "output_id": "lp040",
+      "code_sha256": "cddb6690d24e1997dd85837034db09825a783c23927c19ecce0cb53412f3ebc5",
+      "model_id": "qwen3.5",
+      "method": "B1",
+      "task_id": "tale_topic_idle_time_001",
+      "raw_labels": {
+        "review_id": "L038",
+        "code_sha256": "cddb6690d24e1997dd85837034db09825a783c23927c19ecce0cb53412f3ebc5",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:37:25.704Z",
+        "robustness": "fragile",
+        "adequacy": "meaningful",
+        "reason": "若该 topic 为新建实例，初始 idle_time 很小、sleep(0.05) 后增长、send 后重置，三条断言符合契约；但测试依赖真实时钟与调度精度，且未清理共享 registry，重复运行或同名残留会导致首断言失败，覆盖也偏弱、未验证 sync 不重置。\n\n"
+      },
+      "effective_labels": {
+        "review_id": "L038",
+        "code_sha256": "cddb6690d24e1997dd85837034db09825a783c23927c19ecce0cb53412f3ebc5",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:37:25.704Z",
+        "robustness": "fragile",
+        "adequacy": "meaningful",
+        "reason": "若该 topic 为新建实例，初始 idle_time 很小、sleep(0.05) 后增长、send 后重置，三条断言符合契约；但测试依赖真实时钟与调度精度，且未清理共享 registry，重复运行或同名残留会导致首断言失败，覆盖也偏弱、未验证 sync 不重置。\n\n"
+      },
+      "missing_fields": [],
+      "primary_outcome": "observed_unstable",
+      "primary_counts": {
+        "pass": 15,
+        "fail": 15
+      },
+      "diagnostic_stable_detected": null,
+      "diagnostic_defects": null,
+      "supplemental_execution": null,
+      "supplemental_diagnostic_quality": null,
+      "raw_execution_conflict": false,
+      "execution_conflict": false,
+      "adjudication_status": "no_change_requested",
+      "assistant_evidence_note": null
+    },
+    {
+      "review_id": "L039",
+      "output_id": "lp063",
+      "code_sha256": "cf28c77b44ec6178226a06c4c6ccdc233c14d18be2db1d72d90413a8e89dffc5",
+      "model_id": "deepseek-v4-flash",
+      "method": "M",
+      "task_id": "randomfiletree_random_string_001",
+      "raw_labels": {
+        "review_id": "L039",
+        "code_sha256": "cf28c77b44ec6178226a06c4c6ccdc233c14d18be2db1d72d90413a8e89dffc5",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:37:34.833Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试正确导入 randomfiletree.core 并将模块内 random 隔离为 random.Random(42)，真实调用 random_string(5, 5)；min_length == max_length == 5 时长度必为 5，字符属于大写字母/数字集合，断言符合契约，且未替换目标函数，无顺序或时间依赖。\n\n"
+      },
+      "effective_labels": {
+        "review_id": "L039",
+        "code_sha256": "cf28c77b44ec6178226a06c4c6ccdc233c14d18be2db1d72d90413a8e89dffc5",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T09:37:34.833Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试正确导入 randomfiletree.core 并将模块内 random 隔离为 random.Random(42)，真实调用 random_string(5, 5)；min_length == max_length == 5 时长度必为 5，字符属于大写字母/数字集合，断言符合契约，且未替换目标函数，无顺序或时间依赖。\n\n"
+      },
+      "missing_fields": [],
+      "primary_outcome": "persistent_failure",
+      "primary_counts": {
+        "fail": 30
+      },
+      "diagnostic_stable_detected": null,
+      "diagnostic_defects": null,
+      "supplemental_execution": null,
+      "supplemental_diagnostic_quality": null,
+      "raw_execution_conflict": true,
+      "execution_conflict": false,
+      "adjudication_status": "human_adjudicated",
+      "assistant_evidence_note": "Missing import random; original execution fails with NameError in 30/30 runs. Correctness conflicts with execution."
+    },
+    {
+      "review_id": "L040",
+      "output_id": "lp030",
+      "code_sha256": "84f6a31cfbd1123c05d520474e1052d53bf656191e1aae6e4933989647c92905",
+      "model_id": "qwen3.5",
+      "method": "B1",
+      "task_id": "fishbase_gen_random_str_001",
+      "raw_labels": {
+        "review_id": "L040",
+        "code_sha256": "84f6a31cfbd1123c05d520474e1052d53bf656191e1aae6e4933989647c92905",
+        "robustness": "robust",
+        "updated_at": "2026-10-05T09:37:46.513Z",
+        "adequacy": "meaningful",
+        "correctness": "correct",
+        "reason": "测试真实调用 gen_random_str(5, 5, prefix='START_', suffix='_END', has_letter=False, has_digit=True, has_punctuation=False)，通过局部 random.Random(42) 控制 random.randint/sample 并在 finally 中恢复；此时随机源仅含数字、长度固定为 5，中间部分必为 5 位数字，前后缀和切片断言均符合契约，未替换目标函数，种子固定且无顺序或时间依赖。"
+      },
+      "effective_labels": {
+        "review_id": "L040",
+        "code_sha256": "84f6a31cfbd1123c05d520474e1052d53bf656191e1aae6e4933989647c92905",
+        "robustness": "robust",
+        "updated_at": "2026-10-05T09:37:46.513Z",
+        "adequacy": "meaningful",
+        "correctness": "correct",
+        "reason": "测试真实调用 gen_random_str(5, 5, prefix='START_', suffix='_END', has_letter=False, has_digit=True, has_punctuation=False)，通过局部 random.Random(42) 控制 random.randint/sample 并在 finally 中恢复；此时随机源仅含数字、长度固定为 5，中间部分必为 5 位数字，前后缀和切片断言均符合契约，未替换目标函数，种子固定且无顺序或时间依赖。"
+      },
+      "missing_fields": [],
+      "primary_outcome": "execution_review_required",
+      "primary_counts": {},
+      "diagnostic_stable_detected": null,
+      "diagnostic_defects": null,
+      "supplemental_execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30,
+        "has_pass": true,
+        "semantic_review": "See separate human reconciliation; not inferred from passing.",
+        "code_sha256": "84f6a31cfbd1123c05d520474e1052d53bf656191e1aae6e4933989647c92905",
+        "post_hoc": true,
+        "reviewer_type": "assistant",
+        "purpose": "Supplemental original-code execution; primary unchanged."
+      },
+      "supplemental_diagnostic_quality": {
+        "output_id": "lp030",
+        "task_id": "fishbase_gen_random_str_001",
+        "model_id": "qwen3.5",
+        "method": "B1",
+        "code_sha256": "84f6a31cfbd1123c05d520474e1052d53bf656191e1aae6e4933989647c92905",
+        "mutants": {
+          "omit_prefix": {
+            "stable_detection": true,
+            "any_detection": true,
+            "evaluation": {
+              "status": "persistent_failure",
+              "counts": {
+                "fail": 3
+              },
+              "executions": 3,
+              "has_pass": false,
+              "semantic_review": "pending",
+              "code_sha256": "84f6a31cfbd1123c05d520474e1052d53bf656191e1aae6e4933989647c92905",
+              "post_hoc": true
+            }
+          },
+          "wrong_length": {
+            "stable_detection": true,
+            "any_detection": true,
+            "evaluation": {
+              "status": "persistent_failure",
+              "counts": {
+                "fail": 3
+              },
+              "executions": 3,
+              "has_pass": false,
+              "semantic_review": "pending",
+              "code_sha256": "84f6a31cfbd1123c05d520474e1052d53bf656191e1aae6e4933989647c92905",
+              "post_hoc": true
+            }
+          }
+        },
+        "stable_detected": 2,
+        "total": 2,
+        "post_hoc": true,
+        "diagnostic_only": true
+      },
+      "raw_execution_conflict": false,
+      "execution_conflict": false,
+      "adjudication_status": "no_change_requested",
+      "assistant_evidence_note": null
+    },
+    {
+      "review_id": "L041",
+      "output_id": "lp019",
+      "code_sha256": "9d68d3df2b64069d985cd6daa472e7392972bf1463d5647ee0adc65995f78fea",
+      "model_id": "qwen3.5",
+      "method": "B2",
+      "task_id": "tale_topic_idle_time_001",
+      "raw_labels": {
+        "review_id": "L041",
+        "code_sha256": "9d68d3df2b64069d985cd6daa472e7392972bf1463d5647ee0adc65995f78fea",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T09:38:04.376Z",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked",
+        "reason": "send 会把 last_event 重置为当前时钟值 105.0，之后 idle_time 应为 0.0，不是断言的 5.0；且测试未隔离共享 registry，若同名 topic 已存在，构造不会调用 time.time()，fake_time_values 的调用序列和初始状态都会改变；断言错误掩盖了 send 重置 last_event 的真实行为。\n\n"
+      },
+      "effective_labels": {
+        "review_id": "L041",
+        "code_sha256": "9d68d3df2b64069d985cd6daa472e7392972bf1463d5647ee0adc65995f78fea",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T09:38:04.376Z",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked",
+        "reason": "send 会把 last_event 重置为当前时钟值 105.0，之后 idle_time 应为 0.0，不是断言的 5.0；且测试未隔离共享 registry，若同名 topic 已存在，构造不会调用 time.time()，fake_time_values 的调用序列和初始状态都会改变；断言错误掩盖了 send 重置 last_event 的真实行为。\n\n"
+      },
+      "missing_fields": [],
+      "primary_outcome": "persistent_failure",
+      "primary_counts": {
+        "fail": 30
+      },
+      "diagnostic_stable_detected": null,
+      "diagnostic_defects": null,
+      "supplemental_execution": null,
+      "supplemental_diagnostic_quality": null,
+      "raw_execution_conflict": false,
+      "execution_conflict": false,
+      "adjudication_status": "no_change_requested",
+      "assistant_evidence_note": "After send, the supplied clock sequence produces idle_time 0, while the assertion expects 5."
+    },
+    {
+      "review_id": "L042",
+      "output_id": "lp007",
+      "code_sha256": "ae5778a30f7ffb6afc20bbda5e2da31ca5a00ad53c816632070a2afef51a1414",
+      "model_id": "deepseek-v4-flash",
+      "method": "B2",
+      "task_id": "tale_topic_idle_time_001",
+      "raw_labels": {
+        "review_id": "L042",
+        "code_sha256": "ae5778a30f7ffb6afc20bbda5e2da31ca5a00ad53c816632070a2afef51a1414",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:38:18.098Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试先替换外部时钟，再手动将 last_event 设为 50.0，因此不受共享 registry 中构造时机影响；idle_time 依次为 50.0、0.0、30.0，正确验证了 send 重置、sync 不重置。真实调用 topic/send/sync/idle_time，未替换目标方法，断言有效；不足之处是未直接验证构造重置，但本测试聚焦 send/sync 行为，仍属有意义。\n\n"
+      },
+      "effective_labels": {
+        "review_id": "L042",
+        "code_sha256": "ae5778a30f7ffb6afc20bbda5e2da31ca5a00ad53c816632070a2afef51a1414",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:38:18.098Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试先替换外部时钟，再手动将 last_event 设为 50.0，因此不受共享 registry 中构造时机影响；idle_time 依次为 50.0、0.0、30.0，正确验证了 send 重置、sync 不重置。真实调用 topic/send/sync/idle_time，未替换目标方法，断言有效；不足之处是未直接验证构造重置，但本测试聚焦 send/sync 行为，仍属有意义。\n\n"
+      },
+      "missing_fields": [],
+      "primary_outcome": "stable_proxy_valid",
+      "primary_counts": {
+        "pass": 30
+      },
+      "diagnostic_stable_detected": 3,
+      "diagnostic_defects": 3,
+      "supplemental_execution": null,
+      "supplemental_diagnostic_quality": null,
+      "raw_execution_conflict": false,
+      "execution_conflict": false,
+      "adjudication_status": "no_change_requested",
+      "assistant_evidence_note": null
+    },
+    {
+      "review_id": "L043",
+      "output_id": "lp027",
+      "code_sha256": "7bfe7e9b30743d919e8fe3d68cab66c63bcc5cfef188b41ee7026eaa1de9bc15",
+      "model_id": "deepseek-v4-flash",
+      "method": "B1",
+      "task_id": "tale_topic_idle_time_001",
+      "raw_labels": {
+        "review_id": "L043",
+        "code_sha256": "7bfe7e9b30743d919e8fe3d68cab66c63bcc5cfef188b41ee7026eaa1de9bc15",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:38:32.673Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试先取 topic，但随后 send('event1') 会用受控时钟把 last_event 重置为 100.0，因此不依赖构造时的初始状态，也不受共享 registry 残留影响；sync 不重置，idle_time 依次为 50.0、100.0，符合契约。真实调用 topic/send/sync/idle_time，只替换允许的外部时钟依赖，未替换目标方法，断言明确有效。\n\n"
+      },
+      "effective_labels": {
+        "review_id": "L043",
+        "code_sha256": "7bfe7e9b30743d919e8fe3d68cab66c63bcc5cfef188b41ee7026eaa1de9bc15",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:38:32.673Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试先取 topic，但随后 send('event1') 会用受控时钟把 last_event 重置为 100.0，因此不依赖构造时的初始状态，也不受共享 registry 残留影响；sync 不重置，idle_time 依次为 50.0、100.0，符合契约。真实调用 topic/send/sync/idle_time，只替换允许的外部时钟依赖，未替换目标方法，断言明确有效。\n\n"
+      },
+      "missing_fields": [],
+      "primary_outcome": "stable_proxy_valid",
+      "primary_counts": {
+        "pass": 30
+      },
+      "diagnostic_stable_detected": 3,
+      "diagnostic_defects": 3,
+      "supplemental_execution": null,
+      "supplemental_diagnostic_quality": null,
+      "raw_execution_conflict": false,
+      "execution_conflict": false,
+      "adjudication_status": "no_change_requested",
+      "assistant_evidence_note": null
+    },
+    {
+      "review_id": "L044",
+      "output_id": "lp011",
+      "code_sha256": "d4611e57d72abafc2a917a1699c7fe2c9d87f68e8274893d34201fbbb64cf21c",
+      "model_id": "qwen3.5",
+      "method": "B2",
+      "task_id": "randomfiletree_random_string_001",
+      "raw_labels": {
+        "review_id": "L044",
+        "code_sha256": "d4611e57d72abafc2a917a1699c7fe2c9d87f68e8274893d34201fbbb64cf21c",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:38:45.285Z",
+        "robustness": "fragile",
+        "adequacy": "meaningful",
+        "reason": "测试用 pytest.MonkeyPatch() 字符串路径将 randomfiletree.core.random 隔离为 random.Random(42)，真实调用 random_string(7, 7)，长度固定为 7 且字符属于大写字母/数字集合，断言符合契约；但手动创建的 MonkeyPatch 实例未 undo() 或使用上下文，替换不会自动恢复，可能污染后续测试，因此稳健性存在依赖。\n\n"
+      },
+      "effective_labels": {
+        "review_id": "L044",
+        "code_sha256": "d4611e57d72abafc2a917a1699c7fe2c9d87f68e8274893d34201fbbb64cf21c",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:38:45.285Z",
+        "robustness": "fragile",
+        "adequacy": "meaningful",
+        "reason": "测试用 pytest.MonkeyPatch() 字符串路径将 randomfiletree.core.random 隔离为 random.Random(42)，真实调用 random_string(7, 7)，长度固定为 7 且字符属于大写字母/数字集合，断言符合契约；但手动创建的 MonkeyPatch 实例未 undo() 或使用上下文，替换不会自动恢复，可能污染后续测试，因此稳健性存在依赖。\n\n"
+      },
+      "missing_fields": [],
+      "primary_outcome": "execution_review_required",
+      "primary_counts": {},
+      "diagnostic_stable_detected": null,
+      "diagnostic_defects": null,
+      "supplemental_execution": {
+        "status": "stable_proxy_valid",
+        "counts": {
+          "pass": 30
+        },
+        "executions": 30,
+        "has_pass": true,
+        "semantic_review": "See separate human reconciliation; not inferred from passing.",
+        "code_sha256": "d4611e57d72abafc2a917a1699c7fe2c9d87f68e8274893d34201fbbb64cf21c",
+        "post_hoc": true,
+        "reviewer_type": "assistant",
+        "purpose": "Supplemental original-code execution; primary unchanged."
+      },
+      "supplemental_diagnostic_quality": {
+        "output_id": "lp011",
+        "task_id": "randomfiletree_random_string_001",
+        "model_id": "qwen3.5",
+        "method": "B2",
+        "code_sha256": "d4611e57d72abafc2a917a1699c7fe2c9d87f68e8274893d34201fbbb64cf21c",
+        "mutants": {
+          "constant_chars": {
+            "stable_detection": false,
+            "any_detection": false,
+            "evaluation": {
+              "status": "stable_proxy_valid",
+              "counts": {
+                "pass": 3
+              },
+              "executions": 3,
+              "has_pass": true,
+              "semantic_review": "pending",
+              "code_sha256": "d4611e57d72abafc2a917a1699c7fe2c9d87f68e8274893d34201fbbb64cf21c",
+              "post_hoc": true
+            }
+          },
+          "wrong_length": {
+            "stable_detection": true,
+            "any_detection": true,
+            "evaluation": {
+              "status": "persistent_failure",
+              "counts": {
+                "fail": 3
+              },
+              "executions": 3,
+              "has_pass": false,
+              "semantic_review": "pending",
+              "code_sha256": "d4611e57d72abafc2a917a1699c7fe2c9d87f68e8274893d34201fbbb64cf21c",
+              "post_hoc": true
+            }
+          }
+        },
+        "stable_detected": 1,
+        "total": 2,
+        "post_hoc": true,
+        "diagnostic_only": true
+      },
+      "raw_execution_conflict": false,
+      "execution_conflict": false,
+      "adjudication_status": "no_change_requested",
+      "assistant_evidence_note": null
+    },
+    {
+      "review_id": "L045",
+      "output_id": "lp024",
+      "code_sha256": "34d710eb2cac051100b3cde5fdf4c8dcbe52a53f0242e9eef4233a68673b41f1",
+      "model_id": "deepseek-v4-flash",
+      "method": "B0",
+      "task_id": "randomfiletree_random_string_001",
+      "raw_labels": {
+        "review_id": "L045",
+        "code_sha256": "34d710eb2cac051100b3cde5fdf4c8dcbe52a53f0242e9eef4233a68673b41f1",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:38:56.145Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试用 pytest monkeypatch 的字符串路径把 randomfiletree.core.random 隔离为 random.Random(42)，真实调用 random_string(7, 7)；min_length == max_length == 7 时长度必为 7，字符来自大写字母和数字集合，断言符合契约，且未替换目标函数，依赖会自动恢复，无顺序或时间依赖。"
+      },
+      "effective_labels": {
+        "review_id": "L045",
+        "code_sha256": "34d710eb2cac051100b3cde5fdf4c8dcbe52a53f0242e9eef4233a68673b41f1",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:38:56.145Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试用 pytest monkeypatch 的字符串路径把 randomfiletree.core.random 隔离为 random.Random(42)，真实调用 random_string(7, 7)；min_length == max_length == 7 时长度必为 7，字符来自大写字母和数字集合，断言符合契约，且未替换目标函数，依赖会自动恢复，无顺序或时间依赖。"
+      },
+      "missing_fields": [],
+      "primary_outcome": "stable_proxy_valid",
+      "primary_counts": {
+        "pass": 30
+      },
+      "diagnostic_stable_detected": 1,
+      "diagnostic_defects": 2,
+      "supplemental_execution": null,
+      "supplemental_diagnostic_quality": null,
+      "raw_execution_conflict": false,
+      "execution_conflict": false,
+      "adjudication_status": "no_change_requested",
+      "assistant_evidence_note": null
+    },
+    {
+      "review_id": "L046",
+      "output_id": "lp043",
+      "code_sha256": "fe45abee451a4ff67e90adf528d63e443bd5401b302de399cd6fbf29807be0c0",
+      "model_id": "deepseek-v4-flash",
+      "method": "B1",
+      "task_id": "tale_topic_idle_time_001",
+      "raw_labels": {
+        "review_id": "L046",
+        "code_sha256": "fe45abee451a4ff67e90adf528d63e443bd5401b302de399cd6fbf29807be0c0",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T09:39:13.197Z",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked",
+        "reason": "测试在 monkeypatch 时钟之前调用 t.send('event')，last_event 被设为真实时间戳；之后才把 time.time 替换为返回 1000.0 的时钟，sync 又不重置，因此 idle_time 是 1000.0 - 真实时间戳，为很大负数，不可能等于断言的 0.0 或 0.5。断言错误掩盖了真实行为，且未清理共享 registry。\n\n"
+      },
+      "effective_labels": {
+        "review_id": "L046",
+        "code_sha256": "fe45abee451a4ff67e90adf528d63e443bd5401b302de399cd6fbf29807be0c0",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T09:39:13.197Z",
+        "robustness": "fragile",
+        "adequacy": "weak_or_masked",
+        "reason": "测试在 monkeypatch 时钟之前调用 t.send('event')，last_event 被设为真实时间戳；之后才把 time.time 替换为返回 1000.0 的时钟，sync 又不重置，因此 idle_time 是 1000.0 - 真实时间戳，为很大负数，不可能等于断言的 0.0 或 0.5。断言错误掩盖了真实行为，且未清理共享 registry。\n\n"
+      },
+      "missing_fields": [],
+      "primary_outcome": "persistent_failure",
+      "primary_counts": {
+        "fail": 30
+      },
+      "diagnostic_stable_detected": null,
+      "diagnostic_defects": null,
+      "supplemental_execution": null,
+      "supplemental_diagnostic_quality": null,
+      "raw_execution_conflict": false,
+      "execution_conflict": false,
+      "adjudication_status": "no_change_requested",
+      "assistant_evidence_note": null
+    },
+    {
+      "review_id": "L047",
+      "output_id": "lp003",
+      "code_sha256": "666ef4fb6c073c0eddb545827638088b32f632f384fe8fd53d8a0af5e071ce00",
+      "model_id": "deepseek-v4-flash",
+      "method": "M",
+      "task_id": "tale_topic_idle_time_001",
+      "raw_labels": {
+        "review_id": "L047",
+        "code_sha256": "666ef4fb6c073c0eddb545827638088b32f632f384fe8fd53d8a0af5e071ce00",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:39:25.245Z",
+        "robustness": "fragile",
+        "adequacy": "meaningful",
+        "reason": "若 topic('boundary_idle_test') 是干净新建实例，构造时 last_event=100.0，后续 idle_time 依次为 0.0、0.5、0.0、1.0、1.0，完整验证了构造重置、send 重置、sync 不重置；但未清理共享 registry，同名残留或重复运行会使首断言失败，因此稳健性存在依赖。\n\n"
+      },
+      "effective_labels": {
+        "review_id": "L047",
+        "code_sha256": "666ef4fb6c073c0eddb545827638088b32f632f384fe8fd53d8a0af5e071ce00",
+        "correctness": "correct",
+        "updated_at": "2026-10-05T09:39:25.245Z",
+        "robustness": "fragile",
+        "adequacy": "meaningful",
+        "reason": "若 topic('boundary_idle_test') 是干净新建实例，构造时 last_event=100.0，后续 idle_time 依次为 0.0、0.5、0.0、1.0、1.0，完整验证了构造重置、send 重置、sync 不重置；但未清理共享 registry，同名残留或重复运行会使首断言失败，因此稳健性存在依赖。\n\n"
+      },
+      "missing_fields": [],
+      "primary_outcome": "stable_proxy_valid",
+      "primary_counts": {
+        "pass": 30
+      },
+      "diagnostic_stable_detected": 3,
+      "diagnostic_defects": 3,
+      "supplemental_execution": null,
+      "supplemental_diagnostic_quality": null,
+      "raw_execution_conflict": false,
+      "execution_conflict": false,
+      "adjudication_status": "no_change_requested",
+      "assistant_evidence_note": null
+    },
+    {
+      "review_id": "L048",
+      "output_id": "lp028",
+      "code_sha256": "a492d282380524e8e541739d856f072d9f8abfe490447a3bdad77518ed52433f",
+      "model_id": "deepseek-v4-flash",
+      "method": "B0",
+      "task_id": "randomfiletree_random_string_001",
+      "raw_labels": {
+        "review_id": "L048",
+        "code_sha256": "a492d282380524e8e541739d856f072d9f8abfe490447a3bdad77518ed52433f",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T09:39:40.752Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试只 from randomfiletree.core import random_string，没有导入 randomfiletree，执行 monkeypatch.setattr(randomfiletree.core.random, ...) 会 NameError，无法运行；若补上 import randomfiletree.core，则 randint 固定返回下界 5，长度必为 5，字符来自大写字母/数字集合，断言符合契约，随机 choice 不影响结构验证。"
+      },
+      "effective_labels": {
+        "review_id": "L048",
+        "code_sha256": "a492d282380524e8e541739d856f072d9f8abfe490447a3bdad77518ed52433f",
+        "correctness": "incorrect",
+        "updated_at": "2026-10-05T09:39:40.752Z",
+        "robustness": "robust",
+        "adequacy": "meaningful",
+        "reason": "测试只 from randomfiletree.core import random_string，没有导入 randomfiletree，执行 monkeypatch.setattr(randomfiletree.core.random, ...) 会 NameError，无法运行；若补上 import randomfiletree.core，则 randint 固定返回下界 5，长度必为 5，字符来自大写字母/数字集合，断言符合契约，随机 choice 不影响结构验证。"
+      },
+      "missing_fields": [],
+      "primary_outcome": "persistent_failure",
+      "primary_counts": {
+        "fail": 30
+      },
+      "diagnostic_stable_detected": null,
+      "diagnostic_defects": null,
+      "supplemental_execution": null,
+      "supplemental_diagnostic_quality": null,
+      "raw_execution_conflict": false,
+      "execution_conflict": false,
+      "adjudication_status": "no_change_requested",
+      "assistant_evidence_note": null
+    }
+  ],
+  "limitations": [
+    "Raw labels preserved; no automatic change from execution or assistant notes.",
+    "Counts apply to the presampled 48, not all 72 generations.",
+    "One named reviewer for this packet; earlier packets have a different named reviewer. No overlap-based inter-rater agreement estimate.",
+    "Fresh-process passes do not refute shared-registry or same-process order dependence.",
+    "Supplemental reviewed execution never replaces primary classifications."
+  ]
+}

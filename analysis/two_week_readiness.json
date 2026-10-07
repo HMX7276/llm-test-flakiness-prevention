@@ -1,0 +1,81 @@
+{
+  "date": "2026-10-05",
+  "deadline": "2026-10-19",
+  "type": "static_readiness_audit_not_new_execution_evidence",
+  "rows": [
+    {
+      "task_id": "penman_graph_variables_001",
+      "project": "penman",
+      "risk_type": "unordered_collection",
+      "source_path": "data\\development_v2\\penman_graph_variables_001\\task.json",
+      "task_sha256": "6a483e15eee355603cc13e7ddd3c0fb98a41af17b20c42093f1051170a89d290",
+      "support": "transforms",
+      "reason": [
+        {
+          "line": 5,
+          "rule": "set_contract_order_assertion",
+          "reason": "Set-valued API has no iteration-order guarantee; compare full multiplicities."
+        }
+      ],
+      "is_heldout": false
+    },
+    {
+      "task_id": "tale_topic_idle_time_001",
+      "project": "Tale",
+      "risk_type": "time",
+      "source_path": "data\\development_v2\\tale_topic_idle_time_001\\task.json",
+      "task_sha256": "4502fd0edf522bcd5e092529d27f0236187a7ac5f27b921672ccca0ad702e889",
+      "support": "transforms",
+      "reason": "logical_elapsed_clock",
+      "is_heldout": false
+    },
+    {
+      "task_id": "lithoxyl_moment_add_001",
+      "project": "lithoxyl",
+      "risk_type": "randomness",
+      "source_path": "data\\development_v2\\lithoxyl_moment_add_001\\task.json",
+      "task_sha256": "7ccf395aa2643449a22482e58c4926da2ae6eebbd6916c5ea1d7faf535956e82",
+      "support": "abstains",
+      "reason": "statistical_or_unproven_random_oracle",
+      "is_heldout": false
+    },
+    {
+      "task_id": "randomfiletree_random_string_001",
+      "project": "RandomFileTree",
+      "risk_type": "randomness",
+      "source_path": "data\\development_v2\\randomfiletree_random_string_001\\task.json",
+      "task_sha256": "5f9e4542ff404118b6d5dc6fd0040759c7a6e097b318070e1caacfa169478b75",
+      "support": "transforms",
+      "reason": "local_rng_dependency",
+      "is_heldout": false
+    },
+    {
+      "task_id": "fishbase_gen_random_str_001",
+      "project": "fishbase",
+      "risk_type": "randomness",
+      "source_path": "data\\development_v2\\fishbase_gen_random_str_001\\task.json",
+      "task_sha256": "5ed9befa003847d7b04bc3c5273abd0291b345b54b9349f873ef9459aad93110",
+      "support": "transforms",
+      "reason": "local_rng_dependency",
+      "is_heldout": false
+    },
+    {
+      "task_id": "compare_mt_bootstrap_cache_001",
+      "project": "compare-mt",
+      "risk_type": "manual_numpy_pair",
+      "source_path": "data\\candidate_tasks_v3\\compare_mt_bootstrap_cache_001\\task.json",
+      "task_sha256": "7f3d7e249944fc32080fe6e5dc17ff682530767b04537ab44f88b7fec340c266",
+      "support": "manual_reference_only",
+      "reason": "unsupported_by_M_v2",
+      "is_heldout": false
+    }
+  ],
+  "automatic_transform_targets": 4,
+  "existing_heldout_projects": 0,
+  "no_new_api_calls": true,
+  "limitations": [
+    "All six targets have been inspected during development; none is a project-disjoint held-out target.",
+    "Registry human_review_status can be historical; use current reconciliation and rule-review ledgers.",
+    "Automatic transformation here is a static applicability check, not a new semantic or execution validation."
+  ]
+}

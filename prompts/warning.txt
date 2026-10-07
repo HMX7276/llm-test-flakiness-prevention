@@ -1,0 +1,1 @@
+Avoid depending on non-guaranteed collection order, uncontrolled randomness, or the current wall clock, while preserving the test intent.

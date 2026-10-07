@@ -1,0 +1,29 @@
+开发集 v1 诊断报告（2026-10-05）
+
+规模：3 个不同目标 / 3 个项目；48 个计划生成单元；实际 HTTP 尝试 48。
+来源：PENMAN 人工构造；Tale 历史风险改编；lithoxyl 历史启发的人工构造。不是 3 个未经修改的自然 flaky 案例。
+受控运行：每份可执行输出 30 个新进程；hash、入口随机状态、交替调度延迟按任务类型施加。不是生产中的自然发生率。
+
+输出分类：{"execution_review_required": 1, "stable_proxy_valid": 34, "observed_unstable": 1, "persistent_failure": 8, "collection_failure": 4}
+主执行次数：1290
+
+tale_topic_idle_time_001: {"execution_review_required": 1, "observed_unstable": 1, "stable_proxy_valid": 10, "persistent_failure": 4}
+penman_graph_variables_001: {"stable_proxy_valid": 15, "persistent_failure": 1}
+lithoxyl_moment_add_001: {"stable_proxy_valid": 9, "persistent_failure": 3, "collection_failure": 4}
+
+返回用量（不含失败请求可能发生的不可见消耗）：{"prompt_tokens": 33207, "completion_tokens": 7611, "reasoning_tokens": 0}
+人工语义审查仍待完成；稳定代理有效仅表示静态代理、实际调用和 30 次全通过。
+变异结果为事后手工诊断，不是正式变异得分；不同目标的变异体数量不同，不合并成跨项目百分比。
+M 对随机/时间风险保持原文，因此这些任务的 M 与 B0 是相同提示的另一次生成；差异不能归因于清理算法。
+B2 删除示例后 risk/clean 提示相同，不能当作独立上下文处理。每单元只有一次生成，不作显著性检验。
+两模型均成功关闭思考（按返回报告）；请求长度上限 32 的六次探测均未被遵守。采样参数及模型权重版本未独立验证。
+提示缺陷：目标完整导入路径只出现在部分示例中，B2 删除示例后 lithoxyl 的正确导入路径不足；B2 的导入失败混合了这一因素。单独追加路径明确化敏感性分析，不改写主结果。
+语义核查提醒：d032 虽 30 次全通过，但仍把两次真实时钟读数视作相等；当前扰动没有覆盖两次读取之间的调度间隙。不能将所有通过项称为语义合格。详见 notes/development_v1_assistant_review.txt。
+
+独立导入路径敏感性（不替换主结果）：{"stable_proxy_valid": 8, "persistent_failure": 4}
+该敏感性补充了导入信息并重新生成，不能当作对同一代码的修复效果；剩余断言/名称错误全部保留。
+手工变异诊断分布（通过输出，键为检出数/变异体数）：{"penman_graph_variables_001": {"4/4": 6, "3/4": 5, "2/4": 4}, "lithoxyl_moment_add_001": {"2/3": 4, "3/3": 5}, "tale_topic_idle_time_001": {"3/3": 9, "2/3": 1}}
+历史候选核验：新增 5 个项目，未发现新的普通隔离混合结果；Tale 和 lithoxyl 仅在明确控制扰动下显示敏感性。详见 data/curation_v1.json。
+d003 额外普通隔离 30/30 pass，与主协议调度延迟 15 pass/15 fail 相对照。不能从单份生成推断因果或方法优越性。
+本轮 API 共 66 次：6 次参数校准 + 48 次主生成 + 12 次导入路径诊断；均有返回，按用户说明货币费用为零。
+当前开发集 3/24 个计划目标；正式数据集、独立人工标注及论文主实验尚未完成。

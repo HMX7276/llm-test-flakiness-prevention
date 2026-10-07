@@ -1,0 +1,79 @@
+第二批人工语义核验：回收与证据核对
+
+复核者：何林贵；导出时间：2026-10-05T06:19:37.965Z。
+原始文件 SHA-256：7b0e6296df82b9187d1d2ee980b855c06b064857d0babeecf7db4935508fcb1d
+完整填写 36/36；部分填写 0；缺项 0；36 项原代码字节哈希与冻结映射均匹配。
+原始标注：正确性 22 correct / 14 incorrect；稳健性 17 robust / 19 fragile；充分性 22 meaningful / 14 weak_or_masked。
+本人已回复 5 项，实际变更 5 项，待回复 0 项；事实仍有分歧 0 项，按本人要求保留历史冲突并暂未裁定 0 项。原始标签保留，不能将 AI 当作第二位人类评审。
+当前有效标签计数（uncertain 单列，不并入符合或不符合）：{"correctness": {"correct": 21, "incorrect": 14, "uncertain": 1}, "robustness": {"robust": 17, "fragile": 19}, "adequacy": {"meaningful": 24, "weak_or_masked": 12}}
+已明确标为正确性不确定：['S018']；不确定是已收到的人类判断，不是缺项或未回复。
+事实更正单独追加，不把通过等同于语义充分，也不覆盖原始标签或旧回复。
+
+两项明确遗漏的执行失败，以及三项固定样例评价范围：
+S003：原标签 correct；AI 建议 incorrect；保留标签 incorrect；状态 human_response_recorded。前缀 D_ 长 2，中间长 3，后缀 _E 长 2，总长 7；原断言 len(result)==3+2 错误。主协议 30/30 fail。
+本人回复：正确性改为“不符合”。prefix='D_'、suffix='_E' 各占 2 字符，总长应为 3+2+2=7，断言 len(result)==3+2 固定失败。
+S010：原标签 correct；AI 建议 incorrect；保留标签 incorrect；状态 human_adjudicated。最后实际差值为 2.299999999999997，不等于断言的 2.3；主协议 30/30 fail。注册表风险之外，还存在当前原代码的确定性浮点失败。
+本人回复：正确性在干净单次运行下符合；稳健性“存在依赖”。若同名 topic 已存在或测试重复运行，构造不会重置 last_event，首断言会失败。
+此前更正及暂缓裁定记录（历史）：正确性应为不符合。全新进程也会因浮点得到 2.299999999999997 != 2.3；稳健性存在依赖，充分性仍有意义。
+本次明确裁定：{"correctness": "incorrect", "robustness": "fragile", "adequacy": "meaningful"}；若 idle_time 通过时间相减计算，最后得到的是 2.299999999999997，严格比较 == 2.3 会失败，应使用近似比较。另外，topic() 按名称返回单例，固定名称可能复用其他测试留下的状态。断言确实检查了时间增长和发送后重置，具有意义。
+AI 执行与源码证据（与人工标签分开）：Original fixed code fails in fresh-process evidence due to exact floating-point equality.
+S012：原标签 incorrect；AI 建议 correct；保留标签 correct；状态 human_response_recorded。原代码固定 Random(42)，当前固定项目/Python 中输出 B，故 isupper() 成立；不能用“其它种子可能产生数字”推导该固定样例必错。仍只覆盖单一样例，保留弱充分性判断；不代表任意正确实现或全部随机输出。
+本人回复：区分固定样例与潜在风险。固定 seed 42 下可能通过，但断言要求单字符为大写字母，契约允许数字；因此正确性可视为符合固定样例，稳健性存在依赖，充分性过弱或掩盖行为。
+S018：原标签 incorrect；AI 建议 correct；保留标签 uncertain；状态 human_adjudicated_uncertain。当前二进制浮点中 abs(0.5-0.966)=0.46599999999999997 < 0.466，原测试 30/30 pass；“此处会失败”不符合实际。该边界写法仍脆弱且过宽，fragile/weak_or_masked 保留；正确性仅针对固定例实际值，不等于数学实数边界或充分性获认可。
+本人回复：正确性“不符合”。sync 后实际 idle_time 应为 0.5，断言 abs(0.5-0.966)<0.466 因等于边界而不成立，固定样例即失败。
+此前更正及暂缓裁定记录（历史）：固定样例通过，原来的失败解释错误。实际是 0.46599999999999997 < 0.466。但断言依赖浮点边界，稳健性存在依赖，充分性过弱或掩盖行为。
+本次明确裁定：{"correctness": "uncertain", "robustness": "fragile", "adequacy": "meaningful"}；尚不能确认 sync() 是否按目标版本契约保持计时。中间断言在当前浮点运算下允许 0.5 通过，但几乎贴着容差边界，表达不稳妥；固定主题名也有共享状态风险。不过最后的 1.0 断言仍能检出在 200.5 重置计时的行为，不能仅因中间容差过大就判整项过弱。
+AI 执行与源码证据（与人工标签分开）：The target commit's Topic.sync does not assign last_event. Under this test's no-subscriber fixed case it preserves elapsed time. The final assertion distinguishes a reset at 200.5 from no reset. This is separate from the retained human uncertain label.
+S028：原标签 incorrect；AI 建议 correct；保留标签 incorrect；状态 human_adjudicated。固定 Random(42) 输出 d，or 的首分支为真，缺少 string 的第三分支没有执行。独立 AI 检查后的原文执行 30/30 pass，主协议仍是检查器拦截。缺失导入是潜在缺陷，但不能描述为本例已发生 NameError；保留 fragile/weak_or_masked 及范围局限。
+本人回复：正确性“不符合”。缺少 import string，断言中 string.punctuation 会 NameError；即使补上，该断言也几乎恒真，充分性过弱。
+此前更正及暂缓裁定记录（历史）：固定样例通过，因输出 d 时 or 首分支成立，不会执行 string.punctuation。但换种子/输出标点会 NameError，稳健性存在依赖，充分性过弱或掩盖行为。
+本次明确裁定：{"correctness": "incorrect", "robustness": "fragile", "adequacy": "meaningful"}；缺少 import string；当结果为标点时，最后一个分支会触发 NameError，字母或数字则因短路求值掩盖该问题。固定种子不能消除这种分支依赖。实际调用及长度、字符范围断言有意义，但单个样本不能证明三类字符都能被生成。
+AI 执行与源码证据（与人工标签分开）：The original fixed Random(42) run returns d and passes by short-circuiting. The incorrect label concerns a missing-import branch over permitted outputs, not a NameError observed in that fixed run. Meaningful assertions do not establish coverage of every character class.
+
+其余说明（不改本人标签）：
+S016：有目标真实调用与字符串组装断言，故暂保留本人 meaningful。但 randint/sample 桩忽略实参，可能掩盖长度参数错误；两个手工缺陷均未检出（0/2）。应作为充分性局限，不能把稳定且有断言写成已充分检错。
+S019：保留 weak_or_masked；本人理由当前说明注册表风险，尚未具体解释充分性弱点。两维不互相替代，此项不擅自重标。
+S024：incorrect 有依据；实际先因未绑定 tale 名称发生 NameError，补上导入之后才可能触发本人指出的 lambda 绑定 self 问题。原始执行不能写成已到 TypeError。
+S007：未绑定 fishbase 的导入错误与错误预期字符串均保留；首次实际阻断是 NameError。
+
+正确性评价需限定固定项目与解释器及原测试明确设定；执行通过本身不证明断言有充分检错能力。
+稳健性可另注明对共享注册表、未执行分支、版本变化等依赖；确定性错误不必同时属于 flaky。
+三组固定时间/随机规则已获本人保留判断；compare-mt 手工参考不因此自动获批。
+
+逐项原始标签及主执行类别（事后执行单列于 JSON）：
+S001 | v009 | correct / robust / meaningful | stable_proxy_valid
+S002 | v033 | incorrect / fragile / weak_or_masked | persistent_failure
+S003 | v029 | correct / robust / meaningful | persistent_failure
+S004 | v011 | correct / robust / meaningful | execution_review_required
+S005 | v016 | correct / robust / meaningful | execution_review_required
+S006 | v002 | incorrect / fragile / weak_or_masked | persistent_failure
+S007 | v020 | incorrect / fragile / weak_or_masked | persistent_failure
+S008 | v022 | correct / robust / meaningful | execution_review_required
+S009 | v012 | correct / robust / meaningful | stable_proxy_valid
+S010 | v005 | correct / fragile / meaningful | persistent_failure
+S011 | v025 | correct / robust / meaningful | execution_review_required
+S012 | v007 | incorrect / fragile / weak_or_masked | stable_proxy_valid
+S013 | v006 | incorrect / fragile / weak_or_masked | persistent_failure
+S014 | v027 | correct / robust / meaningful | execution_review_required
+S015 | v021 | incorrect / fragile / meaningful | persistent_failure
+S016 | v028 | correct / robust / meaningful | stable_proxy_valid
+S017 | v008 | incorrect / fragile / weak_or_masked | execution_review_required
+S018 | v013 | incorrect / fragile / weak_or_masked | stable_proxy_valid
+S019 | v034 | correct / fragile / weak_or_masked | stable_proxy_valid
+S020 | v014 | incorrect / fragile / weak_or_masked | persistent_failure
+S021 | v015 | correct / fragile / meaningful | observed_unstable
+S022 | v024 | correct / fragile / meaningful | stable_proxy_valid
+S023 | v030 | correct / robust / meaningful | execution_review_required
+S024 | v032 | incorrect / fragile / weak_or_masked | persistent_failure
+S025 | v023 | incorrect / fragile / weak_or_masked | persistent_failure
+S026 | v031 | correct / fragile / meaningful | stable_proxy_valid
+S027 | v003 | incorrect / fragile / weak_or_masked | persistent_failure
+S028 | v001 | incorrect / fragile / weak_or_masked | execution_review_required
+S029 | v017 | correct / fragile / meaningful | stable_proxy_valid
+S030 | v036 | correct / robust / meaningful | stable_proxy_valid
+S031 | v004 | correct / robust / meaningful | stable_proxy_valid
+S032 | v010 | correct / robust / meaningful | stable_proxy_valid
+S033 | v026 | correct / robust / meaningful | execution_review_required
+S034 | v019 | correct / robust / meaningful | stable_proxy_valid
+S035 | v035 | incorrect / robust / weak_or_masked | persistent_failure
+S036 | v018 | correct / robust / meaningful | execution_review_required

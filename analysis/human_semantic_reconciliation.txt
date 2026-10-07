@@ -1,0 +1,92 @@
+人工语义核验回收与分歧记录
+
+复核者：何林贵；提交时间：2026-10-05T02:50:33.323Z。
+原文件 SHA-256：e3aa643e2dfcc300f7923721ec9fdd062609ad3ccd9bf2f6b31bebb00528ae26
+已接收完整标签 60/60；部分填写 0；缺项 0；60 项原代码及冻结映射哈希均匹配。
+本人已明确确认 5 项调整，剩余 0 项待确认。首次独立标注保留；讨论后确认标签单独存储。
+
+首次独立标签汇总：
+正确性：47 correct，13 incorrect；稳健性：45 robust，15 fragile；充分性：50 meaningful，10 weak_or_masked。
+其中 48 项为 development_v1 主生成，12 项为独立导入路径诊断。两类数据不能当作同一主试验合并估计效果。
+
+讨论后有效标签汇总：{"correctness": {"correct": 43, "incorrect": 17}, "robustness": {"robust": 44, "fragile": 16}, "adequacy": {"meaningful": 50, "weak_or_masked": 10}}
+
+5 项标签调整记录：
+R003（本人已确认）：correctness correct → incorrect。原代码先创建 topic 再替换时钟，首个 idle_time == 0.0 不成立；原执行 30/30 fail。人工理由也指出会失败，但标签为 correct。评价应针对未修改原代码。
+R025（本人已确认）：correctness correct → incorrect。from lithoxyl import MomentAccumulator 在固定版本发生 ImportError，收集失败。应从 lithoxyl.moment 导入；正文断言合理不代表原测试可正确执行。
+R039（本人已确认）：correctness correct → incorrect。from lithoxyl import MomentAccumulator 在固定版本发生 ImportError，收集失败；同 R025。
+R052（本人已确认）：correctness correct → incorrect。from lithoxyl import MomentAccumulator 在固定版本发生 ImportError，收集失败；同 R025。
+R060（本人已确认）：robustness robust → fragile。人工理由指出两次真实时钟读取差异，但标签为 robust。原主协议 30/30 pass；独立读取间隙扰动为 14 pass/16 fail，确认时钟依赖。仅改 pytest.approx 不能保证抵抗更长合法延迟。
+
+理由说明与范围问题：
+R021：incorrect 标签有依据。理由中关于 statistics.skew 的解释不准确：当前 Python 标准库 statistics 没有 skew 或 kurtosis；补上 import statistics 后仍会 AttributeError，不是该标准库函数返回了校正偏度。原始理由保留。
+R011：incorrect 标签有依据，人工发现了错误高阶矩期望；原代码还存在 lithoxyl 根模块导入错误，原执行在收集阶段失败。不能把数学分析写成已执行到高阶矩断言。
+R042：理由结束于“首个断言”，可能未写完；已有明确的注册表依赖解释及三个标签，仍按完整提交计数，不推断缺失句子。
+R047：人工认为直接设置 last_event 后的真实 send 断言仍有意义。保留 meaningful，记录未覆盖构造与 sync，不能据此宣称覆盖完整。
+注册表依赖：R013、R016、R024、R034、R042、R050、R054 的 fragile 标签保留；这些指出套件组合/重跑风险，与独立进程通过并不矛盾。
+同一测试中，错误断言可以是确定性失败；correctness、robustness、adequacy 不互相替代。
+
+后续范围：v2 独立核验包已收到 36/36 项。规则意图单独记录，已收到 3/3 项；不从测试标签推断规则判断。
+只有一位人类复核者；不报告双人人工一致性或 kappa。AI 冻结判断与原始人工判断逐项并列保存在同名 JSON。
+
+证据索引（使用讨论后有效标签；原始理由与标签仍保留在 JSON human_raw 中）：
+R001 | development_v1/d010 | correct/robust/meaningful | stable_proxy_valid | runs\development_v1\outputs\d010\test_generated.py
+R002 | development_v1_import_sensitivity/d033 | incorrect/fragile/meaningful | persistent_failure | runs\development_v1_import_sensitivity\outputs\d033\test_generated.py
+R003 | development_v1/d011 | incorrect/fragile/meaningful | persistent_failure | runs\development_v1\outputs\d011\test_generated.py
+R004 | development_v1/d023 | correct/robust/meaningful | stable_proxy_valid | runs\development_v1\outputs\d023\test_generated.py
+R005 | development_v1_import_sensitivity/d017 | correct/robust/meaningful | stable_proxy_valid | runs\development_v1_import_sensitivity\outputs\d017\test_generated.py
+R006 | development_v1/d038 | incorrect/robust/weak_or_masked | persistent_failure | runs\development_v1\outputs\d038\test_generated.py
+R007 | development_v1/d027 | correct/robust/meaningful | stable_proxy_valid | runs\development_v1\outputs\d027\test_generated.py
+R008 | development_v1/d025 | incorrect/robust/weak_or_masked | persistent_failure | runs\development_v1\outputs\d025\test_generated.py
+R009 | development_v1/d012 | correct/robust/meaningful | stable_proxy_valid | runs\development_v1\outputs\d012\test_generated.py
+R010 | development_v1/d039 | correct/robust/meaningful | stable_proxy_valid | runs\development_v1\outputs\d039\test_generated.py
+R011 | development_v1/d018 | incorrect/robust/weak_or_masked | collection_failure | runs\development_v1\outputs\d018\test_generated.py
+R012 | development_v1/d020 | correct/robust/meaningful | stable_proxy_valid | runs\development_v1\outputs\d020\test_generated.py
+R013 | development_v1_import_sensitivity/d001 | correct/fragile/meaningful | stable_proxy_valid | runs\development_v1_import_sensitivity\outputs\d001\test_generated.py
+R014 | development_v1_import_sensitivity/d008 | correct/robust/meaningful | stable_proxy_valid | runs\development_v1_import_sensitivity\outputs\d008\test_generated.py
+R015 | development_v1/d022 | correct/robust/meaningful | stable_proxy_valid | runs\development_v1\outputs\d022\test_generated.py
+R016 | development_v1/d009 | correct/fragile/meaningful | stable_proxy_valid | runs\development_v1\outputs\d009\test_generated.py
+R017 | development_v1/d026 | correct/robust/meaningful | stable_proxy_valid | runs\development_v1\outputs\d026\test_generated.py
+R018 | development_v1/d045 | correct/robust/meaningful | stable_proxy_valid | runs\development_v1\outputs\d045\test_generated.py
+R019 | development_v1/d048 | incorrect/fragile/weak_or_masked | persistent_failure | runs\development_v1\outputs\d048\test_generated.py
+R020 | development_v1/d004 | correct/robust/meaningful | stable_proxy_valid | runs\development_v1\outputs\d004\test_generated.py
+R021 | development_v1_import_sensitivity/d018 | incorrect/robust/weak_or_masked | persistent_failure | runs\development_v1_import_sensitivity\outputs\d018\test_generated.py
+R022 | development_v1/d002 | correct/robust/meaningful | stable_proxy_valid | runs\development_v1\outputs\d002\test_generated.py
+R023 | development_v1_import_sensitivity/d011 | incorrect/fragile/meaningful | persistent_failure | runs\development_v1_import_sensitivity\outputs\d011\test_generated.py
+R024 | development_v1/d021 | correct/fragile/meaningful | stable_proxy_valid | runs\development_v1\outputs\d021\test_generated.py
+R025 | development_v1/d047 | incorrect/robust/meaningful | collection_failure | runs\development_v1\outputs\d047\test_generated.py
+R026 | development_v1/d031 | correct/robust/meaningful | stable_proxy_valid | runs\development_v1\outputs\d031\test_generated.py
+R027 | development_v1/d029 | correct/robust/meaningful | stable_proxy_valid | runs\development_v1\outputs\d029\test_generated.py
+R028 | development_v1_import_sensitivity/d043 | correct/robust/meaningful | stable_proxy_valid | runs\development_v1_import_sensitivity\outputs\d043\test_generated.py
+R029 | development_v1/d005 | incorrect/robust/weak_or_masked | persistent_failure | runs\development_v1\outputs\d005\test_generated.py
+R030 | development_v1/d042 | correct/robust/meaningful | stable_proxy_valid | runs\development_v1\outputs\d042\test_generated.py
+R031 | development_v1_import_sensitivity/d047 | correct/robust/meaningful | stable_proxy_valid | runs\development_v1_import_sensitivity\outputs\d047\test_generated.py
+R032 | development_v1/d040 | correct/robust/meaningful | stable_proxy_valid | runs\development_v1\outputs\d040\test_generated.py
+R033 | development_v1/d043 | correct/robust/meaningful | stable_proxy_valid | runs\development_v1\outputs\d043\test_generated.py
+R034 | development_v1/d014 | correct/fragile/meaningful | stable_proxy_valid | runs\development_v1\outputs\d014\test_generated.py
+R035 | development_v1/d024 | correct/robust/meaningful | stable_proxy_valid | runs\development_v1\outputs\d024\test_generated.py
+R036 | development_v1/d028 | correct/robust/meaningful | stable_proxy_valid | runs\development_v1\outputs\d028\test_generated.py
+R037 | development_v1/d037 | correct/robust/meaningful | stable_proxy_valid | runs\development_v1\outputs\d037\test_generated.py
+R038 | development_v1/d030 | correct/robust/meaningful | stable_proxy_valid | runs\development_v1\outputs\d030\test_generated.py
+R039 | development_v1/d017 | incorrect/robust/meaningful | collection_failure | runs\development_v1\outputs\d017\test_generated.py
+R040 | development_v1_import_sensitivity/d046 | correct/robust/meaningful | stable_proxy_valid | runs\development_v1_import_sensitivity\outputs\d046\test_generated.py
+R041 | development_v1/d008 | correct/robust/meaningful | stable_proxy_valid | runs\development_v1\outputs\d008\test_generated.py
+R042 | development_v1/d016 | correct/fragile/meaningful | stable_proxy_valid | runs\development_v1\outputs\d016\test_generated.py
+R043 | development_v1/d001 | incorrect/fragile/weak_or_masked | execution_review_required | runs\development_v1\outputs\d001\test_generated.py
+R044 | development_v1/d007 | correct/robust/meaningful | stable_proxy_valid | runs\development_v1\outputs\d007\test_generated.py
+R045 | development_v1/d003 | correct/fragile/meaningful | observed_unstable | runs\development_v1\outputs\d003\test_generated.py
+R046 | development_v1/d035 | correct/robust/meaningful | stable_proxy_valid | runs\development_v1\outputs\d035\test_generated.py
+R047 | development_v1/d046 | correct/robust/meaningful | stable_proxy_valid | runs\development_v1\outputs\d046\test_generated.py
+R048 | development_v1_import_sensitivity/d002 | correct/robust/meaningful | stable_proxy_valid | runs\development_v1_import_sensitivity\outputs\d002\test_generated.py
+R049 | development_v1/d041 | incorrect/robust/weak_or_masked | persistent_failure | runs\development_v1\outputs\d041\test_generated.py
+R050 | development_v1/d034 | correct/fragile/meaningful | stable_proxy_valid | runs\development_v1\outputs\d034\test_generated.py
+R051 | development_v1/d015 | incorrect/fragile/weak_or_masked | persistent_failure | runs\development_v1\outputs\d015\test_generated.py
+R052 | development_v1/d036 | incorrect/robust/meaningful | collection_failure | runs\development_v1\outputs\d036\test_generated.py
+R053 | development_v1_import_sensitivity/d007 | correct/robust/meaningful | stable_proxy_valid | runs\development_v1_import_sensitivity\outputs\d007\test_generated.py
+R054 | development_v1/d013 | correct/fragile/meaningful | stable_proxy_valid | runs\development_v1\outputs\d013\test_generated.py
+R055 | development_v1/d033 | incorrect/fragile/meaningful | persistent_failure | runs\development_v1\outputs\d033\test_generated.py
+R056 | development_v1_import_sensitivity/d036 | incorrect/robust/weak_or_masked | persistent_failure | runs\development_v1_import_sensitivity\outputs\d036\test_generated.py
+R057 | development_v1/d019 | correct/robust/meaningful | stable_proxy_valid | runs\development_v1\outputs\d019\test_generated.py
+R058 | development_v1/d044 | correct/robust/meaningful | stable_proxy_valid | runs\development_v1\outputs\d044\test_generated.py
+R059 | development_v1/d006 | correct/robust/meaningful | stable_proxy_valid | runs\development_v1\outputs\d006\test_generated.py
+R060 | development_v1/d032 | correct/fragile/meaningful | stable_proxy_valid | runs\development_v1\outputs\d032\test_generated.py
